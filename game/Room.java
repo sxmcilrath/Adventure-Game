@@ -1,6 +1,7 @@
 package game;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 /**
  * Room.java
  * 
@@ -14,6 +15,11 @@ import java.util.ArrayList;
 
 public class Room {
 
+	/**
+	 * A set containing the room's properties, such as dark,
+	 * onFire, etc.
+	 */
+	private HashSet<String> properties;
 	
     /**
      * Rooms adjacent to this one, to which there is a door.
@@ -53,6 +59,10 @@ public class Room {
     public Room getEast() { return east; }
     public Room getWest() { return west; }
     
+    
+    public HashSet<String> getProperties() {
+    	return properties;
+    }
 
 	
 }
