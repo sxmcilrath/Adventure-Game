@@ -1,6 +1,7 @@
 package game;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 /**
  * Room.java
  * 
@@ -18,7 +19,7 @@ public class Room {
      * Rooms adjacent to this one, to which there is a door.
      */
     private Room north, south, east, west;
-    private ArrayList<Direction> directs = new ArrayList<Direction>();
+    HashMap <String, Room> directions = new HashMap<String, Room>();
     /**
      * A description of this room
      */
@@ -30,6 +31,8 @@ public class Room {
      */
     public Room(String description) { this.description = description; }
     
+    //method to add directions and connections to a room
+        
     /**
      * Methods for added "doors"-- directiona connections to other rooms.
      */
