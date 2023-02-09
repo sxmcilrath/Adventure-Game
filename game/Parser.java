@@ -2,6 +2,7 @@ package game;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 
 /**
  * Parser.java
@@ -17,11 +18,9 @@ import java.util.HashMap;
 import java.util.Scanner;
 
 public class Parser {
-	private HashMap<String, Integer> Comm = new HashMap<String, Integer>();
+	private HashSet<String> Comm = new HashSet<String>();
 	
-	// private ArrayList<ArrayList> CommandTypes = new ArrayList<ArrayList();
-	 private ArrayList<String> Command = new ArrayList<String>();      
-	 private int size = 3;
+	
 	 private String[][] Commands = {{"north","south","east","west"}, {"drop", "take", "use", "throw"} ,{"help", "leave", "go"}};
 	 //first and second word of input commands
 	 private String first = null;
@@ -30,7 +29,7 @@ public class Parser {
 	 public void setUp() {
 		 for(int i = 0; i < Commands.length; i++) {
 	    		for(int j = 0; j < Commands[i].length; j++) {
-	    			Comm.put(Commands[i][j], i);
+	    			Comm.add(Commands[i][j]);
 	    		}
 		 }
 		 
@@ -67,6 +66,7 @@ public class Parser {
         System.out.print("Enter command--> ");
         String command = keyboard.nextLine().toLowerCase();  // user's command
         command.trim();
+        
        if (command.contains(" ")) {
     	   int temp = command.indexOf(" ");
     	   String first = command.substring(0, temp-1);
@@ -75,9 +75,9 @@ public class Parser {
        
       
         
-      if(Comm.containsKey(first)) {
-    	   int call = Comm.get(first);
-    	   
+      if(Comm.contains(first)) {
+         Commands current = new Commands(first);
+    	
         	
         } else {
         	 System.out.println("I do not know how to " + command + ".\n");
@@ -89,24 +89,9 @@ public class Parser {
         	
 
         } 
-      if (command.equals("north") || command.equals("south")       || command.equals("west") || command.equals("east")) {
-            Room nextRoom;   // the room we're moving to
-            if (command.equals("north"))
-                nextRoom = room.getNorth();
-            else if (command.equals("south"))
-                nextRoom = room.getSouth();
-            else if (command.equals("west"))
-                nextRoom = room.getWest();
-            else
-                nextRoom = room.getEast();
-            if (nextRoom == null) 
-                System.out.println("There is no door in that direction.");
-            else
-                game.setCurrentRoom(nextRoom);
+     
         }
            
-
-    }
     public void section (int i) {
     	
     }

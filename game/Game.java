@@ -25,7 +25,7 @@ public class Game {
      * the state by representing the user's current location.
      */
     private Room currentRoom;
-  //  private HashMap<String, Item> Backpack = new HashMap<String, Item>;
+    private HashMap<String, Item> Backpack = new HashMap<String, Item>();
 
     /**
      * Keeps track of whether this game is over or not.
