@@ -1,5 +1,6 @@
 package game;
 
+import java.util.ArrayList;
 /**
  * Room.java
  * 
@@ -18,12 +19,12 @@ public class Room {
      * Rooms adjacent to this one, to which there is a door.
      */
     private Room north, south, east, west;
-
+    private ArrayList<Direction> directs = new ArrayList<Direction>();
     /**
      * A description of this room
      */
     private String description;
-
+    
     /**
      * Constructor.
      * @param description A String describing this room to the user.
