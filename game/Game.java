@@ -25,7 +25,13 @@ public class Game {
      * the state by representing the user's current location.
      */
     private Room currentRoom;
-  //  private HashMap<String, Item> Backpack = new HashMap<String, Item>;
+    
+    /**
+     * This is the collection of all the items our user is
+     * currently holding. The user's starts out with only
+     * the Hand item available.
+     */
+    private HashMap<String, Item> Backpack = new HashMap<String, Item>();
 
     /**
      * Keeps track of whether this game is over or not.
@@ -54,6 +60,12 @@ public class Game {
         rooms[0].setEast(rooms[3]);
         over = false;
         currentRoom = rooms[0];
+        
+        /**
+         * Give the user the privilege
+         * of having a hand
+         */
+        Backpack.put("Hand", new Hand());
     }
     
     /**
