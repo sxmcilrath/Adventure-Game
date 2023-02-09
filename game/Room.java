@@ -12,6 +12,7 @@ package game;
  */
 
 public class Room {
+
 	
     /**
      * Rooms adjacent to this one, to which there is a door.
