@@ -50,7 +50,7 @@ public class Room {
     }
         
     /**
-     * Methods for added "doors"-- directiona connections to other rooms.
+     * Methods for added "doors"-- direction connections to other rooms.
      */
     public void setNorth(Room north) { this.north = north; }
     public void setSouth(Room south) { this.south = south; }
@@ -64,14 +64,17 @@ public class Room {
     
     /**
      * Methods to determine the rooms to which various
-     * doors-- if they extist-- lead.
+     * doors-- if they exist-- lead.
      */
     public Room getNorth() { return north; }
     public Room getSouth() { return south; }
     public Room getEast() { return east; }
     public Room getWest() { return west; }
     
-    
+    /**
+     * A getter method for the set of the room's properties
+     * @return properties
+     */
     public HashSet<String> getProperties() {
     	return properties;
     }

@@ -5,9 +5,9 @@ public class Steak implements Item {
 	
 	
 	@Override
-	public void ability(Room room) {
+	public String ability(Room room) {
 		// restore hunger
-		
+		return "";
 	}
 
 }

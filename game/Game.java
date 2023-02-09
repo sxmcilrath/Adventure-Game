@@ -25,6 +25,7 @@ public class Game {
      * the state by representing the user's current location.
      */
     private Room currentRoom;
+
     private HashMap<String, Item> Backpack = new HashMap<String, Item>();
 
     /**
@@ -54,6 +55,12 @@ public class Game {
         rooms[0].setEast(rooms[3]);
         over = false;
         currentRoom = rooms[0];
+        
+        /**
+         * Give the user the privilege
+         * of having a hand
+         */
+      //  Backpack.put("Hand", new Hand());
     }
     
     /**
