@@ -2,6 +2,8 @@ package game;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
+
 /**
  * Room.java
  * 
@@ -14,6 +16,12 @@ import java.util.HashMap;
  */
 
 public class Room {
+
+	/**
+	 * A set containing the room's properties, such as dark,
+	 * onFire, etc.
+	 */
+	private HashSet<String> properties;
 	
     /**
      * Rooms adjacent to this one, to which there is a door.
@@ -32,6 +40,14 @@ public class Room {
     public Room(String description) { this.description = description; }
     
     //method to add directions and connections to a room
+    public void addDirection(String directName, Room destination) {
+    	directions.put(directName, destination);
+    }
+    
+    //checks HashMap for desired direction
+    public boolean checkDirection(String directName) {
+    	return directions.containsKey(directName);
+    }
         
     /**
      * Methods for added "doors"-- directiona connections to other rooms.
@@ -55,6 +71,10 @@ public class Room {
     public Room getEast() { return east; }
     public Room getWest() { return west; }
     
+    
+    public HashSet<String> getProperties() {
+    	return properties;
+    }
 
 	
 }
