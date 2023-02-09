@@ -1,6 +1,13 @@
 package game;
 
 public interface Item {
-	public void ability(Room room);
+	/**
+	 * This method will call upon a rooms properties to dictate what
+	 * should happen when the item is used. Each item will look for
+	 * different room properties and effect them differently
+	 * @param room The room that the item interacts with
+	 * @return a string that will tell the player what happened
+	 */
+	public String ability(Room room);
 	
 }
