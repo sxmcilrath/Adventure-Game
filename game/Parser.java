@@ -18,26 +18,14 @@ import java.util.HashSet;
 import java.util.Scanner;
 
 public class Parser {
-	private HashSet<String> Comm = new HashSet<String>();
 	
 	
-	 private String[][] Commands = {{"north","south","east","west"}, {"drop", "take", "use", "throw"} ,{"help", "leave", "go"}};
-	 //first and second word of input commands
+	 
 	 private String first = null;
      private String second = null;
+     private int words;
 	 
-	 public void setUp() {
-		 for(int i = 0; i < Commands.length; i++) {
-	    		for(int j = 0; j < Commands[i].length; j++) {
-	    			Comm.add(Commands[i][j]);
-	    		}
-		 }
-		 
-		
 	
-	 }
-	
-	 
     /**
      * For user input from the keyboard.
      */
@@ -69,23 +57,26 @@ public class Parser {
         
        if (command.contains(" ")) {
     	   int temp = command.indexOf(" ");
-    	   String first = command.substring(0, temp-1);
-    	   String second = command.substring(temp + 1);
-       } else { first = command;}
+    	   this.first = command.substring(0, temp-1);
+    	   this.second = command.substring(temp + 1);
+    	   this.words = 2;
+       } else { 
+    	   this.first = command;
+    	   this.words = 1;
+       }
        
       
         
-      if(Comm.contains(first)) {
-         Commands current = new Commands(first);
+      if(game.getComm().contains(first)) {
+         Execute E = new Execute(game, first, words);
+         
     	
         	
         } else {
-        	 System.out.println("I do not know how to " + command + ".\n");
-        	for(int i = 0; i < Commands.length; i++) {
-        		for(int j = 0; j < Commands[i].length; j++) {
-        	System.out.println( Commands[i][j] + "\n");
-        		}
-        	}
+        	System.out.println("I do not know how to " + command + ".\n");
+        	System.out.println( "Options: " + game.getComm().toString() + "\n");
+        		
+        	
         	
 
         } 

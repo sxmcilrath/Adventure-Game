@@ -48,6 +48,9 @@ public class Room {
     public boolean checkDirection(String directName) {
     	return directions.containsKey(directName);
     }
+    public Room getDirection(String directName) {
+    	return directions.get(directName);
+    }
         
     /**
      * Methods for added "doors"-- direction connections to other rooms.
