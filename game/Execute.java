@@ -10,6 +10,7 @@ public class Execute {
 	private Game game;
 	private Room CR;
 	private int words;
+	
 	public Execute (Game game, String first, int words) {
 		this.game = game;
 		this.first = first;
@@ -55,8 +56,8 @@ public class Execute {
 	private void DetermineMove() {
 		CR = game.getCurrentRoom();
 		boolean temp = CR.checkDirection(this.first);
-		if(temp = true) {
-		 game.setCurrentRoom(CR.getDirection(this.first));
+		if(temp == true) {
+		 game.setCurrentRoom(CR.getRoom(this.first));
 		 CR = game.getCurrentRoom();
 		 game.print(CR.getDescription());
 		}else

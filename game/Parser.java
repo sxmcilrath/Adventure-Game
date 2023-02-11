@@ -66,12 +66,9 @@ public class Parser {
        }
        
       
-        
       if(game.getComm().contains(first)) {
          Execute E = new Execute(game, first, words);
          
-    	
-        	
         } else {
         	System.out.println("I do not know how to " + command + ".\n");
         	System.out.println( "Options: " + game.getComm().toString() + "\n");
@@ -83,18 +80,6 @@ public class Parser {
      
         }
            
-    public void section (int i) {
-    	
-    }
-    public void move(String command) {
-    	
-    }
-    public void item (String command) {
-    	
-    }
-public void other (String command) {
-    	
-    }
 
 
 }

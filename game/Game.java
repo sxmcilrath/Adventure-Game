@@ -51,17 +51,19 @@ public class Game {
 	    			Comm.add(Commands[i][j]);
 	    		}
 		 }
+    	 //initializes rooms
         Room[] rooms = new Room[4];
-        for (int i = 0; i < rooms.length; i++)
-            rooms[i] = new Room("a room");
-        rooms[0].setNorth(rooms[1]);
-        rooms[1].setSouth(rooms[0]);
-        rooms[1].setEast(rooms[2]);
-        rooms[2].setWest(rooms[1]);
-        rooms[2].setSouth(rooms[3]);
-        rooms[3].setNorth(rooms[2]);
-        rooms[3].setWest(rooms[0]);
-        rooms[0].setEast(rooms[3]);
+        for (int i = 0; i < rooms.length; i++) {
+            rooms[i] = new Room("room: " + i);
+        }
+        rooms[0].addDirection("north", rooms[1]);
+        rooms[1].addDirection("south", rooms[0]);
+        rooms[1].addDirection("east", rooms[2]);
+        rooms[2].addDirection("west", rooms[1]);
+        rooms[2].addDirection("south", rooms[3]);
+        rooms[3].addDirection("north", rooms[2]);
+        rooms[3].addDirection("west", rooms[0]);
+        rooms[0].addDirection("east", rooms[3]);
         over = false;
         currentRoom = rooms[0];
         

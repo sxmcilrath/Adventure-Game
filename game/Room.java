@@ -27,7 +27,7 @@ public class Room {
      * Rooms adjacent to this one, to which there is a door.
      */
     private Room north, south, east, west;
-    HashMap <String, Room> directions = new HashMap<String, Room>();
+    private HashMap <String, Room> directions = new HashMap<String, Room>();
     /**
      * A description of this room
      */
@@ -41,24 +41,26 @@ public class Room {
     
     //method to add directions and connections to a room
     public void addDirection(String directName, Room destination) {
-    	directions.put(directName, destination);
+    	this.directions.put(directName, destination);
     }
     
     //checks HashMap for desired direction
     public boolean checkDirection(String directName) {
-    	return directions.containsKey(directName);
+    	return this.directions.containsKey(directName);
     }
-    public Room getDirection(String directName) {
-    	return directions.get(directName);
+    public Room getRoom(String directName) {
+    	return this.directions.get(directName);
     }
         
     /**
      * Methods for added "doors"-- direction connections to other rooms.
      */
-    public void setNorth(Room north) { this.north = north; }
+    
+   //to delete
+   /* public void setNorth(Room north) { this.north = north; }
     public void setSouth(Room south) { this.south = south; }
     public void setEast(Room east) { this.east = east; }
-    public void setWest(Room west) { this.west = west; }
+    public void setWest(Room west) { this.west = west; } */
 	
     /**
      * Retrieve a description of this room (to the user).
