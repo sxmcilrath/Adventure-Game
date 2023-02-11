@@ -12,6 +12,9 @@ public class Hand implements Item {
 		} else if (properties.contains("candle")) {
 			properties.remove("candle");
 			return "You picked up the candle!";
+		} else if (properties.contains("sword")) {
+			properties.remove("sword");
+			return "You picked up the sword!";
 		}
 		return "Nothing happened.";
 	}

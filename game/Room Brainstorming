@@ -1,0 +1,54 @@
+Entrance
+-	Description
+-	-	"You are standing at the edge of a beautiful forest. A sign is just in front of you; I wonder what it says..."
+-	Properties
+-	-	Sign | "Welcome to Ye Olde Tutorial Forest! We Signfolk are the inhabitants of this wonderful land."
+-	-	Pretty
+-	Connections
+-	-	East, Sword Room
+-	-	West, ???
+
+Sword Room
+-	Description
+-	-	"You see a rather wimpy-looking sword on the ground. It doesn't seem very high quality,
+		 but you should still take it. Unless, of course, you feel you can manage without it."
+-	Properties
+-	-	Sword
+-	Connections
+-	-	East, Sword Tutorial Room
+-	-	West, Entrance
+
+Sword Tutorial Room
+-	Description
+-	-	"There is a sign here. It seems eager to meet you... or hurt you. I can't tell."
+-	Properties
+-	- Sign | (sword) "Ah, yes! You have a sword! Why don't you give it go?"
+		   | (no sword) "You really think you can take me down without a sword? I mean, you don't have
+		  				 to fight me to move on, but it seems unwise to go forward if you aren't even
+		  				 able to stand up to me."
+		   | (attacked, sword) "Alright, alright, cut it out! You've had enough tutorial with that death
+		   					    stick. Get a move on."
+		   | (attacked, no sword) "Ha. You fool. Have it you way, face my power" [YOU DIED]
+-	Connections
+-	-	East, Free Will Tutorial
+-	-	West, Sword Room 
+
+Free Will Tutorial
+-	Description
+-	-	"Oh, another sign. Hopefully this one is a bit less violent than the last one."
+-	Properties
+-	-	Sign | "What are you lookin' at me for? Pick a direction and go! How am I supposed to know
+				where you should go? I've been in this spot my whole life!"
+-	Connections
+-	-	North, Your Quest Is Made Clear
+-	-	East, <place>
+-	-	South, <place>
+-	-	West, Sword Tutorial Room
+
+Your Quest Is Made Clear
+-	Description
+-	-	"A wise looking sign stands majestically before you. Even in his old age, he
+		 has an air of vibrance and royalty. I wonder what he has to say."
+
+
+

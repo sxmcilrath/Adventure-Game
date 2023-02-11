@@ -69,6 +69,20 @@ public class Game {
     }
     
     /**
+     * This method takes an item name, a room, and tries to use the
+     * item, and will fail to do so if the item is not in the backpack.
+     * @param item The item you are trying to use
+     * @param room The room you are trying to use the item in
+     * @return a string containing a description of what happened
+     */
+    public String useItem(String item, Room room) {
+    	if (Backpack.containsKey(item)) {
+    		return Backpack.get(item).ability(room);
+    	}
+    	return "Huh?";
+    }
+    
+    /**
      * Is this game over or not?
      */
     public boolean isOver() { return over; }
