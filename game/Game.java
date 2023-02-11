@@ -1,6 +1,7 @@
 package game;
 
 import java.util.HashMap;
+import java.util.HashSet;
 
 /**
  * Game.java
@@ -25,12 +26,9 @@ public class Game {
      * the state by representing the user's current location.
      */
     private Room currentRoom;
-    
-    /**
-     * This is the collection of all the items our user is
-     * currently holding. The user's starts out with only
-     * the Hand item available.
-     */
+    private HashSet<String> Comm = new HashSet<String>();
+	private String[][] Commands = {{"north","south","east","west"}, {"drop", "take", "use", "throw"} ,{"help", "leave", "go"}};
+
     private HashMap<String, Item> Backpack = new HashMap<String, Item>();
 
     /**
@@ -47,6 +45,12 @@ public class Game {
      * Constructor to set up the game.
      */
     public Game() {
+    	//Constructs Hashset of commands
+    	 for(int i = 0; i < Commands.length; i++) {
+	    		for(int j = 0; j < Commands[i].length; j++) {
+	    			Comm.add(Commands[i][j]);
+	    		}
+		 }
         Room[] rooms = new Room[4];
         for (int i = 0; i < rooms.length; i++)
             rooms[i] = new Room("a room");
@@ -65,7 +69,7 @@ public class Game {
          * Give the user the privilege
          * of having a hand
          */
-        Backpack.put("Hand", new Hand());
+      //  Backpack.put("Hand", new Hand());
     }
     
     /**
@@ -97,4 +101,13 @@ public class Game {
      */
     public void finishGame() { over = true; }
     
+    public HashSet<String> getComm(){
+    	return this.Comm;
+    }
+
+    public void print(String output) {
+    	System.out.println(output);
+    	}
+    
 }
+   

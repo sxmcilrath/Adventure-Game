@@ -2,6 +2,7 @@ package game;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 
 /**
  * Parser.java
@@ -17,28 +18,14 @@ import java.util.HashMap;
 import java.util.Scanner;
 
 public class Parser {
-	private HashMap<String, Integer> Comm = new HashMap<String, Integer>();
 	
-	// private ArrayList<ArrayList> CommandTypes = new ArrayList<ArrayList();
-	 private ArrayList<String> Command = new ArrayList<String>();      
-	 private int size = 3;
-	 private String[][] Commands = {{"north","south","east","west"}, {"drop", "take", "use", "throw"} ,{"help", "leave", "go"}};
-	 //first and second word of input commands
+	
+	 
 	 private String first = null;
      private String second = null;
+     private int words;
 	 
-	 public void setUp() {
-		 for(int i = 0; i < Commands.length; i++) {
-	    		for(int j = 0; j < Commands[i].length; j++) {
-	    			Comm.put(Commands[i][j], i);
-	    		}
-		 }
-		 
-		
 	
-	 }
-	
-	 
     /**
      * For user input from the keyboard.
      */
@@ -67,46 +54,35 @@ public class Parser {
         System.out.print("Enter command--> ");
         String command = keyboard.nextLine().toLowerCase();  // user's command
         command.trim();
+        
        if (command.contains(" ")) {
     	   int temp = command.indexOf(" ");
-    	   String first = command.substring(0, temp-1);
-    	   String second = command.substring(temp + 1);
-       } else { first = command;}
+    	   this.first = command.substring(0, temp-1);
+    	   this.second = command.substring(temp + 1);
+    	   this.words = 2;
+       } else { 
+    	   this.first = command;
+    	   this.words = 1;
+       }
        
       
         
-      if(Comm.containsKey(first)) {
-    	   int call = Comm.get(first);
-    	   
+      if(game.getComm().contains(first)) {
+         Execute E = new Execute(game, first, words);
+         
+    	
         	
         } else {
-        	 System.out.println("I do not know how to " + command + ".\n");
-        	for(int i = 0; i < Commands.length; i++) {
-        		for(int j = 0; j < Commands[i].length; j++) {
-        	System.out.println( Commands[i][j] + "\n");
-        		}
-        	}
+        	System.out.println("I do not know how to " + command + ".\n");
+        	System.out.println( "Options: " + game.getComm().toString() + "\n");
+        		
+        	
         	
 
         } 
-      if (command.equals("north") || command.equals("south")       || command.equals("west") || command.equals("east")) {
-            Room nextRoom;   // the room we're moving to
-            if (command.equals("north"))
-                nextRoom = room.getNorth();
-            else if (command.equals("south"))
-                nextRoom = room.getSouth();
-            else if (command.equals("west"))
-                nextRoom = room.getWest();
-            else
-                nextRoom = room.getEast();
-            if (nextRoom == null) 
-                System.out.println("There is no door in that direction.");
-            else
-                game.setCurrentRoom(nextRoom);
+     
         }
            
-
-    }
     public void section (int i) {
     	
     }
