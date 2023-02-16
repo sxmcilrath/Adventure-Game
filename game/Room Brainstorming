@@ -17,7 +17,7 @@ Sword Room
 -	-	East, Sword Tutorial Room
 -	-	West, Entrance
 
-Sword Tutorial Room
+Sword Tutorial Roomfefe
 -	Description
 -	-	"There is a sign here. It seems eager to meet you... or hurt you. I can't tell."
 -	Properties
@@ -40,7 +40,7 @@ Free Will Tutorial
 				where you should go? I've been in this spot my whole life!"
 -	Connections
 -	-	North, Your Quest Is Made Clear
--	-	East, <place>
+-	-	East, Dog Shelter
 -	-	South, Non Euclidean Tutorial
 -	-	West, Sword Tutorial Room
 

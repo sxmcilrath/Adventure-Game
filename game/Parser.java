@@ -31,12 +31,17 @@ public class Parser {
      /* A note on Comm and Calls. To create the function where you could add new command names based on existing commands, 
       * I put all possible command names hashmap Comm, which has the value of actual command names. these are the keys to calls, \
       * which calls different classes
+      * 
+      * String commands holds all callable commands
       */
      
  	 private HashMap<String,String> Comm = new HashMap<String, String>();
-    private String[] Commands = {"add", "north","south","east","west", "drop", "take", "use", "throw", "help", "leave", "go"};
+    private String[] Commands = {"add", "go","south","east","west", "drop", "take", "use", "throw", "help", "leave", "go"};
     private HashMap<String, Command> Calls = new HashMap <String, Command>();
-	 
+    
+    //HasshSet names holds the names of all rooms and items, to make s ure the call is valid
+	 private HashSet<String> Names = new HashSet<String>();
+	 private String[] theNames = {"SwordRoom"};
 	
     /**
      * For user input from the keyboard.
@@ -54,8 +59,13 @@ public class Parser {
    	 for(int i = 0; i < Commands.length; i++) {	
 	    		Comm.put(Commands[i], Commands[i]);	
 		 }
+   	for(int i = 0; i < theNames.length; i++) {	
+		Names.add(theNames[i]);	
+ }
    	 //Constructs a Hashmap of commands
-   	 Calls.put(Commands[0], new AddC(this.Comm));
+   	 Calls.put("add", new AddC(this.Comm));
+   	 Calls.put("go", new GoC());
+   	 
    	 
     }
 
@@ -88,12 +98,12 @@ public class Parser {
     	   this.words = 1;
        }
        
-      
-      if(this.Comm.containsKey(first)) {
+      if(Names.contains(this.second) || this.first == "add") {
+    	  if(this.Comm.containsKey(first)) {
     	  String temp = this.Comm.get(first);
-    	  this.Calls.get(temp).call(this.first, this.second, this.words);
-         
-        } else {
+    	  this.Calls.get(temp).call(this.first, this.second, this.words, this.game); 
+        } 
+      } else {
         	System.out.println("I do not know how to " + command + ".\n");
         	System.out.println( "Options: " + this.Comm.toString() + "\n");
         		

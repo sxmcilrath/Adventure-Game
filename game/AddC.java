@@ -12,7 +12,7 @@ public class AddC implements Command{
 		keyboard = new Scanner(System.in);
 		this.Comm = Comm;
 	}
-	public void call(String first, String second, int words) {
+	public void call(String first, String second, int words, Game game) {
 		System.out.println("What would command would you like to assign " + second + "too?\n");
 		System.out.print("Enter command--> ");
         String command = keyboard.nextLine().toLowerCase();

@@ -1,6 +1,8 @@
 package game;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 
 
 /**
@@ -26,9 +28,10 @@ public class Game {
      * the state by representing the user's current location.
      */
     private Room currentRoom;
-   
 
+    private HashSet<String> directNames = new HashSet<String>();	//Array list to store names of directions. This array will be sent over to parser class 
     private HashMap<String, Item> backpack = new HashMap<String, Item>();
+
 
     /**
      * Keeps track of whether this game is over or not.
@@ -51,6 +54,7 @@ public class Game {
    
     public Game() {
     	 //initializes rooms
+    	//Ye Olde Tutorial Rooms
         Room entrance = new Room("You are standing at the edge of a beautiful forest. A sign is just in front of you; I wonder what it says...");
         entrance.addProperty("pretty");
         Room swordRoom = new Room("You see a rather wimpy-looking sword on the ground. It doesn't seem very high quality,but you should still take it. Unless, of course, you feel you can manage without it.");
@@ -60,6 +64,8 @@ public class Game {
         Room questMadeClear = new Room("A wise looking sign stands majestically before you. Even in his old age, he has an air of vibrance and royalty. I wonder what he has to say.");
         Room viewingTree = new Room("placeholder text");
         Room nonEucTutorial = new Room("Another sign is here. He looks to be the 'needs-to-get-out-more' kind of type");
+        
+        //Dog Shelter rooms
         
         //Creating map of game by linking rooms 
         
@@ -93,9 +99,10 @@ public class Game {
      * item, and will fail to do so if the item is not in the backpack.
      * @param item The item you are trying to use
      * @param room The room you are trying to use the item in
-     * @return a string containing a description of what happened
+     * @return a string containing a descri this.Calls.get(temp).call(this.first, this.second, this.words);ption of what happened
      */
     public String useItem(String item, Room room) {
+    	   
     	if (Backpack.containsKey(item)) {
     		return Backpack.get(item).ability(room);
     	}
@@ -114,9 +121,10 @@ public class Game {
 
     //swtiches rooms
     public void switchRoom(String first) {
+    	
     	Room CR = getCurrentRoom();
-		boolean temp = CR.checkDirection(first);
-		if(temp == true) {
+    	//Checks if directon is a key in the directions hashmap
+		if(CR.checkDirection(first)) {	
 		 setCurrentRoom(CR.getRoom(first));
 		 CR = getCurrentRoom();
 		 print(CR.getDescription());
@@ -139,6 +147,10 @@ public class Game {
     public void linkRooms(Room r1, Room r2, String direct1, String direct2) {
     	r1.addDirection(direct1, r2);
     	r2.addDirection(direct2, r1);
+    	directNames.add(direct1);
+    	directNames.add(direct2);
+
+    	
     }
     
     public void finishGame() { over = true; }
@@ -148,6 +160,8 @@ public class Game {
     public void print(String output) {
     	System.out.println(output);
     	}
+
+
 }
 
    
