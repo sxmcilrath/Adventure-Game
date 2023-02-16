@@ -53,6 +53,7 @@ public class Game {
 		 }
     	 
     	 //initializes rooms
+    	//Ye Olde Tutorial Rooms
         Room entrance = new Room("You are standing at the edge of a beautiful forest. A sign is just in front of you; I wonder what it says...");
         Room swordRoom = new Room("You see a rather wimpy-looking sword on the ground. It doesn't seem very high quality,but you should still take it. Unless, of course, you feel you can manage without it.");
         Room swordTutorial = new Room("You see a rather wimpy-looking sword on the ground. It doesn't seem very high quality, but you should still take it. Unless, of course, you feel you can manage without it.");
@@ -60,6 +61,8 @@ public class Game {
         Room questMadeClear = new Room("A wise looking sign stands majestically before you. Even in his old age, he has an air of vibrance and royalty. I wonder what he has to say.");
         Room viewingTree = new Room("placeholder text");
         Room nonEucTutorial = new Room("Another sign is here. He looks to be the 'needs-to-get-out-more' kind of type");
+        
+        //Dog Shelter rooms
         
         //Creating map of game by linking rooms 
         
