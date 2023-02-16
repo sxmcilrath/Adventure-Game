@@ -1,7 +1,7 @@
 package game;
 
 import java.util.HashMap;
-import java.util.HashSet;
+
 
 /**
  * Game.java
@@ -26,8 +26,7 @@ public class Game {
      * the state by representing the user's current location.
      */
     private Room currentRoom;
-    private HashSet<String> Comm = new HashSet<String>();
-	private String[][] Commands = {{"north","south","east","west"}, {"drop", "take", "use", "throw"} ,{"help", "leave", "go"}};
+   
 
     private HashMap<String, Item> Backpack = new HashMap<String, Item>();
 
@@ -44,14 +43,10 @@ public class Game {
     /**
      * Constructor to set up the game.
      */
+    
+    
+   
     public Game() {
-    	//Constructs Hashset of commands
-    	 for(int i = 0; i < Commands.length; i++) {
-	    		for(int j = 0; j < Commands[i].length; j++) {
-	    			Comm.add(Commands[i][j]);
-	    		}
-		 }
-    	 
     	 //initializes rooms
     	//Ye Olde Tutorial Rooms
         Room entrance = new Room("You are standing at the edge of a beautiful forest. A sign is just in front of you; I wonder what it says...");
@@ -113,6 +108,19 @@ public class Game {
      */
     public void setCurrentRoom(Room currentRoom) { this.currentRoom = currentRoom; }
 
+    //swtiches rooms
+    public void switchRoom(String first) {
+    	Room CR = getCurrentRoom();
+		boolean temp = CR.checkDirection(first);
+		if(temp == true) {
+		 setCurrentRoom(CR.getRoom(first));
+		 CR = getCurrentRoom();
+		 print(CR.getDescription());
+		}else {
+		print("There is nothing in that direction");
+		}
+		
+    }
     /**
      * Indicate that the game is now over.
      */
@@ -131,13 +139,11 @@ public class Game {
     
     public void finishGame() { over = true; }
     
-    public HashSet<String> getComm(){
-    	return this.Comm;
-    }
+    
 
     public void print(String output) {
     	System.out.println(output);
     	}
-    
 }
+
    
