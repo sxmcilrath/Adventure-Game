@@ -16,7 +16,7 @@ public class PlayGame {
     public static void main(String[] args) {
         System.out.println("Welcome to the game");
         Game game = new Game();   // reference to the game object
-        Parser parser = new Parser();
+        Parser parser = new Parser(game);
 
         while (! game.isOver()) 
             parser.executeTurn(game);
