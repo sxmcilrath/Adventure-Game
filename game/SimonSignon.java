@@ -9,7 +9,10 @@ package game;
 import java.util.Set;
 
 public class SimonSignon implements SignFolk {
-
+	
+	/**
+	 * Simon's three phrases he can say based on your progress
+	 */
 	private String preTree;
 	private String postTreeNoLook;
 	private String postTreeGoodLook;

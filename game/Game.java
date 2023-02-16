@@ -28,12 +28,17 @@ public class Game {
     private Room currentRoom;
    
 
-    private HashMap<String, Item> Backpack = new HashMap<String, Item>();
+    private HashMap<String, Item> backpack = new HashMap<String, Item>();
 
     /**
      * Keeps track of whether this game is over or not.
      */
     private boolean over;
+    
+    /**
+     * instance of game progression to keep track of your progression in the game
+     */
+    private GameProgression progression;
     
     /**
      * Return the room in which the user is currently.
@@ -43,14 +48,14 @@ public class Game {
     /**
      * Constructor to set up the game.
      */
-    
-    
    
     public Game() {
     	 //initializes rooms
         Room entrance = new Room("You are standing at the edge of a beautiful forest. A sign is just in front of you; I wonder what it says...");
+        entrance.addProperty("pretty");
         Room swordRoom = new Room("You see a rather wimpy-looking sword on the ground. It doesn't seem very high quality,but you should still take it. Unless, of course, you feel you can manage without it.");
-        Room swordTutorial = new Room("You see a rather wimpy-looking sword on the ground. It doesn't seem very high quality, but you should still take it. Unless, of course, you feel you can manage without it.");
+        swordRoom.addProperty("sword");
+        Room swordTutorial = new Room("There is a sign here. It seems eager to meet you... or hurt you. I can't tell.");
         Room freeWillTutorial = new Room("Oh, another sign. Hopefully this one is a bit less violent than the last one.");
         Room questMadeClear = new Room("A wise looking sign stands majestically before you. Even in his old age, he has an air of vibrance and royalty. I wonder what he has to say.");
         Room viewingTree = new Room("placeholder text");
@@ -78,7 +83,9 @@ public class Game {
          * Give the user the privilege
          * of having a hand
          */
-      //  Backpack.put("Hand", new Hand());
+        backpack.put("Hand", new Hand());
+        
+        progression = new GameProgression(backpack);
     }
     
     /**
