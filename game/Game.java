@@ -1,6 +1,8 @@
 package game;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 
 
 /**
@@ -26,8 +28,7 @@ public class Game {
      * the state by representing the user's current location.
      */
     private Room currentRoom;
-   
-
+    private HashSet<String> directNames = new HashSet<String>();	//Array list to store names of directions. This array will be sent over to parser class 
     private HashMap<String, Item> Backpack = new HashMap<String, Item>();
 
     /**
@@ -136,6 +137,10 @@ public class Game {
     public void linkRooms(Room r1, Room r2, String direct1, String direct2) {
     	r1.addDirection(direct1, r2);
     	r2.addDirection(direct2, r1);
+    	directNames.add(direct1);
+    	directNames.add(direct2);
+
+    	
     }
     
     public void finishGame() { over = true; }
