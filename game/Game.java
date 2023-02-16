@@ -51,21 +51,26 @@ public class Game {
 	    			Comm.add(Commands[i][j]);
 	    		}
 		 }
+    	 
     	 //initializes rooms
-        Room[] rooms = new Room[4];
-        for (int i = 0; i < rooms.length; i++) {
-            rooms[i] = new Room("room: " + i);
-        }
-        rooms[0].addDirection("north", rooms[1]);
-        rooms[1].addDirection("south", rooms[0]);
-        rooms[1].addDirection("east", rooms[2]);
-        rooms[2].addDirection("west", rooms[1]);
-        rooms[2].addDirection("south", rooms[3]);
-        rooms[3].addDirection("north", rooms[2]);
-        rooms[3].addDirection("west", rooms[0]);
-        rooms[0].addDirection("east", rooms[3]);
+        Room entrance = new Room("You are standing at the edge of a beautiful forest. A sign is just in front of you; I wonder what it says...");
+        Room swordRoom = new Room("You see a rather wimpy-looking sword on the ground. It doesn't seem very high quality,but you should still take it. Unless, of course, you feel you can manage without it.");
+        Room swordTutorial = new Room("You see a rather wimpy-looking sword on the ground. It doesn't seem very high quality, but you should still take it. Unless, of course, you feel you can manage without it.");
+        Room freeWillTutorial = new Room("Oh, another sign. Hopefully this one is a bit less violent than the last one.");
+        Room questMadeClear = new Room("A wise looking sign stands majestically before you. Even in his old age, he has an air of vibrance and royalty. I wonder what he has to say.");
+        Room viewingTree = new Room("placeholder text");
+        Room nonEucTutorial = new Room("Another sign is here. He looks to be the 'needs-to-get-out-more' kind of type");
+        
+        this.linkRooms(entrance, swordRoom, "Sword Room", "Entrance");
+        
+        this.linkRooms(swordRoom, swordTutorial, "Sword Tutorial Room", "Sword Room");
+        swordRoom.addDirection("Sword Tutorial Room", swordTutorial);
+        swordTutorial.addDirection("Sword Room", swordRoom);
+        
+        swordTutorial.addDirection("Free Will Tutorial", freeWillTutorial);
+        
         over = false;
-        currentRoom = rooms[0];
+        
         
         /**
          * Give the user the privilege
@@ -101,6 +106,19 @@ public class Game {
     /**
      * Indicate that the game is now over.
      */
+    
+    /**
+     * mutually add two rooms to be accessed by the other
+     * @param r1	first room
+     * @param r2	second room
+     * @param direct1	direction name to get to r2 from r1
+     * @param direct2	direction name to get to r1 from r2
+     */
+    public void linkRooms(Room r1, Room r2, String direct1, String direct2) {
+    	r1.addDirection(direct1, r2);
+    	r2.addDirection(direct2, r1);
+    }
+    
     public void finishGame() { over = true; }
     
     public HashSet<String> getComm(){
