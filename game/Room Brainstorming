@@ -42,13 +42,41 @@ Free Will Tutorial
 -	Connections
 -	-	North, Your Quest Is Made Clear
 -	-	East, <place>
--	-	South, <place>
+-	-	South, Non Euclidean Tutorial
 -	-	West, Sword Tutorial Room
 
 Your Quest Is Made Clear
 -	Description
 -	-	"A wise looking sign stands majestically before you. Even in his old age, he
 		 has an air of vibrance and royalty. I wonder what he has to say."
+-	Properties
+-	-	Sign | (pre tree climb) "Hello there young fellow. You must be brave to enter the treacherous
+				'Ye Olde Tutorial' forest, very brave indeed. Before you stands a tall
+				tree. Go up and observe well, when you are done, tell me what you see.
+				Or don't, if you don't feel like it."
+			 | (post tree climb, no good look) "What did you see? What!? You didn't even look around?
+			 	Get back up there and let me properly tutorial you!"
+			 | (post tree climb, good look) "What did you see? A dog? Of course! It is all
+			 	so clear now. Go find that little pupper and give it a good pet. A belly rub is also
+			 	recommended. Why? Believe me, it will all become clear to you in time."
+-	Connections
+-	-	Up, Viewing Tree
+-	-	South, Free Will Tutorial
+
+Non Euclidean Tutorial
+-	Description
+-	-	"Another sign is here. He looks to be the 'needs-to-get-out-more' kind of type"
+-	Properties
+-	-	Sign | "Go South, hehe, go South. It will literally BOGGLE your mind. Do it. C'mon. Go South."
+			 | "South South South, fun fun fun, yay yay yipee!"
+			 | "mmm, yes. South"
+-	Connections
+-	-	South, Entrance
+
+
+
+
+
 
 
 
