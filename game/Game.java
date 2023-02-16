@@ -103,8 +103,8 @@ public class Game {
      */
     public String useItem(String item, Room room) {
     	   
-    	if (Backpack.containsKey(item)) {
-    		return Backpack.get(item).ability(room);
+    	if (backpack.containsKey(item)) {
+    		return backpack.get(item).ability(room);
     	}
     	return "Huh?";
     }
