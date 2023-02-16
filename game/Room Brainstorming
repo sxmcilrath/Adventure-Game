@@ -10,8 +10,7 @@ Entrance
 
 Sword Room
 -	Description
--	-	"You see a rather wimpy-looking sword on the ground. It doesn't seem very high quality,
-		 but you should still take it. Unless, of course, you feel you can manage without it."
+-	-	"You see a rather wimpy-looking sword on the ground. It doesn't seem very high quality, but you should still take it. Unless, of course, you feel you can manage without it."
 -	Properties
 -	-	Sword
 -	Connections
@@ -47,8 +46,7 @@ Free Will Tutorial
 
 Your Quest Is Made Clear
 -	Description
--	-	"A wise looking sign stands majestically before you. Even in his old age, he
-		 has an air of vibrance and royalty. I wonder what he has to say."
+-	-	"A wise looking sign stands majestically before you. Even in his old age, he has an air of vibrance and royalty. I wonder what he has to say."
 -	Properties
 -	-	Sign | (pre tree climb) "Hello there young fellow. You must be brave to enter the treacherous
 				'Ye Olde Tutorial' forest, very brave indeed. Before you stands a tall
