@@ -1,4 +1,7 @@
 Outside of Shelter
 -	Description
-- 	- "PlaceHolder"
--	-
+- 	-	"PlaceHolder"
+-	Connections
+-	-	East,  Dog Shelter
+-	-	North, Icy Path
+-	-	South, Beach Walk  
