@@ -89,7 +89,7 @@ public class Game {
      * item, and will fail to do so if the item is not in the backpack.
      * @param item The item you are trying to use
      * @param room The room you are trying to use the item in
-     * @return a string containing a description of what happened
+     * @return a string containing a descri this.Calls.get(temp).call(this.first, this.second, this.words);ption of what happened
      */
     public String useItem(String item, Room room) {
     	if (Backpack.containsKey(item)) {
@@ -110,9 +110,10 @@ public class Game {
 
     //swtiches rooms
     public void switchRoom(String first) {
+    	
     	Room CR = getCurrentRoom();
-		boolean temp = CR.checkDirection(first);
-		if(temp == true) {
+    	//Checks if directon is a key in the directions hashmap
+		if(CR.checkDirection(first)) {	
 		 setCurrentRoom(CR.getRoom(first));
 		 CR = getCurrentRoom();
 		 print(CR.getDescription());
