@@ -15,7 +15,7 @@ import java.util.HashSet;
  * Feb 8, 2007
  */
 
-public class Room {
+public class Room  {
 
 	/**
 	 * A set containing the room's properties, such as dark,
