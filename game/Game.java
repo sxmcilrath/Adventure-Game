@@ -65,23 +65,19 @@ public class Game {
         Room viewingTree = new Room("placeholder text");
         Room nonEucTutorial = new Room("Another sign is here. He looks to be the 'needs-to-get-out-more' kind of type");
         
-        //Dog Shelter rooms
+        //Map Hub Rooms
         
         //Creating map of game by linking rooms 
         
         //Linking Ye Olde Tutorial Forest
-        this.linkRooms(entrance, swordRoom, "Sword Room", "Entrance");
-        this.linkRooms(swordRoom, swordTutorial, "Sword Tutorial Room", "Sword Room");
-        this.linkRooms(swordTutorial, freeWillTutorial, "Free Will Tutorial", "Sword Tutorial");
-        this.linkRooms(freeWillTutorial, questMadeClear, "Your Quest Made Clear", "Free Will Tutorial");
-        
-        freeWillTutorial.addDirection("Non Euclidian Tutorial", nonEucTutorial);
-        
-        this.linkRooms(questMadeClear, viewingTree , "Viewing Tree", "Your Quest Made Clear");
-        
-        nonEucTutorial.addDirection("South", entrance);
-        
-        
+        linkRooms(entrance, swordRoom, "Sword Room", "Entrance");
+        linkRooms(swordRoom, swordTutorial, "Sword Tutorial Room", "Sword Room");
+        linkRooms(swordTutorial, freeWillTutorial, "Free Will Tutorial", "Sword Tutorial");
+        linkRooms(freeWillTutorial, questMadeClear, "Your Quest Made Clear", "Free Will Tutorial");
+        linkRooms(freeWillTutorial, nonEucTutorial, "Non Euclidian Tutorial");
+        linkRooms(questMadeClear, viewingTree , "Viewing Tree", "Your Quest Made Clear");
+        linkRooms(nonEucTutorial, entrance, "South");
+
         over = false;
         
         
@@ -151,6 +147,19 @@ public class Game {
     	directNames.add(direct2);
 
     	
+    }
+    
+    /**
+     * Overloading linkRooms method to make a case where a room leads to 
+     * another but you can't go back
+     * @override
+     * @param r1	current room
+     * @param r2	destination room
+     * @param direct	direction name to get from r1 to r2
+     */
+    public void linkRooms(Room r1, Room r2, String direct) {
+    	r1.addDirection(direct, r2);
+    	directNames.add(direct);
     }
     
     public void finishGame() { over = true; }
