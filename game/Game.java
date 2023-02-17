@@ -48,10 +48,13 @@ public class Game {
      */
     public Room getCurrentRoom() { return currentRoom; }
     
+    public HashSet<String> getDirectNames(){
+    	return directNames;
+    }
+    
     /**
      * Constructor to set up the game.
      */
-   
     public Game() {
     	//initializes rooms
     	
@@ -173,6 +176,8 @@ public class Game {
     	r1.addDirection(direct, r2);
     	directNames.add(direct);
     }
+    
+    
     
     public void finishGame() { over = true; }
     
