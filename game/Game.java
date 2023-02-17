@@ -53,7 +53,8 @@ public class Game {
      */
    
     public Game() {
-    	 //initializes rooms
+    	//initializes rooms
+    	
     	//Ye Olde Tutorial Rooms
         Room entrance = new Room("You are standing at the edge of a beautiful forest. A sign is just in front of you; I wonder what it says...");
         entrance.addProperty("pretty");
@@ -64,6 +65,12 @@ public class Game {
         Room questMadeClear = new Room("A wise looking sign stands majestically before you. Even in his old age, he has an air of vibrance and royalty. I wonder what he has to say.");
         Room viewingTree = new Room("placeholder text");
         Room nonEucTutorial = new Room("Another sign is here. He looks to be the 'needs-to-get-out-more' kind of type");
+        
+        //Overworld Rooms
+        Room outsideShelter = new Room("x");
+        Room shelter = new Room("x");
+        Room icyPath = new Room("x");
+        Room beachWalk = new Room("x");
         
         //Map Hub Rooms
         
@@ -78,6 +85,11 @@ public class Game {
         linkRooms(questMadeClear, viewingTree , "Viewing Tree", "Your Quest Made Clear");
         linkRooms(nonEucTutorial, entrance, "South");
 
+        //Linking Overworld
+        linkRooms(outsideShelter, shelter,"Shelter", "Outside");
+        linkRooms(shelter, icyPath, "Icy Path", "Shelter");
+        linkRooms(shelter, beachWalk, "Beach Walk", "Shelter");
+        
         over = false;
         
         

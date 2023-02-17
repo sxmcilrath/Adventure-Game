@@ -3,5 +3,28 @@ Outside of Shelter
 - 	-	"PlaceHolder"
 -	Connections
 -	-	East,  Dog Shelter
+
+Shelter
+-	Description
+-	-	x
+-	Connections
 -	-	North, Icy Path
 -	-	South, Beach Walk  
+
+Icy Path
+-	Description
+-	-	x
+-	Connections
+-	-	East, Husky Mountain (need spec room, that is just section of map 
+-	-	it's headed towards)
+-	-	South, Shelter
+
+Icy Path
+-	Description
+-	-	x
+-	Connections
+-	-	East, Doodle Desert (need spec room, that is just section of map 
+-	-	it's headed towards)
+-	-	North, Shelter
+
+  
