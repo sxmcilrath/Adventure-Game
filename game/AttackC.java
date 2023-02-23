@@ -8,8 +8,7 @@ public class AttackC implements Command{
 
 
 	public void call(String first, String second, int words, Game game) {
-		//add code here
-		
+		game.attack();
 	}
 	
 }

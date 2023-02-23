@@ -1,14 +1,14 @@
 package game;
 
-public class TakeC implements Command{
+public class PetC implements Command{
 
-	public TakeC () {
+	public PetC () {
 		
 	}
 
 
 	public void call(String first, String second, int words, Game game) {
-		game.take();
+	game.pet();
 		
 	}
 	

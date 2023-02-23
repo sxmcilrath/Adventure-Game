@@ -36,7 +36,7 @@ public class Parser {
       */
      
  	 private HashMap<String,String> Comm = new HashMap<String, String>();
-    private String[] Commands = {"add", "go","take", "use", "talk", "attack"};
+    private String[] Commands = {"add", "go","take", "use", "talk", "attack", "pet"};
     private HashMap<String, Command> Calls = new HashMap <String, Command>();
     
     //HasshSet names holds the names of all rooms and items, to make s ure the call is valid

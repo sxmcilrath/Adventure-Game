@@ -187,6 +187,30 @@ public class Game {
     	System.out.println(output);
     	}
 
+	public void pet() {
+		
+	}
+
+	public void attack() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void take() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void talk() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void use() {
+		// TODO Auto-generated method stub
+		
+	}
+
 
 }
 
