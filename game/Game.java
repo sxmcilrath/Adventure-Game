@@ -80,7 +80,7 @@ public class Game {
         //Overworld Rooms
         Room outsideShelter = new Room("x");
         Room shelter = new Room("x");
-        Room icyPath = new Room("x");
+        Room icyPath = new Room("x", new SilasSignon());
         Room beachWalk = new Room("x");
         
         //IcyPathPuzzles
@@ -212,16 +212,14 @@ public class Game {
     	Room CR = getCurrentRoom();
     	//Checks if directon is a key in the directions hashmap
 		if(CR.checkDirection(first)) {	
-		 setCurrentRoom(CR.getRoom(first));
-		 CR = getCurrentRoom();
-		 print(CR.getDescription());
+			setCurrentRoom(CR.getRoom(first));
+		 	CR = getCurrentRoom();
+		 	print(CR.getDescription());
 		}else {
-		print("There is nothing in that direction");
-		}
-		
-		
-		
+			print("There is nothing in that direction");
+		}		
     }
+   
    
     
 
