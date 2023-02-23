@@ -24,7 +24,7 @@ public class SineusSignon implements NPC {
 	/**
 	 * Sineus introduces the world to the player
 	 */
-	public String talk(GameProgression progression) {
+	public String talk() {
 		return wordsOfWisdom;
 	}
 

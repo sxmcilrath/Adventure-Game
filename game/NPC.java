@@ -12,6 +12,6 @@ public interface NPC {
 	 * @param progression How far the player is into the game
 	 * @return the string for the signfolk to say
 	 */
-	public String talk(GameProgression progression);
+	public String talk();
 	
 }

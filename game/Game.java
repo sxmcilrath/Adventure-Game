@@ -32,6 +32,7 @@ public class Game {
     private HashSet<String> directNames = new HashSet<String>();	//Array list to store names of directions. This array will be sent over to parser class 
     private HashMap<String, Item> backpack = new HashMap<String, Item>();
 
+    private HashSet<String> checkpoints = new HashSet<String>();
 
     /**
      * Keeps track of whether this game is over or not.
@@ -64,9 +65,12 @@ public class Game {
         this.currentRoom = entrance;
         Room swordRoom = new Room("You see a rather wimpy-looking sword on the ground. It doesn't seem very high quality,but you should still take it. Unless, of course, you feel you can manage without it.");
         swordRoom.addProperty("sword");
-        Room swordTutorial = new Room("There is a sign here. It seems eager to meet you... or hurt you. I can't tell.");
-        Room freeWillTutorial = new Room("Oh, another sign. Hopefully this one is a bit less violent than the last one.");
-        Room questMadeClear = new Room("A wise looking sign stands majestically before you. Even in his old age, he has an air of vibrance and royalty. I wonder what he has to say.");
+        Room swordTutorial = new Room("There is a sign here. It seems eager to meet you... or hurt you. I can't tell.",
+        		new SimeusSignon(this));
+        Room freeWillTutorial = new Room("Oh, another sign. Hopefully this one is a bit less violent than the last one.",
+        		new SirainSignon());
+        Room questMadeClear = new Room("A wise looking sign stands majestically before you. Even in his old age, he has an air of vibrance and royalty. I wonder what he has to say.",
+        		new SimonSignon(this));
         Room viewingTree = new Room("placeholder text");
         Room nonEucTutorial = new Room("Another sign is here. He looks to be the 'needs-to-get-out-more' kind of type");
         
@@ -118,6 +122,15 @@ public class Game {
     }
     
     /**
+     * check if the backpack contains a specific item
+     * @param item The name of the item you're checking for
+     * @return a boolean telling if the item is in the backpack
+     */
+    public boolean hasItem(String item) {
+    	return backpack.containsKey(item);
+    }
+    
+    /**
      * puts an item into the backpack so that the player can use it
      * @param itemName The name of the item that you are adding
      * @param item The item that you are adding
@@ -126,6 +139,35 @@ public class Game {
     public String addItemToBackpack(String itemName, Item item) {
     	backpack.put(itemName, item);
     	return "The " + itemName + " was added to your backpack!";
+    }
+    
+    /**
+     * returns a string showing the contents of the backpack
+     * @return the string representing the contents of the backpack
+     */
+    public String checkBackpack() {
+    	String contents = "";
+    	for (String item : backpack.keySet()) {
+    		contents += item + " ";
+    	}
+    	return contents;
+    }
+    
+    /**
+     * add a checkpoint to the crossed checkpoints
+     * @param check The checkpoint to cross
+     */
+    public void crossCheckpoint(String check) {
+    	checkpoints.add(check);
+    }
+    
+    /**
+     * checks whether or not a check has been crossed
+     * @param check The check to check for
+     * @return whether or not the check check checks out
+     */
+    public boolean wasCheckCrossed(String check) {
+    	return checkpoints.contains(check);
     }
     
     /**

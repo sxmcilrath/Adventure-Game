@@ -10,6 +10,8 @@ import java.util.Set;
 
 public class SimonSignon implements NPC {
 	
+	private Game game;
+	
 	/**
 	 * Simon's three phrases he can say based on your progress
 	 */
@@ -17,7 +19,9 @@ public class SimonSignon implements NPC {
 	private String postTreeNoLook;
 	private String postTreeGoodLook;
 	
-	public SimonSignon() {
+	public SimonSignon(Game game) {
+		this.game = game;
+		
 		preTree = "Hello there young fellow. You must be brave to enter the treacherous "
 				+ "'Ye Olde Tutorial' forest, very brave indeed. Before you stands a tall"
 				+ "tree. Go up and observe well, when you are done, tell me what you see."
@@ -35,10 +39,9 @@ public class SimonSignon implements NPC {
 	 * looked around, he'll get mad and tell you to go back, if you do as he says,
 	 * he'll encourage you and have you go on your way 
 	 */
-	public String talk(GameProgression progression) {
-		Set<String> checkpoints = progression.getCheckpoints();
-		boolean tree = checkpoints.contains("tree");
-		boolean goodLook = checkpoints.contains("goodLook");
+	public String talk() {
+		boolean tree = game.wasCheckCrossed("tree");
+		boolean goodLook = game.wasCheckCrossed("goodLook");
 		if (tree) {
 			if (goodLook) {
 				return postTreeGoodLook;
