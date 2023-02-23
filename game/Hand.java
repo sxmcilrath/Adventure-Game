@@ -25,6 +25,7 @@ public class Hand implements Item {
 			return "You picked up the candle!";
 		} else if (properties.contains("sword")) {
 			properties.remove("sword");
+			game.addItemToBackpack("sword", new Sword(game));
 			return "You picked up the sword!";
 		}
 		return "Nothing happened.";
