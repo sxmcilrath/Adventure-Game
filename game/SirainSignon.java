@@ -7,7 +7,7 @@
 
 package game;
 
-public class SirainSignon implements SignFolk {
+public class SirainSignon implements NPC {
 
 	/**
 	 * Sirain's words of wisdom to the player

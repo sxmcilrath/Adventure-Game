@@ -6,7 +6,7 @@
 
 package game;
 
-public class SimeusSignon implements SignFolk {
+public class SimeusSignon implements NPC {
 
 	private String sword;
 	private String noSword;

@@ -7,7 +7,7 @@
 
 package game;
 
-public class SineusSignon implements SignFolk {
+public class SineusSignon implements NPC {
 
 	/**
 	 * what the Sineus has to say to the player
