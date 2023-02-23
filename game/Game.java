@@ -32,8 +32,11 @@ public class Game {
     private HashSet<String> directNames = new HashSet<String>();	//Array list to store names of directions. This array will be sent over to parser class 
     private HashMap<String, Item> backpack = new HashMap<String, Item>();
 
+
     private HashSet<String> checkpoints = new HashSet<String>();
 
+    private boolean icePuzzleCheck = true;
+    
     /**
      * Keeps track of whether this game is over or not.
      */
@@ -80,6 +83,12 @@ public class Game {
         Room icyPath = new Room("x");
         Room beachWalk = new Room("x");
         
+        //IcyPathPuzzles
+        Room correctLeft = new Room("x");
+        Room correctRight = new Room("x");
+        Room correctMiddle = new Room("x");
+        Room iceCastle = new Room("x");
+        
         //Map Hub Rooms
         
         //Creating map of game by linking rooms 
@@ -100,9 +109,25 @@ public class Game {
         linkRooms(shelter, icyPath, "icypath", "shelter");
         linkRooms(shelter, beachWalk, "beachwalk", "shelter");
         
+        //icy path puzzle
+        linkRooms(icyPath, correctLeft, "left", "back");
+        linkRooms(correctLeft, icyPath, "left");
+        linkRooms(correctLeft, icyPath, "middle");
+        linkRooms(correctLeft, correctRight, "right", "back");
+        linkRooms(correctRight, icyPath, "left");
+        linkRooms(correctRight, icyPath, "right");
+        linkRooms(correctRight, correctMiddle, "middle", "back");
+        linkRooms(correctMiddle, icyPath, "left");
+        linkRooms(correctMiddle, icyPath, "right");
+        linkRooms(correctMiddle, icyPath, "middle");
+        linkRooms(correctMiddle, iceCastle, "back");
+        //need to figure out how to get back
+        
+        
         over = false;
         
-        this.addItemToBackpack("hand", new Hand(this));
+        
+
         
         progression = new GameProgression(backpack);
     }
@@ -112,9 +137,10 @@ public class Game {
      * item, and will fail to do so if the item is not in the backpack.
      * @param item The item you are trying to use
      * @param room The room you are trying to use the item in
-     * @return a string containing a description of what happened
+     * @return a string containing a descri this.Calls.get(temp).call(this.first, this.second, this.words);ption of what happened
      */
     public String useItem(String item, Room room) {
+    	   
     	if (backpack.containsKey(item)) {
     		return backpack.get(item).ability(room);
     	}
@@ -193,8 +219,13 @@ public class Game {
 		print("There is nothing in that direction");
 		}
 		
+		
+		
     }
-    /**
+   
+    
+
+	/**
      * Indicate that the game is now over.
      */
     
@@ -247,7 +278,7 @@ public class Game {
 	}
 
 	public void take() {
-		useItem("hand", getCurrentRoom());
+		// TODO Auto-generated method stub
 		
 	}
 
@@ -256,7 +287,7 @@ public class Game {
 		
 	}
 
-	public void use() {
+	public void use(String second) {
 		// TODO Auto-generated method stub
 		
 	}
