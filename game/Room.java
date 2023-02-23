@@ -17,21 +17,10 @@ import java.util.HashSet;
 
 public class Room  {
 
-	/**
-	 * A set containing the room's properties, such as dark,
-	 * onFire, etc.
-	 */
-	private HashSet<String> properties;
-	
-    /**
-     * Rooms adjacent to this one, to which there is a door.
-     */
-    private Room north, south, east, west;
-    private HashMap <String, Room> directions = new HashMap<String, Room>();
-    /**
-     * A description of this room
-     */
-    private String description;
+	private HashSet<String> properties;	//A set containing the room's properties, such as dark, onFire, etc.
+    private HashMap <String, Room> directions = new HashMap<String, Room>();	//map to contain directions to accessible rooms
+    private String description;	//A description of this room
+    private NPC roomNPC; //npc for the room if there is one
     
     /**
      * Constructor.
@@ -40,6 +29,17 @@ public class Room  {
     public Room(String description) {
     	this.description = description;
     	this.properties = new HashSet<String>();
+    }
+    
+    /**
+     * Overloading the constructor to make room for if the room 
+     * has an NPC
+     * @param description	String describes room 	
+     * @param roomNPC		NPC in room
+     */
+    public Room(String description, NPC roomNPC) {
+    	this.description = description;
+    	this.roomNPC = roomNPC;
     }
     
     //method to add directions and connections to a room
@@ -52,33 +52,26 @@ public class Room  {
     	return this.directions.containsKey(directName);
     }
     
+    //getters
+    
     public Room getRoom(String directName) {
     	return this.directions.get(directName);
     }
-        
-    /**
-     * Methods for added "doors"-- direction connections to other rooms.
-     */
     
-   //to delete
-   /* public void setNorth(Room north) { this.north = north; }
-    public void setSouth(Room south) { this.south = south; }
-    public void setEast(Room east) { this.east = east; }
-    public void setWest(Room west) { this.west = west; } */
+    public NPC getNPC() {
+    	return roomNPC;
+    }
+    
+    
+        
+
 	
     /**
      * Retrieve a description of this room (to the user).
      */
     public String getDescription() { return description; }
     
-    /**
-     * Methods to determine the rooms to which various
-     * doors-- if they exist-- lead.
-     */
-    public Room getNorth() { return north; }
-    public Room getSouth() { return south; }
-    public Room getEast() { return east; }
-    public Room getWest() { return west; }
+ 
     
     /**
      * A getter method for the set of the room's properties
