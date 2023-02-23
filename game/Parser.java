@@ -1,7 +1,6 @@
 package game;
 
-import java.util.ArrayList;
-import java.util.Arrays;
+
 import java.util.HashMap;
 import java.util.HashSet;
 
@@ -80,7 +79,7 @@ public class Parser {
      * @param game A reference to the object representing the game.
      */
     public void executeTurn(Game game) {
-    
+    //
 	 first = null;
 	 second = null;
 	 this.game = game;
@@ -94,23 +93,20 @@ public class Parser {
         
        if (command.contains(" ")) {
     	   int temp = command.indexOf(" ");
-    	   this.first = command.substring(0, temp-1);
+    	   this.first = command.substring(0, temp);
     	   this.second = command.substring(temp + 1);
     	   this.words = 2;
        } else { 
     	   this.first = command;
     	   this.words = 1;
        }
-       
-      if(Names.contains(this.second) || this.first == "add") {
-    	  if(this.Comm.containsKey(first)) {
-    	  String temp = this.Comm.get(first);
-    	  this.Calls.get(temp).call(this.first, this.second, this.words, this.game); 
-        } 
-      } else {
-        	System.out.println("I do not know how to " + command + ".\n");
-        	System.out.println( "Options: " + this.Comm.toString() + "\n");
-        		
+     	  if(this.Comm.containsKey(first)) {
+     	  String temp = this.Comm.get(first);
+     	  this.Calls.get(temp).call(this.first, this.second, this.words, this.game); 
+        
+       } else {
+         	System.out.println("I do not know how to " + command + ".\n");
+         	System.out.println( "Options: " + this.Comm.toString() + "\n");
         	
         	
 

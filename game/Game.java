@@ -61,6 +61,7 @@ public class Game {
     	//Ye Olde Tutorial Rooms
         Room entrance = new Room("You are standing at the edge of a beautiful forest. A sign is just in front of you; I wonder what it says...");
         entrance.addProperty("pretty");
+        this.currentRoom = entrance;
         Room swordRoom = new Room("You see a rather wimpy-looking sword on the ground. It doesn't seem very high quality,but you should still take it. Unless, of course, you feel you can manage without it.");
         swordRoom.addProperty("sword");
         Room swordTutorial = new Room("There is a sign here. It seems eager to meet you... or hurt you. I can't tell.");
@@ -80,8 +81,8 @@ public class Game {
         //Creating map of game by linking rooms 
         
         //Linking Ye Olde Tutorial Forest
-        linkRooms(entrance, swordRoom, "Sword Room", "Entrance");
-        linkRooms(swordRoom, swordTutorial, "Sword Tutorial Room", "Sword Room");
+        linkRooms(entrance, swordRoom, "swordroom", "entrance");
+        linkRooms(swordRoom, swordTutorial, "SwordTutorialRoom", "SwordRoom");
         linkRooms(swordTutorial, freeWillTutorial, "Free Will Tutorial", "Sword Tutorial");
         linkRooms(freeWillTutorial, questMadeClear, "Your Quest Made Clear", "Free Will Tutorial");
         linkRooms(freeWillTutorial, nonEucTutorial, "Non Euclidian Tutorial");
