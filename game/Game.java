@@ -96,11 +96,7 @@ public class Game {
         over = false;
         
         
-        /**
-         * Give the user the privilege
-         * of having a hand
-         */
-        backpack.put("Hand", new Hand());
+
         
         progression = new GameProgression(backpack);
     }

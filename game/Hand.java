@@ -4,7 +4,18 @@ import java.util.HashSet;
 
 public class Hand implements Item {
 
-	@Override
+	/**
+	 * the game for the hand to interact with
+	 */
+	private Game game;
+	
+	/**
+	 * constructor for Hand
+	 */
+	public Hand(Game game) {
+		this.game = game;
+	}
+	
 	public String ability(Room room) {
 		HashSet<String> properties = room.getProperties();
 		if (properties.contains("dog")) {

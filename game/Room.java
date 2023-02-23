@@ -37,7 +37,10 @@ public class Room  {
      * Constructor.
      * @param description A String describing this room to the user.
      */
-    public Room(String description) { this.description = description; }
+    public Room(String description) {
+    	this.description = description;
+    	this.properties = new HashSet<String>();
+    }
     
     //method to add directions and connections to a room
     public void addDirection(String directName, Room destination) {

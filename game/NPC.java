@@ -1,5 +1,5 @@
 /**
- * An interface for the NPC
+ * An interface for the NPC's
  */
 
 package game;
