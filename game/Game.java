@@ -31,7 +31,7 @@ public class Game {
 
     private HashSet<String> directNames = new HashSet<String>();	//Array list to store names of directions. This array will be sent over to parser class 
     private HashMap<String, Item> backpack = new HashMap<String, Item>();
-
+    private boolean icePuzzleCheck = true;
 
     /**
      * Keeps track of whether this game is over or not.
@@ -75,6 +75,12 @@ public class Game {
         Room icyPath = new Room("x");
         Room beachWalk = new Room("x");
         
+        //IcyPathPuzzles
+        Room correctLeft = new Room("x");
+        Room correctRight = new Room("x");
+        Room correctMiddle = new Room("x");
+        Room iceCastle = new Room("x");
+        
         //Map Hub Rooms
         
         //Creating map of game by linking rooms 
@@ -92,6 +98,21 @@ public class Game {
         linkRooms(outsideShelter, shelter,"shelter", "outside");
         linkRooms(shelter, icyPath, "icypath", "shelter");
         linkRooms(shelter, beachWalk, "beachwalk", "shelter");
+        
+        //icy path puzzle
+        linkRooms(icyPath, correctLeft, "left", "back");
+        linkRooms(correctLeft, icyPath, "left");
+        linkRooms(correctLeft, icyPath, "middle");
+        linkRooms(correctLeft, correctRight, "right", "back");
+        linkRooms(correctRight, icyPath, "left");
+        linkRooms(correctRight, icyPath, "right");
+        linkRooms(correctRight, correctMiddle, "middle", "back");
+        linkRooms(correctMiddle, icyPath, "left");
+        linkRooms(correctMiddle, icyPath, "right");
+        linkRooms(correctMiddle, icyPath, "middle");
+        linkRooms(correctMiddle, iceCastle, "back");
+        //need to figure out how to get back
+        
         
         over = false;
         
@@ -139,8 +160,13 @@ public class Game {
 		print("There is nothing in that direction");
 		}
 		
+		
+		
     }
-    /**
+   
+    
+
+	/**
      * Indicate that the game is now over.
      */
     
