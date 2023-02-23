@@ -33,6 +33,10 @@ public class Game {
     private HashMap<String, Item> backpack = new HashMap<String, Item>();
 
 
+    private HashSet<String> checkpoints = new HashSet<String>();
+
+    private boolean icePuzzleCheck = true;
+    
     /**
      * Keeps track of whether this game is over or not.
      */
@@ -59,22 +63,38 @@ public class Game {
     	//initializes rooms
     	
     	//Ye Olde Tutorial Rooms
-        Room entrance = new Room("You are standing at the edge of a beautiful forest. A sign is just in front of you; I wonder what it says...");
+        Room entrance = new Room("You are standing at the edge of a beautiful forest. A sign is just in front of you; I wonder what it says...",
+        		new SineusSignon());
         entrance.addProperty("pretty");
+        
         this.currentRoom = entrance;
         Room swordRoom = new Room("You see a rather wimpy-looking sword on the ground. It doesn't seem very high quality,but you should still take it. Unless, of course, you feel you can manage without it.");
         swordRoom.addProperty("sword");
-        Room swordTutorial = new Room("There is a sign here. It seems eager to meet you... or hurt you. I can't tell.");
-        Room freeWillTutorial = new Room("Oh, another sign. Hopefully this one is a bit less violent than the last one.");
-        Room questMadeClear = new Room("A wise looking sign stands majestically before you. Even in his old age, he has an air of vibrance and royalty. I wonder what he has to say.");
+        
+        Room swordTutorial = new Room("There is a sign here. It seems eager to meet you... or hurt you. I can't tell.",
+        		new SimeusSignon(this));
+        
+        Room freeWillTutorial = new Room("Oh, another sign. Hopefully this one is a bit less violent than the last one.",
+        		new SirainSignon());
+        
+        Room questMadeClear = new Room("A wise looking sign stands majestically before you. Even in his old age, he has an air of vibrance and royalty. I wonder what he has to say.",
+        		new SimonSignon(this));
+        
         Room viewingTree = new Room("placeholder text");
+        
         Room nonEucTutorial = new Room("Another sign is here. He looks to be the 'needs-to-get-out-more' kind of type");
         
         //Overworld Rooms
         Room outsideShelter = new Room("x");
         Room shelter = new Room("x");
-        Room icyPath = new Room("x");
+        Room icyPath = new Room("x", new SilasSignon());
         Room beachWalk = new Room("x");
+        
+        //IcyPathPuzzles
+        Room correctLeft = new Room("x");
+        Room correctRight = new Room("x");
+        Room correctMiddle = new Room("x");
+        Room iceCastle = new Room("x");
         
         //Map Hub Rooms
         
@@ -96,9 +116,24 @@ public class Game {
         linkRooms(shelter, icyPath, "icypath", "shelter");
         linkRooms(shelter, beachWalk, "beachwalk", "shelter");
         
+        //icy path puzzle
+        linkRooms(icyPath, correctLeft, "left", "back");
+        linkRooms(correctLeft, icyPath, "left");
+        linkRooms(correctLeft, icyPath, "middle");
+        linkRooms(correctLeft, correctRight, "right", "back");
+        linkRooms(correctRight, icyPath, "left");
+        linkRooms(correctRight, icyPath, "right");
+        linkRooms(correctRight, correctMiddle, "middle", "back");
+        linkRooms(correctMiddle, icyPath, "left");
+        linkRooms(correctMiddle, icyPath, "right");
+        linkRooms(correctMiddle, icyPath, "middle");
+        linkRooms(correctMiddle, iceCastle, "back");
+        //need to figure out how to get back
+        
+        
         over = false;
         
-        
+        addItemToBackpack("hand", new Hand(this));
 
         
         progression = new GameProgression(backpack);
@@ -120,6 +155,55 @@ public class Game {
     }
     
     /**
+     * check if the backpack contains a specific item
+     * @param item The name of the item you're checking for
+     * @return a boolean telling if the item is in the backpack
+     */
+    public boolean hasItem(String item) {
+    	return backpack.containsKey(item);
+    }
+    
+    /**
+     * puts an item into the backpack so that the player can use it
+     * @param itemName The name of the item that you are adding
+     * @param item The item that you are adding
+     * @return A string used to say that the item was picked up
+     */
+    public String addItemToBackpack(String itemName, Item item) {
+    	backpack.put(itemName, item);
+    	return "The " + itemName + " was added to your backpack!";
+    }
+    
+    /**
+     * returns a string showing the contents of the backpack
+     * @return the string representing the contents of the backpack
+     */
+    public String checkBackpack() {
+    	String contents = "";
+    	for (String item : backpack.keySet()) {
+    		contents += item + " ";
+    	}
+    	return contents;
+    }
+    
+    /**
+     * add a checkpoint to the crossed checkpoints
+     * @param check The checkpoint to cross
+     */
+    public void crossCheckpoint(String check) {
+    	checkpoints.add(check);
+    }
+    
+    /**
+     * checks whether or not a check has been crossed
+     * @param check The check to check for
+     * @return whether or not the check check checks out
+     */
+    public boolean wasCheckCrossed(String check) {
+    	return checkpoints.contains(check);
+    }
+    
+    /**
      * Is this game over or not?
      */
     public boolean isOver() { return over; }
@@ -135,15 +219,18 @@ public class Game {
     	Room CR = getCurrentRoom();
     	//Checks if directon is a key in the directions hashmap
 		if(CR.checkDirection(first)) {	
-		 setCurrentRoom(CR.getRoom(first));
-		 CR = getCurrentRoom();
-		 print(CR.getDescription());
+			setCurrentRoom(CR.getRoom(first));
+		 	CR = getCurrentRoom();
+		 	print(CR.getDescription());
 		}else {
-		print("There is nothing in that direction");
-		}
-		
+			print("There is nothing in that direction");
+		}		
     }
-    /**
+   
+   
+    
+
+	/**
      * Indicate that the game is now over.
      */
     
@@ -184,7 +271,7 @@ public class Game {
 
     public void print(String output) {
     	System.out.println(output);
-    	}
+    }
 
 	public void pet() {
 		
@@ -195,8 +282,8 @@ public class Game {
 		
 	}
 
-	public void take(String second) {
-		// TODO Auto-generated method stub
+	public void take() {
+		useItem("hand", getCurrentRoom());
 		
 	}
 

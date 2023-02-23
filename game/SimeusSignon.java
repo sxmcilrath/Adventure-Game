@@ -8,12 +8,16 @@ package game;
 
 public class SimeusSignon implements NPC {
 
+	private Game game;
+	
 	private String sword;
 	private String noSword;
 	private String swordAttacked;
 	private String noSwordAttacked;
 	
-	public SimeusSignon() {
+	public SimeusSignon(Game game) {
+		this.game = game;
+		
 		sword = "Ah, yes! You have a sword! Why don't you give it go?";
 		noSword = "You really think you can take me down without a sword? I mean, you don't "
 				+ "have to fight me to move on, but it seems unwise to go forward if you aren't even "
@@ -29,8 +33,8 @@ public class SimeusSignon implements NPC {
 	 * @param progression Do you or do you not have a sword
 	 * @return what Simeus says
 	 */
-	public String talk(GameProgression progression) {
-		if (progression.getBackpack().contains("sword")) {
+	public String talk() {
+		if (game.hasItem("sword")) {
 			return sword;
 		} else {
 			return noSword;
@@ -42,8 +46,8 @@ public class SimeusSignon implements NPC {
 	 * @param progression Do you or do you not have a sword
 	 * @return his response
 	 */
-	public String attacked(GameProgression progression) {
-		if (progression.getBackpack().contains("sword")) {
+	public String attacked() {
+		if (game.hasItem("sword")) {
 			return swordAttacked;
 		} else {
 			return noSwordAttacked;

@@ -27,7 +27,7 @@ public class SirainSignon implements NPC {
 	 * @param progression How far the player is into the game
 	 * @return Sirain's words of wisdom
 	 */
-	public String talk(GameProgression progression) {
+	public String talk() {
 		return wordsOfWisdom;
 	}
 
