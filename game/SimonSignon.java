@@ -8,7 +8,7 @@ package game;
 
 import java.util.Set;
 
-public class SimonSignon implements SignFolk {
+public class SimonSignon implements NPC {
 	
 	/**
 	 * Simon's three phrases he can say based on your progress

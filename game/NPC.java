@@ -1,10 +1,10 @@
 /**
- * An interface for the signfolk
+ * An interface for the NPC
  */
 
 package game;
 
-public interface SignFolk {
+public interface NPC {
 	
 	/**
 	 * A method for the signfolk to talk based on the current state
