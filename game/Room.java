@@ -26,7 +26,10 @@ public class Room  {
      * Constructor.
      * @param description A String describing this room to the user.
      */
-    public Room(String description) { this.description = description; }
+    public Room(String description) {
+    	this.description = description;
+    	this.properties = new HashSet<String>();
+    }
     
     /**
      * Overloading the constructor to make room for if the room 
