@@ -80,18 +80,18 @@ public class Game {
         //Creating map of game by linking rooms 
         
         //Linking Ye Olde Tutorial Forest
-        linkRooms(entrance, swordRoom, "Sword Room", "Entrance");
-        linkRooms(swordRoom, swordTutorial, "Sword Tutorial Room", "Sword Room");
-        linkRooms(swordTutorial, freeWillTutorial, "Free Will Tutorial", "Sword Tutorial");
-        linkRooms(freeWillTutorial, questMadeClear, "Your Quest Made Clear", "Free Will Tutorial");
-        linkRooms(freeWillTutorial, nonEucTutorial, "Non Euclidian Tutorial");
-        linkRooms(questMadeClear, viewingTree , "Viewing Tree", "Your Quest Made Clear");
-        linkRooms(nonEucTutorial, entrance, "South");
+        linkRooms(entrance, swordRoom, "swordroom", "entrance");
+        linkRooms(swordRoom, swordTutorial, "swordtutorialroom", "swordroom");
+        linkRooms(swordTutorial, freeWillTutorial, "freewilltutorial", "swordtutorial");
+        linkRooms(freeWillTutorial, questMadeClear, "yourquestmadeclear", "freewilltutorial");
+        linkRooms(freeWillTutorial, nonEucTutorial, "noneuclidiantutorial");
+        linkRooms(questMadeClear, viewingTree , "viewingtree", "yourquestmadeclear");
+        linkRooms(nonEucTutorial, entrance, "south");
 
         //Linking Overworld
-        linkRooms(outsideShelter, shelter,"Shelter", "Outside");
-        linkRooms(shelter, icyPath, "Icy Path", "Shelter");
-        linkRooms(shelter, beachWalk, "Beach Walk", "Shelter");
+        linkRooms(outsideShelter, shelter,"shelter", "outside");
+        linkRooms(shelter, icyPath, "icypath", "shelter");
+        linkRooms(shelter, beachWalk, "beachwalk", "shelter");
         
         over = false;
         
