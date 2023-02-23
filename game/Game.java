@@ -98,7 +98,8 @@ public class Game {
         
         over = false;
         
-        this.addItemToBackpack("hand", new Hand(this));
+        
+
         
         progression = new GameProgression(backpack);
     }
@@ -108,24 +109,14 @@ public class Game {
      * item, and will fail to do so if the item is not in the backpack.
      * @param item The item you are trying to use
      * @param room The room you are trying to use the item in
-     * @return a string containing a description of what happened
+     * @return a string containing a descri this.Calls.get(temp).call(this.first, this.second, this.words);ption of what happened
      */
     public String useItem(String item, Room room) {
+    	   
     	if (backpack.containsKey(item)) {
     		return backpack.get(item).ability(room);
     	}
     	return "Huh?";
-    }
-    
-    /**
-     * puts an item into the backpack so that the player can use it
-     * @param itemName The name of the item that you are adding
-     * @param item The item that you are adding
-     * @return A string used to say that the item was picked up
-     */
-    public String addItemToBackpack(String itemName, Item item) {
-    	backpack.put(itemName, item);
-    	return "The " + itemName + " was added to your backpack!";
     }
     
     /**
@@ -204,8 +195,8 @@ public class Game {
 		
 	}
 
-	public void take() {
-		useItem("hand", getCurrentRoom());
+	public void take(String second) {
+		// TODO Auto-generated method stub
 		
 	}
 
@@ -214,7 +205,7 @@ public class Game {
 		
 	}
 
-	public void use() {
+	public void use(String second) {
 		// TODO Auto-generated method stub
 		
 	}

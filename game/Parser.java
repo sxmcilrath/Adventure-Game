@@ -59,6 +59,7 @@ public class Parser {
    	 //Constructs a Hashmap of commands
    	 Calls.put("add", new AddC(this.Comm));
    	 Calls.put("go", new GoC());
+   	Calls.put("goto", new GoC());
    	 Calls.put("take", new TakeC());
    	 Calls.put("talk", new TalkC());
    	 Calls.put("attack", new AttackC());
@@ -91,6 +92,13 @@ public class Parser {
     	   this.first = command.substring(0, temp);
     	   this.second = command.substring(temp + 1);
     	   this.words = 2;
+    	   while(second.contains(" ")){
+    		   temp = second.indexOf(" ");
+    		   String temp1 = second.substring(0, temp);
+    		   String temp2 = second.substring(temp + 1);
+    		   this.second = temp1 + temp2;
+    	  }
+    	   
        } else { 
     	   this.first = command;
     	   this.words = 1;
