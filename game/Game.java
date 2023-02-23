@@ -63,18 +63,25 @@ public class Game {
     	//initializes rooms
     	
     	//Ye Olde Tutorial Rooms
-        Room entrance = new Room("You are standing at the edge of a beautiful forest. A sign is just in front of you; I wonder what it says...");
+        Room entrance = new Room("You are standing at the edge of a beautiful forest. A sign is just in front of you; I wonder what it says...",
+        		new SineusSignon());
         entrance.addProperty("pretty");
+        
         this.currentRoom = entrance;
         Room swordRoom = new Room("You see a rather wimpy-looking sword on the ground. It doesn't seem very high quality,but you should still take it. Unless, of course, you feel you can manage without it.");
         swordRoom.addProperty("sword");
+        
         Room swordTutorial = new Room("There is a sign here. It seems eager to meet you... or hurt you. I can't tell.",
         		new SimeusSignon(this));
+        
         Room freeWillTutorial = new Room("Oh, another sign. Hopefully this one is a bit less violent than the last one.",
         		new SirainSignon());
+        
         Room questMadeClear = new Room("A wise looking sign stands majestically before you. Even in his old age, he has an air of vibrance and royalty. I wonder what he has to say.",
         		new SimonSignon(this));
+        
         Room viewingTree = new Room("placeholder text");
+        
         Room nonEucTutorial = new Room("Another sign is here. He looks to be the 'needs-to-get-out-more' kind of type");
         
         //Overworld Rooms
@@ -126,7 +133,7 @@ public class Game {
         
         over = false;
         
-        
+        addItemToBackpack("hand", new Hand(this));
 
         
         progression = new GameProgression(backpack);
@@ -266,7 +273,7 @@ public class Game {
 
     public void print(String output) {
     	System.out.println(output);
-    	}
+    }
 
 	public void pet() {
 		
@@ -278,7 +285,7 @@ public class Game {
 	}
 
 	public void take() {
-		// TODO Auto-generated method stub
+		useItem("hand", getCurrentRoom());
 		
 	}
 
