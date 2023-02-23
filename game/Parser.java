@@ -27,15 +27,12 @@ public class Parser {
      
      
      
-     /* A note on Comm and Calls. To create the function where you could add new command names based on existing commands, 
-      * I put all possible command names hashmap Comm, which has the value of actual command names. these are the keys to calls, \
-      * which calls different classes
-      * 
-      * String commands holds all callable commands
-      */
+   
+     //HashmMap Calls holds all callable commands
+     //String[] Commands holds the main game commands
+      
      
- 	 private HashMap<String,String> Comm = new HashMap<String, String>();
-    private String[] Commands = {"add", "go","take", "use", "talk", "attack", "pet"};
+    private String[] commands = {"add", "go","take", "use", "talk", "attack", "pet", "list"};
     private HashMap<String, Command> Calls = new HashMap <String, Command>();
     
     //HasshSet names holds the names of all rooms and items, to make s ure the call is valid
@@ -50,20 +47,47 @@ public class Parser {
     public Parser(Game game) {
         keyboard = new Scanner(System.in);
         this.game = game;
-        
-      //Constructs HashMap of commands
-   	 for(int i = 0; i < Commands.length; i++) {	
-	    		Comm.put(Commands[i], Commands[i]);	
-		 }
+ 
 
    	 //Constructs a Hashmap of commands
-   	 Calls.put("add", new AddC(this.Comm));
-   	 Calls.put("go", new GoC());
-   	Calls.put("goto", new GoC());
-   	 Calls.put("take", new TakeC());
-   	 Calls.put("talk", new TalkC());
-   	 Calls.put("attack", new AttackC());
-   	 Calls.put("use", new UseC());
+   	String[] add = {"add", "new"};
+   	for(int i = 0; i < add.length; i++) {
+   	 Calls.put(add[i], new AddC(this.Calls));
+   	}
+   	
+ 	String[] list = {"list", "command", "commands", "listall", "options", "option", "help"};
+   	for(int i = 0; i < list.length; i++) {
+   	 Calls.put(list[i], new ListC(this.commands));
+   	}
+   
+   	 String[] go = {"go", "goto", "move", "to", "towards"};
+   	for(int i = 0; i < go.length; i++) {
+   	 Calls.put(go[i], new GoC()); 
+   	}
+   	
+   	String[] take = {"take", "grab", "get", "snatch", "reach"};
+   	for(int i = 0; i < take.length; i++) {
+   	 Calls.put(take[i], new TakeC());
+   	}
+   	
+   	String[] talk = {"talk", "converse", "share", "yell"};
+   	for(int i = 0; i < talk.length; i++) {
+   	 Calls.put(talk[i], new TalkC());
+   	}
+   	 
+   	String[] attack = {"attack", "fight", "hit",};
+   	for(int i = 0; i < attack.length; i++) {
+   	 Calls.put(attack[i], new AttackC());
+   	}
+   	
+   	String[] use = {"use", "light", "eat"};
+   	for(int i = 0; i < use.length; i++) {
+   	 Calls.put(use[i], new UseC());
+   	}
+	String[] pet = {"pet"};
+   	for(int i = 0; i < pet.length; i++) {
+   	 Calls.put(pet[i], new PetC());
+   	}
    	 
    	 
     }
@@ -103,14 +127,13 @@ public class Parser {
     	   this.first = command;
     	   this.words = 1;
        }
-     	  if(this.Comm.containsKey(first)) {
-     	  String temp = this.Comm.get(first);
-     	  this.Calls.get(temp).call(this.first, this.second, this.words, this.game); 
-        
+     
+       if(this.Calls.containsKey(first)) {
+     	  this.Calls.get(first).call(this.first, this.second, this.words, this.game); 
        } else {
-         	System.out.println("I do not know how to " + command + ".\n");
-         	System.out.println( "Options: " + this.Comm.toString() + "\n");
-        	
+         	System.out.println("I do not know how to " + command);
+         	this.Calls.get("list").call(this.first, this.second, this.words, this.game);
+         	}
         	
 
         } 
@@ -122,7 +145,7 @@ public class Parser {
 		
 	
     
-}
+
 
     	
 
