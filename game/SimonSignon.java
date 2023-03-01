@@ -40,7 +40,7 @@ public class SimonSignon extends NPC {
 	 * he'll encourage you and have you go on your way 
 	 */
 	public String talk() {
-		boolean tree = game.wasCheckCrossed("tree");
+		boolean tree = game.wasCheckCrossed("viewingTree");
 		boolean goodLook = game.wasCheckCrossed("goodLook");
 		if (tree) {
 			if (goodLook) {
