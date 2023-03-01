@@ -16,6 +16,11 @@ import java.util.HashSet;
  */
 
 public class Room  {
+	
+	/**
+	 * the name of the room
+	 */
+	private String name;
 
 	private HashSet<String> properties;	//A set containing the room's properties, such as dark, onFire, etc.
     private HashMap <String, Room> directions = new HashMap<String, Room>();	//map to contain directions to accessible rooms
@@ -26,7 +31,8 @@ public class Room  {
      * Constructor.
      * @param description A String describing this room to the user.
      */
-    public Room(String description) {
+    public Room(String name, String description) {
+    	this.name = name;
     	this.description = description;
     	this.properties = new HashSet<String>();
     }
@@ -37,9 +43,11 @@ public class Room  {
      * @param description	String describes room 	
      * @param roomNPC		NPC in room
      */
-    public Room(String description, NPC roomNPC) {
+    public Room(String name, String description, NPC roomNPC) {
+    	this.name = name;
     	this.description = description;
     	this.roomNPC = roomNPC;
+    	this.properties = new HashSet<String>();
     }
     
     //method to add directions and connections to a room
@@ -71,7 +79,13 @@ public class Room  {
      */
     public String getDescription() { return description; }
     
- 
+    /**
+     * get the name of the room
+     * @return
+     */
+    public String getName() {
+    	return name;
+    }
     
     /**
      * A getter method for the set of the room's properties
