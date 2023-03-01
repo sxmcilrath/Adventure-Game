@@ -8,7 +8,7 @@ public class TakeC implements Command{
 
 
 	public void call(String first, String second, int words, Game game) {
-		game.take();
+		game.take(second);
 		System.out.println(game.checkBackpack());
 	}
 	
