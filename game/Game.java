@@ -35,6 +35,7 @@ public class Game {
 
     private HashSet<String> checkpoints = new HashSet<String>();
 
+    private Hand hand;
     private boolean icePuzzleCheck = true;
     
     /**
@@ -85,7 +86,7 @@ public class Game {
         Room outsideShelter = new Room("outsideShelter","x");
         Room shelter = new Room("shelter","x");
         Room icyPath = new Room("icyPath","x", new SilasSignon());
-        Room beachWalk = new Room("beachWalk","x");
+        Room beach = new Room("beachWalk","x");
         
         //IcyPathPuzzles
         Room correctLeft = new Room("correctLeft","x");
@@ -93,6 +94,8 @@ public class Game {
         Room correctMiddle = new Room("correctMiddle","x");
         Room iceCastle = new Room("iceCastle","x");
         
+        //Beach puzzle rooms
+        Room sandCastle = new Room("sandCastle","x");        
         //Map Hub Rooms
         
         //Creating map of game by linking rooms 
@@ -111,9 +114,9 @@ public class Game {
         //Linking Overworld
         linkRooms(outsideShelter, shelter,"shelter", "outside");
         linkRooms(shelter, icyPath, "icypath", "shelter");
-        linkRooms(shelter, beachWalk, "beachwalk", "shelter");
+        linkRooms(shelter, beach, "beach", "shelter");
         
-        //icy path puzzle
+        //linking icy path puzzle
         linkRooms(icyPath, correctLeft, "left", "back");
         linkRooms(correctLeft, icyPath, "left");
         linkRooms(correctLeft, icyPath, "middle");
@@ -127,11 +130,15 @@ public class Game {
         linkRooms(correctMiddle, iceCastle, "back");
         //need to figure out how to get back
         
+        //beach puzzle
+        beach.addProperty("shovel");
+        beach.addProperty("bucket");
         
         over = false;
         
-        addItemToBackpack("hand", new Hand(this));
-    
+        hand = new Hand(this);
+        addItemToBackpack("hand", hand);
+
     }
     
     /**
@@ -220,6 +227,7 @@ public class Game {
 		 		crossCheckpoint(CR.getName());
 		 	}
 		 	print(CR.getDescription());
+		 	
 		}else {
 			print("There is nothing in that direction");
 		}		
@@ -276,18 +284,25 @@ public class Game {
 	}
 
 	public void attack() {
-		// TODO Auto-generated method stub
+		Room room = getCurrentRoom();
+		NPC npc = room.getNPC();
+		if(npc != null){
+		print(npc.attacked());
+		} else { print("you strike the air"); };
 		
 	}
 
-	public void take() {
-		useItem("hand", getCurrentRoom());
+	public void take(String property) {
+		hand.ability(getCurrentRoom(), property);
 		
 	}
 
 	public void talk() {
-		// TODO Auto-generated method stub
-		
+		Room room = getCurrentRoom();
+		NPC npc = room.getNPC();
+		if(npc != null){
+		print(npc.talk());
+		} else { print("you strike the air"); };	
 	}
 
 	public void use(String second) {

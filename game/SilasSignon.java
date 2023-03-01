@@ -1,6 +1,6 @@
 package game;
 
-public class SilasSignon implements NPC {
+public class SilasSignon extends NPC {
 
 	@Override
 	public String talk() {

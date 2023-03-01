@@ -7,7 +7,7 @@ public class AttackC implements Command{
 	}
 
 
-	public void call(String first, String second, int words, Game game) {
+	public void call(String first, String second, Game game) {
 		game.attack();
 	}
 	
