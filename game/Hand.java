@@ -16,7 +16,7 @@ public class Hand implements Item {
 		this.game = game;
 	}
 	
-	public String ability(Room room) {
+	public String ability(Room room, String property) {
 		HashSet<String> properties = room.getProperties();
 		if (properties.contains("dog")) {
 			return "You pet the dog. He is a good boy.";
@@ -28,7 +28,16 @@ public class Hand implements Item {
 			game.addItemToBackpack("sword", new Sword(game));
 			return "You picked up the sword!";
 		}
+			
 		return "Nothing happened.";
 	}
+
+	@Override
+	public String ability(Room room) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
 
 }
