@@ -31,6 +31,7 @@ public class Game {
 
     private HashSet<String> directNames = new HashSet<String>();	//Array list to store names of directions. This array will be sent over to parser class 
     private HashMap<String, Item> backpack = new HashMap<String, Item>();
+    private HashSet<String> PetMedallion = new HashSet<String>;
 
 
     private HashSet<String> checkpoints = new HashSet<String>();
@@ -185,7 +186,7 @@ public class Game {
      * returns a string showing the contents of the backpack
      * @return the string representing the contents of the backpack
      */
-    public String checkBackpack() {
+    public Strin	g checkBackpack() {
     	String contents = "";
     	for (String item : backpack.keySet()) {
     		contents += item + " ";
@@ -229,7 +230,6 @@ public class Game {
 			setCurrentRoom(CR.getRoom(first));
 		 	CR = getCurrentRoom();
 		 	print(CR.getDescription());
-		 	
 		}else {
 			print("There is nothing in that direction");
 		}		
