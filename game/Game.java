@@ -31,7 +31,7 @@ public class Game {
 
     private HashSet<String> directNames = new HashSet<String>();	//Array list to store names of directions. This array will be sent over to parser class 
     private HashMap<String, Item> backpack = new HashMap<String, Item>();
-    private HashSet<String> PetMedallion = new HashSet<String>;
+    private HashSet<String> PetMedallion = new HashSet<String>();
 
 
     private HashSet<String> checkpoints = new HashSet<String>();
