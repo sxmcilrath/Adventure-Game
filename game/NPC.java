@@ -4,7 +4,7 @@
 
 package game;
 
-public interface NPC {
+public abstract class NPC {
 	
 	/**
 	 * A method for the signfolk to talk based on the current state
@@ -12,6 +12,10 @@ public interface NPC {
 	 * @param progression How far the player is into the game
 	 * @return the string for the signfolk to say
 	 */
-	public String talk();
+	public abstract String talk();
+	
+	public String attacked() {
+		return "The SignFolk moves out of your reach";
+	}
 	
 }

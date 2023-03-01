@@ -6,7 +6,7 @@
 
 package game;
 
-public class SimeusSignon implements NPC {
+public class SimeusSignon extends NPC {
 
 	private Game game;
 	

@@ -278,7 +278,11 @@ public class Game {
 	}
 
 	public void attack() {
-		// TODO Auto-generated method stub
+		Room room = getCurrentRoom();
+		NPC npc = room.getNPC();
+		if(npc != null){
+		print(npc.attacked());
+		} else { print("you strike the air"); };
 		
 	}
 
@@ -288,8 +292,11 @@ public class Game {
 	}
 
 	public void talk() {
-		// TODO Auto-generated method stub
-		
+		Room room = getCurrentRoom();
+		NPC npc = room.getNPC();
+		if(npc != null){
+		print(npc.talk());
+		} else { print("you strike the air"); };	
 	}
 
 	public void use(String second) {

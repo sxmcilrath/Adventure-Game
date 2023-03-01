@@ -7,13 +7,9 @@ public class TalkC implements Command{
 	}
 
 
-	public void call(String first, String second, int words, Game game) {
+	public void call(String first, String second, Game game) {
 		//add code here
 		game.talk();
-		Room room = game.getCurrentRoom();
-		NPC npc = room.getNPC();
-		String wordsSaid = npc.talk();
-		System.out.println(wordsSaid);
 	}
 	
 }

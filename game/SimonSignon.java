@@ -8,7 +8,7 @@ package game;
 
 import java.util.Set;
 
-public class SimonSignon implements NPC {
+public class SimonSignon extends NPC {
 	
 	private Game game;
 	

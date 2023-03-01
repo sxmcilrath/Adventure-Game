@@ -23,7 +23,7 @@ public class Parser {
 	 private Game game;
 	 private String first = null;
      private String second = null;
-     private int words;
+
      
      
      
@@ -35,7 +35,7 @@ public class Parser {
     private String[] commands = {"add", "go","take", "use", "talk", "attack", "pet", "list"};
     private HashMap<String, Command> Calls = new HashMap <String, Command>();
     
-    //HasshSet names holds the names of all rooms and items, to make s ure the call is valid
+    //HasshSet names holds the names of all rooms and items, to make sure the call is valid
     /**
      * For user input from the keyboard.
      */
@@ -70,7 +70,7 @@ public class Parser {
    	 Calls.put(take[i], new TakeC());
    	}
    	
-   	String[] talk = {"talk", "converse", "share", "yell"};
+   	String[] talk = {"talk", "converse", "share", "yell", "read"};
    	for(int i = 0; i < talk.length; i++) {
    	 Calls.put(talk[i], new TalkC());
    	}
@@ -115,7 +115,6 @@ public class Parser {
     	   int temp = command.indexOf(" ");
     	   this.first = command.substring(0, temp);
     	   this.second = command.substring(temp + 1);
-    	   this.words = 2;
     	   while(second.contains(" ")){
     		   temp = second.indexOf(" ");
     		   String temp1 = second.substring(0, temp);
@@ -125,14 +124,13 @@ public class Parser {
     	   
        } else { 
     	   this.first = command;
-    	   this.words = 1;
        }
      
        if(this.Calls.containsKey(first)) {
-     	  this.Calls.get(first).call(this.first, this.second, this.words, this.game); 
+     	  this.Calls.get(first).call(this.first, this.second, this.game); 
        } else {
          	System.out.println("I do not know how to " + command);
-         	this.Calls.get("list").call(this.first, this.second, this.words, this.game);
+         	this.Calls.get("list").call(this.first, this.second, this.game);
          	}
         	
 

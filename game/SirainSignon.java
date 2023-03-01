@@ -7,7 +7,7 @@
 
 package game;
 
-public class SirainSignon implements NPC {
+public class SirainSignon extends NPC {
 
 	/**
 	 * Sirain's words of wisdom to the player
