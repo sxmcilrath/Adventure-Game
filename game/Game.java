@@ -43,6 +43,9 @@ public class Game {
      */
     private boolean over;
     
+    /**
+     * instance of game progression to keep track of your progression in the game
+     */
     
     /**
      * Return the room in which the user is currently.
@@ -60,42 +63,41 @@ public class Game {
     	//initializes rooms
     	
     	//Ye Olde Tutorial Rooms
-        Room entrance = new Room("entrance","You are standing at the edge of a beautiful forest. A sign is just in front of you; I wonder what it says...",
+        Room entrance = new Room("You are standing at the edge of a beautiful forest. A sign is just in front of you; I wonder what it says...",
         		new SineusSignon());
         entrance.addProperty("pretty");
         
         this.currentRoom = entrance;
-        Room swordRoom = new Room("swordRoom","You see a rather wimpy-looking sword on the ground. It doesn't seem very high quality,but you should still take it. Unless, of course, you feel you can manage without it.");
+        Room swordRoom = new Room("You see a rather wimpy-looking sword on the ground. It doesn't seem very high quality,but you should still take it. Unless, of course, you feel you can manage without it.");
         swordRoom.addProperty("sword");
         
-        Room swordTutorial = new Room("swordTutorial","There is a sign here. It seems eager to meet you... or hurt you. I can't tell.",
+        Room swordTutorial = new Room("There is a sign here. It seems eager to meet you... or hurt you. I can't tell.",
         		new SimeusSignon(this));
         
-        Room freeWillTutorial = new Room("freewill","Oh, another sign. Hopefully this one is a bit less violent than the last one.",
+        Room freeWillTutorial = new Room("Oh, another sign. Hopefully this one is a bit less violent than the last one.",
         		new SirainSignon());
         
-        Room questMadeClear = new Room("quest","A wise looking sign stands majestically before you. Even in his old age, he has an air of vibrance and royalty. I wonder what he has to say.",
+        Room questMadeClear = new Room("A wise looking sign stands majestically before you. Even in his old age, he has an air of vibrance and royalty. I wonder what he has to say.",
         		new SimonSignon(this));
         
-        Room viewingTree = new Room("viewingTree","What's that in the distance?");
-        viewingTree.addProperty("checkpoint");
+        Room viewingTree = new Room("placeholder text");
         
-        Room nonEucTutorial = new Room("nonEuc","Another sign is here. He looks to be the 'needs-to-get-out-more' kind of type");
+        Room nonEucTutorial = new Room("Another sign is here. He looks to be the 'needs-to-get-out-more' kind of type");
         
         //Overworld Rooms
-        Room outsideShelter = new Room("outsideShelter","x");
-        Room shelter = new Room("shelter","x");
-        Room icyPath = new Room("icyPath","x", new SilasSignon());
-        Room beach = new Room("beachWalk","x");
+        Room outsideShelter = new Room("x");
+        Room shelter = new Room("x");
+        Room icyPath = new Room("x", new SilasSignon());
+        Room beach = new Room("x");
         
         //IcyPathPuzzles
-        Room correctLeft = new Room("correctLeft","x");
-        Room correctRight = new Room("correctRight","x");
-        Room correctMiddle = new Room("correctMiddle","x");
-        Room iceCastle = new Room("iceCastle","x");
+        Room correctLeft = new Room("x");
+        Room correctRight = new Room("x");
+        Room correctMiddle = new Room("x");
+        Room iceCastle = new Room("x");
         
         //Beach puzzle rooms
-        Room sandCastle = new Room("sandCastle","x");        
+        Room sandCastle = new Room("x");        
         //Map Hub Rooms
         
         //Creating map of game by linking rooms 
@@ -139,6 +141,7 @@ public class Game {
         hand = new Hand(this);
         addItemToBackpack("hand", hand);
 
+        
     }
     
     /**
@@ -223,9 +226,6 @@ public class Game {
 		if(CR.checkDirection(first)) {	
 			setCurrentRoom(CR.getRoom(first));
 		 	CR = getCurrentRoom();
-		 	if (CR.getProperties().contains("checkpoint")) {
-		 		crossCheckpoint(CR.getName());
-		 	}
 		 	print(CR.getDescription());
 		 	
 		}else {
