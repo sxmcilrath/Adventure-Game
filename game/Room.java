@@ -100,7 +100,7 @@ public class Room  {
      * @param property The property to add to the room
      */
     public void addProperty(String property) {
-    	//properties.add(property);
+    	properties.add(property);
     }
 
 	

@@ -34,7 +34,15 @@ public class Game {
     private HashSet<String> PetMedallion = new HashSet<String>();
     
     public void wonGame() {
-    	//for
+    	this.over = true;
+    	print("PetMedals" + PetMedallion.size());
+    	for(int i = 1; i < 7; i++) {
+    		String pet = "pet" + i;
+    		if(!(PetMedallion.contains(pet))){
+    			this.over = false;
+    		}
+    	}
+    	
     }
 
 
@@ -97,17 +105,16 @@ public class Game {
         Room correctLeft = new Room("correctLeft","x");
         Room correctRight = new Room("correctRight","x");
         Room correctMiddle = new Room("correctMiddle","x");
-        Room iceCastle = new Room("iceCastle","x");
+        Room iceCastle = new Room("iceCastle","x", new Pet(1));
         
         //Beach puzzle rooms
-        Room sandCastle = new Room("sandCastle","x");        
+        Room sandCastle = new Room("sandCastle","x", new Pet(2));        
         //Map Hub Rooms
         
         //Creating map of game by linking rooms 
         
         //Linking Ye Olde Tutorial Forest
         linkRooms(entrance, swordRoom, "swordroom", "entrance");
-
         linkRooms(swordRoom, swordTutorial, "swordtutorialroom", "swordroom");
         linkRooms(swordTutorial, freeWillTutorial, "freewilltutorial", "swordtutorial");
         linkRooms(freeWillTutorial, questMadeClear, "yourquestmadeclear", "freewilltutorial");
@@ -152,7 +159,7 @@ public class Game {
      * @param item The item you are trying to use
      * @param room The room you are trying to use the item in
      * @return a string containing a descri this.Calls.get(temp).call(this.first, this.second, this.words);ption of what happened
-     */
+     */// TODO Auto-generated method stub
     public String useItem(String item, Room room) {
     	   
     	if (backpack.containsKey(item)) {
@@ -274,7 +281,7 @@ public class Game {
     }
     
     
-    
+
     public void finishGame() { over = true; }
     
     
@@ -284,7 +291,14 @@ public class Game {
     }
 
 	public void pet() {
-		
+		Room room = getCurrentRoom();
+		NPC npc = room.getNPC();
+		if(npc instanceof Pet) {
+			print(npc.talk());
+			String toAdd = "pet" + ((Pet) npc).getNum();
+			PetMedallion.add(toAdd);
+			wonGame();
+		}
 	}
 
 	public void attack() {
@@ -297,9 +311,14 @@ public class Game {
 	}
 
 	public void take(String property) {
-		hand.ability(getCurrentRoom(), property);
-		
-	}
+		Room room = getCurrentRoom();
+		HashSet<String> properties = room.getProperties();
+		if (properties.contains(property)) {
+				addItemToBackpack("sword", new Sword());
+				properties.remove("sword");
+				print("You picked up the " + property);
+			} else {print("Nothing happened.");}
+		}
 
 	public void talk() {
 		Room room = getCurrentRoom();
@@ -310,8 +329,20 @@ public class Game {
 	}
 
 	public void use(String second) {
-		// TODO Auto-generated method stub
+		if(second.equals("")){
+			print("What item would you like to use? \n Options: " + backpack.toString());
+		}
+		else if(backpack.containsKey(second)){
+			backpack.get(second).ability(getCurrentRoom());
+		} else {
+			print("You don't have a " + second);
+		}
 		
+	}
+
+	public void look(String second) {
+		Room room = getCurrentRoom();
+		print(room.getDescription());
 	}
 
 
