@@ -117,9 +117,17 @@ public class Game {
         Room shelter = new Room("shelter","Oh, it's Silvester! He and I go way back. Sometime I'll have to "
         		+ "tell about the zany adventures we had as children.", 
         		new SilvesterSignon(this));
-        Room icyPath = new Room("icyPath","x", 
+        Room icyPath = new Room("icyPath","You hear a rather silly song being sung: "
+        		+ "\"Icy path, oh Icy path, this path is oh so Icy! Pathy Icy "
+        		+ "saucy sauce, move ahead and don't get lost!\" It's... REALLY annoying.", 
         		new SilasSignon());
-        Room beach = new Room("beach","x");
+        Room beach = new Room("beach","Look at all this sand. If only a very wise, very pleasant "
+        		+ "person could lead you in the right direction. Oh wait, I'm right here! There is a "
+        		+ "puzzle just ahead. What? You think it's unprofessional for me to break the "
+        		+ "fourth wall like this? Well maybe when you become a narrator you can do things "
+        		+ "your way, but as of now, I can do whatever I like. In fact, just to bother you, "
+        		+ "I won't ever change what I say in this room. I'll just repeat the same thing "
+        		+ "over and over again and you'll have to deal with it.");
 
 
         
