@@ -184,7 +184,7 @@ public class Game {
      * returns a string showing the contents of the backpack
      * @return the string representing the contents of the backpack
      */
-    public Strin	g checkBackpack() {
+    public String checkBackpack() {
     	String contents = "";
     	for (String item : backpack.keySet()) {
     		contents += item + " ";
