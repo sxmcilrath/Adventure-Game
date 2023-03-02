@@ -81,7 +81,7 @@ public class Game {
         Room questMadeClear = new Room("A wise looking sign stands majestically before you. Even in his old age, he has an air of vibrance and royalty. I wonder what he has to say.",
         		new SimonSignon(this));
         
-        Room viewingTree = new Room("placeholder text");
+        Room viewingTree = new Room("viewingTree","placeholder text");
         
         Room nonEucTutorial = new Room("Another sign is here. He looks to be the 'needs-to-get-out-more' kind of type");
         

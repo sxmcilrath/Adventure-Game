@@ -28,6 +28,15 @@ public class Room  {
     private NPC roomNPC; //npc for the room if there is one
     
     /**
+     * constructor for if the room only needs a description
+     * @param description
+     */
+    public Room(String description) {
+    	this.description = description;
+    	this.properties = new HashSet<String>();
+    }
+    
+    /**
      * Constructor.
      * @param description A String describing this room to the user.
      */
@@ -38,8 +47,19 @@ public class Room  {
     }
     
     /**
+     * cosntructor for if the room only needs a description and an npc
+     * @param description
+     * @param roomNPC
+     */
+    public Room(String description, NPC roomNPC) {
+    	this.description = description;
+    	this.roomNPC = roomNPC;
+    	this.properties = new HashSet<String>();
+    }
+    
+    /**
      * Overloading the constructor to make room for if the room 
-     * has an NPC
+     * has an NPC and a name
      * @param description	String describes room 	
      * @param roomNPC		NPC in room
      */
