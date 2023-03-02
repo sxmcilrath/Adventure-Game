@@ -111,7 +111,6 @@ public class Parser {
 	 
         // The room that the user is in.
         Room room = game.getCurrentRoom();
-        System.out.println("You are in " + room.getDescription());
         System.out.print("Enter command--> ");
         String command = keyboard.nextLine().toLowerCase();  // user's command
         command.trim();
