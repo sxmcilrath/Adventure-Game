@@ -5,14 +5,13 @@ public class Sword implements Item {
 	/**
 	 * the game that the sword is affecting
 	 */
-	private Game game;
+
 	
 	/**
 	 * constructor for the Sword
 	 * @param game
 	 */
-	public Sword(Game game) {
-		this.game = game;
+	public Sword() {
 	}
 	
 	public String ability(Room room) {
