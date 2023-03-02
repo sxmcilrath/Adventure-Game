@@ -18,16 +18,9 @@ public class Hand implements Item {
 	
 	public String ability(Room room, String property) {
 		HashSet<String> properties = room.getProperties();
-		if (properties.contains("dog")) {
-			return "You pet the dog. He is a good boy.";
-		} else if (properties.contains("candle")) {
-			properties.remove("candle");
-			return "You picked up the candle!";
-		} else if (properties.contains("sword")) {
-			properties.remove("sword");
-			game.addItemToBackpack("sword", new Sword(game));
-			return "You picked up the sword!";
-		}
+		
+		//checks if the property if is the room
+		if (properties.contains(property)) {return "You picked up the " + property;}
 			
 		return "Nothing happened.";
 	}
