@@ -118,9 +118,11 @@ public class Game {
         linkRooms(freeWillTutorial, nonEucTutorial, "noneuclidiantutorial");
         linkRooms(questMadeClear, viewingTree , "viewingtree", "yourquestmadeclear");
         linkRooms(nonEucTutorial, entrance, "south");
+        linkRooms(freeWillTutorial, outsideShelter, "onward", "freewilltutorial");
 
 
         //Linking Overworld
+ 
         linkRooms(outsideShelter, shelter,"shelter", "outside");
         linkRooms(shelter, icyPath, "icypath", "shelter");
         linkRooms(shelter, beach, "beach", "shelter");
