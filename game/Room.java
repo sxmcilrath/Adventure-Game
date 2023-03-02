@@ -95,6 +95,10 @@ public class Room  {
     	return properties;
     }
     
+    public void removeProperty(String property) {
+    	properties.remove(property);
+    }
+    
     /**
      * method to add a property to a room
      * @param property The property to add to the room
