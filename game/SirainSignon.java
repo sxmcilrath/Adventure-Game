@@ -19,7 +19,9 @@ public class SirainSignon extends NPC {
 	 */
 	public SirainSignon() {
 		wordsOfWisdom = "What are you lookin' at me for? Pick a direction and go! How am I supposed to know "
-				+ "where you should go? I've been in this spot my whole life!";
+				+ "where you should go? I've been in this spot my whole life! What, just 'cause you have "
+				+ "three options for which way to go, you're freakin' out? Listen, if you're really "
+				+ "so bothered by not knowin' where to go, just head north and talk to Simon.";
 	}
 	
 	/**
