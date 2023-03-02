@@ -260,8 +260,8 @@ public class Game {
 
     //swtiches rooms
     public void switchRoom(String first) {
-    	
     	Room CR = getCurrentRoom();
+    	if(first != "") {
     	//Checks if directon is a key in the directions hashmap
 		if(CR.checkDirection(first)) {	
 			setCurrentRoom(CR.getRoom(first));
@@ -273,6 +273,7 @@ public class Game {
 		}else {
 			print("There is nothing in that direction");
 		}		
+    	}else { print("Where would you like to go? \nOptions: " + CR.options().keySet().toString());}
     }
    
    
@@ -358,7 +359,7 @@ public class Game {
 		NPC npc = room.getNPC();
 		if(npc != null){
 		print(npc.talk());
-		} else { print("you strike the air"); };	
+		} else { print("the air listens..."); }	
 	}
 
 	public void use(String second) {

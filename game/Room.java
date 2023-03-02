@@ -3,6 +3,7 @@ package game;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 
 /**
  * Room.java
@@ -84,6 +85,9 @@ public class Room  {
     
     public Room getRoom(String directName) {
     	return this.directions.get(directName);
+    }
+    public Map options() {
+    	return this.directions;
     }
     
     public NPC getNPC() {

@@ -8,7 +8,10 @@
 package game;
 
 public class SineusSignon extends NPC {
-
+	 private int numTalk = 0;
+	 private String[] says = {"Welcome to Ye Olde Tutorial Forest! We Signfolk are the inhabitants of this wonderful land.", 
+			 "There's a sword room over the hill. You should go to the sword room", 
+			 "what are you waiting for? The adventure awaits!"};
 	/**
 	 * what the Sineus has to say to the player
 	 */
@@ -25,7 +28,11 @@ public class SineusSignon extends NPC {
 	 * Sineus introduces the world to the player
 	 */
 	public String talk() {
-		return wordsOfWisdom;
+		int temp = this.numTalk;
+		if(this.numTalk < says.length - 1) {
+		this.numTalk++;
+		} else {this.numTalk = 0;}
+		return says[temp];
 	}
 
 }
