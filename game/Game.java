@@ -33,6 +33,10 @@ public class Game {
     private HashMap<String, Item> backpack = new HashMap<String, Item>();
     private HashSet<String> PetMedallion = new HashSet<String>();
     
+    //specific rooms that need to be accessed by methods
+    private Room beach;	
+    private Room sandCastle;
+    
     public void wonGame() {
     	this.over = true;
     	print("PetMedals" + PetMedallion.size());
@@ -99,7 +103,7 @@ public class Game {
         Room outsideShelter = new Room("outsideShelter","x");
         Room shelter = new Room("shelter","x");
         Room icyPath = new Room("icyPath","x", new SilasSignon());
-        Room beach = new Room("beachWalk","x");
+        beach = new Room("beach","x");
         
         //IcyPathPuzzles
         Room correctLeft = new Room("correctLeft","x");
@@ -108,7 +112,9 @@ public class Game {
         Room iceCastle = new Room("iceCastle","x", new Pet(1));
         
         //Beach puzzle rooms
+
         Room sandCastle = new Room("sandCastle","x", new Pet(2));        
+
         //Map Hub Rooms
         
         //Creating map of game by linking rooms 
@@ -188,6 +194,10 @@ public class Game {
     	return "The " + itemName + " was added to your backpack!";
     }
     
+    public void removeItemFromBackapack(String name) {
+    	backpack.remove(name);
+    }
+    
     /**
      * returns a string showing the contents of the backpack
      * @return the string representing the contents of the backpack
@@ -263,8 +273,10 @@ public class Game {
     	r2.addDirection(direct2, r1);
     	directNames.add(direct1);
     	directNames.add(direct2);
-
-    	
+    }
+    
+    public void linkSandRooms() {
+    	linkRooms(beach, sandCastle, "sandcastle", "beach");
     }
     
     /**
