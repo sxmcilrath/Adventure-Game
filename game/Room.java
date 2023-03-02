@@ -96,7 +96,10 @@ public class Room  {
     }
     
     public void removeProperty(String property) {
-    	properties.remove(property);
+    	if(properties.contains(property)) {
+    		properties.remove(property);
+    	}
+    	
     }
     
     /**

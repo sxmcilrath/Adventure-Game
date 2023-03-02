@@ -9,12 +9,18 @@ public class Shovel implements Item {
 	@Override
 	public String ability(Room room) {
 		//need to first add a check to make sure they are in the beach room
-		
-		if(game.hasItem("bucket")) {
-		
-			return "You shovel the sand into your bucket"; 
+		if(room.getName().equals("beach")){
+			
+			if(game.hasItem("bucket")) {
+				game.removeItemFromBackapack("bucket");
+				game.addItemToBackpack("bucketwithsand", new BucketWithSand(game));
+				return "You shovel the sand into your bucket"; 
+			}
+			
+			return "You push sand around for a couple minutes. This seems pointless. If only there was something to shape the sand...";
 		}
-		return "you can't use that here!";
+		
+		return "You can't use that here!";
 	}
 
 }

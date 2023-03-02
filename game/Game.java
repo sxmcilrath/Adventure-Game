@@ -91,7 +91,7 @@ public class Game {
         Room outsideShelter = new Room("outsideShelter","x");
         Room shelter = new Room("shelter","x");
         Room icyPath = new Room("icyPath","x", new SilasSignon());
-        Room beach = new Room("beachWalk","x");
+        Room beach = new Room("beach","x");
         
         //IcyPathPuzzles
         Room correctLeft = new Room("correctLeft","x");
@@ -179,6 +179,10 @@ public class Game {
     public String addItemToBackpack(String itemName, Item item) {
     	backpack.put(itemName, item);
     	return "The " + itemName + " was added to your backpack!";
+    }
+    
+    public void removeItemFromBackapack(String name) {
+    	backpack.remove(name);
     }
     
     /**
