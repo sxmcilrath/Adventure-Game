@@ -23,14 +23,15 @@ public class SimonSignon extends NPC {
 		this.game = game;
 		
 		preTree = "Hello there young fellow. You must be brave to enter the treacherous "
-				+ "'Ye Olde Tutorial' forest, very brave indeed. Before you stands a tall"
+				+ "'Ye Olde Tutorial' forest, very brave indeed. Before you stands a tall "
 				+ "tree. Go up and observe well, when you are done, tell me what you see."
 				+ "Or don't, if you don't feel like it.";
 		postTreeNoLook = "What did you see? What!? You didn't even look around?"
 				+ "Get back up there and let me properly tutorial you!";
-		postTreeGoodLook = "What did you see? A dog? Of course! It is all"
-				+ "so clear now. Go find that little pupper and give it a good pet. A belly rub is also"
-				+ "recommended. Why? Believe me, it will all become clear to you in time.";
+		postTreeGoodLook = "What did you see? A dog? Of course! It is all "
+				+ "so clear now. Go find that little pupper and give it a good pet. A belly rub is also "
+				+ "recommended. Why? Believe me, it will all become clear to you in time. Go back to where "
+				+ "you met Sirain and go east. You should be able to see where to go from there.";
 	}
 	
 	/**
