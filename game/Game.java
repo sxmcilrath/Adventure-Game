@@ -31,6 +31,7 @@ public class Game {
 
     private HashSet<String> directNames = new HashSet<String>();	//Array list to store names of directions. This array will be sent over to parser class 
     private HashMap<String, Item> backpack = new HashMap<String, Item>();
+    private HashMap<String, Item> allItems = new HashMap<String, Item>();
     private HashSet<String> PetMedallion = new HashSet<String>();
 
     //specific rooms that need to be accessed by methods
@@ -75,8 +76,9 @@ public class Game {
      * Constructor to set up the game.
      */
     public Game() {
+    	this.allItems.put("sword", new Sword());
+    	this.allItems.put("candle", new Candle());
     	//initializes rooms
-    	
     	//Ye Olde Tutorial Rooms
         Room entrance = new Room("entrance","You are standing at the edge of a beautiful forest."
         		+ " A sign is just in front of you; I wonder what it says...",
@@ -356,9 +358,10 @@ public class Game {
 		Room room = getCurrentRoom();
 		HashSet<String> properties = room.getProperties();
 		if (properties.contains(property)) {
-				addItemToBackpack("sword", new Sword());
-				properties.remove("sword");
+				addItemToBackpack(property, allItems.get(property));
+				properties.remove(property);
 				print("You picked up the " + property);
+				
 			} else {print("Nothing happened.");}
 		}
 

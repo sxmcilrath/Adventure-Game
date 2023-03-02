@@ -52,7 +52,7 @@ public class Parser {
    	 //Constructs a Hashmap of commands
    	String[] add = {"add", "new"};
    	for(int i = 0; i < add.length; i++) {
-   	 Calls.put(add[i], new AddC(this.Calls));
+   	 Calls.put(add[i], new AddC(this.Calls, this.game));
    	}
    	
    	String[] look = {"look", "see", "check", "view", "notice"};
