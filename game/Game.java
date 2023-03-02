@@ -33,6 +33,10 @@ public class Game {
     private HashMap<String, Item> backpack = new HashMap<String, Item>();
     private HashSet<String> PetMedallion = new HashSet<String>();
     
+    //specific rooms that need to be accessed by methods
+    private Room beach;	
+    private Room sandCastle;
+    
     public void wonGame() {
     	//for
     }
@@ -91,7 +95,7 @@ public class Game {
         Room outsideShelter = new Room("outsideShelter","x");
         Room shelter = new Room("shelter","x");
         Room icyPath = new Room("icyPath","x", new SilasSignon());
-        Room beach = new Room("beach","x");
+        beach = new Room("beach","x");
         
         //IcyPathPuzzles
         Room correctLeft = new Room("correctLeft","x");
@@ -100,7 +104,7 @@ public class Game {
         Room iceCastle = new Room("iceCastle","x");
         
         //Beach puzzle rooms
-        Room sandCastle = new Room("sandCastle","x");        
+        sandCastle = new Room("sandCastle","x");        
         //Map Hub Rooms
         
         //Creating map of game by linking rooms 
@@ -260,8 +264,10 @@ public class Game {
     	r2.addDirection(direct2, r1);
     	directNames.add(direct1);
     	directNames.add(direct2);
-
-    	
+    }
+    
+    public void linkSandRooms() {
+    	linkRooms(beach, sandCastle, "sandcastle", "beach");
     }
     
     /**
