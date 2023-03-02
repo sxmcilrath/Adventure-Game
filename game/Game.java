@@ -119,7 +119,9 @@ public class Game {
         Room shelter = new Room("shelter","Oh, it's Silvester! He and I go way back. Sometime I'll have to "
         		+ "tell about the zany adventures we had as children.", 
         		new SilvesterSignon(this));
-        Room icyPath = new Room("icyPath","You hear a rather silly song being sung: "
+        Room icyPath = new Room("icyPath","You depart from the shelter and step foot into the icy woods. This is much different from the forest in which you started. \n"
+        		+ "Icicles hang from the tree branches and a fog quickly envelops your surroundings. \n"
+        		+ "\nIn the midst of creepiness, you hear a rather silly song being sung: "
         		+ "\"Icy path, oh Icy path, this path is oh so Icy! Pathy Icy "
         		+ "saucy sauce, move ahead and don't get lost!\" It's... REALLY annoying.", 
         		new SilasSignon());
@@ -158,9 +160,11 @@ public class Game {
         linkRooms(freeWillTutorial, nonEucTutorial, "noneuclidiantutorial");
         linkRooms(questMadeClear, viewingTree , "viewingtree", "yourquestmadeclear");
         linkRooms(nonEucTutorial, entrance, "south");
+        linkRooms(freeWillTutorial, outsideShelter, "onward", "freewilltutorial");
 
 //hi world
         //Linking Overworld
+ 
         linkRooms(outsideShelter, shelter,"shelter", "outside");
         linkRooms(shelter, icyPath, "icypath", "shelter");
         linkRooms(shelter, beach, "beach", "shelter");
