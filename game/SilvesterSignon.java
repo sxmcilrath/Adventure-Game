@@ -24,6 +24,7 @@ public class SilvesterSignon extends NPC {
 	}
 	
 	public String talk() {
+		game.crossCheckpoint("fourthwallbreak");
 		if (game.wasCheckCrossed("iceCastle")) {
 			return "Oh, good! You're back in one piece! I did a bit of research, and I think"
 					+ "it might be spelled \"ushe,\" but I also learned that some people "
