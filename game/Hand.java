@@ -20,14 +20,22 @@ public class Hand implements Item {
 		HashSet<String> properties = room.getProperties();
 		
 		//checks if the property if is the room
-		if (properties.contains(property)) {return "You picked up the " + property;}
-			
+		if (properties.contains(property)) {
+				game.addItemToBackpack("sword", new Sword());
+				properties.remove("sword");
+				return "You picked up the " + property;
+			}
 		return "Nothing happened.";
+		
 	}
 
 	@Override
 	public String ability(Room room) {
-		// TODO Auto-generated method stub
+		if(room.getProperties().contains("sword")) {
+			game.addItemToBackpack("sword", new Sword());
+			room.getProperties().remove("sword");
+		}
+		
 		return null;
 	}
 

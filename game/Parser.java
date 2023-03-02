@@ -55,6 +55,11 @@ public class Parser {
    	 Calls.put(add[i], new AddC(this.Calls));
    	}
    	
+   	String[] look = {"look", "see", "check", "view", "notice"};
+   	for(int i = 0; i < look.length; i++) {
+   	 Calls.put(look[i], new LookC());
+   	}
+   	
  	String[] list = {"list", "command", "commands", "listall", "options", "option", "help"};
    	for(int i = 0; i < list.length; i++) {
    	 Calls.put(list[i], new ListC(this.commands));
@@ -124,6 +129,7 @@ public class Parser {
     	   
        } else { 
     	   this.first = command;
+    	   this.second = "";
        }
      
        if(this.Calls.containsKey(first)) {
