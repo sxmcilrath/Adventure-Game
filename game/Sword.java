@@ -3,16 +3,17 @@ package game;
 import java.util.HashSet;
 import java.util.Set;
 
-public class Sword implements Item {
+public class Sword extends Item {
 
 	
-	private HashSet<String> Craftable = new HashSet<String>();
-	private HashSet<String> CraftedBy = new HashSet<String>();
+	private static HashSet<String> Craftable = new HashSet<String>();
+	private static HashSet<String> CraftedBy = new HashSet<String>();
 	/**
 	 * constructor for the Sword
 	 * @param game
 	 */
 	public Sword() {
+		super(Craftable, CraftedBy);
 		CraftedBy.add("metalchunk");
 		CraftedBy.add("candle");
 		Craftable.add("metalchunk");
@@ -27,15 +28,4 @@ public class Sword implements Item {
 	}
 
 	
-	@Override
-	public Set<String> craftable() {
-		// TODO Auto-generated method stub
-		return this.Craftable;
-	}
-
-	@Override
-	public Set<String> craftedBy() {
-		// TODO Auto-generated method stub
-		return this.CraftedBy;
-	}
 }

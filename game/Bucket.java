@@ -3,15 +3,18 @@ package game;
 import java.util.HashSet;
 import java.util.Set;
 
-public class Bucket implements Item {
+public class Bucket extends Item {
 
-	private HashSet<String> Craftable = new HashSet<String>();
-	private HashSet<String> CraftedBy = new HashSet<String>();
+	private static HashSet<String> Craftable = new HashSet<String>();
+	private static HashSet<String> CraftedBy = new HashSet<String>();
 	
 	public Bucket() {
+		super(Craftable, CraftedBy);
 		Craftable.add("metalChunk");
 		CraftedBy.add("metalchunk");
 		CraftedBy.add("candle");
+		
+	
 		
 	}
 	@Override
@@ -24,15 +27,6 @@ public class Bucket implements Item {
 	}
 
 	
-	@Override
-	public Set<String> craftable() {
-		// TODO Auto-generated method stub
-		return this.Craftable;
-	}
-	@Override
-	public Set<String> craftedBy() {
-		// TODO Auto-generated method stub
-		return this.CraftedBy;
-	}
+	
 
 }

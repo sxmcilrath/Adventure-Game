@@ -3,19 +3,28 @@ package game;
 import java.util.HashSet;
 import java.util.Set;
 
-public class Shovel implements Item {
+public class Shovel extends Item {
 
 	private Player player;
-	private HashSet<String> Craftable = new HashSet<String>();
-	private HashSet<String> CraftedBy = new HashSet<String>();
+	private static HashSet<String> Craftable = new HashSet<String>();
+	private static HashSet<String> CraftedBy = new HashSet<String>();
 	
 	public Shovel(Player player){
+		super(Craftable, CraftedBy);
 		this.player = player; 
 		CraftedBy.add("metalchunk");
 		Craftable.add("candle");
 		Craftable.add("stick");
 	}
 	
+	public Shovel() {
+		super(Craftable, CraftedBy);
+		CraftedBy.add("metalchunk");
+		Craftable.add("candle");
+		Craftable.add("stick");
+		// TODO Auto-generated constructor stub
+	}
+
 	@Override
 	public String ability(Room room) {
 		//need to first add a check to make sure they are in the beach room
@@ -35,15 +44,5 @@ public class Shovel implements Item {
 	
 	
 
-	@Override
-	public Set<String> craftable() {
-		// TODO Auto-generated method stub
-		return this.Craftable;
-	}
-
-	@Override
-	public Set<String> craftedBy() {
-		// TODO Auto-generated method stub
-		return this.CraftedBy;
-	}
+	
 }

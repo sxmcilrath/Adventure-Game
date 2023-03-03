@@ -3,7 +3,7 @@ package game;
 import java.util.HashSet;
 import java.util.Set;
 
-public class Hand implements Item {
+public class Hand extends Item {
 	
 	private HashSet<String> Craftable = new HashSet<String>();
 	private HashSet<String> CraftedBy = new HashSet<String>();

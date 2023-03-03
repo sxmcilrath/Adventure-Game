@@ -3,13 +3,13 @@ package game;
 import java.util.HashSet;
 import java.util.Set;
 
-public class Steak implements Item {
+public class Steak extends Item {
 
-	private HashSet<String> Craftable = new HashSet<String>();
-	private HashSet<String> CraftedBy = new HashSet<String>();
+	private static HashSet<String> Craftable = new HashSet<String>();
+	private static HashSet<String> CraftedBy = new HashSet<String>();
 	
 	public Steak() {
-		
+		super(Craftable, CraftedBy);
 	}
 	@Override
 	public String ability(Room room) {
@@ -18,16 +18,6 @@ public class Steak implements Item {
 	}
 	
 
-	@Override
-	public Set<String> craftable() {
-		// TODO Auto-generated method stub
-		return this.Craftable;
-	}
-
-	@Override
-	public Set<String> craftedBy() {
-		// TODO Auto-generated method stub
-		return this.CraftedBy;
-	}
+	
 
 }
