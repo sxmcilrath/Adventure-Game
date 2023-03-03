@@ -7,9 +7,9 @@ public class TalkC implements Command{
 	}
 
 
-	public void call(String first, String second, Game game) {
+	public void call(String first, String second, Player player) {
 		//add code here
-		game.talk();
+		player.talk();
 	}
 	
 }

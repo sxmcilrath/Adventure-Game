@@ -12,20 +12,20 @@ public class SilvesterSignon extends NPC {
 	/**
 	 * The game with which Silvester interacts
 	 */
-	private Game game;
+	private Player player;
 	
 	/**
 	 * Silvester needs to know the current state of the game to interact with
 	 * the player dynamically
-	 * @param game
+	 * @param player
 	 */
-	public SilvesterSignon(Game game) {
-		this.game = game;
+	public SilvesterSignon(Player player) {
+		this.player = player;
 	}
 	
 	public String talk() {
-		game.crossCheckpoint("fourthwallbreak");
-		if (game.wasCheckCrossed("iceCastle")) {
+		player.crossCheckpoint("fourthwallbreak");
+		if (player.wasCheckCrossed("iceCastle")) {
 			return "Oh, good! You're back in one piece! I did a bit of research, and I think"
 					+ "it might be spelled \"ushe,\" but I also learned that some people "
 					+ "spell it like \"usge.\" Anyway, I- wait, Narrator, is that you? "

@@ -7,8 +7,8 @@ public class UseC implements Command{
 	}
 
 
-	public void call(String first, String second, Game game) {
-		game.use(second);
+	public void call(String first, String second, Player player) {
+		player.use(second);
 	}
 	
 }

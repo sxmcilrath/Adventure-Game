@@ -10,7 +10,7 @@ import java.util.Set;
 
 public class SimonSignon extends NPC {
 	
-	private Game game;
+	private Player player;
 	
 	/**
 	 * Simon's three phrases he can say based on your progress
@@ -19,8 +19,8 @@ public class SimonSignon extends NPC {
 	private String postTreeNoLook;
 	private String postTreeGoodLook;
 	
-	public SimonSignon(Game game) {
-		this.game = game;
+	public SimonSignon(Player player) {
+		this.player = player;
 		
 		preTree = "Hello there young fellow. You must be brave to enter the treacherous "
 				+ "'Ye Olde Tutorial' forest, very brave indeed. Before you stands a tall "
@@ -41,8 +41,8 @@ public class SimonSignon extends NPC {
 	 * he'll encourage you and have you go on your way 
 	 */
 	public String talk() {
-		boolean tree = game.wasCheckCrossed("viewingTree");
-		boolean goodLook = game.wasCheckCrossed("goodLook");
+		boolean tree = player.wasCheckCrossed("viewingTree");
+		boolean goodLook = player.wasCheckCrossed("goodLook");
 		if (tree) {
 			if (goodLook) {
 				return postTreeGoodLook;

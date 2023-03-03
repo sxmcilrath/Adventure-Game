@@ -1,19 +1,23 @@
 package game;
 
 import java.util.HashSet;
+import java.util.Set;
 
 public class Hand implements Item {
-
+	
+	private HashSet<String> Craftable = new HashSet<String>();
+	private HashSet<String> CraftedBy = new HashSet<String>();
+	
 	/**
 	 * the game for the hand to interact with
 	 */
-	private Game game;
+	private Player player;
 	
 	/**
 	 * constructor for Hand
 	 */
-	public Hand(Game game) {
-		this.game = game;
+	public Hand(Player player) {
+		this.player = player;
 	}
 	
 	public String ability(Room room, String property) {
@@ -21,7 +25,7 @@ public class Hand implements Item {
 		
 		//checks if the property if is the room
 		if (properties.contains(property)) {
-				game.addItemToBackpack("sword", new Sword());
+			player.addItemToBackpack("sword", new Sword());
 				properties.remove("sword");
 				return "You picked up the " + property;
 			}
@@ -32,13 +36,25 @@ public class Hand implements Item {
 	@Override
 	public String ability(Room room) {
 		if(room.getProperties().contains("sword")) {
-			game.addItemToBackpack("sword", new Sword());
+			player.addItemToBackpack("sword", new Sword());
 			room.getProperties().remove("sword");
 		}
 		
 		return null;
 	}
 
+	
 
+	@Override
+	public Set<String> craftable() {
+		// TODO Auto-generated method stub
+		return this.Craftable;
+	}
+
+	@Override
+	public Set<String> craftedBy() {
+		// TODO Auto-generated method stub
+		return this.CraftedBy;
+	}
 
 }

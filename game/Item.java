@@ -1,5 +1,8 @@
 package game;
 
+
+import java.util.Set;
+
 public interface Item {
 	/**
 	 * This method will call upon a rooms properties to dictate what
@@ -9,5 +12,7 @@ public interface Item {
 	 * @return a string that will tell the player what happened
 	 */
 	public String ability(Room room);
+	public Set<String> craftable();
+	public Set<String> craftedBy();
 	
 }

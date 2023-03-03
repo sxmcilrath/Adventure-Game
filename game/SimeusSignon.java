@@ -8,15 +8,15 @@ package game;
 
 public class SimeusSignon extends NPC {
 
-	private Game game;
+	private Player player;
 	
 	private String sword;
 	private String noSword;
 	private String swordAttacked;
 	private String noSwordAttacked;
 	
-	public SimeusSignon(Game game) {
-		this.game = game;
+	public SimeusSignon(Player player) {
+		this.player = player;
 		
 		sword = "Ah, yes! You have a sword! Why don't you give it go?";
 		noSword = "You really think you can take me down without a sword? I mean, you don't "
@@ -34,7 +34,7 @@ public class SimeusSignon extends NPC {
 	 * @return what Simeus says
 	 */
 	public String talk() {
-		if (game.hasItem("sword")) {
+		if (player.hasItem("sword")) {
 			return sword;
 		} else {
 			return noSword;
@@ -47,7 +47,7 @@ public class SimeusSignon extends NPC {
 	 * @return his response
 	 */
 	public String attacked() {
-		if (game.hasItem("sword")) {
+		if (player.hasItem("sword")) {
 			return swordAttacked;
 		} else {
 			return noSwordAttacked;

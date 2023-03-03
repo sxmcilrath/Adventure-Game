@@ -21,6 +21,7 @@ public class Parser {
 	
 	
 	 private Game game;
+	 private Player player;
 	 private String first = null;
      private String second = null;
 
@@ -47,12 +48,19 @@ public class Parser {
     public Parser(Game game) {
         keyboard = new Scanner(System.in);
         this.game = game;
+        this.player = game.getPlayer();
+        
  
 
    	 //Constructs a Hashmap of commands
    	String[] add = {"add", "new"};
    	for(int i = 0; i < add.length; i++) {
-   	 Calls.put(add[i], new AddC(this.Calls, this.game));
+   	 Calls.put(add[i], new AddC(this.Calls, this.player));
+   	}
+   	
+   	String[] craft = {"craft", "smelt", "mold","form"};
+   	for(int i = 0; i < craft.length; i++) {
+   	 Calls.put(craft[i], new CraftC());
    	}
    	
    	String[] look = {"look", "see", "check", "view", "notice"};
@@ -110,7 +118,7 @@ public class Parser {
 	 this.game = game;
 	 
         // The room that the user is in.
-        Room room = game.getCurrentRoom();
+        Room room = this.player.getCurrentRoom();
         System.out.print("Enter command--> ");
         String command = keyboard.nextLine().toLowerCase();  // user's command
         command.trim();
@@ -132,10 +140,10 @@ public class Parser {
        }
      
        if(this.Calls.containsKey(first)) {
-     	  this.Calls.get(first).call(this.first, this.second, this.game); 
+     	  this.Calls.get(first).call(this.first, this.second, this.player); 
        } else {
          	System.out.println("I do not know how to " + command);
-         	this.Calls.get("list").call(this.first, this.second, this.game);
+         	this.Calls.get("list").call(this.first, this.second, this.player);
          	}
         	
 

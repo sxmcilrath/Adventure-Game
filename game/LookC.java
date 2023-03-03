@@ -7,8 +7,8 @@ public class LookC implements Command{
 	}
 
 	@Override
-	public void call(String first, String second, Game game) {
-		game.look(second);
+	public void call(String first, String second, Player player) {
+		player.look(second);
 		
 	}
 	

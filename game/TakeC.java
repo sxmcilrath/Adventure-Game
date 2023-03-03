@@ -8,8 +8,8 @@ public class TakeC implements Command{
 
 
 
-	public void call(String first, String second, Game game) {
-		game.take(second);
+	public void call(String first, String second, Player player) {
+		player.take(second);
 	}
 	
 }

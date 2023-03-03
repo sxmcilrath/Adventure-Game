@@ -1,17 +1,21 @@
 package game;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class Candle implements Item {
 
-	/**
-	 * allows it to interact with the game
-	 */	
-
+	private HashSet<String> Craftable = new HashSet<String>();
+	private HashSet<String> CraftedBy = new HashSet<String>();
 
 	/**
 	 * constructor for Candle
 	 */
 	public Candle() {
-		
+		Craftable.add("bucket");
+		Craftable.add("sword");
+		Craftable.add("shovel");
+		CraftedBy.add("");
 	}
 	
 	@Override
@@ -25,5 +29,17 @@ public class Candle implements Item {
 		}
 		
 	}
+	
 
+	@Override
+	public Set<String> craftable() {
+		// TODO Auto-generated method stub
+		return this.Craftable;
+	}
+
+	@Override
+	public Set<String> craftedBy() {
+		// TODO Auto-generated method stub
+		return this.CraftedBy;
+	}
 }

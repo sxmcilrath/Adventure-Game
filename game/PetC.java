@@ -7,8 +7,8 @@ public class PetC implements Command{
 	}
 
 
-	public void call(String first, String second, Game game) {
-	game.pet();
+	public void call(String first, String second, Player player) {
+	player.pet();
 		
 	}
 	

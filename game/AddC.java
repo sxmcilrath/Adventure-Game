@@ -6,14 +6,14 @@ import java.util.Scanner;
 public class AddC implements Command{
 	private HashMap<String,Command> Calls = new HashMap<String, Command>();
 	 private Scanner keyboard;
-	 private Game game;
+	 private Player player;
 	
-	public AddC(HashMap <String,Command> Calls, Game game) {
+	public AddC(HashMap <String,Command> Calls, Player player) {
 		keyboard = new Scanner(System.in);
 		this.Calls = Calls;
-		this.game = game;
+		this.player = player;
 	}
-	public void call(String first, String second, Game game) {
+	public void call(String first, String second, Player player) {
 		if(second != "") {
 		System.out.println("What would command would you like to assign " + second + " too?\n");
 		System.out.print("Enter command--> ");
@@ -22,10 +22,10 @@ public class AddC implements Command{
         //if the key exists, gets its value and assigns the new word to the value
         if (this.Calls.containsKey(command)) {
         	this.Calls.put(second, this.Calls.get(command));
-        	game.print(second + " now " + command + "s.");
+        	System.out.println(second + " now " + command + "s.");
         } else {
-        	game.print(command + " is not a command");
+        	System.out.println(command + " is not a command");
         }
-		} else { game.print("Cannot add blank command");}
+		} else { System.out.println("Cannot add blank command");}
 	}
 }

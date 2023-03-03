@@ -1,15 +1,10 @@
 package game;
 
-public class GoC implements Command{
-
-	public GoC () {
-		
-	}
+public class CraftC implements Command {
 
 	@Override
 	public void call(String first, String second, Player player) {
-		player.switchRoom(second);
-		
+		player.craft(second);
 	}
-	
+
 }

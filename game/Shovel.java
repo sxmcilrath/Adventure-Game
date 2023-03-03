@@ -1,19 +1,29 @@
 package game;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class Shovel implements Item {
 
-	private Game game;
+	private Player player;
+	private HashSet<String> Craftable = new HashSet<String>();
+	private HashSet<String> CraftedBy = new HashSet<String>();
 	
-	public Shovel(Game game){this.game = game; }
+	public Shovel(Player player){
+		this.player = player; 
+		CraftedBy.add("metalchunk");
+		Craftable.add("candle");
+		Craftable.add("stick");
+	}
 	
 	@Override
 	public String ability(Room room) {
 		//need to first add a check to make sure they are in the beach room
 		if(room.getName().equals("beach")){
 			
-			if(game.hasItem("bucket")) {
-				game.removeItemFromBackapack("bucket");
-				game.addItemToBackpack("bucketwithsand", new BucketWithSand(game));
+			if(player.hasItem("bucket")) {
+				player.removeItemFromBackapack("bucket");
+				player.addItemToBackpack("bucketwithsand", new BucketWithSand(player));
 				return "You shovel the sand into your bucket"; 
 			}
 			
@@ -22,5 +32,18 @@ public class Shovel implements Item {
 		
 		return "You can't use that here!";
 	}
+	
+	
 
+	@Override
+	public Set<String> craftable() {
+		// TODO Auto-generated method stub
+		return this.Craftable;
+	}
+
+	@Override
+	public Set<String> craftedBy() {
+		// TODO Auto-generated method stub
+		return this.CraftedBy;
+	}
 }
