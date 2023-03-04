@@ -24,7 +24,7 @@ public class Room  {
 	private String name;
 
 	private HashSet<String> properties;	//A set containing the room's properties, such as dark, onFire, etc.
-    private HashMap <String, Room> directions = new HashMap<String, Room>();	//map to contain directions to accessible rooms
+    private HashMap <String, Door> directions = new HashMap<String, Door>();	//map to contain directions to accessible rooms
     private String description;	//A description of this room
     private NPC roomNPC; //npc for the room if there is one
     
@@ -72,8 +72,8 @@ public class Room  {
     }
     
     //method to add directions and connections to a room
-    public void addDirection(String directName, Room destination) {
-    	this.directions.put(directName, destination);
+    public void addDoor(Door door, String directName) {
+    	this.directions.put(directName, door);
     }
     
     //checks HashMap for desired direction
@@ -83,7 +83,7 @@ public class Room  {
     
     //getters
     
-    public Room getRoom(String directName) {
+    public Door getDoor(String directName) {
     	return this.directions.get(directName);
     }
     public Map options() {

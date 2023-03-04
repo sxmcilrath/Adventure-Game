@@ -7,22 +7,16 @@ public class Shovel extends Item {
 
 	private Player player;
 	private static HashSet<String> Craftable = new HashSet<String>();
-	private static HashSet<String> CraftedBy = new HashSet<String>();
-	
-	public Shovel(Player player){
-		super(Craftable, CraftedBy);
-		this.player = player; 
-		CraftedBy.add("metalchunk");
-		Craftable.add("candle");
-		Craftable.add("stick");
-	}
+	private static HashSet<String[]> CraftedBy = new HashSet<String[]>();
+	private static HashSet<String> Catalyst = new HashSet<String>();
 	
 	public Shovel() {
-		super(Craftable, CraftedBy);
-		CraftedBy.add("metalchunk");
-		Craftable.add("candle");
+		super(Craftable, CraftedBy, Catalyst);
+		String[] a = {"metalchunk", "candle"};
+		CraftedBy.add(a);
 		Craftable.add("stick");
-		// TODO Auto-generated constructor stub
+		Craftable.add("metalchunk");
+		Catalyst.add("bucketwithsand");
 	}
 
 	@Override
@@ -32,7 +26,7 @@ public class Shovel extends Item {
 			
 			if(player.hasItem("bucket")) {
 				player.removeItemFromBackapack("bucket");
-				player.addItemToBackpack("bucketwithsand", new BucketWithSand(player));
+				//player.addItemToBackpack("bucketwithsand", new BucketWithSand(player));
 				return "You shovel the sand into your bucket"; 
 			}
 			

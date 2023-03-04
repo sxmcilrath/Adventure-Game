@@ -96,17 +96,28 @@ public class Player {
 		    	
 		    	//checks to see if user wants to go anywhere
 		    	if(first != "") {
-		    	//Checks if directon is a key in the directions hashmap
-				if(CR.checkDirection(first)) {	
-					this.CR = this.CR.getRoom(first);
-				 	if (CR.getProperties().contains("checkpoint")) {
-				 		crossCheckpoint(CR.getName());
-				 	}
-				 	print(CR.getDescription());
-				}else {
-					print("There is nothing in that direction");
-				}		
-		    	}else { print("Where would you like to go? \nOptions: " + CR.options().keySet().toString());}
+		    		//Checks if directon is a key in the directions hashmap
+		    		if(CR.checkDirection(first)) {	
+		    			Door door = CR.getDoor(first);
+		    			Key key = door.getKey();
+		    			if(key == null) {
+		    				CR = door.nextRoom(CR);
+		    			} else if(this.backpack.containsValue(key)){
+		    				CR = door.nextRoom(CR);
+		    				print("you used a " + key.getName());
+		    			} else {
+		    				print("You need a " + key.getName());
+		    			}
+		    			look("");
+		    			if (CR.getProperties().contains("checkpoint")) {
+		    				crossCheckpoint(CR.getName());
+		    			}	
+					} else {
+						print("There is nothing in that direction");
+					}		
+		    	} else {
+		    		print("Where would you like to go? \nOptions: " + CR.options().keySet().toString());
+		    	}
 		    }
 		    
 		    public void crossCheckpoint(String check) {

@@ -6,13 +6,14 @@ import java.util.Set;
 public class Bucket extends Item {
 
 	private static HashSet<String> Craftable = new HashSet<String>();
-	private static HashSet<String> CraftedBy = new HashSet<String>();
+	private static HashSet<String[]> CraftedBy = new HashSet<String[]>();
 	
 	public Bucket() {
 		super(Craftable, CraftedBy);
 		Craftable.add("metalChunk");
-		CraftedBy.add("metalchunk");
-		CraftedBy.add("candle");
+		String[] a = {"metalchunk", "candle"};
+		CraftedBy.add(a);
+		
 		
 	
 		

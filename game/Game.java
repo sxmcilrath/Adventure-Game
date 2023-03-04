@@ -43,6 +43,7 @@ public class Game {
      * Constructor to set up the game.
      */
     public Game() {
+    	
     	//initilizes the player
     	this.player = new Player();
     	//initializes rooms
@@ -188,7 +189,9 @@ public class Game {
 
 }
     public void linkRooms(Room r1, Room r2, String direct) {
-			r1.addDirection(direct, r2);
+    	Door door = new Door(r1,r2);
+			r1.addDoor(door, direct);
+				
     	}
 
 /**
@@ -217,8 +220,9 @@ public class Game {
 	 * @param direct	direction name to get from r1 to r2
 	 */
 	public void linkRooms(Room r1, Room r2, String direct[]) {
+		Door door = new Door(r1, r2);
 		for(int i = 0; i < direct.length; i++) {
-			r1.addDirection(direct[i], r2);
+			r1.addDoor(door, direct[i]);
     	}
 		
 	}

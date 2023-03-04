@@ -6,7 +6,7 @@ import java.util.Set;
 public class Candle extends Item {
 
 	private static HashSet<String> Craftable = new HashSet<String>();
-	private static HashSet<String> CraftedBy = new HashSet<String>();
+	private static HashSet<String[]> CraftedBy = new HashSet<String[]>();
 
 	/**
 	 * constructor for Candle
@@ -15,7 +15,9 @@ public class Candle extends Item {
 		super(Craftable, CraftedBy);
 		Craftable.add("sword");
 		Craftable.add("shovel");
-		CraftedBy.add("");
+		String[] a = {""};
+		CraftedBy.add(a);
+		
 	}
 	
 	@Override

@@ -8,12 +8,18 @@ public abstract class Item {
 	
 	
 	protected HashSet<String> Craftable = new HashSet<String>();
-	protected HashSet<String> CraftedBy = new HashSet<String>();
+	protected HashSet<String[]> CraftedBy = new HashSet<String[]>();
+	protected HashSet<String> Catalyst = new HashSet<String>();
 	protected String myName;
 	
-	protected Item(HashSet<String> Craftable, HashSet<String> craftedBy) {
+	protected Item(HashSet<String> Craftable, HashSet<String[]> CraftedBy) {
 		this.Craftable = Craftable;
 		this.CraftedBy = CraftedBy;
+	}
+	protected Item(HashSet<String> Craftable, HashSet<String[]> CraftedBy, HashSet<String> Catalyst) {
+		this.Craftable = Craftable;
+		this.CraftedBy = CraftedBy;
+		this.Catalyst = Catalyst;
 	}
 	/**
 	 * This method will call upon a rooms properties to dictate what
@@ -29,9 +35,13 @@ public abstract class Item {
 		// TODO Auto-generated method stub
 		return this.Craftable;
 	}
-	protected Set<String> craftedBy() {
+	protected Set<String[]> craftedBy() {
 		// TODO Auto-generated method stub
 		return this.CraftedBy;
+	}
+	protected Set<String> catalystOf() {
+		// TODO Auto-generated method stub
+		return this.Catalyst;
 	}
 	
 	protected String getName() {

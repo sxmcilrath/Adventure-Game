@@ -7,17 +7,17 @@ public class BucketWithSand extends Key {
 
 	private Player player;
 	private static HashSet<String> Craftable = new HashSet<String>();
-	private static HashSet<String> CraftedBy = new HashSet<String>();
+	private static HashSet<String[]> CraftedBy = new HashSet<String[]>();
 	private Door door;
 	
 	
 	
 	public BucketWithSand(Door door) {
-		super(Craftable, CraftedBy, door);
+		super(Craftable, CraftedBy, door, "bucketwithsand");
 		this.door = door;
 		Craftable.add("bucket");
-		CraftedBy.add("bucket");
-		CraftedBy.add("sand");
+		String[] a = {"bucket", "sand"};
+		CraftedBy.add(a);
 		// TODO Auto-generated constructor stub
 	}
 	

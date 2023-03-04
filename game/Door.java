@@ -2,25 +2,34 @@ package game;
 
 public class Door {
 	
-	private Room fromRoom;
-	private Room toRoom;
-	private Key key;
+	private Room room1;
+	private Room room2;
+	private Key key = null;
 
-	public Door(Room fromRom, Room ToRoom) {
-		this.fromRoom = fromRoom;
-		this.toRoom = toRoom;
+	public Door(Room room1, Room room2) {
+		this.room1 = room1;
+		this.room2 = room2;
+		
+	}
+	public Door(Room room1, Room room2, Key key) {
+		this.room1 = room1;
+		this.room2 = room2;
 		this.key = key;
 	}
 	
 	
-	public Room correctKey(Key key) {
-		if(this.key == key) {
-			System.out.println("You used the key.");
-			return toRoom;
-			}
-		System.out.println("Not the correct Key");
-		return fromRoom;
+	
+	
+	public Key getKey() {
+		return this.key;
+	}
+	
+	public Room nextRoom(Room CR) {
+		if(CR == room1) {
+			return room2;
 		}
+		return room1;
+	}
 		
 	
 

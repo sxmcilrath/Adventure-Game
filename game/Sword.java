@@ -7,15 +7,15 @@ public class Sword extends Item {
 
 	
 	private static HashSet<String> Craftable = new HashSet<String>();
-	private static HashSet<String> CraftedBy = new HashSet<String>();
+	private static HashSet<String[]> CraftedBy = new HashSet<String[]>();
 	/**
 	 * constructor for the Sword
 	 * @param game
 	 */
 	public Sword() {
 		super(Craftable, CraftedBy);
-		CraftedBy.add("metalchunk");
-		CraftedBy.add("candle");
+		String[] a = {"metalchunk", "candle"};
+		CraftedBy.add(a);
 		Craftable.add("metalchunk");
 	}
 	

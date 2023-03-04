@@ -4,12 +4,12 @@ import java.util.HashSet;
 
 public class Key extends Item{
 	private static HashSet<String> Craftable = new HashSet<String>();
-	private static HashSet<String> CraftedBy = new HashSet<String>();
+	private static HashSet<String[]> CraftedBy = new HashSet<String[]>();
 	
 	protected Door door;
 	protected String name;
 	
-	protected Key(HashSet<String> Craftable, HashSet<String> craftedBy, Door door, String name) {
+	protected Key(HashSet<String> Craftable, HashSet<String[]> craftedBy, Door door, String name) {
 		super(Craftable, craftedBy);
 		this.door = door;
 		this.name = name;
@@ -24,6 +24,10 @@ public class Key extends Item{
 	}
 	public Door getDoor() {
 		return this.door;
+	}
+	
+	public String getName() {
+		return this.name;
 	}
 	
 	
