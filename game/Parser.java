@@ -33,7 +33,7 @@ public class Parser {
      //String[] Commands holds the main game commands
       
      
-    private String[] commands = {"add", "go","take", "use", "talk", "attack", "pet", "list"};
+    private String[] commands = {"add", "go","take", "use", "talk", "attack", "pet", "list", "look", "craft"};
     private HashMap<String, Command> Calls = new HashMap <String, Command>();
     
     //HasshSet names holds the names of all rooms and items, to make sure the call is valid
@@ -117,8 +117,7 @@ public class Parser {
 	 second = null;
 	 this.game = game;
 	 
-        // The room that the user is in.
-        Room room = this.player.getCurrentRoom();
+     
         System.out.print("Enter command--> ");
         String command = keyboard.nextLine().toLowerCase();  // user's command
         command.trim();

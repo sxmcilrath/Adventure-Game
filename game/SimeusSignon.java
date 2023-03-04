@@ -27,14 +27,15 @@ public class SimeusSignon extends NPC {
 		noSwordAttacked = "Ha. You fool. Have it you way, face my power";
 	}
 	
-	@Override
+	
 	/**
 	 * What does Simeus say when talked to?
 	 * @param progression Do you or do you not have a sword
 	 * @return what Simeus says
 	 */
 	public String talk() {
-		if (player.hasItem("sword")) {
+		
+		if (this.player.hasItem("sword")) {
 			return sword;
 		} else {
 			return noSword;

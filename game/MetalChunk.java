@@ -13,6 +13,9 @@ public class MetalChunk extends Item {
 		Craftable.add("bucket");
 		Craftable.add("sword");
 		Craftable.add("shovel");
+		CraftedBy.add("bucket");
+		CraftedBy.add("sword");
+		CraftedBy.add("shovel");
 	}
 	@Override
 	public String ability(Room room) {

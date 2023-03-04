@@ -24,17 +24,17 @@ public abstract class Item {
 	 */
 	
 	
-	public abstract String ability(Room room);
-	public Set<String> craftable() {
+	protected abstract String ability(Room room);
+	protected Set<String> craftable() {
 		// TODO Auto-generated method stub
 		return this.Craftable;
 	}
-	public Set<String> craftedBy() {
+	protected Set<String> craftedBy() {
 		// TODO Auto-generated method stub
 		return this.CraftedBy;
 	}
 	
-	public String getName() {
+	protected String getName() {
 		return this.myName;
 	}
 	

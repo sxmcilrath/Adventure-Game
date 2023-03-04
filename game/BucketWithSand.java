@@ -3,22 +3,18 @@ package game;
 import java.util.HashSet;
 import java.util.Set;
 
-public class BucketWithSand extends Item {
+public class BucketWithSand extends Key {
 
 	private Player player;
 	private static HashSet<String> Craftable = new HashSet<String>();
 	private static HashSet<String> CraftedBy = new HashSet<String>();
+	private Door door;
 	
-	public BucketWithSand(Player player) {
-		super(Craftable, CraftedBy);
-		this.player = player;
-		Craftable.add("bucket");
-		CraftedBy.add("bucket");
-		CraftedBy.add("sand");
-	}
 	
-	public BucketWithSand() {
-		super(Craftable, CraftedBy);
+	
+	public BucketWithSand(Door door) {
+		super(Craftable, CraftedBy, door);
+		this.door = door;
 		Craftable.add("bucket");
 		CraftedBy.add("bucket");
 		CraftedBy.add("sand");

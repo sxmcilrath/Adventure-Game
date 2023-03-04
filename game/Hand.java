@@ -3,7 +3,7 @@ package game;
 import java.util.HashSet;
 import java.util.Set;
 
-public class Hand extends Item {
+public class Hand  {
 	
 	private HashSet<String> Craftable = new HashSet<String>();
 	private HashSet<String> CraftedBy = new HashSet<String>();
@@ -33,7 +33,7 @@ public class Hand extends Item {
 		
 	}
 
-	@Override
+
 	public String ability(Room room) {
 		if(room.getProperties().contains("sword")) {
 			player.addItemToBackpack("sword", new Sword());
@@ -45,13 +45,12 @@ public class Hand extends Item {
 
 	
 
-	@Override
 	public Set<String> craftable() {
 		// TODO Auto-generated method stub
 		return this.Craftable;
 	}
 
-	@Override
+	
 	public Set<String> craftedBy() {
 		// TODO Auto-generated method stub
 		return this.CraftedBy;

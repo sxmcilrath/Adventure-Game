@@ -11,8 +11,9 @@ public class ListC implements Command{
 	public void call(String first, String second, Player player) {
 		System.out.println( "Options: ");
      	for(int i = 0; i < commands.length; i++) {        	
-     		System.out.println(commands[i]);     
+     		System.out.print(commands[i] + ", ");  
      	}
+     	System.out.print("\n");
 	}
 }
 

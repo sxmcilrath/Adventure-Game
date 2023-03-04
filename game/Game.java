@@ -43,7 +43,8 @@ public class Game {
      * Constructor to set up the game.
      */
     public Game() {
-    	
+    	//initilizes the player
+    	this.player = new Player();
     	//initializes rooms
     	//Ye Olde Tutorial Rooms
     	Room entrance = new Room("entrance","You are standing at the edge of a beautiful forest."
@@ -58,7 +59,7 @@ public class Game {
         
         Room swordTutorial = new Room("swordTutorial","There is a sign here. It seems eager to meet you..."
         		+ " or hurt you. I can't tell. Either way, we shouldn't linger long.",
-        		new SimeusSignon(player));
+        		new SimeusSignon(this.player));
         
         Room freeWillTutorial = new Room("freewill","Oh, another sign. Hopefully this"
         		+ " one is a bit less violent than the last one.",
@@ -118,23 +119,35 @@ public class Game {
         //Creating map of game by linking rooms 
         
         //Linking Ye Olde Tutorial Forest
-        linkRooms(entrance, swordRoom, "swordroom", "entrance");
-        linkRooms(swordRoom, swordTutorial, "swordtutorialroom", "swordroom");
-        linkRooms(swordTutorial, freeWillTutorial, "freewilltutorial", "swordtutorial");
-        linkRooms(freeWillTutorial, questMadeClear, "yourquestmadeclear", "freewilltutorial");
-        linkRooms(freeWillTutorial, nonEucTutorial, "noneuclidiantutorial");
-        linkRooms(questMadeClear, viewingTree , "viewingtree", "yourquestmadeclear");
-        linkRooms(nonEucTutorial, entrance, "south");
-        linkRooms(freeWillTutorial, outsideShelter, "onward", "freewilltutorial");
+   	 String[] Ent = {"entrace", "forest", "tutorial"}; 
+   	 String[] Sr = {"sr", "swordroom", "hill"};
+   	 linkRooms(entrance, swordRoom, Ent,Sr);
+   	 String[] St = {"swordtutorialroom", "thefight", "str"};      	
+   	 linkRooms(swordRoom, swordTutorial, Sr,St);
+   	 String[] Fw = {"freewilltutorial", "fwt"};      
+   	 linkRooms(swordTutorial, freeWillTutorial, St,Fw);
+   	 String[] Qmc = {"yourquestmadeclear", "yqmc", "questmadeclear", "qmc"};      
+   	 linkRooms(freeWillTutorial, questMadeClear, Fw, Qmc);
+   	 String[] Net = {"noneuclidiantutorial", "net"};
+   	 linkRooms(freeWillTutorial, nonEucTutorial, Net);
+   	String[] Vt = {"viewingtree", "vt", "tree", "t"};
+   	 linkRooms(questMadeClear, viewingTree , Qmc, Vt);   
+   	 String[] south = {"south"};
+   	 linkRooms(nonEucTutorial, entrance, south);
+   	String[] Os = {"onward", "outsideshelter", "os", "outside"};
+   	 linkRooms(freeWillTutorial, outsideShelter, Fw, Os);
 
 
         //Linking Overworld
- 
-        linkRooms(outsideShelter, shelter,"shelter", "outside");
-        linkRooms(shelter, icyPath, "icypath", "shelter");
-        linkRooms(shelter, beach, "beach", "shelter");
+   	String[] Sh = {"shelter","sh", "s"};
+        linkRooms(outsideShelter, shelter,Os, Sh);
+        String[] Ip = {"icypath", "ip"};
+        linkRooms(shelter, icyPath, Sh, Ip);
+        String[] Be = {"beach", "b"};
+        linkRooms(shelter, beach, Sh, Be);
         
         //linking icy path puzzle
+        
         linkRooms(icyPath, correctLeft, "left", "back");
         linkRooms(correctLeft, icyPath, "left");
         linkRooms(correctLeft, icyPath, "middle");
@@ -148,8 +161,11 @@ public class Game {
         linkRooms(correctMiddle, iceCastle, "back");
         
         //need to figure out how to get b public void setCurrentRoom(Room currentRoom) { this.currentRoom = currentRoom; }
-        this.crafter = new Crafter();
-        this.player = new Player(crafter);
+        
+        /**
+         * initialize the player, player's location, and initial game output
+         */
+        
         player.setCurrentRoom(entrance);
         player.look(null);
        
@@ -166,7 +182,14 @@ public class Game {
 
     }
     
- 
+    public void linkRooms(Room r1, Room r2, String direct1, String direct2) {    	
+		linkRooms(r1, r2, direct2);	    	
+		linkRooms(r2, r1, direct1);
+
+}
+    public void linkRooms(Room r1, Room r2, String direct) {
+			r1.addDirection(direct, r2);
+    	}
 
 /**
  * mutually add two rooms to be accessed by the other
@@ -175,9 +198,10 @@ public class Game {
  * @param direct1	direction name to get to r2 from r1
  * @param direct2	direction name to get to r1 from r2
  */
-	public void linkRooms(Room r1, Room r2, String direct1, String direct2) {
-		r1.addDirection(direct1, r2);
-		r2.addDirection(direct2, r1);
+	public void linkRooms(Room r1, Room r2, String[] direct1, String[] direct2) {    	
+	    		linkRooms(r1, r2, direct2);	    	
+	    		linkRooms(r2, r1, direct1);
+	   
 	}
 	
 	public void linkSandRooms() {
@@ -192,8 +216,11 @@ public class Game {
 	 * @param r2	destination room
 	 * @param direct	direction name to get from r1 to r2
 	 */
-	public void linkRooms(Room r1, Room r2, String direct) {
-		r1.addDirection(direct, r2);
+	public void linkRooms(Room r1, Room r2, String direct[]) {
+		for(int i = 0; i < direct.length; i++) {
+			r1.addDirection(direct[i], r2);
+    	}
+		
 	}
 	
 	/**

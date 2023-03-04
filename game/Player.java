@@ -2,6 +2,7 @@ package game;
 
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Set;
 
 public class Player {
     private Room CR;
@@ -17,8 +18,8 @@ public class Player {
     private HashSet<String> checkpoints = new HashSet<String>();
 
 	    
-	    public Player(Crafter crafter) {
-	    	this.crafter = crafter;
+	    public Player() {
+	    	this.crafter = new Crafter(backpack);
 	    }
 	    
 	    public boolean isOver() { return over; }
@@ -60,7 +61,7 @@ public class Player {
 
 		public void use(String second) {
 			if(second.equals("")){
-				print("What item would you like to use? \n Options: " + backpack.toString());
+				print("What item would you like to use? \n Options: " + backpack.keySet().toString());
 			}
 			else if(backpack.containsKey(second)){
 				backpack.get(second).ability(CR);
@@ -71,7 +72,13 @@ public class Player {
 		}
 		
 		public void craft(String second) {
-			//this.crafter.
+			if(second.equals("")) {
+				@SuppressWarnings("unchecked")
+				Set<String> toPrint = this.crafter.canCraft();
+				print(toPrint.toString());
+			} else {
+				print(crafter.crafted(second));
+			}
 		}
 
 		public void look(String second) {
