@@ -1,10 +1,11 @@
 package game;
 
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 public class AddC implements Command{
-	private HashMap<String,Command> Calls = new HashMap<String, Command>();
+	private Map<String,Command> Calls = new HashMap<String, Command>();
 	 private Scanner keyboard;
 	 private Player player;
 	

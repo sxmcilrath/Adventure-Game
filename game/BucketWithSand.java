@@ -8,11 +8,11 @@ public class BucketWithSand extends Key {
 	private Player player;
 	private static HashSet<String> Craftable = new HashSet<String>();
 	private static HashSet<String[]> CraftedBy = new HashSet<String[]>();
-	private Door door;
+	private TwoWayDoor door;
 	
 	
 	
-	public BucketWithSand(Door door) {
+	public BucketWithSand(TwoWayDoor door) {
 		super(Craftable, CraftedBy, door, "bucketwithsand");
 		this.door = door;
 		Craftable.add("bucket");
