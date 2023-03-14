@@ -1,7 +1,7 @@
 package game;
 
-
-
+import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * Game.java
@@ -54,8 +54,8 @@ public class Game {
         entrance.addProperty("pretty");
         
         Room swordRoom = new Room("swordRoom","You see a rather wimpy-looking sword on the ground."
-        		+ " It doesn't seem very high quality,but you should still take it. Unless, of"
-        		+ " course, you feel you can manage without it. Up ahead is another sign guy.");
+        		+ " It doesn't seem very high quality,but you should still take it. \nUnless, of"
+        		+ " course, you feel you can manage without it. On the other side of the hill, is another sign guy.");
         swordRoom.addProperty("sword");
         
         Room swordTutorial = new Room("swordTutorial","There is a sign here. It seems eager to meet you..."
@@ -180,8 +180,11 @@ public class Game {
         //linking final castle 
         //NEED TO SET UP A CHECK TO MAKE SURE YOU HAVE PET THE TWO OTHER DOGS
         linkRooms(shelter, outsideFinalCastle, "bridge");
+        linkRooms(entrance, outsideFinalCastle, "cut");	//shortcut to end
         linkRooms(outsideFinalCastle, outsideFinalPuzzle, "forward");
-        linkRooms(outsideFinalPuzzle, finalWhite, "oakdoor", "back");
+        linkRooms(outsideFinalPuzzle, finalWhite, "oakdoor");
+        ArrayList<Room> finalPuzz = new ArrayList<>(Arrays.asList(finalWhite, finalRed, finalGreen, finalBlue));
+        linkRooms(finalPuzz, "glowingdoor");
         
         
         //need to figure out how to get b public void setCurrentRoom(Room currentRoom) { this.currentRoom = currentRoom; }
@@ -250,7 +253,15 @@ public class Game {
 		
 	}
 	
-	//public void linkRooms(ArrayList<Door> rooms, String direct)
+	public void linkRooms(ArrayList<Room> rooms, String direct) {
+		Door door = new RotatingDoor(rooms);	//create rotating door
+		
+		//add door for each room in the arraylist
+		for(int i = 0; i < rooms.size(); i++) {
+			rooms.get(i).addDoor(door, direct);
+		}
+		
+	}
 	
 	/**
 	 * returns the player of the game for the parser
