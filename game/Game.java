@@ -99,6 +99,19 @@ public class Game {
         		+ "your way, but as of now, I can do whatever I like. In fact, just to bother you, "
         		+ "I won't ever change what I say in this room. I'll just repeat the same thing "
         		+ "over and over again and you'll have to deal with it.");
+        Room outsideFinalCastle = new Room("castle", "You gaze up at the towering castle, in awe of its size. You slowly walk across the drawbridge and after"
+        		+ " reaching the other side, it lifts behind you. There is no where to go but forward." );
+        Room outsideFinalPuzzle = new Room("finalpuzzle", "As you enter, you are greeted with the sound of gates slamming shut behind you. You continue walking "
+        		+ " forward and come upon a grand oak door. It seems to be an entrance to a throne room.");
+        
+        Room finalWhite = new Room("white", "Walking into the room, you take in the surroundings. A signfolk with royal garbs stands adjacent to a glowing door."
+        		+ " On the other side of the door is a white lever. ");
+        Room finalRed = new Room("red", "Walking into the room, you take in the surroundings. The room is empty except for a glowing door and on the wall next to it is a red lever."
+        		+ " Looking back you realize the door in which you entered has disappeared.");
+        Room finalGreen = new Room("green", "Walking into the room, you take in the surroundings. The room is empty except for a glowing door and on the wall next to it is a green lever."
+        		+ " Looking back you realize the door in which you entered has disappeared.");
+        Room finalBlue = new Room("blue", "Walking into the room, you take in the surroundings. The room is empty except for a glowing door and on the wall next to it is a blue lever."
+        		+ " Looking back you realize the door in which you entered has disappeared.");
 
 
         
