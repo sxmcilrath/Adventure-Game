@@ -107,7 +107,8 @@ public class Game {
         		+ " forward and come upon a grand oak door. It seems to be an entrance to a throne room.");
         
         Room finalWhite = new Room("white", "Walking into the room, you take in the surroundings. A signfolk with royal garbs stands adjacent to a glowing door."
-        		+ " On the other side of the door is a white lever. ");
+        		+ " On the other side of the door is a white lever. ",
+        		new SibylSignon(player));
         Room finalRed = new Room("red", "Walking into the room, you take in the surroundings. The room is empty except for a glowing door and on the wall next to it is a red lever."
         		+ " Looking back you realize the door in which you entered has disappeared.");
         Room finalGreen = new Room("green", "Walking into the room, you take in the surroundings. The room is empty except for a glowing door and on the wall next to it is a green lever."
