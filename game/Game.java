@@ -99,6 +99,8 @@ public class Game {
         		+ "your way, but as of now, I can do whatever I like. In fact, just to bother you, "
         		+ "I won't ever change what I say in this room. I'll just repeat the same thing "
         		+ "over and over again and you'll have to deal with it.");
+       
+        //final castle rooms(still need throne room)
         Room outsideFinalCastle = new Room("castle", "You gaze up at the towering castle, in awe of its size. You slowly walk across the drawbridge and after"
         		+ " reaching the other side, it lifts behind you. There is no where to go but forward." );
         Room outsideFinalPuzzle = new Room("finalpuzzle", "As you enter, you are greeted with the sound of gates slamming shut behind you. You continue walking "
@@ -174,6 +176,14 @@ public class Game {
         linkRooms(correctMiddle, icyPath, "middle");
         linkRooms(correctMiddle, iceCastle, "back");
         
+        
+        //linking final castle 
+        //NEED TO SET UP A CHECK TO MAKE SURE YOU HAVE PET THE TWO OTHER DOGS
+        linkRooms(shelter, outsideFinalCastle, "bridge");
+        linkRooms(outsideFinalCastle, outsideFinalPuzzle, "forward");
+        linkRooms(outsideFinalPuzzle, finalWhite, "oakdoor", "back");
+        
+        
         //need to figure out how to get b public void setCurrentRoom(Room currentRoom) { this.currentRoom = currentRoom; }
         
         /**
@@ -239,6 +249,8 @@ public class Game {
     	}
 		
 	}
+	
+	//public void linkRooms(ArrayList<Door> rooms, String direct)
 	
 	/**
 	 * returns the player of the game for the parser
