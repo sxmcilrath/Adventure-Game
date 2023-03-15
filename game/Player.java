@@ -134,7 +134,8 @@ public class Player {
 	    
 		
 		   public Room getCurrentRoom() { return CR; }
-		    
+		
+
 		    public void setCurrentRoom(Room CR) { this.CR = CR; }
 
 		    //swtiches rooms

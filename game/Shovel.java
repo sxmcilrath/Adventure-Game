@@ -18,6 +18,7 @@ public class Shovel extends Item {
 		CraftedBy.add(a);
 		//Craftable.add("stick");
 		Craftable.add(MC);
+		Craftable.add(BWS);
 		Catalyst.add(BWS);
 	}
 

@@ -22,6 +22,7 @@ public class Crafter {
 		AllItems.put("shovel", new Shovel());
 		AllItems.put("steak", new Steak());
 		AllItems.put("sword", new Sword());
+		AllItems.put("bucketwithsand", new BucketWithSand());
 	}
 	
 
@@ -32,7 +33,9 @@ public class Crafter {
 		for(Item i: copy) {
 			//Craftable adds string of all items that Backpack(copy) items are materials in
 			for (Item a : i.craftable()) {
+				if(a != null) { // to catch errors
 			this.Craftable.add(a.getName());	
+				}
 			}
 		}		
 		return Craftable;
@@ -42,23 +45,27 @@ public class Crafter {
 	public String crafted(String toCraft) {
 		Craftable = canCraft();
 		if(Craftable.contains(toCraft)) {
-			
 			Item item = AllItems.get(toCraft);
+			//if(item.CraftedBy != null){
 			for(Item[] i : item.CraftedBy) {
 				boolean hasAll = true;
+				if( i != null) {
 				for (Item x : i) {
 					if(!(backpack.keySet().contains(x.getName()))) {
 						hasAll = false;
 					}
+				}
 				}
 				if(hasAll == true) {
 					remove(toCraft, item, i);
 					return toCraft + " crafted";
 				}
 			}
+		//}
 		 if(AllItems.containsKey(toCraft)) {
 				return "you need more materials";
 			}
+	
 		}
 		//if the user attempts to craft a nonexistent item
 		String[] randomReturn = {"Harry Potter?", "A Simulation?", "The Hunger Games?", "America's Got Talent?", "CSCI245?"

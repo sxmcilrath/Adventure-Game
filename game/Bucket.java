@@ -9,10 +9,12 @@ public class Bucket extends Item {
 	private static HashSet<Item[]> CraftedBy = new HashSet<Item[]>();
 	private MetalChunk MC = new MetalChunk();
 	private Candle C = new Candle();
+	private static BucketWithSand BWS = new BucketWithSand();
 	
 	public Bucket() {
 		super(Craftable, CraftedBy, "bucket");
 		Craftable.add(MC);
+		Craftable.add(BWS);
 		Item[] a = {MC, C};
 		CraftedBy.add(a);
 		

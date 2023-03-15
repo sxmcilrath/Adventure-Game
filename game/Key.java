@@ -9,8 +9,8 @@ public class Key extends Item{
 	protected Door door;
 
 	
-	protected Key(HashSet<Item> Craftable, HashSet<Item[]> craftedBy, TwoWayDoor door, String name) {
-		super(Craftable, craftedBy, name);
+	protected Key(HashSet<Item> craftable, HashSet<Item[]> craftedBy, TwoWayDoor door, String name) {
+		super(craftable, craftedBy, name);
 		this.door = door;
 		
 	}

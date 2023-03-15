@@ -71,6 +71,7 @@ public class Game {
         		+ " It doesn't seem very high quality,but you should still take it. \nUnless, of"
         		+ " course, you feel you can manage without it. On the other side of the hill, is another sign guy.");
         swordRoom.addProperty("sword", new Sword());
+        swordRoom.addProperty("metalchunk", new MetalChunk());
 
         
         Room swordTutorial = new Room("swordtutorial","There is a sign here. It seems eager to meet you..."
@@ -176,7 +177,7 @@ public class Game {
         Room sandCastle = new Room("sandcastle","x");      
         sandCastle.addNPC(new Pet(2));
         sandCastle.addProperty("sandmedallion", new SandMedallion());
-        
+        linkRooms(beach, sandCastle, "back", "sandCastle", new BucketWithSand());
         //Lever puzzle
         Lever lever = new Lever(this);
         finalWhite.addLever(lever);
@@ -224,7 +225,7 @@ public class Game {
      linkRooms(shelter, beach, Sh2, Be);
         
         //linking icy path puzzle
-
+     	linkRooms(entrance, beach, "b");
         linkRooms(icyPath, correctLeft, "back", "left");
         linkRooms(correctLeft, icyPath, "left");
         linkRooms(correctLeft, icyPath, "middle");
@@ -263,17 +264,33 @@ public class Game {
 
     }
     
+    /**
+     * recursively calling link room functions
+     * @param r1
+     * @param r2
+     * @param direct1
+     * @param direct2
+     */
+    public void linkRooms(Room r1, Room r2, String[] direct1, String[] direct2, Door door) {    	
+		linkRooms(r1, r2, direct2, door);	    	
+		linkRooms(r2, r1, direct1, door);
+
+}
     
-    
-    public void linkRooms(Room r1, Room r2, String direct1, String direct2) {    	
-		linkRooms(r1, r2, direct2);	    	
-		linkRooms(r2, r1, direct1);
+    public void linkRooms(Room r1, Room r2, String direct1, String direct2, Door door) {    	
+		linkRooms(r1, direct2, door);	    	
+		linkRooms(r2, direct1, door);
 
     }
-    public void linkRooms(Room r1, Room r2, String direct) {
-    	Door door = new TwoWayDoor(r1,r2);
+    public void linkRooms(Room r1, , String direct, Door door) {
+    
 			r1.addDoor(direct, door);
 				
+    	}
+    
+    public void linkRooms(Room r1, Room r2, String direct[], Door door) {
+		for(int i = 0; i < direct.length; i++) {
+			r1.addDoor( direct[i], door);
     	}
 
 /**
@@ -283,11 +300,7 @@ public class Game {
  * @param direct1	direction name to get to r2 from r1
  * @param direct2	direction name to get to r1 from r2
  */
-	public void linkRooms(Room r1, Room r2, String[] direct1, String[] direct2) {    	
-	    		linkRooms(r1, r2, direct2);	    	
-	    		linkRooms(r2, r1, direct1);
-	   
-	}
+	
 	
 	/**
 	 *links the beach to the sandcastle when the puzzle has been solved 
@@ -311,11 +324,7 @@ public class Game {
 	 * @param r2	destination room
 	 * @param direct	direction name to get from r1 to r2
 	 */
-	public void linkRooms(Room r1, Room r2, String direct[]) {
-		Door door = new TwoWayDoor(r1, r2);
-		for(int i = 0; i < direct.length; i++) {
-			r1.addDoor( direct[i], door);
-    	}
+	
 		
 	}
 	
