@@ -68,12 +68,12 @@ public class Game {
         
         Room swordRoom = new Room("swordroom","You see a rather wimpy-looking sword on the ground."
         		+ " It doesn't seem very high quality,but you should still take it. \nUnless, of"
-        		+ " course, you feel you can manage without it. On the other side of the hill, is another sign guy.");
+        		+ " course, you feel you can manage without it. Down the hill, is another sign guy.");
         swordRoom.addProperty("sword", new Sword());
 
         
         Room swordTutorial = new Room("swordtutorial","There is a sign here. It seems eager to meet you..."
-        		+ " or hurt you. I can't tell. Either way, we shouldn't linger long.");
+        		+ " or hurt you. I can't tell. Either way, we shouldn't linger long. Past the sign is a clearing.");
         		swordTutorial.addNPC(new SimeusSignon(this.player));
         
         Room freeWillTutorial = new Room("freewill","You step into the clearing and, oh! another sign. "
@@ -191,10 +191,10 @@ public class Game {
    	 String[] Sr = {"sr", "swordroom", "hill", "forward"};
    	 linkRooms(entrance, swordRoom, Ent,Sr);
    	String[] Sr2 = {"sr", "swordroom", "hill", "back"};
-   	 String[] St = {"swordtutorialroom", "thefight", "str", "forward"};      	
+   	 String[] St = {"swordtutorialroom", "thefight", "str", "forward", "down"};      	
    	 linkRooms(swordRoom, swordTutorial, Sr2,St);
 	 String[] St2 = {"swordtutorialroom", "thefight", "str", "back"};    
-   	 String[] Fw = {"freewilltutorial", "fwt", "forward"};      
+   	 String[] Fw = {"freewilltutorial", "fwt","clearing", "forward"};      
    	 linkRooms(swordTutorial, freeWillTutorial, St2,Fw);
    	 String[] Fw2 = {"freewilltutorial", "fwt", "back"};
    	 String[] Qmc = {"yourquestmadeclear", "yqmc", "questmadeclear", "qmc", "forward"};      

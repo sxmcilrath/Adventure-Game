@@ -1,5 +1,6 @@
 package game;
 
+//standard door 
 public class TwoWayDoor implements Door {
 	
 	private Room room1;
