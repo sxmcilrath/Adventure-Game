@@ -276,7 +276,7 @@ public class Game {
 	public void linkRooms(Room r1, Room r2, String direct[]) {
 		Door door = new TwoWayDoor(r1, r2);
 		for(int i = 0; i < direct.length; i++) {
-			r1.addDoor(door, direct[i]);
+			r1.addDoor( direct[i], door);
     	}
 		
 	}
@@ -286,7 +286,7 @@ public class Game {
 		
 		//add door for each room in the arraylist
 		for(int i = 0; i < rooms.size(); i++) {
-			rooms.get(i).addDoor(door, direct);
+			rooms.get(i).addDoor(direct, door);
 		}
 		
 	}
