@@ -8,32 +8,32 @@
 package game;
 
 public class SineusSignon extends NPC {
-	 private int numTalk = 0;
-	 private String[] says = {"Welcome to Ye Olde Tutorial Forest! My name is Sineus We Signfolk are the inhabitants of this wonderful land.", 
-			 "There's a sword room over the hill. You should go to the sword room", 
-			 "what are you waiting for? The adventure awaits!"};
+	
 	/**
-	 * what the Sineus has to say to the player
+	 * the number of times Sineus has been spoken to
 	 */
-	private String wordsOfWisdom;
+	private int numTalk;
+	
+	/**
+	 * all the dialogue that Sineus can say
+	 */
+	private String[] says;
 	
 	/**
 	 * constructor for Sineus
 	 */
 	public SineusSignon() {
-		wordsOfWisdom = "Welcome to Ye Olde Tutorial Forest! We Signfolk are the inhabitants of"
-				+ " this wonderful land.";
+		numTalk = 0;
+		says = new String[] {"Welcome to Ye Olde Tutorial Forest! My name is Sineus We Signfolk are the inhabitants of this wonderful land.", 
+				 "There's a sword room over the hill. You should go to the sword room", 
+				 "what are you waiting for? The adventure awaits!"};
 	}
 	
 	/**
-	 * Sineus introduces the world to the player
+	 * Sineus introduces the player to the world
 	 */
 	public String talk() {
-		int temp = this.numTalk;
-		if(this.numTalk < says.length - 1) {
-		this.numTalk++;
-		} else {this.numTalk = 0;}
-		return says[temp];
+		return cycleTalk(numTalk, says);
 	}
 
 }
