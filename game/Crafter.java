@@ -31,7 +31,9 @@ public class Crafter {
 		Collection<Item> copy = backpack.values();
 		for(Item i: copy) {
 			//Craftable adds string of all items that Backpack(copy) items are materials in
-			this.Craftable.addAll(i.craftable());		
+			for (Item a : i.craftable()) {
+			this.Craftable.add(a.getName());	
+			}
 		}		
 		return Craftable;
 	}
@@ -42,10 +44,10 @@ public class Crafter {
 		if(Craftable.contains(toCraft)) {
 			
 			Item item = AllItems.get(toCraft);
-			for(String[] i : item.CraftedBy) {
+			for(Item[] i : item.CraftedBy) {
 				boolean hasAll = true;
-				for(String j : i) {	
-					if(!(backpack.keySet().contains(j))) {
+				for (Item x : i) {
+					if(!(backpack.keySet().contains(x.getName()))) {
 						hasAll = false;
 					}
 				}
@@ -66,11 +68,11 @@ public class Crafter {
 		
 	}
 
-	private void remove(String toCraft, Item item, String[] i) {
+	private void remove(String toCraft, Item item, Item[] i) {
 		backpack.put(toCraft, item);
-		for(String remove : i) {
-			if(!(AllItems.get(remove).catalystOf().contains(toCraft))) {
-				backpack.remove(remove);
+		for(Item remove : i) {
+			if(!(AllItems.get(remove.getName()).catalystOf().contains(item))) {
+				backpack.remove(remove.getName());
 			}
 		}
 	}

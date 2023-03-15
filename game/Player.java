@@ -63,15 +63,20 @@ public class Player {
 		}
 
 		public void take(String property) {
-			Item i = allItems.get(property);
-			
-			HashSet<Item> properties = CR.getProperties();
-			if (properties.contains(i)) {
-					addItemToBackpack(property, i);
-					properties.remove(i);
+			if(property.equals("")) {
+				print(CR.getProperties().keySet().toString());
+			} else {			
+			HashMap<String,Item> properties = CR.getProperties();
+			if(!(backpack.containsKey(property))){
+				if (properties.keySet().contains(property)) {
+					addItemToBackpack(property, properties.get(property));
+					properties.remove(property);
 					print("You picked up the " + property);
 					
-				} else {print("Nothing happened.");}
+				} else {print("Nothing happened.");}	
+			} else { print("you can only carry one " + property);}
+			}
+			
 			}
 
 		public void talk() {
@@ -93,12 +98,28 @@ public class Player {
 			
 		}
 		
+		public void drop(String second) {
+			if(second.equals("")){
+				print("What item would you like to drop? \n Options: " + backpack.keySet().toString());
+			}
+			else if(backpack.containsKey(second)){
+				CR.addProperty(second, backpack.get(second));
+				backpack.remove(second);
+				print("you dropped a " + second);
+			} else {
+				print("You don't have a " + second);
+			}
+			
+		}
+		
 		public void craft(String second) {
 			if(second.equals("")) {
 				Set<String> toPrint = this.crafter.canCraft();
 				print(toPrint.toString());
 			} else {
+				if(!(backpack.containsKey(second))){
 				print(crafter.crafted(second));
+				} else { print("you can only carry one " + second);}
 			}
 		}
 

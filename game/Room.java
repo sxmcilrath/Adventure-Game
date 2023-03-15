@@ -18,8 +18,14 @@ import java.util.Map;
 
 public class Room  {
 	
-	private String name;		//name for the room
-	private HashSet<Item> properties;	//A set containing the room's properties, such as dark, onFire, etc.
+
+	/**
+	 * the name of the room
+	 */
+	private String name;
+
+	private HashMap<String, Item> properties;	//A set containing the room's properties, such as dark, onFire, etc.
+
     private HashMap <String, Door> directions = new HashMap<String, Door>();	//map to contain directions to accessible rooms
     private String description;	//A description of this room
     private NPC roomNPC;		//npc for the room if there is one
@@ -38,7 +44,7 @@ public class Room  {
     public Room(String name, String description) {
     	this.name = name;
     	this.description = description;
-    	this.properties = new HashSet<Item>();
+    	this.properties = new HashMap<String,Item>();
     }
     
     /**
@@ -103,12 +109,12 @@ public class Room  {
      * A getter method for the set of the room's properties
      * @return properties
      */
-    public HashSet<Item> getProperties() {
+    public HashMap<String,Item> getProperties() {
     	return properties;
     }
     
-    public void removeProperty(Item property) {
-    	if(properties.contains(property)) {
+    public void removeProperty(String property) {
+    	if(properties.containsKey(property)) {
     		properties.remove(property);
     	}
     	
@@ -126,8 +132,9 @@ public class Room  {
      * method to add a property to a room
      * @param property The property to add to the room
      */
-    public void addProperty(Item property) {
-    	properties.add(property);
+    public void addProperty(String name, Item property) {
+    	
+    	properties.put(name, property);
     }
 
 	
