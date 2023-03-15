@@ -12,9 +12,11 @@ public class SecretCode extends Item {
 	}
 	public String ability(Room room) {
 		// TODO Auto-generated method stub
-		return "Grass is green \n"
+		return "You hold up the piece of paper. On it in an an ancient font it reads:\n "
+				+ "Grass is green \n"
 				+ "The sky is blue \n"
-				+ "My favorite color is orange, but I guess red will do";
+				+ "My favorite color is orange, but I guess red will do\n"
+				+ "what could this mean";
 	}
 
 }

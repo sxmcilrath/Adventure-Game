@@ -135,13 +135,17 @@ public class Game {
         		+ " The door behind you has disappeared.");
         Room finalGreen = new Room("green", "You walk into the room to find a green lever and a glowing "
         		+ "door. The door behind you has disappeared.");
-        Room finalBlue = new Room("blue", "You walk into the room to find a red lever and a glowing door. "
+        Room finalBlue = new Room("blue", "You walk into the room to find a blue lever and a glowing door. "
         		+ "The door behind you has disappeared.");
 
         //need to add a dog here and an actual description
         throne = new Room("throne", "filler");
+<<<<<<< HEAD
         throne.addNPC(new Pet(3));
 
+=======
+        
+>>>>>>> 82884c4ab3402120b5bf94ee6264269b33d18d68
        
         //IcyPathPuzzles
         Room correctLeft = new Room("correctLeft","x");
@@ -157,7 +161,13 @@ public class Game {
 
         Room sandCastle = new Room("sandcastle","x");      
         sandCastle.addNPC(new Pet(2));
-
+        
+        //Lever puzzle
+        Lever lever = new Lever(this);
+        finalWhite.addLever(lever);
+        finalRed.addLever(lever);
+        finalGreen.addLever(lever);
+        finalBlue.addLever(lever);
         //Map Hub Rooms
         
         //Creating map of game by linking rooms 

@@ -9,7 +9,7 @@ import java.util.Set;
 public class Player {
     private Room CR;
     private Crafter crafter;
-//to do checkpoints, directions
+//to do checkpoints, directions 
 
     
     /**
@@ -44,9 +44,14 @@ public class Player {
 	    
 	    
 	    public void pull(String second) {
-	    	if(second.equals(second)) {
-	    		CR.getLever().ability(CR);
+	    	if(CR.getLever() == null) {
+	    		System.out.println("There's nothing to pull!");
 	    	}
+	    	else {
+	    		System.out.println(CR.getLever().ability(CR));
+	    	}
+	    	
+	    	
 	    }
 
 		public void attack() {
