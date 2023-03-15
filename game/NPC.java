@@ -30,18 +30,18 @@ public abstract class NPC {
 	 * Method so that an npc can say something once and then cycle through
 	 * other dialogue without repeating the greetings
 	 * @param counter How many times the NPC has been talked to in the current circumstance
-	 * @param says The repeating pieces of dialogue to cycle through
-	 * @param greeting The greeting from the NPC that should not be repeated
+	 * @param says The repeating pieces of dialogue to cycle through, but the first element
+	 * will only be said once
 	 * @return the thing for the NPC to say
 	 */
-	protected String cycleTalkWithGreeting(int counter, String[] says, String greeting) {
+	protected String cycleTalkWithGreeting(int counter, String[] says) {
 		if (counter == 0) {
 			counter++;
-			return greeting;
+			return says[0];
 		}
 		int temp = counter;
 		counter++;
-		return says[(temp-1)%says.length];
+		return says[((temp-1)%(says.length-1))+1]; // cycle through only the elements after the first element
 	}
 	
 	public String attacked() {

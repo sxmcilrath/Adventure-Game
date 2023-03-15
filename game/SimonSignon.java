@@ -46,7 +46,7 @@ public class SimonSignon extends NPC {
 		if (tree) {
 			return cycleTalk(postTreeCounter, postTree);
 		} else {
-			return cycleTalk(preTreeCounter, preTree);
+			return cycleTalkWithGreeting(preTreeCounter, preTree);
 		}
 	}
 
