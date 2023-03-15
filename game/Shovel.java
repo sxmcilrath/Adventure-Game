@@ -9,14 +9,16 @@ public class Shovel extends Item {
 	private static HashSet<Item> Craftable = new HashSet<Item>();
 	private static HashSet<Item[]> CraftedBy = new HashSet<Item[]>();
 	private static HashSet<Item> Catalyst = new HashSet<Item>();
-	
+	private static MetalChunk MC = new MetalChunk();
+	private static Candle C = new Candle();
+	private static BucketWithSand BWS = new BucketWithSand();
 	public Shovel() {
 		super(Craftable, CraftedBy, "shovel", Catalyst);
-		Item[] a = {new MetalChunk(), new Candle()};
+		Item[] a = {MC, C};
 		CraftedBy.add(a);
 		//Craftable.add("stick");
-		Craftable.add(new MetalChunk());
-		Catalyst.add(new BucketWithSand());
+		Craftable.add(MC);
+		Catalyst.add(BWS);
 	}
 
 	@Override
