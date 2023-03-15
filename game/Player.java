@@ -8,9 +8,8 @@ import java.util.Set;
 
 public class Player {
     private Room CR;
-    private Room PR;
     private Crafter crafter;
-//to do checkpoitns, directions
+//to do checkpoints, directions
 
     
     /**
@@ -121,10 +120,8 @@ public class Player {
 		    			Door door = CR.getDoor(first);
 		    			Key key = door.getKey();
 		    			if(key == null) {
-		    				PR = CR;
 		    				CR = door.nextRoom(CR);
 		    			} else if(this.backpack.containsValue(key)){
-		    				PR = CR;
 		    				CR = door.nextRoom(CR);
 		    				print("you used a " + key.getName());
 		    			} else {
