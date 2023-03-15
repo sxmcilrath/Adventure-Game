@@ -88,7 +88,7 @@ public class Game {
         questMadeClear.addNPC(new SimonSignon(player));
        
 
-        Room viewingTree = new Room("viewingtree","What's that in the distance?");
+        Room viewingTree = new Room("viewingtree","You see a dog resting in the sunlight at the edge of the forest.");
      
         
         Room nonEucTutorial = new Room("noneuc","Another sign is here."
@@ -197,14 +197,14 @@ public class Game {
 	 String[] St2 = {"swordtutorialroom", "thefight", "str", "back"};    
    	 String[] Fw = {"freewilltutorial", "fwt", "forward"};      
    	 linkRooms(swordTutorial, freeWillTutorial, St2,Fw);
-   	 String[] Fw2 = {"freewilltutorial", "fwt", "back"};
-   	 String[] Qmc = {"yourquestmadeclear", "yqmc", "questmadeclear", "qmc", "forward"};      
+   	 String[] Fw2 = {"freewilltutorial", "fwt", "back", "south"};
+   	 String[] Qmc = {"yourquestmadeclear", "yqmc", "questmadeclear", "qmc", "north"};      
    	 linkRooms(freeWillTutorial, questMadeClear, Fw2, Qmc);
-   	 String[] Qmc2 = {"yourquestmadeclear", "yqmc", "questmadeclear", "qmc", "back"}; 
+   	 String[] Qmc2 = {"yourquestmadeclear", "yqmc", "questmadeclear", "qmc", "down"}; 
    	 String[] Net = {"noneuclidiantutorial", "net", "forward"};
    	 linkRooms(freeWillTutorial, nonEucTutorial, Net);
    	 String[] Net2 = {"noneuclidiantutorial", "net", "back"};
-   	 String[] Vt = {"viewingtree", "vt", "tree", "t", "forward"};
+   	 String[] Vt = {"viewingtree", "vt", "tree", "t", "forward", "up"};
    	 linkRooms(questMadeClear, viewingTree , Qmc2, Vt);   
      String[] Vt2 = {"viewingtree", "vt", "tree", "t", "back"};
    	 String[] south = {"south"};
@@ -215,10 +215,10 @@ public class Game {
 
 
      //Linking Overworld
-     String[] Sh = {"shelter","sh", "s", "forward"};
-     String[] Sh2 = {"shelter","sh", "s", "back"};
+     String[] Sh = {"shelter","sh", "s", "forward", "cabin"};
+     String[] Sh2 = {"shelter","sh", "s", "back", "cabin"};
      linkRooms(outsideShelter, shelter,Os2, Sh);
-     String[] Ip = {"icypath", "ip"};
+     String[] Ip = {"icypath", "ip", "ice", "path"};
      linkRooms(shelter, icyPath, Sh2, Ip);
      String[] Be = {"beach", "b"};
      linkRooms(shelter, beach, Sh2, Be);
