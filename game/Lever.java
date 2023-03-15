@@ -21,6 +21,7 @@ public class Lever {
 	public String ability(Room room) {
 		String name = room.getName();
 		if(name.equals("white")) {
+			System.out.println(red);
 			
 			//check if levers have been pressed in the correct order
 			if(red && green && blue) {
@@ -30,30 +31,39 @@ public class Lever {
 						+ "realizing that her job may now be in jeopardy";
 			}
 			reset();
+			return "You pull the lever and hope for the best";
 		}
 		if(name.equals("red")) {
 			
 			if(green && blue && !red) {
 				red = true;
 			}
-			reset();
-			return "You pull the lever and hope for the best";
+			else {
+				reset();
+				return "You pull the lever and hope for the best";
+			}
+			
 		}
 		
 		if(name.equals("green")) {
 			if (!red && !green && !blue) {
 				green = true;
 			}
-			reset();
-			return "You pull the lever and hope for the best";
+			else {
+				reset();
+				return "You pull the lever and hope for the best";
+			}
+			
 		}
 		if(name.equals("blue")) {
 			if(!red && !blue && green) {
 				blue = true;
 				
 			}
-			reset();
-			return "You pull the lever and hope for the best";
+			else {
+				reset();
+				return "You pull the lever and hope for the best";
+			}
 		}
 		return "Huh?";
 	}

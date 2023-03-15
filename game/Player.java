@@ -44,7 +44,13 @@ public class Player {
 	    
 	    
 	    public void pull(String second) {
-	    		CR.getLever().ability(CR);
+	    	if(CR.getLever() == null) {
+	    		System.out.println("There's nothing to pull!");
+	    	}
+	    	else {
+	    		System.out.println(CR.getLever().ability(CR));
+	    	}
+	    	
 	    	
 	    }
 
