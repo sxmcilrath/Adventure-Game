@@ -33,6 +33,8 @@ public class Game {
 	
     private Room beach;	
     private Room sandCastle;
+    private Room finalWhite;
+    private Room throne;
     
     //private Hand hand;
     private boolean icePuzzleCheck = true;
@@ -54,6 +56,7 @@ public class Game {
 		allItems.put("steak", new Steak());
 		allItems.put("sword", new Sword());
 		allItems.put("secretcode", new SecretCode());
+		allItems.put("lever", new Lever(this));
     	
     	//initilizes the player
     	this.player = new Player(allItems);
@@ -117,7 +120,7 @@ public class Game {
         Room outsideFinalPuzzle = new Room("finalpuzzle", "As you enter, you are greeted with the sound of gates slamming shut behind you. You continue walking "
         		+ " forward and come upon a grand oak door. It seems to be an entrance to a throne room.");
         
-        Room finalWhite = new Room("white", "Walking into the room, you take in the surroundings. A signfolk with royal garbs stands adjacent to a glowing door."
+        finalWhite = new Room("white", "Walking into the room, you take in the surroundings. A signfolk with royal garbs stands adjacent to a glowing door."
         		+ " On the other side of the door is a white lever. ");
         	       finalWhite.addNPC(new SibylSignon(player));
         	       finalWhite.addProperty(new SecretCode());
@@ -129,7 +132,7 @@ public class Game {
         		+ " Looking back you realize the door in which you entered has disappeared.");
        
         //need to add a dog here and an actual description
-        Room throne = new Room("throne", "filler");
+        throne = new Room("throne", "filler");
 
         
         //IcyPathPuzzles
@@ -254,6 +257,9 @@ public class Game {
 		linkRooms(beach, sandCastle, "sandcastle", "beach");
 	}
 	
+	public void linkThroneRoom() {
+		linkRooms(finalWhite, throne, "throne", "white");
+	}
 	
 	
 	/**
