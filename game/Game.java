@@ -53,6 +53,7 @@ public class Game {
 		allItems.put("shovel", new Shovel());
 		allItems.put("steak", new Steak());
 		allItems.put("sword", new Sword());
+		allItems.put("secretcode", new SecretCode());
     	
     	//initilizes the player
     	this.player = new Player(allItems);
@@ -61,7 +62,7 @@ public class Game {
     	Room entrance = new Room("entrance","You are standing at the edge of a beautiful forest."
         		+ " A sign is just in front of you; I wonder what it says...",
         		new SineusSignon());
-        entrance.addProperty("pretty");
+        //entrance.addProperty("pretty");
         
         Room swordRoom = new Room("swordRoom","You see a rather wimpy-looking sword on the ground."
         		+ " It doesn't seem very high quality,but you should still take it. \nUnless, of"
@@ -83,7 +84,7 @@ public class Game {
         
 
         Room viewingTree = new Room("viewingTree","What's that in the distance?");
-        viewingTree.addProperty("checkpoint");
+        //viewingTree.addProperty("checkpoint");
         
         Room nonEucTutorial = new Room("nonEuc","Another sign is here."
         		+ " He looks to be the 'needs-to-get-out-more' kind of type");
@@ -118,14 +119,14 @@ public class Game {
         
         Room finalWhite = new Room("white", "Walking into the room, you take in the surroundings. A signfolk with royal garbs stands adjacent to a glowing door."
         		+ " On the other side of the door is a white lever. ");
-        	       icyPath.addNPC(new SibylSignon(player));
+        	       finalWhite.addNPC(new SibylSignon(player));
+        	       finalWhite.addProperty(new SecretCode());
         Room finalRed = new Room("red", "Walking into the room, you take in the surroundings. The room is empty except for a glowing door and on the wall next to it is a red lever."
         		+ " Looking back you realize the door in which you entered has disappeared.");
         Room finalGreen = new Room("green", "Walking into the room, you take in the surroundings. The room is empty except for a glowing door and on the wall next to it is a green lever."
         		+ " Looking back you realize the door in which you entered has disappeared.");
         Room finalBlue = new Room("blue", "Walking into the room, you take in the surroundings. The room is empty except for a glowing door and on the wall next to it is a blue lever."
         		+ " Looking back you realize the door in which you entered has disappeared.");
-
 
         
         //IcyPathPuzzles
@@ -134,7 +135,7 @@ public class Game {
         Room correctMiddle = new Room("correctMiddle","x");
 
         Room iceCastle = new Room("iceCastle","x", new Pet(1));
-        iceCastle.addProperty("checkpoint");
+        //iceCastle.addProperty("checkpoint");
 
         
         //Beach puzzle rooms
@@ -210,12 +211,14 @@ public class Game {
         
         
         //beach puzzle
-        beach.addProperty("shovel");
-        beach.addProperty("bucket");
+        
+        //COMMENTING OUT 
+        //beach.addProperty("shovel");
+        //beach.addProperty("bucket");
         
         
         //Not sure if we need hand so I commented this out for now
-       // hand = new Hand(player);
+        // hand = new Hand(player);
         //player.addItemToBackpack("hand", hand);
 
     }

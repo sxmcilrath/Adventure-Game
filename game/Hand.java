@@ -21,7 +21,9 @@ public class Hand  {
 	}
 	
 	public String ability(Room room, String property) {
-		HashSet<String> properties = room.getProperties();
+		//SAM here: I did change this from a Hashset of strings to Item in order for it to 
+		//not throw an error. Change it back later if that's not in the design
+		HashSet<Item> properties = room.getProperties();
 		
 		//checks if the property if is the room
 		if (properties.contains(property)) {
