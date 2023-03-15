@@ -150,11 +150,20 @@ public class Game {
 
        
         //IcyPathPuzzles
-        Room correctLeft = new Room("correctLeft","x");
-        Room correctRight = new Room("correctRight","x");
-        Room correctMiddle = new Room("correctMiddle","x");
+        Room correctLeft = new Room("correctLeft","You decide to take the left path.\n"
+        		+ "The fog surrounds you, but you keep pushing forward along the trail.\n"
+        		+ "Before long the fog begins to lift and you realize you have arrived at an intersection similar to the first.\n"
+        		+ "The path splits to the left, right, and forward.");
+        Room correctRight = new Room("correctRight","After choosing to go right, you enter the fog once again, arriving at yet another intersection.\n"
+        		+ "Your options remain the same: left, right, and forward.");
+        Room correctMiddle = new Room("correctMiddle","Fed up with going left and right, you decide to forge on ahead.\n"
+        		+ "To your surprise you made the right choice after arriving to a new intersection. The path splits once again.\n"
+        		+ "You can feel it. You're close.");
 
-        Room iceCastle = new Room("icecastle","x");
+        Room iceCastle = new Room("icecastle","At the end of your rope, you decide to go back from where you came.\n"
+        		+ "But instead of the sign's song to greet you, a towering castle of ice lays before you. Overjoyed at this new realization, you rush through the gates.\n"
+        		+ "Huskies of all shapes and sizes run around your feet, they're leading you somewhere. They soon bring you into the center of the castle.\n"
+        		+ "need better descrip here");
         iceCastle.addNPC(new Pet(1));
         //iceCastle.addProperty("checkpoint");
 
