@@ -56,7 +56,6 @@ public class Game {
 		allItems.put("steak", new Steak());
 		allItems.put("sword", new Sword());
 		allItems.put("secretcode", new SecretCode());
-		allItems.put("lever", new Lever(this));
     	
     	//initilizes the player
     	this.player = new Player(allItems);

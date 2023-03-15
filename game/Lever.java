@@ -29,32 +29,33 @@ public class Lever {
 						+ "revealing a grand entrance to what seems to be the throne room. Sibyl looks at you in shock,"
 						+ "realizing that her job may now be in jeopardy";
 			}
+			reset();
 		}
 		if(name.equals("red")) {
 			
-			if(green && blue) {
+			if(green && blue && !red) {
 				red = true;
 			}
-			else{
-				reset();
-			}
-			return "You pull down the red lever hoping for the best";
+			reset();
+			return "You pull the lever and hope for the best";
 		}
 		
 		if(name.equals("green")) {
 			if (!red && !green && !blue) {
 				green = true;
 			}
-			else {
-				reset();
-			}
+			reset();
+			return "You pull the lever and hope for the best";
 		}
 		if(name.equals("blue")) {
 			if(!red && !blue && green) {
+				blue = true;
 				
 			}
+			reset();
+			return "You pull the lever and hope for the best";
 		}
-		return null;
+		return "Huh?";
 	}
 
 }

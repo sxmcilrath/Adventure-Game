@@ -28,6 +28,8 @@ public class Room  {
     private String description;	//A description of this room
     private NPC roomNPC; //npc for the room if there is one
     
+    private Lever lever;
+    
     /**
      * constructor for if the room only needs a description
      * @param description
@@ -113,6 +115,14 @@ public class Room  {
     		properties.remove(property);
     	}
     	
+    }
+    
+    public void addLever(Lever lever) {
+    	this.lever = lever;
+    }
+    
+    public Lever getLever() {
+    	return lever;
     }
     
     /**
