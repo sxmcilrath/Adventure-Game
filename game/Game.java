@@ -73,7 +73,7 @@ public class Game {
         		swordTutorial.addNPC(new SimeusSignon(this.player));
         
         Room freeWillTutorial = new Room("freewill","Oh, another sign. Hopefully this"
-        		+ " one is a bit less violent than the last one."
+        		+ " one is a bit less violent than the last one.");
         		freeWillTutorial.addNPC(new SirainSignon());
         
         Room questMadeClear = new Room("quest","A wise looking sign stands majestically"
