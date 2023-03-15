@@ -44,9 +44,8 @@ public class Player {
 	    
 	    
 	    public void pull(String second) {
-	    	if(second.equals(second)) {
 	    		CR.getLever().ability(CR);
-	    	}
+	    	
 	    }
 
 		public void attack() {
