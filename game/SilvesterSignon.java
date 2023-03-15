@@ -65,25 +65,24 @@ public class SilvesterSignon extends NPC {
 				+ "spell it like \"usge.\" Anyway, I- wait, Narrator, is that you? "
 				+ "It's been far too long my friend! What so you mean you were here earlier?"
 				+ "Surely I would have noticed. Oh yes! The quest! Go to the desert, I believe"
-				+ "it's called Doodle Desert. Silly name, very silly name.",};
+				+ "it's called Doodle Desert. Silly name, very silly name."};
+		preSandCounter = 0;
+		
+		preFinal = new String[] {"By Jove you've done it! The medallions! With those, you'll be able "
+				+ "to reach the Final Castle! Nobody knows what wonderful things are in that castle."};
+		preFinalCounter = 0;
 	}
 	
 	public String talk() {
-		player.crossCheckpoint("fourthwallbreak");
-		if (player.wasCheckCrossed("iceCastle")) {
-			return "Oh, good! You're back in one piece! I did a bit of research, and I think"
-					+ "it might be spelled \"ushe,\" but I also learned that some people "
-					+ "spell it like \"usge.\" Anyway, I- wait, Narrator, is that you? "
-					+ "It's been far too long my friend! What so you mean you were here earlier?"
-					+ "Surely I would have noticed. Oh yes! The quest! Go to the desert, I believe"
-					+ "it's called Doodle Desert. Silly name, very silly name. After all it's really just a beach.\n"
-					+ "Alliteration really is a funny thing isn't it!";
+
+		if (player.wasCheckCrossed("sandCastle")) {
+			return cycleTalk(preFinalCounter, preFinal);
+
 		}
-		return "Hello there, its a beautiful door--I mean, day--today. How are you? "
-				+ "What's that? A dog? Did Simon put you up to this? Well, nearby is a path "
-				+ "towards the ice place (I can never remember what it's called). "
-				+ "Also, how do you spell \"yoozh\", as in, \"I'll have the usual?\" I could "
-				+ "never quite figure it out.";
+		if (player.wasCheckCrossed("iceCastle")) {
+			return cycleTalk(preSandCounter, preSand);
+		}
+		return cycleTalk(preIceCounter, preIce);
 	}
 
 }

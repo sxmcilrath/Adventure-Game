@@ -6,8 +6,6 @@
 
 package game;
 
-import java.util.Set;
-
 public class SimonSignon extends NPC {
 	
 	private Player player;
@@ -46,13 +44,9 @@ public class SimonSignon extends NPC {
 	public String talk() {
 		boolean tree = player.wasCheckCrossed("viewingtree");
 		if (tree) {
-			int temp = postTreeCounter;
-			postTreeCounter++;
-			return postTree[temp%postTree.length];
+			return cycleTalk(postTreeCounter, postTree);
 		} else {
-			int temp = preTreeCounter;
-			preTreeCounter++;
-			return preTree[temp%preTree.length];
+			return cycleTalk(preTreeCounter, preTree);
 		}
 	}
 

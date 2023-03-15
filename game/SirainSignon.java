@@ -9,8 +9,14 @@ package game;
 
 public class SirainSignon extends NPC {
 
-	
+	/**
+	 * the number of times Sirain has been talked to
+	 */
 	private int numTalked = 0;
+	
+	/**
+	 * all the things that Sirain can say
+	 */
 	private String[] says = {"What are you lookin' at me for? Pick a direction and go! How am I supposed to know "
 			+ "where you should go? I've been in this spot my whole life! What, just 'cause you have "
 			+ "three options for which way to go, you're freakin' out? Listen, if you're really "
@@ -22,21 +28,11 @@ public class SirainSignon extends NPC {
 					+ "from now on."};
 	
 	/**
-	 * constructor for Sirain
-	 */
-	public SirainSignon() {
-
-	}
-	
-	/**
 	 * Method for Sirain to talk to the player
-	 * @param progression How far the player is into the game
 	 * @return Sirain's words of wisdom
 	 */
 	public String talk() {
-		int temp = numTalked;
-		numTalked++;
-		return says[temp%says.length];
+		return cycleTalk(numTalked, says);
 	}
 
 }
