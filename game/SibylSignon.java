@@ -15,7 +15,7 @@ public class SibylSignon extends NPC{
 		if(player.wasCheckCrossed("red")) {
 			return "You didn't really expect for it to be that easy did you?"
 					+ " We have this whole castle and you think that you could just"
-					+ " waltz right on through?\n "
+					+ " waltz right on through?\n"
 					+ "Ya you're not getting through this door. "
 					+ "I've got the secret code right here, it's even in riddle form! "
 					+ "Go ahead and take it!\nIt's so tricky you'll never be able to figure it out! ";

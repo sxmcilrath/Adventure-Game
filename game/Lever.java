@@ -49,8 +49,8 @@ public class Lever {
 			
 			if(red && green && blue) {
 				game.linkThroneRoom();
-				return "To your amazemement, the room starts to shake. The wall to your left slowly falls away, "
-						+ "revealing a grand entrance to what seems to be the throne room. Sibyl looks at you in shock,"
+				return "To your amazemement, the room starts to shake.\nThe wall to your left slowly falls away, "
+						+ "revealing a grand entrance to what seems to be the throne room. \nSibyl looks at you in shock,"
 						+ "realizing that her job may now be in jeopardy";
 			}
 			reset();
@@ -60,7 +60,7 @@ public class Lever {
 			
 			if(green && blue && !red) {
 				red = true;
-				return "When you pull the lever, you think you hear a much louder click. You're close. ";
+				return "When you pull the lever, you hear a much louder click. You're close. ";
 			}
 			else {
 				reset();
@@ -83,7 +83,7 @@ public class Lever {
 		if(name.equals("blue")) {
 			if(!red && !blue && green) {
 				blue = true;
-				return "When you pull the lever, you think you hear a click. You're definitely not imagining it. ";
+				return "When you pull the lever, you hear a click. You're definitely not imagining it. ";
 			}
 			else {
 				reset();

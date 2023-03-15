@@ -103,10 +103,13 @@ public class Game {
         	shelter.addNPC(new SilvesterSignon(this.player));
         	
         Room icyPath = new Room("icypath","You depart from the shelter and step foot into the icy woods. This is much different from the forest in which you started. \n"
-        		+ "Icicles hang from the tree branches and a fog quickly envelops your surroundings. \n"
-        		+ "\nIn the midst of creepiness, you hear a rather silly song being sung: "
-        		+ "\"Icy path, oh Icy path, this path is oh so Icy! Pathy Icy "
-        		+ "saucy sauce, move ahead and don't get lost!\" It's... REALLY annoying.");
+        		+ "Icicles hang from the tree branches and a fog quickly envelops your surroundings.\n"
+        		+ "In the midst of creepiness, you hear a rather silly song being sung:\n"
+        		+ "\"Icy path, oh Icy path, this path is oh so Icy!Pathy Icy saucy sauce, move ahead and don't get lost!\"\n"
+        		+ "It's... REALLY annoying.\n"
+        		+ "You continue walking, getting closer and closer to the sound.\n"
+        		+ "Finally you arive at an intersection, where the paths split off into left, right, and forward.\n"
+        		+ "In the middle of the crossroads stands a sign, signing his song without a care in the world.");
         icyPath.addNPC(new SilasSignon());
         beach = new Room("beach","Look at all this sand. If only a very wise, very pleasant "
         		+ "person could lead you in the right direction. Oh wait, I'm right here! There is a "
@@ -118,16 +121,16 @@ public class Game {
         		+ "this conversation.");
        
         //final castle rooms(still need throne room)
-        Room outsideFinalCastle = new Room("castle", "You gaze up at the towering castle, in awe of its size."
-        		+ " You slowly walk across the drawbridge and after"
-        		+ " reaching the other side, it lifts behind you. There is no where to go but forward." );
+        Room outsideFinalCastle = new Room("castle", "You gaze up at the towering castle, in awe of its size.\n"
+        		+ "You slowly walk across the drawbridge and after"
+        		+ " reaching the other side, it lifts behind you.\nThere is no where to go but forward." );
         Room outsideFinalPuzzle = new Room("finalpuzzle", "As you enter, you are greeted with the sound of"
-        		+ " gates slamming shut behind you. You continue walking "
+        		+ " gates slamming shut behind you.\nYou continue walking "
         		+ " forward and come upon a grand oak door. It seems to be an entrance to a throne room.");
         
 
-        finalWhite = new Room("white", "Walking into the room, you take in the surroundings. A signfolk with royal garbs stands adjacent to a glowing door."
-        		+ " On the other side of the door is a white lever. ");
+        finalWhite = new Room("white", "Walking into the room, you take in the surroundings. A signfolk with royal garbs stands adjacent to a glowing door.\n"
+        		+ "On the other side of the door is a white lever. ");
         	       finalWhite.addNPC(new SibylSignon(player));
         	       finalWhite.addProperty(allItems.get("secretcode"));     
         Room finalRed = new Room("red", "You walk into the room to find a room almost identical to where you came.\n"
@@ -135,9 +138,9 @@ public class Game {
         		+ "Looking back, you see the door behind you has disappeared.");
         Room finalGreen = new Room("green", "Okay something is definitely going on.\n"
         		+ "You walk into another identical room to find a green lever and a glowing door."
-        		+ "The door behind you has once again disappeared.");
-        Room finalBlue = new Room("blue", "You walk into the room to find a blue lever and a glowing door. "
-        		+ "The door behind you has disappeared.");
+        		+ "\nThe door behind you has once again disappeared.");
+        Room finalBlue = new Room("blue", "Surprise surprise! You walk into the room to find a blue lever and a glowing door. "
+        		+ "The door behind you has disappeared. Will this nightmare end?");
 
         //need to add a dog here and an actual description
         throne = new Room("throne", "filler");
@@ -207,14 +210,14 @@ public class Game {
      linkRooms(shelter, beach, Sh2, Be);
         
         //linking icy path puzzle
-        
-        linkRooms(icyPath, correctLeft, "left", "back");
+        linkRooms(entrance,icyPath,"icecut");
+        linkRooms(icyPath, correctLeft, "back", "left");
         linkRooms(correctLeft, icyPath, "left");
         linkRooms(correctLeft, icyPath, "middle");
-        linkRooms(correctLeft, correctRight, "right", "back");
+        linkRooms(correctLeft, correctRight, "back", "right");
         linkRooms(correctRight, icyPath, "left");
         linkRooms(correctRight, icyPath, "right");
-        linkRooms(correctRight, correctMiddle, "middle", "back");
+        linkRooms(correctRight, correctMiddle, "back", "middle");
         linkRooms(correctMiddle, icyPath, "left");
         linkRooms(correctMiddle, icyPath, "right");
         linkRooms(correctMiddle, icyPath, "middle");
