@@ -16,6 +16,7 @@ public class RotatingDoor implements Door {
 		this.rooms = rooms;
 		this.key = key;
 	}
+	
 	@Override
 	public Room nextRoom(Room CR) {
 		int size = rooms.size();	//grabs size of rooms

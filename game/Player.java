@@ -9,7 +9,7 @@ import java.util.Set;
 public class Player {
     private Room CR;
     private Crafter crafter;
-//to do checkpoints, directions
+//to do checkpoints, directions 
 
     
     /**
@@ -44,9 +44,14 @@ public class Player {
 	    
 	    
 	    public void pull(String second) {
-	    	if(second.equals(second)) {
-	    		CR.getLever().ability(CR);
+	    	if(CR.getLever() == null) {
+	    		System.out.println("There's nothing to pull!");
 	    	}
+	    	else {
+	    		System.out.println(CR.getLever().ability(CR));
+	    	}
+	    	
+	    	
 	    }
 
 		public void attack() {
@@ -114,7 +119,7 @@ public class Player {
 		    //swtiches rooms
 		    public void switchRoom(String first) {
 		    	//checks to see if user wants to go anywhere
-		    	if(first != "") {
+		    	if(first != "") {  
 		    		//Checks if directon is a key in the directions hashmap
 		    		if(CR.checkDirection(first)) {	
 		    			Door door = CR.getDoor(first);
@@ -128,6 +133,7 @@ public class Player {
 		    				print("You need a " + key.getName());
 		    			}
 		    			look("");
+
 		    			crossCheckpoint(CR.getName());
 
 					} else {
@@ -135,9 +141,9 @@ public class Player {
 					} 
 		    	}else {
 		    		Iterator<String> it = CR.options().keySet().iterator();
-		    		if(it.hasNext()) {
-		    			print("Where would you like to go? \nOptions: " + it.next() + "");
-		    		}
+		  
+		    			print("Where would you like to go? \nOptions: " + CR.options().keySet().toString());
+		    		
 		    	}
 		    }
 		    
@@ -149,7 +155,9 @@ public class Player {
 		     * checks whether or not a check has been crossed
 		     * @param check The check to check for
 		     * @return whether or not the check check checks out
+		     *
 		     */
+		    //this means "has the checkpoint been crossed"
 		    public boolean wasCheckCrossed(String check) {
 		    	return checkpoints.contains(check);
 		    }
@@ -157,7 +165,7 @@ public class Player {
 		    
 		    public void wonGame() {
 		    	this.over = true;
-		    	print("PetMedals" + PetMedallion.size());
+		    	print("PetMedals " + PetMedallion.size());
 		    	for(int i = 1; i < 7; i++) {
 		    		String pet = "pet" + i;
 		    		if(!(PetMedallion.contains(pet))){
@@ -177,7 +185,7 @@ public class Player {
 		     * item, and will fail to do so if the item is not in the backpack.
 		     * @param item The item you are trying to use
 		     * @param room The room you are trying to use the item in
-		     * @return a string containing a descri this.Calls.get(temp).call(this.first, this.second, this.words);ption of what happened **/
+		     * @return a string containing a description of what happened **/
 		    
 		    public String useItem(String item, Room room) {
 		    	   
@@ -232,5 +240,4 @@ public class Player {
 
 
 
-		
 }

@@ -60,7 +60,7 @@ public class Parser {
    	
 	String[] pull = {"pull", "switch"};
    	for(int i = 0; i < add.length; i++) {
-   	 Calls.put(add[i], new PullC());
+   	 Calls.put(pull[i], new PullC());
    	}
    	
    	String[] craft = {"craft", "smelt", "mold","form"};
@@ -102,7 +102,8 @@ public class Parser {
    	for(int i = 0; i < use.length; i++) {
    	 Calls.put(use[i], new UseC());
    	}
-	String[] pet = {"pet, interact"};
+   	
+	String[] pet = {"pet", "interact"};
    	for(int i = 0; i < pet.length; i++) {
    	 Calls.put(pet[i], new PetC());
    	}
