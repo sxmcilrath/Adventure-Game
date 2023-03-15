@@ -102,7 +102,8 @@ public class Parser {
    	for(int i = 0; i < use.length; i++) {
    	 Calls.put(use[i], new UseC());
    	}
-	String[] pet = {"pet, interact"};
+   	
+	String[] pet = {"pet", "interact"};
    	for(int i = 0; i < pet.length; i++) {
    	 Calls.put(pet[i], new PetC());
    	}

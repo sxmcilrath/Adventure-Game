@@ -84,7 +84,7 @@ public class Game {
         		+ " before you. Even in his old age, he has an air of vibrance and royalty."
         		+ " I wonder what he has to say.");
         questMadeClear.addNPC(new SimonSignon(player));
-        
+       
 
         Room viewingTree = new Room("viewingtree","What's that in the distance?");
      
@@ -97,9 +97,11 @@ public class Game {
         Room outsideShelter = new Room("outsideshelter","You stand at the edge of the forest. "
         		+ "Not far ahead is a small, homey cabin... homey...homey. How is homey spelled? "
         		+ "It doesn't matter (well, it might matter), lets go in.");
+        outsideShelter.addNPC(new Pet(0));
         Room shelter = new Room("shelter","Oh, it's Silvester! He and I go way back. Sometime I'll have to "
         		+ "tell about the zany adventures we had as children.");
         	shelter.addNPC(new SilvesterSignon(this.player));
+        	
         Room icyPath = new Room("icypath","You depart from the shelter and step foot into the icy woods. This is much different from the forest in which you started. \n"
         		+ "Icicles hang from the tree branches and a fog quickly envelops your surroundings. \n"
         		+ "\nIn the midst of creepiness, you hear a rather silly song being sung: "
@@ -138,6 +140,7 @@ public class Game {
 
         //need to add a dog here and an actual description
         throne = new Room("throne", "filler");
+        throne.addNPC(new Pet(3));
 
        
         //IcyPathPuzzles

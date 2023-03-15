@@ -42,7 +42,7 @@ public class SimonSignon extends NPC {
 	 * he'll encourage you and have you go on your way 
 	 */
 	public String talk() {
-		boolean tree = player.wasCheckCrossed("viewingTree");
+		boolean tree = player.wasCheckCrossed("viewingtree");
 		if (tree) {
 			return postTreeGoodLook;
 		} else {

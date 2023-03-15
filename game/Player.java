@@ -114,7 +114,7 @@ public class Player {
 		    //swtiches rooms
 		    public void switchRoom(String first) {
 		    	//checks to see if user wants to go anywhere
-		    	if(first != "") {
+		    	if(first != "") {  
 		    		//Checks if directon is a key in the directions hashmap
 		    		if(CR.checkDirection(first)) {	
 		    			Door door = CR.getDoor(first);
@@ -160,7 +160,7 @@ public class Player {
 		    
 		    public void wonGame() {
 		    	this.over = true;
-		    	print("PetMedals" + PetMedallion.size());
+		    	print("PetMedals " + PetMedallion.size());
 		    	for(int i = 1; i < 7; i++) {
 		    		String pet = "pet" + i;
 		    		if(!(PetMedallion.contains(pet))){
@@ -180,7 +180,7 @@ public class Player {
 		     * item, and will fail to do so if the item is not in the backpack.
 		     * @param item The item you are trying to use
 		     * @param room The room you are trying to use the item in
-		     * @return a string containing a descri this.Calls.get(temp).call(this.first, this.second, this.words);ption of what happened **/
+		     * @return a string containing a description of what happened **/
 		    
 		    public String useItem(String item, Room room) {
 		    	   
@@ -235,5 +235,4 @@ public class Player {
 
 
 
-		
 }
