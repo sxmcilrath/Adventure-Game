@@ -56,6 +56,8 @@ public class Game {
 		allItems.put("steak", new Steak());
 		allItems.put("sword", new Sword());
 		allItems.put("secretcode", new SecretCode());
+		allItems.put("sandmedallion", new SandMedallion());
+		allItems.put("icemedallion", new IceMedallion());
     	
     	//initializes the player
     	this.player = new Player(allItems);
@@ -64,7 +66,6 @@ public class Game {
     	Room entrance = new Room("entrance","You are standing at the edge of a beautiful forest."
         		+ " A sign is just in front of you; I wonder what it says...");
         		entrance.addNPC(new SineusSignon());
-        //entrance.addProperty("pretty");
         
         Room swordRoom = new Room("swordroom","You see a rather wimpy-looking sword on the ground."
         		+ " It doesn't seem very high quality,but you should still take it. \nUnless, of"
@@ -163,14 +164,16 @@ public class Game {
         Room iceCastle = new Room("icecastle","At the end of your rope, you decide to go back from where you came.\n"
         		+ "But instead of the sign's song to greet you, a towering castle of ice lays before you. Overjoyed at this new realization, you rush through the gates.\n"
         		+ "Huskies of all shapes and sizes run around your feet, they're leading you somewhere. They soon bring you into the center of the castle.\n"
-        		+ "need better descrip here");
+        		+ "You walk into a massive room made of ice and in the middle of the room is....");
         iceCastle.addNPC(new Pet(1));
+        iceCastle.addProperty(allItems.get("icemedallion"));
         //iceCastle.addProperty("checkpoint");
 
         
         //Beach puzzle room
         Room sandCastle = new Room("sandcastle","x");      
         sandCastle.addNPC(new Pet(2));
+        sandCastle.addProperty(allItems.get("sandmedallion"));
         
         //Lever puzzle
         Lever lever = new Lever(this);
@@ -219,7 +222,6 @@ public class Game {
      linkRooms(shelter, beach, Sh2, Be);
         
         //linking icy path puzzle
-        linkRooms(entrance,icyPath,"icecut");
         linkRooms(icyPath, correctLeft, "back", "left");
         linkRooms(correctLeft, icyPath, "left");
         linkRooms(correctLeft, icyPath, "middle");
@@ -236,7 +238,6 @@ public class Game {
         //linking final castle 
         //NEED TO SET UP A CHECK TO MAKE SURE YOU HAVE PET THE TWO OTHER DOGS
         linkRooms(shelter, outsideFinalCastle, "bridge");
-        linkRooms(entrance, outsideFinalCastle, "cut");	//shortcut to end
         linkRooms(outsideFinalCastle, outsideFinalPuzzle, "forward");
         linkRooms(outsideFinalPuzzle, finalWhite, "oakdoor");
         ArrayList<Room> finalPuzz = new ArrayList<>(Arrays.asList(finalWhite, finalRed, finalGreen, finalBlue));
