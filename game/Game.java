@@ -56,7 +56,7 @@ public class Game {
 		allItems.put("secretcode", new SecretCode());
     	
     	//initilizes the player
-    	this.player = new Player(allItems);
+    	this.player = new Player(allItems, this);
     	//initializes rooms
     	//Ye Olde Tutorial Rooms
     	Room entrance = new Room("entrance","You are standing at the edge of a beautiful forest."
@@ -131,7 +131,7 @@ public class Game {
         //need to add a dog here and an actual description
         Room throne = new Room("throne", "filler");
 
-        
+       
         //IcyPathPuzzles
         Room correctLeft = new Room("correctLeft","x");
         Room correctRight = new Room("correctRight","x");
@@ -152,13 +152,15 @@ public class Game {
         //Creating map of game by linking rooms 
         
         //Linking Ye Olde Tutorial Forest
-   	 String[] Ent = {"entrace", "forest", "tutorial"}; 
-   	 String[] Sr = {"sr", "swordroom", "hill"};
+   	 String[] Ent = {"entrace", "forest", "tutorial", "back"}; 
+   	 String[] Sr = {"sr", "swordroom", "hill", "forward"};
    	 linkRooms(entrance, swordRoom, Ent,Sr);
-   	 String[] St = {"swordtutorialroom", "thefight", "str"};      	
-   	 linkRooms(swordRoom, swordTutorial, Sr,St);
-   	 String[] Fw = {"freewilltutorial", "fwt"};      
-   	 linkRooms(swordTutorial, freeWillTutorial, St,Fw);
+   	String[] Sr2 = {"sr", "swordroom", "hill", "back"};
+   	 String[] St = {"swordtutorialroom", "thefight", "str", "forward"};      	
+   	 linkRooms(swordRoom, swordTutorial, Sr2,St);
+	 String[] St2 = {"swordtutorialroom", "thefight", "str", "back"};    
+   	 String[] Fw = {"freewilltutorial", "fwt", "forward"};      
+   	 linkRooms(swordTutorial, freeWillTutorial, St2,Fw);
    	 String[] Qmc = {"yourquestmadeclear", "yqmc", "questmadeclear", "qmc"};      
    	 linkRooms(freeWillTutorial, questMadeClear, Fw, Qmc);
    	 String[] Net = {"noneuclidiantutorial", "net"};
@@ -235,7 +237,7 @@ public class Game {
 }
     public void linkRooms(Room r1, Room r2, String direct) {
     	Door door = new TwoWayDoor(r1,r2);
-			r1.addDoor(door, direct);
+			r1.addDoor(direct, door);
 				
     	}
 
