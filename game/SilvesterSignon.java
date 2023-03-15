@@ -74,8 +74,10 @@ public class SilvesterSignon extends NPC {
 	}
 	
 	public String talk() {
+
 		if (player.wasCheckCrossed("sandCastle")) {
 			return cycleTalk(preFinalCounter, preFinal);
+
 		}
 		if (player.wasCheckCrossed("iceCastle")) {
 			return cycleTalk(preSandCounter, preSand);

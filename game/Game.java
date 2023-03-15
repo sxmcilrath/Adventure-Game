@@ -70,7 +70,8 @@ public class Game {
         Room swordRoom = new Room("swordroom","You see a rather wimpy-looking sword on the ground."
         		+ " It doesn't seem very high quality,but you should still take it. \nUnless, of"
         		+ " course, you feel you can manage without it. On the other side of the hill, is another sign guy.");
-        swordRoom.addProperty(allItems.get("sword"));
+        swordRoom.addProperty("sword", new Sword());
+
         
         Room swordTutorial = new Room("swordtutorial","There is a sign here. It seems eager to meet you..."
         		+ " or hurt you. I can't tell. Either way, we shouldn't linger long.");
@@ -120,7 +121,8 @@ public class Game {
         		+ "I won't ever change what I say in this room. I'll just repeat the same thing "
         		+ "over and over again and you'll have to deal with it. Try to to figure it out because"
         		+ "this conversation.");
-       
+            swordRoom.addProperty("bucket", new Bucket());
+            swordRoom.addProperty("shovel", new Shovel());
         //final castle rooms(still need throne room)
         Room outsideFinalCastle = new Room("castle", "You gaze up at the towering castle, in awe of its size.\n"
         		+ "You slowly walk across the drawbridge and after"
@@ -133,7 +135,7 @@ public class Game {
         finalWhite = new Room("white", "Walking into the room, you take in the surroundings. A signfolk with royal garbs stands adjacent to a glowing door.\n"
         		+ "On the other side of the door is a white lever. ");
         	       finalWhite.addNPC(new SibylSignon(player));
-        	       finalWhite.addProperty(allItems.get("secretcode"));     
+        	       finalWhite.addProperty("secretcode", new SecretCode());     
         Room finalRed = new Room("red", "You walk into the room to find a room almost identical to where you came.\n"
         		+ "Howver this time the room is empty except for a red lever and a glowing door.\n"
         		+ "Looking back, you see the door behind you has disappeared.");
@@ -166,14 +168,14 @@ public class Game {
         		+ "Huskies of all shapes and sizes run around your feet, they're leading you somewhere. They soon bring you into the center of the castle.\n"
         		+ "You walk into a massive room made of ice and in the middle of the room is....");
         iceCastle.addNPC(new Pet(1));
-        iceCastle.addProperty(allItems.get("icemedallion"));
-        //iceCastle.addProperty("checkpoint");
+        iceCastle.addProperty("icemedallion", new IceMedallion());
+
 
         
         //Beach puzzle room
         Room sandCastle = new Room("sandcastle","x");      
         sandCastle.addNPC(new Pet(2));
-        sandCastle.addProperty(allItems.get("sandmedallion"));
+        sandCastle.addProperty("sandmedallion", new SandMedallion());
         
         //Lever puzzle
         Lever lever = new Lever(this);
@@ -222,6 +224,7 @@ public class Game {
      linkRooms(shelter, beach, Sh2, Be);
         
         //linking icy path puzzle
+
         linkRooms(icyPath, correctLeft, "back", "left");
         linkRooms(correctLeft, icyPath, "left");
         linkRooms(correctLeft, icyPath, "middle");
@@ -238,6 +241,7 @@ public class Game {
         //linking final castle 
         //NEED TO SET UP A CHECK TO MAKE SURE YOU HAVE PET THE TWO OTHER DOGS
         linkRooms(shelter, outsideFinalCastle, "bridge");
+        
         linkRooms(outsideFinalCastle, outsideFinalPuzzle, "forward");
         linkRooms(outsideFinalPuzzle, finalWhite, "oakdoor");
         ArrayList<Room> finalPuzz = new ArrayList<>(Arrays.asList(finalWhite, finalRed, finalGreen, finalBlue));
@@ -255,18 +259,11 @@ public class Game {
        
         
         
-        //beach puzzle
-        
-        //COMMENTING OUT 
-        //beach.addProperty("shovel");
-        //beach.addProperty("bucket");
-        
-        
-        //Not sure if we need hand so I commented this out for now
-        // hand = new Hand(player);
-        //player.addItemToBackpack("hand", hand);
+
 
     }
+    
+    
     
     public void linkRooms(Room r1, Room r2, String direct1, String direct2) {    	
 		linkRooms(r1, r2, direct2);	    	
@@ -292,12 +289,17 @@ public class Game {
 	   
 	}
 	
+	/**
+	 *links the beach to the sandcastle when the puzzle has been solved 
+	 */
 	public void linkSandRooms() {
-		linkRooms(beach, sandCastle, "sandcastle", "beach");
+		linkRooms(beach, sandCastle, "beach", "sandcastle");
 	}
-	
+	/**
+	 * links the puzzle room to the final throne room when solved
+	 */
 	public void linkThroneRoom() {
-		linkRooms(finalWhite, throne, "throne", "white");
+		linkRooms(finalWhite, throne,"white", "throne");
 	}
 	
 	
@@ -316,7 +318,14 @@ public class Game {
     	}
 		
 	}
-	//test
+	
+	
+	
+	/**
+	 * link rooms for rotating door
+	 * @param rooms		rooms that will be rotated through
+	 * @param direct	direction name for the rooms
+	 */
 	public void linkRooms(ArrayList<Room> rooms, String direct) {
 		Door door = new RotatingDoor(rooms);	//create rotating door
 		

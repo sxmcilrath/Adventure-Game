@@ -6,17 +6,17 @@ import java.util.Set;
 public class Shovel extends Item {
 
 	private Player player;
-	private static HashSet<String> Craftable = new HashSet<String>();
-	private static HashSet<String[]> CraftedBy = new HashSet<String[]>();
-	private static HashSet<String> Catalyst = new HashSet<String>();
+	private static HashSet<Item> Craftable = new HashSet<Item>();
+	private static HashSet<Item[]> CraftedBy = new HashSet<Item[]>();
+	private static HashSet<Item> Catalyst = new HashSet<Item>();
 	
 	public Shovel() {
-		super(Craftable, CraftedBy, Catalyst);
-		String[] a = {"metalchunk", "candle"};
+		super(Craftable, CraftedBy, "shovel", Catalyst);
+		Item[] a = {new MetalChunk(), new Candle()};
 		CraftedBy.add(a);
-		Craftable.add("stick");
-		Craftable.add("metalchunk");
-		Catalyst.add("bucketwithsand");
+		//Craftable.add("stick");
+		Craftable.add(new MetalChunk());
+		Catalyst.add(new BucketWithSand());
 	}
 
 	@Override
