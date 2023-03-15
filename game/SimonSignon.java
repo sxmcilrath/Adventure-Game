@@ -44,9 +44,9 @@ public class SimonSignon extends NPC {
 	public String talk() {
 		boolean tree = player.wasCheckCrossed("viewingtree");
 		if (tree) {
-			return cycleTalk(postTreeCounter, postTree);
+			return cycleTalk(postTreeCounter++, postTree);
 		} else {
-			return cycleTalkWithGreeting(preTreeCounter, preTree);
+			return cycleTalkWithGreeting(preTreeCounter++, preTree);
 		}
 	}
 

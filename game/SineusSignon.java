@@ -33,7 +33,7 @@ public class SineusSignon extends NPC {
 	 * Sineus introduces the player to the world
 	 */
 	public String talk() {
-		return cycleTalk(numTalk, says);
+		return cycleTalk(numTalk++, says);
 	}
 
 }

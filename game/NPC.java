@@ -20,10 +20,8 @@ public abstract class NPC {
 	 * @param says All the dialogue for the NPC to cycle through 
 	 * @return the thing for the NPC to say
 	 */
-	protected String cycleTalk(Integer counter, String[] says) {
-		int temp = counter;
-		counter++;
-		return says[temp%says.length];
+	protected String cycleTalk(int counter, String[] says) {
+		return says[counter%says.length];
 	}
 	
 	/**
