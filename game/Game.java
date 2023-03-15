@@ -60,18 +60,17 @@ public class Game {
     	//initializes rooms
     	//Ye Olde Tutorial Rooms
     	Room entrance = new Room("entrance","You are standing at the edge of a beautiful forest."
-        		+ " A sign is just in front of you; read it and start moving forward.",
-        		new SineusSignon());
+        		+ " A sign is just in front of you; I wonder what it says...");
+        		entrance.addNPC(new SineusSignon());
+        //entrance.addProperty("pretty");
         
-        Room swordRoom = new Room("swordRoom","You see a rather wimpy-looking sword on the ground."
-        		+ " It doesn't seem very high quality, but you should still take it. \nUnless, of"
-        		+ " course, you feel you can manage without it. On the other side of the hill "
-        		+ "is another sign guy.");
-        swordRoom.addProperty(new Sword());
+        Room swordRoom = new Room("swordroom","You see a rather wimpy-looking sword on the ground."
+        		+ " It doesn't seem very high quality,but you should still take it. \nUnless, of"
+        		+ " course, you feel you can manage without it. On the other side of the hill, is another sign guy.");
+        swordRoom.addProperty(allItems.get("sword"));
         
-        Room swordTutorial = new Room("swordTutorial","There is a sign here. It seems eager to meet you..."
-        		+ " or hurt you. I can't tell. Either way, we shouldn't linger long. There is a path in "
-        		+ "front of you with a clearing.");
+        Room swordTutorial = new Room("swordtutorial","There is a sign here. It seems eager to meet you..."
+        		+ " or hurt you. I can't tell. Either way, we shouldn't linger long.");
         		swordTutorial.addNPC(new SimeusSignon(this.player));
         
         Room freeWillTutorial = new Room("freewill","You step into the clearing and, oh! another sign. "
@@ -85,20 +84,21 @@ public class Game {
         questMadeClear.addNPC(new SimonSignon(player));
         
 
-        Room viewingTree = new Room("viewingTree","What's that in the distance?");
+        Room viewingTree = new Room("viewingtree","What's that in the distance?");
+     
         
-        Room nonEucTutorial = new Room("nonEuc","Another sign is here."
+        Room nonEucTutorial = new Room("noneuc","Another sign is here."
         		+ " He looks to be the 'needs-to-get-out-more' kind of type");
         
         //Overworld Rooms
 
-        Room outsideShelter = new Room("outsideShelter","You stand at the edge of the forest. "
+        Room outsideShelter = new Room("outsideshelter","You stand at the edge of the forest. "
         		+ "Not far ahead is a small, homey cabin... homey...homey. How is homey spelled? "
         		+ "It doesn't matter (well, it might matter), lets go in.");
         Room shelter = new Room("shelter","Oh, it's Silvester! He and I go way back. Sometime I'll have to "
         		+ "tell about the zany adventures we had as children.");
-        	shelter.addNPC(new SilvesterSignon(player));
-        Room icyPath = new Room("icyPath","You depart from the shelter and step foot into the icy woods. This is much different from the forest in which you started. \n"
+        	shelter.addNPC(new SilvesterSignon(this.player));
+        Room icyPath = new Room("icypath","You depart from the shelter and step foot into the icy woods. This is much different from the forest in which you started. \n"
         		+ "Icicles hang from the tree branches and a fog quickly envelops your surroundings. \n"
         		+ "\nIn the midst of creepiness, you hear a rather silly song being sung: "
         		+ "\"Icy path, oh Icy path, this path is oh so Icy! Pathy Icy "
@@ -125,14 +125,16 @@ public class Game {
         		+ " On the other side of the door is a whi\"entrate lever. ");
         	       finalWhite.addNPC(new SibylSignon(player));
         	       finalWhite.addProperty(new SecretCode());
+        	       
         Room finalRed = new Room("red", "You walk into the room to find a red lever and a glowing door."
         		+ " The door behind you has disappeared.");
-        String temp = "You walk into the room to find a red lever and a glowing door. The door behind you"
-        		+ "has disappeared.";
         Room finalGreen = new Room("green", "You walk into the room to find a green lever and a glowing "
         		+ "door. The door behind you has disappeared.");
         Room finalBlue = new Room("blue", "You walk into the room to find a red lever and a glowing door. "
         		+ "The door behind you has disappeared.");
+
+        //need to add a dog here and an actual description
+        Room throne = new Room("throne", "filler");
 
         
         //IcyPathPuzzles
@@ -140,13 +142,15 @@ public class Game {
         Room correctRight = new Room("correctRight","x");
         Room correctMiddle = new Room("correctMiddle","x");
 
-        Room iceCastle = new Room("iceCastle","x", new Pet(1));
+        Room iceCastle = new Room("icecastle","x");
+        iceCastle.addNPC(new Pet(1));
         //iceCastle.addProperty("checkpoint");
 
         
         //Beach puzzle rooms
 
-        Room sandCastle = new Room("sandCastle","x", new Pet(2));        
+        Room sandCastle = new Room("sandcastle","x");      
+        sandCastle.addNPC(new Pet(2));
 
         //Map Hub Rooms
         
@@ -256,6 +260,8 @@ public class Game {
 	public void linkSandRooms() {
 		linkRooms(beach, sandCastle, "sandcastle", "beach");
 	}
+	
+	
 	
 	/**
 	 * Overloading linkRooms method to make a case where a room leads to 

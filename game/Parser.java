@@ -33,7 +33,7 @@ public class Parser {
      //String[] Commands holds the main game commands
       
      
-    private String[] commands = {"add", "go","take", "use", "talk", "attack", "pet", "list", "look", "craft"};
+    private String[] commands = {"add", "go","take", "use", "talk", "attack", "pet", "list", "look", "craft", "pull"};
     private HashMap<String, Command> Calls = new HashMap <String, Command>();
     
     //HasshSet names holds the names of all rooms and items, to make sure the call is valid
@@ -56,6 +56,11 @@ public class Parser {
    	String[] add = {"add", "new"};
    	for(int i = 0; i < add.length; i++) {
    	 Calls.put(add[i], new AddC(this.Calls, this.player));
+   	}
+   	
+	String[] pull = {"pull", "switch"};
+   	for(int i = 0; i < add.length; i++) {
+   	 Calls.put(add[i], new PullC());
    	}
    	
    	String[] craft = {"craft", "smelt", "mold","form"};
@@ -97,7 +102,7 @@ public class Parser {
    	for(int i = 0; i < use.length; i++) {
    	 Calls.put(use[i], new UseC());
    	}
-	String[] pet = {"pet"};
+	String[] pet = {"pet, interact"};
    	for(int i = 0; i < pet.length; i++) {
    	 Calls.put(pet[i], new PetC());
    	}

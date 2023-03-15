@@ -2,11 +2,13 @@ package game;
 
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 
 public class Player {
     private Room CR;
+    private Room PR;
     private Crafter crafter;
 
     
@@ -28,8 +30,9 @@ public class Player {
 	    }
 	    
 	    public boolean isOver() { return over; }
+	    
 	    public void pet() {
-			
+	    	
 			NPC npc = CR.getNPC();
 			if(npc instanceof Pet) {
 				print(npc.talk());
@@ -38,6 +41,11 @@ public class Player {
 				wonGame();
 			}
 		}
+	    
+	    
+	    public void pull(String second) {
+	    	//add lever code
+	    }
 
 		public void attack() {
 			NPC npc = CR.getNPC();
@@ -71,7 +79,7 @@ public class Player {
 				print("What item would you like to use? \n Options: " + backpack.keySet().toString());
 			}
 			else if(backpack.containsKey(second)){
-				backpack.get(second).ability(CR);
+				print(backpack.get(second).ability(CR));
 			} else {
 				print("You don't have a " + second);
 			}
@@ -110,8 +118,10 @@ public class Player {
 		    			Door door = CR.getDoor(first);
 		    			Key key = door.getKey();
 		    			if(key == null) {
+		    				PR = CR;
 		    				CR = door.nextRoom(CR);
 		    			} else if(this.backpack.containsValue(key)){
+		    				PR = CR;
 		    				CR = door.nextRoom(CR);
 		    				print("you used a " + key.getName());
 		    			} else {
@@ -119,11 +129,15 @@ public class Player {
 		    			}
 		    			look("");
 		    			crossCheckpoint(CR.getName());
+
 					} else {
 						print("There is nothing in that direction");
-					}		
-		    	} else {
-		    		print("Where would you like to go? \nOptions: " + CR.options().keySet().toString());
+					} 
+		    	}else {
+		    		Iterator<String> it = CR.options().keySet().iterator();
+		    		if(it.hasNext()) {
+		    			print("Where would you like to go? \nOptions: " + it.next() + "");
+		    		}
 		    	}
 		    }
 		    
@@ -186,6 +200,7 @@ public class Player {
 		     * puts an item into the backpack so that the player can use it
 		     * @param itemName The name of the item that you are adding
 		     * @param item The item that you are adding
+   	for(int i = 0; i < 
 		     * @return A string used to say that the item was picked up
 		     */
 		    public String addItemToBackpack(String itemName, Item item) {
