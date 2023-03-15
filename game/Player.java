@@ -128,7 +128,9 @@ public class Player {
 		    				print("You need a " + key.getName());
 		    			}
 		    			look("");
-	    				this.checkpoints.add(CR.getName());
+
+		    			crossCheckpoint(CR.getName());
+
 					} else {
 						print("There is nothing in that direction");
 					} 

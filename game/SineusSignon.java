@@ -21,7 +21,8 @@ public class SineusSignon extends NPC {
 	 * constructor for Sineus
 	 */
 	public SineusSignon() {
-		wordsOfWisdom = "Welcome to Ye Olde Tutorial Forest! We Signfolk are the inhabitants of this wonderful land.";
+		wordsOfWisdom = "Welcome to Ye Olde Tutorial Forest! We Signfolk are the inhabitants of"
+				+ " this wonderful land.";
 	}
 	
 	/**
