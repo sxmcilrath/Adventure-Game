@@ -32,10 +32,6 @@ public class Room  {
      * constructor for if the room only needs a description
      * @param description
      */
-    public Room(String description) {
-    	this.description = description;
-    	this.properties = new HashSet<Item>();
-    }
     
     /**
      * Constructor.
@@ -52,11 +48,6 @@ public class Room  {
      * @param description
      * @param roomNPC
      */
-    public Room(String description, NPC roomNPC) {
-    	this.description = description;
-    	this.roomNPC = roomNPC;
-    	this.properties = new HashSet<Item>();
-    }
     
     public void addNPC(NPC npc) {
     	this.roomNPC = npc;
@@ -68,12 +59,6 @@ public class Room  {
      * @param description	String describes room 	
      * @param roomNPC		NPC in room
      */
-    public Room(String name, String description, NPC roomNPC) {
-    	this.name = name;
-    	this.description = description;
-    	this.roomNPC = roomNPC;
-    	this.properties = new HashSet<Item>();
-    }
     
     //method to add directions and connections to a room
     public void addDoor(Door door, String directName) {
