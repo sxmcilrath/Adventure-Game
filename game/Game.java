@@ -280,7 +280,7 @@ public class Game {
     	}
 		
 	}
-	
+	//test
 	public void linkRooms(ArrayList<Room> rooms, String direct) {
 		Door door = new RotatingDoor(rooms);	//create rotating door
 		
