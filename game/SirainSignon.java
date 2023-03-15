@@ -9,19 +9,23 @@ package game;
 
 public class SirainSignon extends NPC {
 
-	/**
-	 * Sirain's words of wisdom to the player
-	 */
-	private String wordsOfWisdom;
+	
+	private int numTalked = 0;
+	private String[] says = {"What are you lookin' at me for? Pick a direction and go! How am I supposed to know "
+			+ "where you should go? I've been in this spot my whole life! What, just 'cause you have "
+			+ "three options for which way to go, you're freakin' out? Listen, if you're really "
+			+ "so bothered by not knowin' where to go, just head north and talk to Simon.", 
+			"My name is Sirain, by the way.", "Sineus is the guy at the front of the forest. He's nice.",
+			"Look, Simon is wiser than I am. I can't really help you that much. For goodness sake, my "
+			+ "only real function in the game is to tell you to go north!", "Alright buddy, move along. "
+					+ "This is my last original line of dialogue anyway. I'll just repeat things "
+					+ "from now on."};
 	
 	/**
 	 * constructor for Sirain
 	 */
 	public SirainSignon() {
-		wordsOfWisdom = "What are you lookin' at me for? Pick a direction and go! How am I supposed to know "
-				+ "where you should go? I've been in this spot my whole life! What, just 'cause you have "
-				+ "three options for which way to go, you're freakin' out? Listen, if you're really "
-				+ "so bothered by not knowin' where to go, just head north and talk to Simon.";
+
 	}
 	
 	/**
@@ -30,7 +34,9 @@ public class SirainSignon extends NPC {
 	 * @return Sirain's words of wisdom
 	 */
 	public String talk() {
-		return wordsOfWisdom;
+		int temp = numTalked;
+		numTalked++;
+		return says[temp%says.length];
 	}
 
 }

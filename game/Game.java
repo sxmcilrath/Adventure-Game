@@ -272,7 +272,7 @@ public class Game {
 		linkRooms(r1, r2, direct2);	    	
 		linkRooms(r2, r1, direct1);
 
-}
+    }
     public void linkRooms(Room r1, Room r2, String direct) {
     	Door door = new TwoWayDoor(r1,r2);
 			r1.addDoor(direct, door);
