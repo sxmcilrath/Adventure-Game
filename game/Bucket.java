@@ -7,11 +7,13 @@ public class Bucket extends Item {
 
 	private static HashSet<Item> Craftable = new HashSet<Item>();
 	private static HashSet<Item[]> CraftedBy = new HashSet<Item[]>();
+	private MetalChunk MC = new MetalChunk();
+	private Candle C = new Candle();
 	
 	public Bucket() {
 		super(Craftable, CraftedBy, "bucket");
-		Craftable.add(new MetalChunk());
-		Item[] a = {new MetalChunk(), new Candle()};
+		Craftable.add(MC);
+		Item[] a = {MC, C};
 		CraftedBy.add(a);
 		
 		

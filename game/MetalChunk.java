@@ -7,17 +7,20 @@ public class MetalChunk extends Item {
 
 	private static HashSet<Item> Craftable = new HashSet<Item>();
 	private static HashSet<Item[]> CraftedBy = new HashSet<Item[]>();
+	private static Bucket B = new Bucket();
+	private static Sword S = new Sword();
+	private static Shovel SH = new Shovel();
 	
 	public MetalChunk () {
 		super(Craftable, CraftedBy, "metalchunk");
-		Craftable.add(new Bucket());
-		Craftable.add(new Sword());
-		Craftable.add(new Shovel());
-		Item[] a = {new Bucket()};
+		Craftable.add(B);
+		Craftable.add(S);
+		Craftable.add(SH);
+		Item[] a = {B};
 		CraftedBy.add(a);
-		Item[] b = {new Sword()};
+		Item[] b = {S};
 		CraftedBy.add(b);
-		Item[] c = {new Shovel()};
+		Item[] c = {SH};
 		CraftedBy.add(c);
 
 	}

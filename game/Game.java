@@ -120,8 +120,8 @@ public class Game {
         		+ "I won't ever change what I say in this room. I'll just repeat the same thing "
         		+ "over and over again and you'll have to deal with it. Try to to figure it out because"
         		+ "this conversation.");
-            swordRoom.addProperty("bucket", new Bucket());
-            swordRoom.addProperty("shovel", new Shovel());
+            beach.addProperty("bucket", new Bucket());
+            beach.addProperty("shovel", new Shovel());
         //final castle rooms(still need throne room)
         Room outsideFinalCastle = new Room("castle", "You gaze up at the towering castle, in awe of its size.\n"
         		+ "You slowly walk across the drawbridge and after"
