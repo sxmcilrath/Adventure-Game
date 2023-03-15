@@ -6,8 +6,6 @@
 
 package game;
 
-import java.util.Set;
-
 public class SimonSignon extends NPC {
 	
 	private Player player;
@@ -15,24 +13,26 @@ public class SimonSignon extends NPC {
 	/**
 	 * Simon's three phrases he can say based on your progress
 	 */
-	private String preTree;
-	private String postTreeNoLook;
-	private String postTreeGoodLook;
+	private String[] preTree;
+	private int preTreeCounter;
+	
+	private String[] postTree;
+	private int postTreeCounter;
 	
 	public SimonSignon(Player player) {
 		this.player = player;
 		
-		preTree = "Hello there young fellow. You must be brave to enter the treacherous "
+		preTree = new String[] {"Hello there young fellow. You must be brave to enter the treacherous "
 				+ "'Ye Olde Tutorial' forest, very brave indeed. Before you stands a tall "
-				+ "tree. Go up and observe well, when you are done, tell me what you see.";
-		/*
-		postTreeNoLook = "What did you see? What!? You didn't even look around?"
-				+ "Get back up there and let me properly tutorial you!";
-		*/
-		postTreeGoodLook = "What did you see? A dog? Of course! It is all "
+				+ "tree. Go up and observe well, when you are done, tell me what you see.",
+				"What? You haven't gone up the tree yet? That's ok, I forgive you. Go on up.",
+				"I suppose you don't have to go up the tree, but I think it would help you."};
+
+		postTree = new String[] {"What did you see? A dog? Of course! It is all "
 				+ "so clear now. Go find that little pupper and give it a good pet. A belly rub is also "
 				+ "recommended. Why? Believe me, it will all become clear to you in time. Go back to where "
-				+ "you met Sirain and go east. You should be able to see where to go from there.";
+				+ "you met Sirain and go east. You should be able to see where to go from there.",
+				"You've met Sirain, right? He is the one who told you to come to me, just south from here."};
 	}
 	
 	/**
@@ -44,9 +44,9 @@ public class SimonSignon extends NPC {
 	public String talk() {
 		boolean tree = player.wasCheckCrossed("viewingtree");
 		if (tree) {
-			return postTreeGoodLook;
+			return cycleTalk(postTreeCounter, postTree);
 		} else {
-			return preTree;
+			return cycleTalk(preTreeCounter, preTree);
 		}
 	}
 

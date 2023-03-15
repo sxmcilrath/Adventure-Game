@@ -18,17 +18,19 @@ import java.util.Map;
 
 public class Room  {
 	
+
 	/**
 	 * the name of the room
 	 */
 	private String name;
 
 	private HashMap<String, Item> properties;	//A set containing the room's properties, such as dark, onFire, etc.
+
     private HashMap <String, Door> directions = new HashMap<String, Door>();	//map to contain directions to accessible rooms
     private String description;	//A description of this room
-    private NPC roomNPC; //npc for the room if there is one
+    private NPC roomNPC;		//npc for the room if there is one
     
-    private Lever lever;
+    private Lever lever;	//lever for lever puzzle
     
     /**
      * constructor for if the room only needs a description

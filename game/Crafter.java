@@ -17,7 +17,6 @@ public class Crafter {
 	public Crafter(HashMap<String,Item> backpack) {
 		this.backpack = backpack;
 		AllItems.put("bucket", new Bucket());
-		//AllItems.put("bucketwithsand", new BucketWithSand());
 		AllItems.put("candle", new Candle());
 		AllItems.put("metalchunk", new MetalChunk());
 		AllItems.put("shovel", new Shovel());

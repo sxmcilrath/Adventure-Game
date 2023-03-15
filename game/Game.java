@@ -56,6 +56,8 @@ public class Game {
 		allItems.put("steak", new Steak());
 		allItems.put("sword", new Sword());
 		allItems.put("secretcode", new SecretCode());
+		allItems.put("sandmedallion", new SandMedallion());
+		allItems.put("icemedallion", new IceMedallion());
     	
     	//initializes the player
     	this.player = new Player(allItems);
@@ -64,7 +66,6 @@ public class Game {
     	Room entrance = new Room("entrance","You are standing at the edge of a beautiful forest."
         		+ " A sign is just in front of you; I wonder what it says...");
         		entrance.addNPC(new SineusSignon());
-        //entrance.addProperty("pretty");
         
         Room swordRoom = new Room("swordroom","You see a rather wimpy-looking sword on the ground."
         		+ " It doesn't seem very high quality,but you should still take it. \nUnless, of"
@@ -152,18 +153,29 @@ public class Game {
 
        
         //IcyPathPuzzles
-        Room correctLeft = new Room("correctLeft","x");
-        Room correctRight = new Room("correctRight","x");
-        Room correctMiddle = new Room("correctMiddle","x");
+        Room correctLeft = new Room("correctLeft","You decide to take the left path.\n"
+        		+ "The fog surrounds you, but you keep pushing forward along the trail.\n"
+        		+ "Before long the fog begins to lift and you realize you have arrived at an intersection similar to the first.\n"
+        		+ "The path splits to the left, right, and forward.");
+        Room correctRight = new Room("correctRight","After choosing to go right, you enter the fog once again, arriving at yet another intersection.\n"
+        		+ "Your options remain the same: left, right, and forward.");
+        Room correctMiddle = new Room("correctMiddle","Fed up with going left and right, you decide to forge on ahead.\n"
+        		+ "To your surprise you made the right choice after arriving to a new intersection. The path splits once again.\n"
+        		+ "You can feel it. You're close.");
 
-        Room iceCastle = new Room("icecastle","x");
+        Room iceCastle = new Room("icecastle","At the end of your rope, you decide to go back from where you came.\n"
+        		+ "But instead of the sign's song to greet you, a towering castle of ice lays before you. Overjoyed at this new realization, you rush through the gates.\n"
+        		+ "Huskies of all shapes and sizes run around your feet, they're leading you somewhere. They soon bring you into the center of the castle.\n"
+        		+ "You walk into a massive room made of ice and in the middle of the room is....");
         iceCastle.addNPC(new Pet(1));
-        //iceCastle.addProperty("checkpoint");
+        iceCastle.addProperty("icemedallion", new IceMedallion());
+
 
         
         //Beach puzzle room
         Room sandCastle = new Room("sandcastle","x");      
         sandCastle.addNPC(new Pet(2));
+        sandCastle.addProperty("sandmedallion", new SandMedallion());
         
         //Lever puzzle
         Lever lever = new Lever(this);
@@ -212,8 +224,7 @@ public class Game {
      linkRooms(shelter, beach, Sh2, Be);
         
         //linking icy path puzzle
-        linkRooms(entrance,icyPath,"icecut");
-        linkRooms(entrance, beach,"beachcut");
+
         linkRooms(icyPath, correctLeft, "back", "left");
         linkRooms(correctLeft, icyPath, "left");
         linkRooms(correctLeft, icyPath, "middle");
@@ -230,7 +241,7 @@ public class Game {
         //linking final castle 
         //NEED TO SET UP A CHECK TO MAKE SURE YOU HAVE PET THE TWO OTHER DOGS
         linkRooms(shelter, outsideFinalCastle, "bridge");
-        linkRooms(entrance, outsideFinalCastle, "cut");	//shortcut to end
+        
         linkRooms(outsideFinalCastle, outsideFinalPuzzle, "forward");
         linkRooms(outsideFinalPuzzle, finalWhite, "oakdoor");
         ArrayList<Room> finalPuzz = new ArrayList<>(Arrays.asList(finalWhite, finalRed, finalGreen, finalBlue));
@@ -248,24 +259,17 @@ public class Game {
        
         
         
-        //beach puzzle
-        
-        //COMMENTING OUT 
-        //beach.addProperty("shovel");
-        //beach.addProperty("bucket");
-        
-        
-        //Not sure if we need hand so I commented this out for now
-        // hand = new Hand(player);
-        //player.addItemToBackpack("hand", hand);
+
 
     }
+    
+    
     
     public void linkRooms(Room r1, Room r2, String direct1, String direct2) {    	
 		linkRooms(r1, r2, direct2);	    	
 		linkRooms(r2, r1, direct1);
 
-}
+    }
     public void linkRooms(Room r1, Room r2, String direct) {
     	Door door = new TwoWayDoor(r1,r2);
 			r1.addDoor(direct, door);
@@ -285,12 +289,17 @@ public class Game {
 	   
 	}
 	
+	/**
+	 *links the beach to the sandcastle when the puzzle has been solved 
+	 */
 	public void linkSandRooms() {
-		linkRooms(beach, sandCastle, "sandcastle", "beach");
+		linkRooms(beach, sandCastle, "beach", "sandcastle");
 	}
-	
+	/**
+	 * links the puzzle room to the final throne room when solved
+	 */
 	public void linkThroneRoom() {
-		linkRooms(finalWhite, throne, "throne", "white");
+		linkRooms(finalWhite, throne,"white", "throne");
 	}
 	
 	
@@ -309,7 +318,14 @@ public class Game {
     	}
 		
 	}
-	//test
+	
+	
+	
+	/**
+	 * link rooms for rotating door
+	 * @param rooms		rooms that will be rotated through
+	 * @param direct	direction name for the rooms
+	 */
 	public void linkRooms(ArrayList<Room> rooms, String direct) {
 		Door door = new RotatingDoor(rooms);	//create rotating door
 		

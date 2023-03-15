@@ -22,6 +22,12 @@ public class TwoWayDoor implements Door {
 		return this.key;
 	}
 	
+	public void setKey(Key key) {
+		this.key = key;
+	}
+	
+
+	
 	public Room nextRoom(Room CR) {
 		if(CR == room1) {
 			return room2;
