@@ -40,7 +40,7 @@ public abstract class Item {
 		return this.CraftedBy;
 	}
 	protected Set<String> catalystOf() {
-		// TODO Auto-generated method stubprotected
+		// TODO Auto-generated method stub protected
 		return this.Catalyst;
 	}
 	
