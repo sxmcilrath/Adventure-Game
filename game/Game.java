@@ -166,25 +166,30 @@ public class Game {
 	 String[] St2 = {"swordtutorialroom", "thefight", "str", "back"};    
    	 String[] Fw = {"freewilltutorial", "fwt", "forward"};      
    	 linkRooms(swordTutorial, freeWillTutorial, St2,Fw);
-   	 String[] Qmc = {"yourquestmadeclear", "yqmc", "questmadeclear", "qmc"};      
-   	 linkRooms(freeWillTutorial, questMadeClear, Fw, Qmc);
-   	 String[] Net = {"noneuclidiantutorial", "net"};
+   	 String[] Fw2 = {"freewilltutorial", "fwt", "back"};
+   	 String[] Qmc = {"yourquestmadeclear", "yqmc", "questmadeclear", "qmc", "forward"};      
+   	 linkRooms(freeWillTutorial, questMadeClear, Fw2, Qmc);
+   	 String[] Qmc2 = {"yourquestmadeclear", "yqmc", "questmadeclear", "qmc", "back"}; 
+   	 String[] Net = {"noneuclidiantutorial", "net", "forward"};
    	 linkRooms(freeWillTutorial, nonEucTutorial, Net);
-   	String[] Vt = {"viewingtree", "vt", "tree", "t"};
-   	 linkRooms(questMadeClear, viewingTree , Qmc, Vt);   
+   	 String[] Net2 = {"noneuclidiantutorial", "net", "back"};
+   	 String[] Vt = {"viewingtree", "vt", "tree", "t", "forward"};
+   	 linkRooms(questMadeClear, viewingTree , Qmc2, Vt);   
+     String[] Vt2 = {"viewingtree", "vt", "tree", "t", "back"};
    	 String[] south = {"south"};
    	 linkRooms(nonEucTutorial, entrance, south);
-   	String[] Os = {"onward", "outsideshelter", "os", "outside"};
-   	 linkRooms(freeWillTutorial, outsideShelter, Fw, Os);
+   	 String[] Os = {"onward", "outsideshelter", "os", "outside", "forward"};
+   	 linkRooms(freeWillTutorial, outsideShelter, Fw2, Os);
+     String[] Os2 = {"onward", "outsideshelter", "os", "outside", "back"};
 
 
-        //Linking Overworld
-   	String[] Sh = {"shelter","sh", "s"};
-        linkRooms(outsideShelter, shelter,Os, Sh);
-        String[] Ip = {"icypath", "ip"};
-        linkRooms(shelter, icyPath, Sh, Ip);
-        String[] Be = {"beach", "b"};
-        linkRooms(shelter, beach, Sh, Be);
+     //Linking Overworld
+     String[] Sh = {"shelter","sh", "s"};
+     linkRooms(outsideShelter, shelter,Os2, Sh);
+     String[] Ip = {"icypath", "ip"};
+     linkRooms(shelter, icyPath, Sh, Ip);
+     String[] Be = {"beach", "b"};
+     linkRooms(shelter, beach, Sh, Be);
         
         //linking icy path puzzle
         
