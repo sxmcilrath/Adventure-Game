@@ -33,6 +33,8 @@ public class Game {
 	
     private Room beach;	
     private Room sandCastle;
+    private Room finalWhite;
+    private Room throne;
     
     //private Hand hand;
     private boolean icePuzzleCheck = true;
@@ -121,8 +123,9 @@ public class Game {
         		+ " gates slamming shut behind you. You continue walking "
         		+ " forward and come upon a grand oak door. It seems to be an entrance to a throne room.");
         
-        Room finalWhite = new Room("white", "Walking into the room, you take in the surroundings. A signfolk with royal garbs stands adjacent to a glowing door."
-        		+ " On the other side of the door is a whi\"entrate lever. ");
+
+        finalWhite = new Room("white", "Walking into the room, you take in the surroundings. A signfolk with royal garbs stands adjacent to a glowing door."
+        		+ " On the other side of the door is a white lever. ");
         	       finalWhite.addNPC(new SibylSignon(player));
         	       finalWhite.addProperty(new SecretCode());
         	       
@@ -134,7 +137,7 @@ public class Game {
         		+ "The door behind you has disappeared.");
 
         //need to add a dog here and an actual description
-        Room throne = new Room("throne", "filler");
+        throne = new Room("throne", "filler");
 
        
         //IcyPathPuzzles
@@ -268,6 +271,9 @@ public class Game {
 		linkRooms(beach, sandCastle, "sandcastle", "beach");
 	}
 	
+	public void linkThroneRoom() {
+		linkRooms(finalWhite, throne, "throne", "white");
+	}
 	
 	
 	/**
@@ -281,17 +287,17 @@ public class Game {
 	public void linkRooms(Room r1, Room r2, String direct[]) {
 		Door door = new TwoWayDoor(r1, r2);
 		for(int i = 0; i < direct.length; i++) {
-			r1.addDoor(door, direct[i]);
+			r1.addDoor( direct[i], door);
     	}
 		
 	}
-	
+	//test
 	public void linkRooms(ArrayList<Room> rooms, String direct) {
 		Door door = new RotatingDoor(rooms);	//create rotating door
 		
 		//add door for each room in the arraylist
 		for(int i = 0; i < rooms.size(); i++) {
-			rooms.get(i).addDoor(door, direct);
+			rooms.get(i).addDoor(direct, door);
 		}
 		
 	}

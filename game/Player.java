@@ -45,7 +45,9 @@ public class Player {
 	    
 	    
 	    public void pull(String second) {
-	    	//add lever code
+	    	if(second.equals(second)) {
+	    		CR.getLever().ability(CR);
+	    	}
 	    }
 
 		public void attack() {
@@ -61,8 +63,8 @@ public class Player {
 			
 			HashSet<Item> properties = CR.getProperties();
 			if (properties.contains(i)) {
-					addItemToBackpack(property, new Sword());
-					properties.remove(property);
+					addItemToBackpack(property, i);
+					properties.remove(i);
 					print("You picked up the " + property);
 					
 				} else {print("Nothing happened.");}
