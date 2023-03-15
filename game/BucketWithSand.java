@@ -6,17 +6,24 @@ import java.util.Set;
 public class BucketWithSand extends Key {
 
 	private Player player;
-	private static HashSet<String> Craftable = new HashSet<String>();
-	private static HashSet<String[]> CraftedBy = new HashSet<String[]>();
+	private static HashSet<Item> Craftable = new HashSet<Item>();
+	private static HashSet<Item[]> CraftedBy = new HashSet<Item[]>();
 	private TwoWayDoor door;
 	
 	
 	
 	public BucketWithSand(TwoWayDoor door) {
-		super(Craftable, CraftedBy, door, "bucketwithsand");
+		super(Craftable, CraftedBy,  door, "bucketwithsand");
 		this.door = door;
-		Craftable.add("bucket");
-		String[] a = {"bucket", "sand"};
+		Craftable.add(new Bucket());
+		Item[] a = {new Bucket()};
+		CraftedBy.add(a);
+		// TODO Auto-generated constructor stub
+	}
+	public BucketWithSand() {
+		super(Craftable, CraftedBy, "bucketwithsand");
+		Craftable.add(new Bucket());
+		Item[] a = {new Bucket()};
 		CraftedBy.add(a);
 		// TODO Auto-generated constructor stub
 	}

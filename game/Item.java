@@ -7,19 +7,21 @@ import java.util.Set;
 public abstract class Item {
 	
 	
-	protected HashSet<String> Craftable = new HashSet<String>();
-	protected HashSet<String[]> CraftedBy = new HashSet<String[]>();
-	protected HashSet<String> Catalyst = new HashSet<String>();
+	protected HashSet<Item> Craftable = new HashSet<Item>();
+	protected HashSet<Item[]> CraftedBy = new HashSet<Item[]>();
+	protected HashSet<Item> Catalyst = new HashSet<Item>();
 	protected String myName;
 	
-	protected Item(HashSet<String> Craftable, HashSet<String[]> CraftedBy) {
+	protected Item(HashSet<Item> Craftable, HashSet<Item[]> CraftedBy, String myName) {
 		this.Craftable = Craftable;
 		this.CraftedBy = CraftedBy;
+		this.myName = myName;
 	}
-	protected Item(HashSet<String> Craftable, HashSet<String[]> CraftedBy, HashSet<String> Catalyst) {
+	protected Item(HashSet<Item> Craftable, HashSet<Item[]> CraftedBy, String myName, HashSet<Item> Catalyst) {
 		this.Craftable = Craftable;
 		this.CraftedBy = CraftedBy;
 		this.Catalyst = Catalyst;
+		this.myName = myName;
 	}
 	/**
 	 * This method will call upon a rooms properties to dictate what
@@ -31,15 +33,15 @@ public abstract class Item {
 	
 	
 	protected abstract String ability(Room room);
-	protected Set<String> craftable() {
+	protected Set<Item> craftable() {
 		// TODO Auto-generated method stub
 		return this.Craftable;
 	}
-	protected Set<String[]> craftedBy() {
+	protected Set<Item[]> craftedBy() {
 		// TODO Auto-generated method stub
 		return this.CraftedBy;
 	}
-	protected Set<String> catalystOf() {
+	protected Set<Item> catalystOf() {
 		// TODO Auto-generated method stubprotected
 		return this.Catalyst;
 	}

@@ -69,7 +69,8 @@ public class Game {
         Room swordRoom = new Room("swordroom","You see a rather wimpy-looking sword on the ground."
         		+ " It doesn't seem very high quality,but you should still take it. \nUnless, of"
         		+ " course, you feel you can manage without it. On the other side of the hill, is another sign guy.");
-        swordRoom.addProperty(allItems.get("sword"));
+        swordRoom.addProperty("sword", new Sword());
+
         
         Room swordTutorial = new Room("swordtutorial","There is a sign here. It seems eager to meet you..."
         		+ " or hurt you. I can't tell. Either way, we shouldn't linger long.");
@@ -119,7 +120,8 @@ public class Game {
         		+ "I won't ever change what I say in this room. I'll just repeat the same thing "
         		+ "over and over again and you'll have to deal with it. Try to to figure it out because"
         		+ "this conversation.");
-       
+            swordRoom.addProperty("bucket", new Bucket());
+            swordRoom.addProperty("shovel", new Shovel());
         //final castle rooms(still need throne room)
         Room outsideFinalCastle = new Room("castle", "You gaze up at the towering castle, in awe of its size.\n"
         		+ "You slowly walk across the drawbridge and after"
@@ -132,7 +134,7 @@ public class Game {
         finalWhite = new Room("white", "Walking into the room, you take in the surroundings. A signfolk with royal garbs stands adjacent to a glowing door.\n"
         		+ "On the other side of the door is a white lever. ");
         	       finalWhite.addNPC(new SibylSignon(player));
-        	       finalWhite.addProperty(allItems.get("secretcode"));     
+        	       finalWhite.addProperty("secretcode", new SecretCode());     
         Room finalRed = new Room("red", "You walk into the room to find a room almost identical to where you came.\n"
         		+ "Howver this time the room is empty except for a red lever and a glowing door.\n"
         		+ "Looking back, you see the door behind you has disappeared.");
@@ -211,6 +213,7 @@ public class Game {
         
         //linking icy path puzzle
         linkRooms(entrance,icyPath,"icecut");
+        linkRooms(entrance, beach,"beachcut");
         linkRooms(icyPath, correctLeft, "back", "left");
         linkRooms(correctLeft, icyPath, "left");
         linkRooms(correctLeft, icyPath, "middle");
