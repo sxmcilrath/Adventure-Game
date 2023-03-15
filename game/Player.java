@@ -10,6 +10,7 @@ public class Player {
     private Room CR;
     private Room PR;
     private Crafter crafter;
+//to do checkpoitns, directions
 
     
     /**
