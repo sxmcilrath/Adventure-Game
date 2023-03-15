@@ -127,6 +127,9 @@ public class Game {
         		+ " Looking back you realize the door in which you entered has disappeared.");
         Room finalBlue = new Room("blue", "Walking into the room, you take in the surroundings. The room is empty except for a glowing door and on the wall next to it is a blue lever."
         		+ " Looking back you realize the door in which you entered has disappeared.");
+       
+        //need to add a dog here and an actual description
+        Room throne = new Room("throne", "filler");
 
         
         //IcyPathPuzzles
@@ -250,6 +253,8 @@ public class Game {
 	public void linkSandRooms() {
 		linkRooms(beach, sandCastle, "sandcastle", "beach");
 	}
+	
+	
 	
 	/**
 	 * Overloading linkRooms method to make a case where a room leads to 
