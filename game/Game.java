@@ -129,12 +129,13 @@ public class Game {
         finalWhite = new Room("white", "Walking into the room, you take in the surroundings. A signfolk with royal garbs stands adjacent to a glowing door."
         		+ " On the other side of the door is a white lever. ");
         	       finalWhite.addNPC(new SibylSignon(player));
-        	       finalWhite.addProperty(new SecretCode());
-        	       
-        Room finalRed = new Room("red", "You walk into the room to find a red lever and a glowing door."
-        		+ " The door behind you has disappeared.");
-        Room finalGreen = new Room("green", "You walk into the room to find a green lever and a glowing "
-        		+ "door. The door behind you has disappeared.");
+        	       finalWhite.addProperty(allItems.get("secretcode"));     
+        Room finalRed = new Room("red", "You walk into the room to find a room almost identical to where you came.\n"
+        		+ "Howver this time the room is empty except for a red lever and a glowing door.\n"
+        		+ "Looking back, you see the door behind you has disappeared.");
+        Room finalGreen = new Room("green", "Okay something is definitely going on.\n"
+        		+ "You walk into another identical room to find a green lever and a glowing door."
+        		+ "The door behind you has once again disappeared.");
         Room finalBlue = new Room("blue", "You walk into the room to find a blue lever and a glowing door. "
         		+ "The door behind you has disappeared.");
 
@@ -289,7 +290,7 @@ public class Game {
 	
 	/**
 	 * Overloading linkRooms method to make a case where a room leads to 
-	 * another but you can't go back
+	 * another bu)t you can't go back
 	 * @override
 	 * @param r1	current room
 	 * @param r2	destination room
