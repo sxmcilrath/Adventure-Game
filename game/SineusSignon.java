@@ -9,7 +9,7 @@ package game;
 
 public class SineusSignon extends NPC {
 	 private int numTalk = 0;
-	 private String[] says = {"Welcome to Ye Olde Tutorial Forest! We Signfolk are the inhabitants of this wonderful land.", 
+	 private String[] says = {"Welcome to Ye Olde Tutorial Forest! My name is Sineus We Signfolk are the inhabitants of this wonderful land.", 
 			 "There's a sword room over the hill. You should go to the sword room", 
 			 "what are you waiting for? The adventure awaits!"};
 	/**
