@@ -29,15 +29,14 @@ public class Game {
      * by traversing this room's "doors"-- and it maintains
      * the state by representing the user's current location.
      */
-    //specific rooms that need to be accessed by methods
 	
+    //specific rooms that need to be accessed by methods
     private Room beach;	
     private Room sandCastle;
     private Room finalWhite;
     private Room throne;
     
-    //private Hand hand;
-    private boolean icePuzzleCheck = true;
+
     private Map<String,Item> allItems = new HashMap<String,Item>();
    
     

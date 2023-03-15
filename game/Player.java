@@ -162,7 +162,9 @@ public class Player {
 		    	return checkpoints.contains(check);
 		    }
 		    
-		    
+		    /**
+		     *checks to see if game has been won based on how many dogs have been pet
+		     */
 		    public void wonGame() {
 		    	this.over = true;
 		    	print("PetMedals " + PetMedallion.size());
