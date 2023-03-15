@@ -167,7 +167,7 @@ public class Game {
         		+ "You walk into a massive room made of ice and in the middle of the room is....");
         iceCastle.addNPC(new Pet(1));
         iceCastle.addProperty(allItems.get("icemedallion"));
-        //iceCastle.addProperty("checkpoint");
+
 
         
         //Beach puzzle room
