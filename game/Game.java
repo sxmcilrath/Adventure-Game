@@ -56,7 +56,7 @@ public class Game {
 		allItems.put("secretcode", new SecretCode());
     	
     	//initilizes the player
-    	this.player = new Player(allItems, this);
+    	this.player = new Player(allItems);
     	//initializes rooms
     	//Ye Olde Tutorial Rooms
     	Room entrance = new Room("entrance","You are standing at the edge of a beautiful forest."
