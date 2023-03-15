@@ -57,7 +57,7 @@ public class Game {
 		allItems.put("sword", new Sword());
 		allItems.put("secretcode", new SecretCode());
     	
-    	//initilizes the player
+    	//initializes the player
     	this.player = new Player(allItems);
     	//initializes rooms
     	//Ye Olde Tutorial Rooms
@@ -75,8 +75,9 @@ public class Game {
         		+ " or hurt you. I can't tell. Either way, we shouldn't linger long.");
         		swordTutorial.addNPC(new SimeusSignon(this.player));
         
-        Room freeWillTutorial = new Room("freewill","Oh, another sign. Hopefully this"
-        		+ " one is a bit less violent than the last one.");
+        Room freeWillTutorial = new Room("freewill","You step into the clearing and, oh! another sign. "
+        		+ "Hopefully this one is a bit less violent than the last one. Maybe he knows where you"
+        		+ "should go next.");
         		freeWillTutorial.addNPC(new SirainSignon());
         
         Room questMadeClear = new Room("quest","A wise looking sign stands majestically"
@@ -111,25 +112,30 @@ public class Game {
         		+ "fourth wall like this? Well maybe when you become a narrator you can do things "
         		+ "your way, but as of now, I can do whatever I like. In fact, just to bother you, "
         		+ "I won't ever change what I say in this room. I'll just repeat the same thing "
-        		+ "over and over again and you'll have to deal with it.");
+        		+ "over and over again and you'll have to deal with it. Go forward, I'm done with"
+        		+ "this conversation.");
        
         //final castle rooms(still need throne room)
-        Room outsideFinalCastle = new Room("castle", "You gaze up at the towering castle, in awe of its size. You slowly walk across the drawbridge and after"
+        Room outsideFinalCastle = new Room("castle", "You gaze up at the towering castle, in awe of its size."
+        		+ " You slowly walk across the drawbridge and after"
         		+ " reaching the other side, it lifts behind you. There is no where to go but forward." );
-        Room outsideFinalPuzzle = new Room("finalpuzzle", "As you enter, you are greeted with the sound of gates slamming shut behind you. You continue walking "
+        Room outsideFinalPuzzle = new Room("finalpuzzle", "As you enter, you are greeted with the sound of"
+        		+ " gates slamming shut behind you. You continue walking "
         		+ " forward and come upon a grand oak door. It seems to be an entrance to a throne room.");
         
+
         finalWhite = new Room("white", "Walking into the room, you take in the surroundings. A signfolk with royal garbs stands adjacent to a glowing door."
         		+ " On the other side of the door is a white lever. ");
         	       finalWhite.addNPC(new SibylSignon(player));
-        	       finalWhite.addProperty(allItems.get("secretcode"));
-        Room finalRed = new Room("red", "Walking into the room, you take in the surroundings. The room is empty except for a glowing door and on the wall next to it is a red lever."
-        		+ " Looking back you realize the door in which you entered has disappeared.");
-        Room finalGreen = new Room("green", "Walking into the room, you take in the surroundings. The room is empty except for a glowing door and on the wall next to it is a green lever."
-        		+ " Looking back you realize the door in which you entered has disappeared.");
-        Room finalBlue = new Room("blue", "Walking into the room, you take in the surroundings. The room is empty except for a glowing door and on the wall next to it is a blue lever."
-        		+ " Looking back you realize the door in which you entered has disappeared.");
-       
+        	       finalWhite.addProperty(new SecretCode());
+        	       
+        Room finalRed = new Room("red", "You walk into the room to find a red lever and a glowing door."
+        		+ " The door behind you has disappeared.");
+        Room finalGreen = new Room("green", "You walk into the room to find a green lever and a glowing "
+        		+ "door. The door behind you has disappeared.");
+        Room finalBlue = new Room("blue", "You walk into the room to find a red lever and a glowing door. "
+        		+ "The door behind you has disappeared.");
+
         //need to add a dog here and an actual description
         throne = new Room("throne", "filler");
 
@@ -163,25 +169,31 @@ public class Game {
 	 String[] St2 = {"swordtutorialroom", "thefight", "str", "back"};    
    	 String[] Fw = {"freewilltutorial", "fwt", "forward"};      
    	 linkRooms(swordTutorial, freeWillTutorial, St2,Fw);
-   	 String[] Qmc = {"yourquestmadeclear", "yqmc", "questmadeclear", "qmc"};      
-   	 linkRooms(freeWillTutorial, questMadeClear, Fw, Qmc);
-   	 String[] Net = {"noneuclidiantutorial", "net"};
+   	 String[] Fw2 = {"freewilltutorial", "fwt", "back"};
+   	 String[] Qmc = {"yourquestmadeclear", "yqmc", "questmadeclear", "qmc", "forward"};      
+   	 linkRooms(freeWillTutorial, questMadeClear, Fw2, Qmc);
+   	 String[] Qmc2 = {"yourquestmadeclear", "yqmc", "questmadeclear", "qmc", "back"}; 
+   	 String[] Net = {"noneuclidiantutorial", "net", "forward"};
    	 linkRooms(freeWillTutorial, nonEucTutorial, Net);
-   	String[] Vt = {"viewingtree", "vt", "tree", "t"};
-   	 linkRooms(questMadeClear, viewingTree , Qmc, Vt);   
+   	 String[] Net2 = {"noneuclidiantutorial", "net", "back"};
+   	 String[] Vt = {"viewingtree", "vt", "tree", "t", "forward"};
+   	 linkRooms(questMadeClear, viewingTree , Qmc2, Vt);   
+     String[] Vt2 = {"viewingtree", "vt", "tree", "t", "back"};
    	 String[] south = {"south"};
    	 linkRooms(nonEucTutorial, entrance, south);
-   	String[] Os = {"onward", "outsideshelter", "os", "outside"};
-   	 linkRooms(freeWillTutorial, outsideShelter, Fw, Os);
+   	 String[] Os = {"onward", "outsideshelter", "os", "outside", "forward"};
+   	 linkRooms(freeWillTutorial, outsideShelter, Fw2, Os);
+     String[] Os2 = {"onward", "outsideshelter", "os", "outside", "back"};
 
 
-        //Linking Overworld
-   	String[] Sh = {"shelter","sh", "s"};
-        linkRooms(outsideShelter, shelter,Os, Sh);
-        String[] Ip = {"icypath", "ip"};
-        linkRooms(shelter, icyPath, Sh, Ip);
-        String[] Be = {"beach", "b"};
-        linkRooms(shelter, beach, Sh, Be);
+     //Linking Overworld
+     String[] Sh = {"shelter","sh", "s", "forward"};
+     String[] Sh2 = {"shelter","sh", "s", "back"};
+     linkRooms(outsideShelter, shelter,Os2, Sh);
+     String[] Ip = {"icypath", "ip"};
+     linkRooms(shelter, icyPath, Sh2, Ip);
+     String[] Be = {"beach", "b"};
+     linkRooms(shelter, beach, Sh2, Be);
         
         //linking icy path puzzle
         

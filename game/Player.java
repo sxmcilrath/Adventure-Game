@@ -127,16 +127,17 @@ public class Player {
 		    				print("You need a " + key.getName());
 		    			}
 		    			look("");
-		    				crossCheckpoint(CR.getName());
-		    				
+
+		    			crossCheckpoint(CR.getName());
+
 					} else {
 						print("There is nothing in that direction");
 					} 
 		    	}else {
 		    		Iterator<String> it = CR.options().keySet().iterator();
-		    		if(it.hasNext()) {
-		    			print("Where would you like to go? \nOptions: " + it.next() + "");
-		    		}
+		  
+		    			print("Where would you like to go? \nOptions: " + CR.options().keySet().toString());
+		    		
 		    	}
 		    }
 		    
@@ -148,7 +149,9 @@ public class Player {
 		     * checks whether or not a check has been crossed
 		     * @param check The check to check for
 		     * @return whether or not the check check checks out
+		     *
 		     */
+		    //this means "has the checkpoint been crossed"
 		    public boolean wasCheckCrossed(String check) {
 		    	return checkpoints.contains(check);
 		    }
