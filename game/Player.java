@@ -118,9 +118,7 @@ public class Player {
 		    				print("You need a " + key.getName());
 		    			}
 		    			look("");
-		    			if (CR.getProperties().contains("checkpoint")) {
-		    				crossCheckpoint(CR.getName());
-		    			}	
+		    			crossCheckpoint(CR.getName());
 					} else {
 						print("There is nothing in that direction");
 					}		

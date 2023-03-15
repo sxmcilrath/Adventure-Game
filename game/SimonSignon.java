@@ -24,10 +24,11 @@ public class SimonSignon extends NPC {
 		
 		preTree = "Hello there young fellow. You must be brave to enter the treacherous "
 				+ "'Ye Olde Tutorial' forest, very brave indeed. Before you stands a tall "
-				+ "tree. Go up and observe well, when you are done, tell me what you see."
-				+ "Or don't, if you don't feel like it.";
+				+ "tree. Go up and observe well, when you are done, tell me what you see.";
+		/*
 		postTreeNoLook = "What did you see? What!? You didn't even look around?"
 				+ "Get back up there and let me properly tutorial you!";
+		*/
 		postTreeGoodLook = "What did you see? A dog? Of course! It is all "
 				+ "so clear now. Go find that little pupper and give it a good pet. A belly rub is also "
 				+ "recommended. Why? Believe me, it will all become clear to you in time. Go back to where "
@@ -42,13 +43,8 @@ public class SimonSignon extends NPC {
 	 */
 	public String talk() {
 		boolean tree = player.wasCheckCrossed("viewingTree");
-		boolean goodLook = player.wasCheckCrossed("goodLook");
 		if (tree) {
-			if (goodLook) {
-				return postTreeGoodLook;
-			} else {
-				return postTreeNoLook;
-			}
+			return postTreeGoodLook;
 		} else {
 			return preTree;
 		}
