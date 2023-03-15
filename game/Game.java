@@ -108,13 +108,13 @@ public class Game {
         		+ "\"Icy path, oh Icy path, this path is oh so Icy! Pathy Icy "
         		+ "saucy sauce, move ahead and don't get lost!\" It's... REALLY annoying.");
         icyPath.addNPC(new SilasSignon());
-        Room beach = new Room("beach","Look at all this sand. If only a very wise, very pleasant "
+        beach = new Room("beach","Look at all this sand. If only a very wise, very pleasant "
         		+ "person could lead you in the right direction. Oh wait, I'm right here! There is a "
         		+ "puzzle just ahead. What? You think it's unprofessional for me to break the "
         		+ "fourth wall like this? Well maybe when you become a narrator you can do things "
         		+ "your way, but as of now, I can do whatever I like. In fact, just to bother you, "
         		+ "I won't ever change what I say in this room. I'll just repeat the same thing "
-        		+ "over and over again and you'll have to deal with it. Go forward, I'm done with"
+        		+ "over and over again and you'll have to deal with it. Try to to figure it out because"
         		+ "this conversation.");
        
         //final castle rooms(still need throne room)
@@ -140,12 +140,10 @@ public class Game {
 
         //need to add a dog here and an actual description
         throne = new Room("throne", "filler");
-<<<<<<< HEAD
+
         throne.addNPC(new Pet(3));
 
-=======
-        
->>>>>>> 82884c4ab3402120b5bf94ee6264269b33d18d68
+
        
         //IcyPathPuzzles
         Room correctLeft = new Room("correctLeft","x");
@@ -157,8 +155,7 @@ public class Game {
         //iceCastle.addProperty("checkpoint");
 
         
-        //Beach puzzle rooms
-
+        //Beach puzzle room
         Room sandCastle = new Room("sandcastle","x");      
         sandCastle.addNPC(new Pet(2));
         
