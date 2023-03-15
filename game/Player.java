@@ -44,7 +44,9 @@ public class Player {
 	    
 	    
 	    public void pull(String second) {
-	    	//add lever code
+	    	if(second.equals(second)) {
+	    		CR.getLever().ability(CR);
+	    	}
 	    }
 
 		public void attack() {
