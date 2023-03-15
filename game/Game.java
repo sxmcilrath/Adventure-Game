@@ -238,6 +238,7 @@ public class Game {
         //linking final castle 
         //NEED TO SET UP A CHECK TO MAKE SURE YOU HAVE PET THE TWO OTHER DOGS
         linkRooms(shelter, outsideFinalCastle, "bridge");
+        
         linkRooms(outsideFinalCastle, outsideFinalPuzzle, "forward");
         linkRooms(outsideFinalPuzzle, finalWhite, "oakdoor");
         ArrayList<Room> finalPuzz = new ArrayList<>(Arrays.asList(finalWhite, finalRed, finalGreen, finalBlue));
@@ -255,18 +256,11 @@ public class Game {
        
         
         
-        //beach puzzle
-        
-        //COMMENTING OUT 
-        //beach.addProperty("shovel");
-        //beach.addProperty("bucket");
-        
-        
-        //Not sure if we need hand so I commented this out for now
-        // hand = new Hand(player);
-        //player.addItemToBackpack("hand", hand);
+
 
     }
+    
+    
     
     public void linkRooms(Room r1, Room r2, String direct1, String direct2) {    	
 		linkRooms(r1, r2, direct2);	    	
@@ -292,12 +286,17 @@ public class Game {
 	   
 	}
 	
+	/**
+	 *links the beach to the sandcastle when the puzzle has been solved 
+	 */
 	public void linkSandRooms() {
-		linkRooms(beach, sandCastle, "sandcastle", "beach");
+		linkRooms(beach, sandCastle, "beach", "sandcastle");
 	}
-	
+	/**
+	 * links the puzzle room to the final throne room when solved
+	 */
 	public void linkThroneRoom() {
-		linkRooms(finalWhite, throne, "throne", "white");
+		linkRooms(finalWhite, throne,"white", "throne");
 	}
 	
 	
@@ -316,7 +315,14 @@ public class Game {
     	}
 		
 	}
-	//test
+	
+	
+	
+	/**
+	 * link rooms for rotating door
+	 * @param rooms		rooms that will be rotated through
+	 * @param direct	direction name for the rooms
+	 */
 	public void linkRooms(ArrayList<Room> rooms, String direct) {
 		Door door = new RotatingDoor(rooms);	//create rotating door
 		
