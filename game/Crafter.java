@@ -25,8 +25,8 @@ public class Crafter {
 		AllItems.put("sword", new Sword());
 	}
 	
-	@SuppressWarnings("rawtypes")
-	public Set canCraft() {
+
+	public Set<String> canCraft() {
 		Craftable = new HashSet<String>();
 		//copy contains every Item the user has
 		Collection<Item> copy = backpack.values();
@@ -37,10 +37,11 @@ public class Crafter {
 		return Craftable;
 	}
 	
-	@SuppressWarnings("unchecked")
+
 	public String crafted(String toCraft) {
 		Craftable = canCraft();
 		if(Craftable.contains(toCraft)) {
+			
 			Item item = AllItems.get(toCraft);
 			for(String[] i : item.CraftedBy) {
 				boolean hasAll = true;
@@ -58,6 +59,7 @@ public class Crafter {
 				return "you need more materials";
 			}
 		}
+		//if the user attempts to craft a nonexistent item
 		String[] randomReturn = {"Harry Potter?", "A Simulation?", "The Hunger Games?", "America's Got Talent?", "CSCI245?"
 				, "Bob the Builder?", "A Survival Game?"};
 		

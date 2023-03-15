@@ -23,7 +23,7 @@ public class Room  {
 	 */
 	private String name;
 
-	private HashSet<String> properties;	//A set containing the room's properties, such as dark, onFire, etc.
+	private HashSet<Item> properties;	//A set containing the room's properties, such as dark, onFire, etc.
     private HashMap <String, Door> directions = new HashMap<String, Door>();	//map to contain directions to accessible rooms
     private String description;	//A description of this room
     private NPC roomNPC; //npc for the room if there is one
@@ -34,7 +34,7 @@ public class Room  {
      */
     public Room(String description) {
     	this.description = description;
-    	this.properties = new HashSet<String>();
+    	this.properties = new HashSet<Item>();
     }
     
     /**
@@ -44,7 +44,7 @@ public class Room  {
     public Room(String name, String description) {
     	this.name = name;
     	this.description = description;
-    	this.properties = new HashSet<String>();
+    	this.properties = new HashSet<Item>();
     }
     
     /**
@@ -55,7 +55,11 @@ public class Room  {
     public Room(String description, NPC roomNPC) {
     	this.description = description;
     	this.roomNPC = roomNPC;
-    	this.properties = new HashSet<String>();
+    	this.properties = new HashSet<Item>();
+    }
+    
+    public void addNPC(NPC npc) {
+    	this.roomNPC = npc;
     }
     
     /**
@@ -68,7 +72,7 @@ public class Room  {
     	this.name = name;
     	this.description = description;
     	this.roomNPC = roomNPC;
-    	this.properties = new HashSet<String>();
+    	this.properties = new HashSet<Item>();
     }
     
     //method to add directions and connections to a room
@@ -86,7 +90,7 @@ public class Room  {
     public Door getDoor(String directName) {
     	return this.directions.get(directName);
     }
-    public Map options() {
+    public Map<String,Door> options() {
     	return this.directions;
     }
     
@@ -95,7 +99,7 @@ public class Room  {
     }
     
     
-        
+    
 
 	
     /**
@@ -115,11 +119,11 @@ public class Room  {
      * A getter method for the set of the room's properties
      * @return properties
      */
-    public HashSet<String> getProperties() {
+    public HashSet<Item> getProperties() {
     	return properties;
     }
     
-    public void removeProperty(String property) {
+    public void removeProperty(Item property) {
     	if(properties.contains(property)) {
     		properties.remove(property);
     	}
@@ -130,7 +134,7 @@ public class Room  {
      * method to add a property to a room
      * @param property The property to add to the room
      */
-    public void addProperty(String property) {
+    public void addProperty(Item property) {
     	properties.add(property);
     }
 

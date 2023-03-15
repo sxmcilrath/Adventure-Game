@@ -1,6 +1,6 @@
 package game;
 
-public class SecretCode extends Item {
+public class SecretCode extends Key {
 
 	@Override
 	

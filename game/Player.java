@@ -2,11 +2,13 @@ package game;
 
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 
 public class Player {
     private Room CR;
     private Crafter crafter;
+
     
     /**
      * Keeps track of whether this game is over or not.
@@ -16,9 +18,12 @@ public class Player {
     private HashMap<String, Item> backpack = new HashMap<String, Item>();
     private HashSet<String> PetMedallion = new HashSet<String>();
     private HashSet<String> checkpoints = new HashSet<String>();
-
+    private Map<String,Item> allItems = new HashMap<String,Item>();
 	    
-	    public Player() {
+	    public Player(Map<String,Item> allItems) {
+	    	this.allItems = allItems;
+
+	    	
 	    	this.crafter = new Crafter(backpack);
 	    }
 	    
@@ -43,8 +48,10 @@ public class Player {
 		}
 
 		public void take(String property) {
-			HashSet<String> properties = CR.getProperties();
-			if (properties.contains(property)) {
+			Item i = allItems.get(property);
+			
+			HashSet<Item> properties = CR.getProperties();
+			if (properties.contains(i)) {
 					addItemToBackpack(property, new Sword());
 					properties.remove(property);
 					print("You picked up the " + property);
@@ -73,7 +80,6 @@ public class Player {
 		
 		public void craft(String second) {
 			if(second.equals("")) {
-				@SuppressWarnings("unchecked")
 				Set<String> toPrint = this.crafter.canCraft();
 				print(toPrint.toString());
 			} else {
@@ -84,6 +90,10 @@ public class Player {
 		public void look(String second) {
 			print(CR.getDescription());
 		}
+		
+		public Crafter getCrafter() {
+			return this.crafter;
+		}
 
 	    
 		
@@ -93,7 +103,6 @@ public class Player {
 
 		    //swtiches rooms
 		    public void switchRoom(String first) {
-		    	
 		    	//checks to see if user wants to go anywhere
 		    	if(first != "") {
 		    		//Checks if directon is a key in the directions hashmap

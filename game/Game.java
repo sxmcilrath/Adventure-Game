@@ -2,6 +2,8 @@ package game;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Game.java
@@ -34,7 +36,7 @@ public class Game {
     
     //private Hand hand;
     private boolean icePuzzleCheck = true;
-    
+    private Map<String,Item> allItems = new HashMap<String,Item>();
    
     
     
@@ -44,8 +46,16 @@ public class Game {
      */
     public Game() {
     	
+    	allItems.put("bucket", new Bucket());
+		//allItems.put("bucketwithsand", new BucketWithSand());
+		allItems.put("candle", new Candle());
+		allItems.put("metalchunk", new MetalChunk());
+		allItems.put("shovel", new Shovel());
+		allItems.put("steak", new Steak());
+		allItems.put("sword", new Sword());
+    	
     	//initilizes the player
-    	this.player = new Player();
+    	this.player = new Player(allItems);
     	//initializes rooms
     	//Ye Olde Tutorial Rooms
     	Room entrance = new Room("entrance","You are standing at the edge of a beautiful forest."
@@ -56,20 +66,20 @@ public class Game {
         Room swordRoom = new Room("swordRoom","You see a rather wimpy-looking sword on the ground."
         		+ " It doesn't seem very high quality,but you should still take it. \nUnless, of"
         		+ " course, you feel you can manage without it. On the other side of the hill, is another sign guy.");
-        swordRoom.addProperty("sword");
+        swordRoom.addProperty(new Sword());
         
         Room swordTutorial = new Room("swordTutorial","There is a sign here. It seems eager to meet you..."
-        		+ " or hurt you. I can't tell. Either way, we shouldn't linger long.",
-        		new SimeusSignon(this.player));
+        		+ " or hurt you. I can't tell. Either way, we shouldn't linger long.");
+        		swordTutorial.addNPC(new SimeusSignon(this.player));
         
         Room freeWillTutorial = new Room("freewill","Oh, another sign. Hopefully this"
-        		+ " one is a bit less violent than the last one.",
-        		new SirainSignon());
+        		+ " one is a bit less violent than the last one."
+        		freeWillTutorial.addNPC(new SirainSignon());
         
         Room questMadeClear = new Room("quest","A wise looking sign stands majestically"
         		+ " before you. Even in his old age, he has an air of vibrance and royalty."
-        		+ " I wonder what he has to say.",
-        		new SimonSignon(player));
+        		+ " I wonder what he has to say.");
+        questMadeClear.addNPC(new SimonSignon(player));
         
 
         Room viewingTree = new Room("viewingTree","What's that in the distance?");
@@ -84,14 +94,14 @@ public class Game {
         		+ "Not far ahead is a small, homey cabin... homey...homey. How is homey spelled? "
         		+ "It doesn't matter (well, it might matter), lets go in.");
         Room shelter = new Room("shelter","Oh, it's Silvester! He and I go way back. Sometime I'll have to "
-        		+ "tell about the zany adventures we had as children.", 
-        		new SilvesterSignon(player));
+        		+ "tell about the zany adventures we had as children.");
+        	shelter.addNPC(new SilvesterSignon(player));
         Room icyPath = new Room("icyPath","You depart from the shelter and step foot into the icy woods. This is much different from the forest in which you started. \n"
         		+ "Icicles hang from the tree branches and a fog quickly envelops your surroundings. \n"
         		+ "\nIn the midst of creepiness, you hear a rather silly song being sung: "
         		+ "\"Icy path, oh Icy path, this path is oh so Icy! Pathy Icy "
-        		+ "saucy sauce, move ahead and don't get lost!\" It's... REALLY annoying.", 
-        		new SilasSignon());
+        		+ "saucy sauce, move ahead and don't get lost!\" It's... REALLY annoying.");
+        icyPath.addNPC(new SilasSignon());
         Room beach = new Room("beach","Look at all this sand. If only a very wise, very pleasant "
         		+ "person could lead you in the right direction. Oh wait, I'm right here! There is a "
         		+ "puzzle just ahead. What? You think it's unprofessional for me to break the "
@@ -107,8 +117,8 @@ public class Game {
         		+ " forward and come upon a grand oak door. It seems to be an entrance to a throne room.");
         
         Room finalWhite = new Room("white", "Walking into the room, you take in the surroundings. A signfolk with royal garbs stands adjacent to a glowing door."
-        		+ " On the other side of the door is a white lever. ",
-        		new SibylSignon(player));
+        		+ " On the other side of the door is a white lever. ");
+        	       icyPath.addNPC(new SibylSignon(player));
         Room finalRed = new Room("red", "Walking into the room, you take in the surroundings. The room is empty except for a glowing door and on the wall next to it is a red lever."
         		+ " Looking back you realize the door in which you entered has disappeared.");
         Room finalGreen = new Room("green", "Walking into the room, you take in the surroundings. The room is empty except for a glowing door and on the wall next to it is a green lever."
