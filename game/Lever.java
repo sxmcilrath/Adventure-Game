@@ -7,12 +7,22 @@ public class Lever extends Item {
 	private static HashSet<String> Craftable = new HashSet<String>();
 	private static HashSet<String[]> CraftedBy = new HashSet<String[]>();
 	
-	public Lever() {
+	private boolean red = false;
+	private boolean green = false;
+	private boolean blue = false;
+	private Game game;
+	
+	public Lever(Game game) {
 		super(Craftable, CraftedBy);
+		this.game = game;
 	}
 	@Override
-	protected String ability(Room room) {
-		// TODO Auto-generated method stub
+	public String ability(Room room) {
+		if(room.getName().equals("white")) {
+			if(red && green && blue) {
+				
+			}
+		}
 		return null;
 	}
 
