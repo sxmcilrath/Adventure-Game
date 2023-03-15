@@ -187,12 +187,13 @@ public class Game {
 
 
      //Linking Overworld
-     String[] Sh = {"shelter","sh", "s"};
+     String[] Sh = {"shelter","sh", "s", "forward"};
+     String[] Sh2 = {"shelter","sh", "s", "back"};
      linkRooms(outsideShelter, shelter,Os2, Sh);
      String[] Ip = {"icypath", "ip"};
-     linkRooms(shelter, icyPath, Sh, Ip);
+     linkRooms(shelter, icyPath, Sh2, Ip);
      String[] Be = {"beach", "b"};
-     linkRooms(shelter, beach, Sh, Be);
+     linkRooms(shelter, beach, Sh2, Be);
         
         //linking icy path puzzle
         
