@@ -63,7 +63,7 @@ public class Room  {
      */
     
     //method to add directions and connections to a room
-    public void addDoor(Door door, String directName) {
+    public void addDoor(String directName, Door door) {
     	this.directions.put(directName, door);
     }
     
@@ -80,6 +80,7 @@ public class Room  {
     public Map<String,Door> options() {
     	return this.directions;
     }
+    
     
     public NPC getNPC() {
     	return roomNPC;
