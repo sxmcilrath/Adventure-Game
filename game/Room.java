@@ -75,7 +75,7 @@ public class Room  {
     }
     
     //getters
-    
+  
     public Door getDoor(String directName) {
     	return this.directions.get(directName);
     }

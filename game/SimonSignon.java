@@ -22,16 +22,17 @@ public class SimonSignon extends NPC {
 	public SimonSignon(Player player) {
 		this.player = player;
 		
-		preTree = new String[] {"Hello there young fellow. You must be brave to enter the treacherous "
-				+ "'Ye Olde Tutorial' forest, very brave indeed. Before you stands a tall "
-				+ "tree. Go up and observe well, when you are done, tell me what you see.",
-				"What? You haven't gone up the tree yet? That's ok, I forgive you. Go on up.",
+		preTree = new String[] {"Hello there young fellow. The name's Simon and I don't really care to ask you yours\n"
+				+ "You must be brave to enter the treacherous "
+				+ "'Ye Olde Tutorial' forest, very brave indeed. Before you stands a tall tree.\n"
+				+ "Go up and observe well, when you are done, tell me what you see.",
+				"What? You haven't gone up the tree yet? That's ok, I forgive you. Go on up.\n",
 				"I suppose you don't have to go up the tree, but I think it would help you."};
 
 		postTree = new String[] {"What did you see? A dog? Of course! It is all "
 				+ "so clear now. Go find that little pupper and give it a good pet. A belly rub is also "
-				+ "recommended. Why? Believe me, it will all become clear to you in time. Go back to where "
-				+ "you met Sirain and go east. You should be able to see where to go from there.",
+				+ "recommended. Why? Believe me, it will all become clear to you in time.\n"
+				+ "Go back to where you met Sirain and go east. You should be able to see where to go from there.",
 				"You've met Sirain, right? He is the one who told you to come to me, just south from here."};
 	}
 	
@@ -44,9 +45,9 @@ public class SimonSignon extends NPC {
 	public String talk() {
 		boolean tree = player.wasCheckCrossed("viewingtree");
 		if (tree) {
-			return cycleTalk(postTreeCounter, postTree);
+			return cycleTalk(postTreeCounter++, postTree);
 		} else {
-			return cycleTalk(preTreeCounter, preTree);
+			return cycleTalkWithGreeting(preTreeCounter++, preTree);
 		}
 	}
 

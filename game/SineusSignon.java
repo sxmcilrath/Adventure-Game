@@ -24,8 +24,8 @@ public class SineusSignon extends NPC {
 	 */
 	public SineusSignon() {
 		numTalk = 0;
-		says = new String[] {"Welcome to Ye Olde Tutorial Forest! My name is Sineus We Signfolk are the inhabitants of this wonderful land.", 
-				 "There's a sword room over the hill. You should go to the sword room", 
+		says = new String[] {"Welcome to Ye Olde Tutorial Forest! My name is Sineus and we Signfolk are the inhabitants of this wonderful land.", 
+				 "There's a sword room over the hill. You should go get it", 
 				 "what are you waiting for? The adventure awaits!"};
 	}
 	
@@ -33,7 +33,7 @@ public class SineusSignon extends NPC {
 	 * Sineus introduces the player to the world
 	 */
 	public String talk() {
-		return cycleTalk(numTalk, says);
+		return cycleTalk(numTalk++, says);
 	}
 
 }

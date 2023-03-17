@@ -32,7 +32,7 @@ public class SirainSignon extends NPC {
 	 * @return Sirain's words of wisdom
 	 */
 	public String talk() {
-		return cycleTalk(numTalked, says);
+		return cycleTalk(numTalked++, says);
 	}
 
 }

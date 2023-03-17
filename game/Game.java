@@ -29,15 +29,14 @@ public class Game {
      * by traversing this room's "doors"-- and it maintains
      * the state by representing the user's current location.
      */
-    //specific rooms that need to be accessed by methods
 	
+    //specific rooms that need to be accessed by methods
     private Room beach;	
     private Room sandCastle;
     private Room finalWhite;
     private Room throne;
     
-    //private Hand hand;
-    private boolean icePuzzleCheck = true;
+
     private Map<String,Item> allItems = new HashMap<String,Item>();
    
     
@@ -56,8 +55,8 @@ public class Game {
 		allItems.put("steak", new Steak());
 		allItems.put("sword", new Sword());
 		allItems.put("secretcode", new SecretCode());
-		allItems.put("sandmedallion", new SandMedallion());
-		allItems.put("icemedallion", new IceMedallion());
+		//allItems.put("sandmedallion", new SandMedallion());
+		//allItems.put("icemedallion", new IceMedallion());
     	
     	//initializes the player
     	this.player = new Player(allItems);
@@ -69,13 +68,13 @@ public class Game {
         
         Room swordRoom = new Room("swordroom","You see a rather wimpy-looking sword on the ground."
         		+ " It doesn't seem very high quality,but you should still take it. \nUnless, of"
-        		+ " course, you feel you can manage without it. On the other side of the hill, is another sign guy.");
+        		+ " course, you feel you can manage without it. Down the hill, is another sign guy.");
         swordRoom.addProperty("sword", new Sword());
         swordRoom.addProperty("metalchunk", new MetalChunk());
 
         
         Room swordTutorial = new Room("swordtutorial","There is a sign here. It seems eager to meet you..."
-        		+ " or hurt you. I can't tell. Either way, we shouldn't linger long.");
+        		+ " or hurt you. I can't tell. Either way, we shouldn't linger long. Past the sign is a clearing.");
         		swordTutorial.addNPC(new SimeusSignon(this.player));
         
         Room freeWillTutorial = new Room("freewill","You step into the clearing and, oh! another sign. "
@@ -89,7 +88,7 @@ public class Game {
         questMadeClear.addNPC(new SimonSignon(player));
        
 
-        Room viewingTree = new Room("viewingtree","What's that in the distance?");
+        Room viewingTree = new Room("viewingtree","You see a dog resting in the sunlight at the edge of the forest.");
      
         
         Room nonEucTutorial = new Room("noneuc","Another sign is here."
@@ -193,19 +192,19 @@ public class Game {
    	 String[] Sr = {"sr", "swordroom", "hill", "forward"};
    	 linkRooms(entrance, swordRoom, Ent,Sr);
    	String[] Sr2 = {"sr", "swordroom", "hill", "back"};
-   	 String[] St = {"swordtutorialroom", "thefight", "str", "forward"};      	
+   	 String[] St = {"swordtutorialroom", "thefight", "str", "forward", "down"};      	
    	 linkRooms(swordRoom, swordTutorial, Sr2,St);
 	 String[] St2 = {"swordtutorialroom", "thefight", "str", "back"};    
-   	 String[] Fw = {"freewilltutorial", "fwt", "forward"};      
+   	 String[] Fw = {"freewilltutorial", "fwt","clearing", "forward"};      
    	 linkRooms(swordTutorial, freeWillTutorial, St2,Fw);
-   	 String[] Fw2 = {"freewilltutorial", "fwt", "back"};
-   	 String[] Qmc = {"yourquestmadeclear", "yqmc", "questmadeclear", "qmc", "forward"};      
+   	 String[] Fw2 = {"freewilltutorial", "fwt", "back", "south"};
+   	 String[] Qmc = {"yourquestmadeclear", "yqmc", "questmadeclear", "qmc", "north"};      
    	 linkRooms(freeWillTutorial, questMadeClear, Fw2, Qmc);
-   	 String[] Qmc2 = {"yourquestmadeclear", "yqmc", "questmadeclear", "qmc", "back"}; 
+   	 String[] Qmc2 = {"yourquestmadeclear", "yqmc", "questmadeclear", "qmc", "down"}; 
    	 String[] Net = {"noneuclidiantutorial", "net", "forward"};
    	 linkRooms(freeWillTutorial, nonEucTutorial, Net);
    	 String[] Net2 = {"noneuclidiantutorial", "net", "back"};
-   	 String[] Vt = {"viewingtree", "vt", "tree", "t", "forward"};
+   	 String[] Vt = {"viewingtree", "vt", "tree", "t", "forward", "up"};
    	 linkRooms(questMadeClear, viewingTree , Qmc2, Vt);   
      String[] Vt2 = {"viewingtree", "vt", "tree", "t", "back"};
    	 String[] south = {"south"};
@@ -216,10 +215,10 @@ public class Game {
 
 
      //Linking Overworld
-     String[] Sh = {"shelter","sh", "s", "forward"};
-     String[] Sh2 = {"shelter","sh", "s", "back"};
+     String[] Sh = {"shelter","sh", "s", "forward", "cabin"};
+     String[] Sh2 = {"shelter","sh", "s", "back", "cabin"};
      linkRooms(outsideShelter, shelter,Os2, Sh);
-     String[] Ip = {"icypath", "ip"};
+     String[] Ip = {"icypath", "ip", "ice", "path"};
      linkRooms(shelter, icyPath, Sh2, Ip);
      String[] Be = {"beach", "b"};
      linkRooms(shelter, beach, Sh2, Be);
