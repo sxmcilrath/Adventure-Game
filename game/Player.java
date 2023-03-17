@@ -134,7 +134,8 @@ public class Player {
 	    
 		
 		   public Room getCurrentRoom() { return CR; }
-		    
+		
+
 		    public void setCurrentRoom(Room CR) { this.CR = CR; }
 
 		    //swtiches rooms
@@ -143,32 +144,30 @@ public class Player {
 		    	if(first != "") {  
 		    		//Checks if directon is a key in the directions hashmap
 		    		if(CR.checkDirection(first)) {	
-		    			Door door = CR.getDoor(first);
-		    			Key key = door.getKey();
-		    			if(key == null) {
+		    			Door door = CR.getDoor(first);		    			
+		    			if(door instanceof LockedDoor) {
+		    				String keyName = ((LockedDoor) door).getKey().myName;
+		    				if(backpack.containsKey(keyName)) {
+		    					CR = door.nextRoom(CR);
+		    					print("you used a " + keyName);
+		    				} else {
+		    					print("You need a " + keyName);
+		    				}
+		    			}else {
 		    				CR = door.nextRoom(CR);
-		    			} else if(this.backpack.containsValue(key)){
-		    				CR = door.nextRoom(CR);
-		    				print("you used a " + key.getName());
-		    			} else {
-		    				print("You need a " + key.getName());
-		    			}
+		    				}
 		    			look("");
-
-		    			crossCheckpoint(CR.getName());
-
+		    			
 					} else {
 						print("There is nothing in that direction");
 					} 
-		    	}else {
-		    		Iterator<String> it = CR.options().keySet().iterator();
-		  
+		    	}else {		  
 		    			print("Where would you like to go? \nOptions: " + CR.options().keySet().toString());
-		    		
 		    	}
+		    	this.checkpoints.add(CR.getName());
 		    }
 		    
-		    public void crossCheckpoint(String check) {
+		    public void addCheckpoint(String check) {
 		    	checkpoints.add(check);
 		    }
 		    
