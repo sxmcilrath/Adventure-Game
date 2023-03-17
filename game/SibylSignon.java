@@ -40,5 +40,12 @@ public class SibylSignon extends NPC{
 				+ "Here to pet the dog are you? Oh please by all means go right ahead!"
 				+ " The dog is right through this door! Have fun!";
 	}
+	
+	public String attacked() {
+		return "Did you really just try to attack a member of the royal guard\n"
+				+ "with that lame excuse for a sword? I feel bad for you.\n"
+				+ "Beating me doesn't help you anyway, you're still going to be stuck if\n"
+				+ "you don't figure out the puzzle.";
+	}
 
 }

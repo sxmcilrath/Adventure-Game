@@ -58,6 +58,10 @@ public class Player {
 	    	
 	    }
 
+	    /**
+	     * Prints response based on NPC. Not actual combat system, more
+	     * of a dialogue option
+	     */
 		public void attack() {
 			NPC npc = CR.getNPC();
 			if(npc != null){
@@ -65,12 +69,21 @@ public class Player {
 			} else { print("you strike the air"); };
 			
 		}
-
+		/**
+		 * takes specified property if in room
+		 * @param property	requested property
+		 */
 		public void take(String property) {
+			//if user just inputs take, it prints the current items available
+			//to take in the room
 			if(property.equals("")) {
 				print(CR.getProperties().keySet().toString());
-			} else {			
+			} else {
 			HashMap<String,Item> properties = CR.getProperties();
+			
+			//checks backpack for the property and if it is in the room 
+			//and not in the backpack it then adds it to the backpack and removes
+			//it from the room
 			if(!(backpack.containsKey(property))){
 				if (properties.keySet().contains(property)) {
 					addItemToBackpack(property, properties.get(property));
@@ -82,98 +95,150 @@ public class Player {
 			}
 			
 			}
-
+		
+		/**
+		 * grabs the NPC from the room if there is one and prints 
+		 * out the NPC's text response
+		 */
 		public void talk() {
 			NPC npc = CR.getNPC();
 			if(npc != null){
 				print(npc.talk());
 			} else {print("the air listens..."); }	
 		}
-
+		
+		/**
+		 * activates an item's ability if it's in the backpack
+		 * @param second	item the player wants to use
+		 */
 		public void use(String second) {
+			
+			//if player doesn't request specific item it lists out possibilities
 			if(second.equals("")){
 				print("What item would you like to use? \n Options: " + backpack.keySet().toString());
 			}
+			//activates ability if viable
 			else if(backpack.containsKey(second)){
 				print(backpack.get(second).ability(CR));
 			} else {
+				//player does not have item
 				print("You don't have a " + second);
 			}
 			
 		}
 		
+		/**
+		 * removes item from your backpack
+		 * @param second	target item
+		 */
 		public void drop(String second) {
+			//if player does not specify item, it lists out all items in backpack
 			if(second.equals("")){
 				print("What item would you like to drop? \n Options: " + backpack.keySet().toString());
 			}
+			
+			//if viable item, it removes it from backpack and adds it to
+			//the room
 			else if(backpack.containsKey(second)){
 				CR.addProperty(second, backpack.get(second));
 				backpack.remove(second);
 				print("you dropped a " + second);
 			} else {
+				//if target item is not in backpack
 				print("You don't have a " + second);
 			}
 			
 		}
 		
+		/**
+		 * creates new item based on current items 
+		 * @param second	item wanting to be crafted
+		 */
 		public void craft(String second) {
+			//if no item is specified, lists out possible crafting options
 			if(second.equals("")) {
 				Set<String> toPrint = this.crafter.canCraft();
 				print(toPrint.toString());
 			} else {
+				//if item is not in backpack, it attempts to craft said item
 				if(!(backpack.containsKey(second))){
 				print(crafter.crafted(second));
 				} else { print("you can only carry one " + second);}
 			}
 		}
 
-		public void look(String second) {
+		/**
+		 * prints the description of the current room
+		 * @param second
+		 */
+		public void look() {
 			print(CR.getDescription());
 		}
 		
+		/**
+		 * @return returns crafter
+		 */
 		public Crafter getCrafter() {
 			return this.crafter;
 		}
 
 	    
 		
-		   public Room getCurrentRoom() { return CR; }
+		public Room getCurrentRoom() { return CR; }
 		
 
-		    public void setCurrentRoom(Room CR) { this.CR = CR; }
+		public void setCurrentRoom(Room CR) { this.CR = CR; }
 
-		    //swtiches rooms
-		    public void switchRoom(String first) {
-		    	//checks to see if user wants to go anywhere
-		    	if(first != "") {  
-		    		//Checks if directon is a key in the directions hashmap
-		    		if(CR.checkDirection(first)) {	
-		    			Door door = CR.getDoor(first);		    			
-		    			if(door instanceof LockedDoor) {
-		    				String keyName = ((LockedDoor) door).getKey().myName;
-		    				if(backpack.containsKey(keyName)) {
-		    					CR = door.nextRoom(CR);
-		    					print("you used a " + keyName);
-		    				} else {
-		    					print("You need a " + keyName);
-		    				}
-		    			}else {
-		    				CR = door.nextRoom(CR);
-		    				}
-		    			look("");
-		    			
-					} else {
-						print("There is nothing in that direction");
-					} 
-		    	}else {		  
-		    			print("Where would you like to go? \nOptions: " + CR.options().keySet().toString());
-		    	}
-		    	this.checkpoints.add(CR.getName());
-		    }
-		    
-		    public void addCheckpoint(String check) {
-		    	checkpoints.add(check);
-		    }
+		/**
+		 * switches the room the player is in
+		 * @param first		name of direction
+		 */
+		public void switchRoom(String first) {
+			//checks to see if user wants to go anywhere
+			if(first != "") {  
+				//Checks if direction is a key in the directions hashmap
+				if(CR.checkDirection(first)) {	
+					Door door = CR.getDoor(first);	
+					
+					//checks if the door is a LockedDoor, if it is, it grabs the 
+					//name of the doors key
+					if(door instanceof LockedDoor) {
+						String keyName = ((LockedDoor) door).getKey().myName;
+						
+						//checks backpack for the key and lets player through
+						//based on if player has it
+						if(backpack.containsKey(keyName)) {
+							CR = door.nextRoom(CR);
+							print("you used a " + keyName);
+						} else {
+							print("You need a " + keyName);
+						}
+					}else {
+						//door is not locked so advance to the next room
+						CR = door.nextRoom(CR);
+					}
+					
+					//print out the room description upon arrival
+					look();					
+				} else {
+					//player requests non viable direction
+					print("There is nothing in that direction");
+				} 
+			}else {	
+				//player does not specify direction and all option ar printed
+				print("Where would you like to go? \nOptions: " + CR.options().keySet().toString());
+			}
+			//when entering a room, it adds the room id to checkpoints
+			this.checkpoints.add(CR.getName());
+		}
+		
+		/**
+		 * adds progress checkpoint to hashset
+		 * @param check		specified checkpoint
+		 */
+		public void addCheckpoint(String check) {
+			checkpoints.add(check);
+		}
 		    
 		    /**
 		     * checks whether or not a check has been crossed
@@ -243,6 +308,10 @@ public class Player {
 		    	return "The " + itemName + " was added to your backpack!";
 		    }
 		    
+		    /**
+		     * removes target item from backpack
+		     * @param name	name of target item
+		     */
 		    public void removeItemFromBackapack(String name) {
 		    	backpack.remove(name);
 		    }

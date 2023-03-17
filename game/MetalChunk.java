@@ -13,15 +13,15 @@ public class MetalChunk extends Item {
 	
 	public MetalChunk () {
 		super(Craftable, CraftedBy, "metalchunk");
-		Craftable.add(B);
-		Craftable.add(S);
-		Craftable.add(SH);
+		//Craftable.add(B);
+		//Craftable.add(S);
+		//Craftable.add(SH);
 		Item[] a = {B};
-		CraftedBy.add(a);
+		//CraftedBy.add(a);
 		Item[] b = {S};
-		CraftedBy.add(b);
+		//CraftedBy.add(b);
 		Item[] c = {SH};
-		CraftedBy.add(c);
+		//CraftedBy.add(c);
 
 	}
 	@Override

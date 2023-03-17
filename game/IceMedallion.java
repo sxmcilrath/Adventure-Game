@@ -15,7 +15,7 @@ public class IceMedallion extends Item {
 	
 	public IceMedallion() {
 		super(Craftable, CraftedBy, "icemedallion");
-		Craftable.add(K);
+		//Craftable.add(K);
 		
 	}
 	@Override

@@ -27,5 +27,11 @@ public class SilasSignon extends NPC {
 				+ "Only then will you reach the other side.\n\n"
 				+ "Or it's something like that. Not that I memorize it or anything...\nGood luck!";
 	}
+	
+	public String attacked() {
+		return "C'mon man really?? I'm literally here to help you out!\n"
+				+ "I'm not even mad at this point, more just confused.\n"
+				+ "I guess you're just problematic...";
+	}
 
 }
