@@ -2,10 +2,14 @@ package game;
 
 import java.util.HashSet;
 
+/**
+ * medallion obtained in the beach castle. When combined with the ice medallion
+ * it creates the final key
+ */
 public class SandMedallion extends Item {
 
-	private static HashSet<Item> Craftable = new HashSet<Item>();
-	private static HashSet<Item[]> CraftedBy = new HashSet<Item[]>();
+	private static HashSet<String> Craftable = new HashSet<String>();
+	private static HashSet<String[]> CraftedBy = new HashSet<String[]>();
 	private static Key K = new Key("tocastle");
 	
 	protected SandMedallion() {

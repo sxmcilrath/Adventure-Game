@@ -6,9 +6,9 @@ import java.util.Set;
 public class Shovel extends Item {
 
 	private Player player;
-	private static HashSet<Item> Craftable = new HashSet<Item>();
-	private static HashSet<Item[]> CraftedBy = new HashSet<Item[]>();
-	private static HashSet<Item> Catalyst = new HashSet<Item>();
+	private static HashSet<String> Craftable = new HashSet<String>();
+	private static HashSet<String[]> CraftedBy = new HashSet<String[]>();
+	private static HashSet<String> Catalyst = new HashSet<String>();
 	private static MetalChunk MC = new MetalChunk();
 	private static Candle C = new Candle();
 	private static BucketWithSand BWS = new BucketWithSand();

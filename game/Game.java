@@ -268,6 +268,7 @@ public class Game {
         temp = new Door(correctLeft, correctRight);
         linkRooms(temp, correctLeft, correctRight, "back", "right");
 
+
         temp = new Door(correctRight, icyPath);
         String[] dir3 = {"left", "right"};
         linkRooms(temp, correctRight, dir3);
