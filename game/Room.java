@@ -48,7 +48,6 @@ public class Room  {
      * @param description
      * @param roomNPC
      */
-    
     public void addNPC(NPC npc) {
     	this.roomNPC = npc;
     }
@@ -75,11 +74,18 @@ public class Room  {
     public Door getDoor(String directName) {
     	return this.directions.get(directName);
     }
+    /**
+     * 
+     * @return	returns all the possible names of directions that the user can go in 
+     */
     public Map<String,Door> options() {
     	return this.directions;
     }
     
-    
+    /**
+     * 
+     * @return	returns the NPC in the room (if it contains one)
+     */
     public NPC getNPC() {
     	return roomNPC;
     }
@@ -109,6 +115,10 @@ public class Room  {
     	return properties;
     }
     
+    /**
+     * removes a property/item from the room
+     * @param property		name of the property
+     */
     public void removeProperty(String property) {
     	if(properties.containsKey(property)) {
     		properties.remove(property);
@@ -116,10 +126,18 @@ public class Room  {
     	
     }
     
+    /**
+     * adds lever to lever puzzle rooms
+     * @param lever
+     */
     public void addLever(Lever lever) {
     	this.lever = lever;
     }
     
+    /**
+     * gets lever if room has one
+     * @return	lever
+     */
     public Lever getLever() {
     	return lever;
     }
