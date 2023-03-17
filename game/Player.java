@@ -42,7 +42,11 @@ public class Player {
 			}
 		}
 	    
-	    
+	    /**
+	     * Checks if room has a lever, if it does it activates the lever ability
+	     * @param second second word doesn't really matter here. Levers 
+	     * are the only things to pull
+	     */
 	    public void pull(String second) {
 	    	if(CR.getLever() == null) {
 	    		System.out.println("There's nothing to pull!");
