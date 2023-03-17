@@ -12,12 +12,12 @@ public class Key extends Item{
 	protected Key(String name) {
 		super(Craftable, CraftedBy, name);
 		Item[] medal = {SM, IM};
-		CraftedBy.add(medal);
+		//CraftedBy.add(medal);
 	}
 	protected Key(HashSet<String> Craftable, HashSet<String[]> craftedBy, String name) {
 		super(Craftable, craftedBy, name);
 		Item[] medal = {SM, IM};
-		CraftedBy.add(medal);
+		//CraftedBy.add(medal);
 		
 	}
 

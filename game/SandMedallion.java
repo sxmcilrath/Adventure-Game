@@ -14,8 +14,7 @@ public class SandMedallion extends Item {
 	
 	protected SandMedallion() {
 		super(Craftable, CraftedBy, "sandmedallion");
-		Craftable.add(K);
-		// TODO Auto-generated constructor stub
+		//Craftable.add(K);
 	}
 
 	@Override

@@ -326,7 +326,7 @@ public class Game {
          */
         
         player.setCurrentRoom(entrance);
-        player.look(null);
+        player.look();
        
         
         

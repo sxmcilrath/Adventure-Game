@@ -6,8 +6,8 @@ import java.util.Set;
 public class BucketWithSand extends Key {
 
 	private Player player;
-	private static HashSet<Item> Craftable = new HashSet<Item>();
-	private static HashSet<Item[]> CraftedBy = new HashSet<Item[]>();
+	private static HashSet<String> Craftable = new HashSet<String>();
+	private static HashSet<String[]> CraftedBy = new HashSet<String[]>();
 	private LockedDoor door;
 	private static Bucket B = new Bucket();
 	private static Shovel SH = new Shovel();
@@ -15,9 +15,9 @@ public class BucketWithSand extends Key {
 	
 	public BucketWithSand() {
 		super(Craftable, CraftedBy, "bucketwithsand");
-		Craftable.add(B);
+		//Craftable.add(B);
 		Item[] a = {B, SH};
-		CraftedBy.add(a);
+		//CraftedBy.add(a);
 		// TODO Auto-generated constructor stub
 	}
 	
