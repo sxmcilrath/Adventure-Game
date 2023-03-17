@@ -20,7 +20,7 @@ public class SimeusSignon extends NPC {
 		
 		sword = "Ah, yes! You have a sword! Why don't you give it go?";
 		noSword = "You really think you can take me down without a sword? I mean, you don't "
-				+ "have to fight me to move on, but it seems unwise to go forward if you aren't even "
+				+ "have to fight me to move on, \nbut it seems unwise to go forward if you aren't even "
 				+ "able to stand up to me.";
 		swordAttacked = "Alright, alright, cut it out! You've had enough tutorial with that death "
 				+ "stick. Get a move on.";

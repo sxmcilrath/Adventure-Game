@@ -62,11 +62,12 @@ public class Game {
     	this.player = new Player(allItems);
     	//initializes rooms
     	//Ye Olde Tutorial Rooms
-    	Room entrance = new Room("entrance","You are standing at the edge of a beautiful forest."
+    	Room entrance = new Room("entrance",
+    			"You are standing at the edge of a beautiful forest. \n"
         		+ " A sign is just in front of you; I wonder what it says...");
         		entrance.addNPC(new SineusSignon());
         
-        Room swordRoom = new Room("swordroom","You see a rather wimpy-looking sword on the ground."
+        Room swordRoom = new Room("swordroom","You see a rather wimpy-looking sword on the ground.\n"
         		+ " It doesn't seem very high quality,but you should still take it. \nUnless, of"
         		+ " course, you feel you can manage without it. Down the hill, is another sign guy.");
         swordRoom.addProperty("sword", new Sword());
@@ -74,16 +75,16 @@ public class Game {
 
         
         Room swordTutorial = new Room("swordtutorial","There is a sign here. It seems eager to meet you..."
-        		+ " or hurt you. I can't tell. Either way, we shouldn't linger long. Past the sign is a clearing.");
+        		+ " or hurt you. I can't tell. /nEither way, we shouldn't linger long. Past the sign is a clearing.");
         		swordTutorial.addNPC(new SimeusSignon(this.player));
         
-        Room freeWillTutorial = new Room("freewill","You step into the clearing and, oh! another sign. "
-        		+ "Hopefully this one is a bit less violent than the last one. Maybe he knows where you"
+        Room freeWillTutorial = new Room("freewill","You step into the clearing and, oh! another sign.\n "
+        		+ "Hopefully this one is a bit less violent than the last one.\n Maybe he knows where you"
         		+ "should go next.");
         		freeWillTutorial.addNPC(new SirainSignon());
         
         Room questMadeClear = new Room("quest","A wise looking sign stands majestically"
-        		+ " before you. Even in his old age, he has an air of vibrance and royalty."
+        		+ " before you.\n Even in his old age, he has an air of vibrance and royalty."
         		+ " I wonder what he has to say.");
         questMadeClear.addNPC(new SimonSignon(player));
        
@@ -96,7 +97,7 @@ public class Game {
         
         //Overworld Rooms
 
-        Room outsideShelter = new Room("outsideshelter","You stand at the edge of the forest. "
+        Room outsideShelter = new Room("outsideshelter","You stand at the edge of the forest, and--Oh a dog! I guess you should pet it. "
         		+ "Not far ahead is a small, homey cabin... homey...homey. How is homey spelled? "
         		+ "It doesn't matter (well, it might matter), lets go in.");
         outsideShelter.addNPC(new Pet(0));
@@ -114,12 +115,12 @@ public class Game {
         		+ "In the middle of the crossroads stands a sign, signing his song without a care in the world.");
         icyPath.addNPC(new SilasSignon());
         beach = new Room("beach","Look at all this sand. If only a very wise, very pleasant "
-        		+ "person could lead you in the right direction. Oh wait, I'm right here! There is a "
-        		+ "puzzle just ahead. What? You think it's unprofessional for me to break the "
+        		+ "person could lead you in the right direction.\nOh wait, I'm right here! There is a "
+        		+ "puzzle just ahead. \nWhat? You think it's unprofessional for me to break the "
         		+ "fourth wall like this? Well maybe when you become a narrator you can do things "
-        		+ "your way, but as of now, I can do whatever I like. In fact, just to bother you, "
+        		+ "your way, but as of now, I can do whatever I like. \nIn fact, just to bother you, "
         		+ "I won't ever change what I say in this room. I'll just repeat the same thing "
-        		+ "over and over again and you'll have to deal with it. Try to to figure it out because"
+        		+ "over and over again and you'll have to deal with it.\nTry to to figure it out because"
         		+ "this conversation.");
             beach.addProperty("bucket", new Bucket());
             beach.addProperty("bucket", new Bucket());
@@ -133,7 +134,7 @@ public class Game {
         		+ " forward and come upon a grand oak door. It seems to be an entrance to a throne room.");
         
 
-        finalWhite = new Room("white", "Walking into the room, you take in the surroundings. A signfolk with royal garbs stands adjacent to a glowing door.\n"
+        finalWhite = new Room("white", "Walking into the room, you take in the surroundings. \nA signfolk with royal garbs stands adjacent to a glowing door.\n"
         		+ "On the other side of the door is a white lever. ");
         	       finalWhite.addNPC(new SibylSignon(player));
         	       finalWhite.addProperty("secretcode", new SecretCode());     

@@ -12,9 +12,9 @@ public abstract class Item {
 	protected HashSet<String> Catalyst = new HashSet<String>();
 	protected String myName;
 	
-	protected Item(HashSet<String> Craftable, HashSet<String[]> CraftedBy, String myName) {
-		this.Craftable = Craftable;
-		this.CraftedBy = CraftedBy;
+	protected Item(HashSet<String> craftable2, HashSet<String[]> craftedBy2, String myName) {
+		this.Craftable = craftable2;
+		this.CraftedBy = craftedBy2;
 		this.myName = myName;
 	}
 	protected Item(HashSet<String> Craftable, HashSet<String[]> CraftedBy, String myName, HashSet<String> Catalyst) {

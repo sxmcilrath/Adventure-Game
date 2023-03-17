@@ -19,13 +19,9 @@ import java.util.Map;
 public class Room  {
 	
 
-	/**
-	 * the name of the room
-	 */
-	private String name;
 
+	private String name;	//name id for room
 	private HashMap<String, Item> properties;	//A set containing the room's properties, such as dark, onFire, etc.
-
     private HashMap <String, Door> directions = new HashMap<String, Door>();	//map to contain directions to accessible rooms
     private String description;	//A description of this room
     private NPC roomNPC;		//npc for the room if there is one

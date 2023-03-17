@@ -51,8 +51,10 @@ public class SilvesterSignon extends NPC {
 	 */
 	public SilvesterSignon(Player player) {
 		this.player = player;
-		preIce= new String[] {"Hello there, its a beautiful door--I mean, day--today. How are you?\n"
-				+ "What's that? A dog? Did Simon put you up to this? Well, nearby is a path towards the ice place (I can never remember what it's called).\n"
+
+		preIce = new String[] {"Hello there, its a beautiful door--I mean, day--today. How are you? "
+				+ "What's that? A dog? Did Simon put you up to this? Well, nearby is a path "
+				+ "towards the ice place (I can never remember what it's called). "
 				+ "Also, how do you spell \"yoozh\", as in, \"I'll have the usual?\" I could "
 				+ "never quite figure it out.",
 				"Iceland? Is that what it's called? No, that's a country. Well, I suppose it doesn't "
