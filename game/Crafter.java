@@ -1,5 +1,6 @@
 package game;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -9,41 +10,69 @@ import java.util.Set;
 
 
 public class Crafter {
-	private Set<String> Craftable;
+    private Set<String> Craftable;
 	private Map<String,Item> AllItems = new HashMap<String,Item>();
 	private HashMap<String,Item> backpack;
-	
+	private HashMap<Set<Item[]>, Item> methods = new HashMap<Set<Item[]>,Item>();
+
 	
 	public Crafter(HashMap<String,Item> backpack) {
 		this.backpack = backpack;
-		AllItems.put("bucket", new Bucket());
-		AllItems.put("candle", new Candle());
-		AllItems.put("metalchunk", new MetalChunk());
-		AllItems.put("shovel", new Shovel());
-		AllItems.put("steak", new Steak());
-		AllItems.put("sword", new Sword());
-		AllItems.put("bucketwithsand", new BucketWithSand());
+		
+		Item[][] bucket = {{new Candle(), new MetalChunk()}};
+		methods.put(intialHelper(bucket), new Bucket());
+		Item[][] metalchunk = {{new Sword()}, {new Bucket()}, {new Shovel()}};
+		methods.put(intialHelper(metalchunk), new MetalChunk());		
+		Item[][] shovel = {{new MetalChunk(), new Candle()}};
+		methods.put(intialHelper(shovel), new Shovel());
+		Item[][] sword = {{new MetalChunk(), new Candle()}};
+		methods.put( intialHelper(sword), new Sword());
+		Item[][] bws = {{new Bucket(), new Shovel()}};
+		methods.put(intialHelper(bws), new BucketWithSand());
+		Item[][] tocastle = {{new SandMedallion(), new IceMedallion()}};
+		methods.put(intialHelper(tocastle), new Key("tocastle"));
+		
+	}
+	
+	public  Set<Item[]> intialHelper( Item[][] i) {
+		HashSet<Item[]> temp = new HashSet<Item[]>();
+		for(Item[] ia : i) {
+		temp.add(ia);
+		}
+		return temp;
 	}
 	
 
 	public Set<String> canCraft() {
 		Craftable = new HashSet<String>();
-		//copy contains every Item the user has
-		Collection<Item> copy = backpack.values();
-		for(Item i: copy) {
-			//Craftable adds string of all items that Backpack(copy) items are materials in
-			for (Item a : i.craftable()) {
-				if(a != null) { // to catch errors
-			this.Craftable.add(a.getName());	
+		Iterator<Set<Item[]>> iterator = methods.keySet().iterator();
+		while(iterator.hasNext()) {
+			Set<Item[]> toAdd = iterator.next();
+			Iterator<Item[]> temp = iterator.next().iterator();
+			while(temp.hasNext()) {
+				Item[] i = temp.next();
+				boolean containsAll = true;
+				for(Item j: i) {
+					if (!(backpack.containsKey(j.getName()))){
+						containsAll = false;
+					}
+				}
+				if(containsAll) {
+					if(Craftable.contains(methods.get(toAdd).getName())) {
+						Craftable.add(methods.get(toAdd).getName() + "I");
+					} else
+					if(Craftable.add(methods.get(toAdd).getName());
 				}
 			}
-		}		
+		
+			
+		}
 		return Craftable;
 	}
 	
 
 	public String crafted(String toCraft) {
-		Craftable = canCraft();
+		Set<String> Craftable = canCraft();
 		if(Craftable.contains(toCraft)) {
 			Item item = AllItems.get(toCraft);
 			//if(item.CraftedBy != null){
@@ -51,7 +80,7 @@ public class Crafter {
 				boolean hasAll = true;
 				if( i != null) {
 				for (Item x : i) {
-					if(!(backpack.keySet().contains(x.getName()))) {
+					if(!(backpack.keySet().contains(x.myName))) {
 						hasAll = false;
 					}
 				}

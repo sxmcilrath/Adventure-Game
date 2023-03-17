@@ -6,15 +6,15 @@ import java.util.ArrayList;
  *between all the doors. If the current door is at the end of the list then the door at the 
  *beginning of the list is then accessed
  */
-public class RotatingDoor implements Door {
-
+public class RotatingDoor {
+/**
 	private ArrayList<Room> rooms;	//array list of rooms 
 	private Key key;	//only one key to access the rotating doors
 	
 	/**
 	 * constructor takes in a list of doors 
 	 * @param rooms		list of rooms that the rotating door rotates through	
-	 */
+	 *
 	public RotatingDoor(ArrayList<Room> rooms) {
 		this.rooms = rooms;
 		key = null;
@@ -24,7 +24,7 @@ public class RotatingDoor implements Door {
 	/**
 	 * goes to next room in the array list. If the player is at the end of the 
 	 * list then the room is set back to the first
-	 */
+	 *
 	public Room nextRoom(Room CR) {
 		int size = rooms.size();	//grabs size of rooms
 		int index = rooms.indexOf(CR);	//index of the current room
@@ -42,4 +42,5 @@ public class RotatingDoor implements Door {
 	public Key getKey() {
 		return key;
 	}
+	*/
 }

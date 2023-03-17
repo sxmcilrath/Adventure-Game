@@ -5,17 +5,17 @@ import java.util.Set;
 
 public class Candle extends Item {
 
-	private static HashSet<Item> Craftable = new HashSet<Item>();
-	private static HashSet<Item[]> CraftedBy = new HashSet<Item[]>();
+	private static HashSet<String> Craftable = new HashSet<String>();
+	private static HashSet<String[]> CraftedBy = new HashSet<String[]>();
 
 	/**
 	 * constructor for Candle
 	 */
 	public Candle() {
 		super(Craftable, CraftedBy, "candle");
-		Craftable.add(new Sword());
-		Craftable.add(new Shovel());
-		Item[] a = {};
+		Craftable.add("sword");
+		Craftable.add("shovel");
+		String[] a = {};
 		CraftedBy.add(a);
 		
 	}

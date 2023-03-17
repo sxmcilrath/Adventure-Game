@@ -27,12 +27,6 @@ public class Shovel extends Item {
 		//need to first add a check to make sure they are in the beach room
 		if(room.getName().equals("beach")){
 			
-			if(player.hasItem("bucket")) {
-				player.removeItemFromBackapack("bucket");
-				//player.addItemToBackpack("bucketwithsand", new BucketWithSand(player));
-				return "You shovel the sand into your bucket"; 
-			}
-			
 			return "You push sand around for a couple minutes. This seems pointless. If only there was something to shape the sand...";
 		}
 		

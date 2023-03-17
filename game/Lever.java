@@ -48,7 +48,7 @@ public class Lever {
 		if(name.equals("white")) {
 			
 			if(red && green && blue) {
-				game.linkThroneRoom();
+				room.addProperty("finalkey", new Key("finalkey"));
 				return "To your amazemement, the room starts to shake.\nThe wall to your left slowly falls away, "
 						+ "revealing a grand entrance to what seems to be the throne room. \nSibyl looks at you in shock,"
 						+ "realizing that her job may now be in jeopardy";

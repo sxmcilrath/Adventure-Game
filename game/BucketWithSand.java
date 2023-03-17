@@ -8,19 +8,11 @@ public class BucketWithSand extends Key {
 	private Player player;
 	private static HashSet<Item> Craftable = new HashSet<Item>();
 	private static HashSet<Item[]> CraftedBy = new HashSet<Item[]>();
-	private TwoWayDoor door;
+	private LockedDoor door;
 	private static Bucket B = new Bucket();
 	private static Shovel SH = new Shovel();
 	
 	
-	public BucketWithSand(TwoWayDoor door) {
-		super(Craftable, CraftedBy,  door, "bucketwithsand");
-		this.door = door;
-		Craftable.add(B);
-		Item[] a = {B, SH};
-		CraftedBy.add(a);
-		// TODO Auto-generated constructor stub
-	}
 	public BucketWithSand() {
 		super(Craftable, CraftedBy, "bucketwithsand");
 		Craftable.add(B);
