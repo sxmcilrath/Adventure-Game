@@ -230,11 +230,12 @@ public class Game {
         linkRooms(correctLeft, correctRight, "back", "right");
         linkRooms(correctRight, icyPath, "left");
         linkRooms(correctRight, icyPath, "right");
-        linkRooms(correctRight, correctMiddle, "back", "middle");
+        linkRooms(correctRight, correctMiddle, "back", "forward");
         linkRooms(correctMiddle, icyPath, "left");
         linkRooms(correctMiddle, icyPath, "right");
         linkRooms(correctMiddle, icyPath, "middle");
         linkRooms(correctMiddle, iceCastle, "back");
+        linkRooms(iceCastle, shelter, "cabin");
         
         
         //linking final castle 
