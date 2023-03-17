@@ -2,7 +2,8 @@
  * SilvesterSignon
  * 
  * Silvester lives in a cozy cabin not far from the edge of the forest.
- * He leads the player where he believes they should go.
+ * He leads the player where he believes they should go. His dialogue is more
+ * complex than any other character in the game
  */
 
 package game;
@@ -45,6 +46,16 @@ public class SilvesterSignon extends NPC {
 	private int preFinalCounter;
 	
 	/**
+	 * the set of dialogue Silvester has when attacked before the ice castle
+	 */
+	private String[] attacked;
+	
+	/**
+	 * how many times Silvester has been attacked before the ice castle
+	 */
+	private int attackedCounter;
+	
+	/**
 	 * Silvester needs to know the current state of the game to interact with
 	 * the player dynamically
 	 * @param player
@@ -71,8 +82,19 @@ public class SilvesterSignon extends NPC {
 		preFinal = new String[] {"By Jove you've done it! The medallions! With those, you'll be able "
 				+ "to reach the Final Castle! Nobody knows what wonderful things are in that castle."};
 		preFinalCounter = 0;
+		
+		attacked = new String[] {"Please no! You'll break something! And if you break something, I'll... well, do nothing.\n"
+				+ "But I'll be very upset!",
+				"I'm serious, be careful! No, no! Not that, please no! Be careful with that!",
+				"Oh greatly to be pitied am I! You've broken it, my favorite thing!",
+				"*Silvester weeps*"};
+		attackedCounter = 0;
 	}
 	
+	/**
+	 * The things Silvester says to the player. He guides the player through the main portion of the game
+	 * @return his words of wisdom, depending on how far in the game you are
+	 */
 	public String talk() {
 
 		if (player.wasCheckCrossed("sandCastle")) {
@@ -84,4 +106,17 @@ public class SilvesterSignon extends NPC {
 		return cycleTalk(preIceCounter++, preIce);
 	}
 
+	/**
+	 * What Silvester says when he is attacked
+	 */
+	public String attacked() {
+		if (attackedCounter >= 3) {
+			return attacked[3];
+		}
+		if (attackedCounter == 3) {
+			player.addCheckpoint("brokenthing1");
+		}
+		return attacked[attackedCounter];
+	}
+	
 }
