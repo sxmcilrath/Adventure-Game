@@ -30,7 +30,7 @@ public class SimonSignon extends NPC {
 				"I suppose you don't have to go up the tree, but I think it would help you."};
 
 		postTree = new String[] {"What did you see? A dog? Of course! It is all "
-				+ "so clear now. Go find that little pupper and give it a good pet. A belly rub is also "
+				+ "so clear now. Go find that little pupper and give it a good pet. \nA belly rub is also "
 				+ "recommended. Why? Believe me, it will all become clear to you in time.\n"
 				+ "Go back to where you met Sirain and go east. You should be able to see where to go from there.",
 				"You've met Sirain, right? He is the one who told you to come to me, just south from here."};
