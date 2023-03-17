@@ -189,15 +189,24 @@ public class Player {
 
 		public void setCurrentRoom(Room CR) { this.CR = CR; }
 
-		//switches rooms
+		/**
+		 * switches the room the player is in
+		 * @param first		name of direction
+		 */
 		public void switchRoom(String first) {
 			//checks to see if user wants to go anywhere
 			if(first != "") {  
 				//Checks if direction is a key in the directions hashmap
 				if(CR.checkDirection(first)) {	
-					Door door = CR.getDoor(first);		    			
+					Door door = CR.getDoor(first);	
+					
+					//checks if the door is a LockedDoor, if it is, it grabs the 
+					//name of the doors key
 					if(door instanceof LockedDoor) {
 						String keyName = ((LockedDoor) door).getKey().myName;
+						
+						//checks backpack for the key and lets player through
+						//based on if player has it
 						if(backpack.containsKey(keyName)) {
 							CR = door.nextRoom(CR);
 							print("you used a " + keyName);
@@ -205,18 +214,28 @@ public class Player {
 							print("You need a " + keyName);
 						}
 					}else {
+						//door is not locked so advance to the next room
 						CR = door.nextRoom(CR);
 					}
+					
+					//print out the room description upon arrival
 					look();					
 				} else {
+					//player requests non viable direction
 					print("There is nothing in that direction");
 				} 
-			}else {		  
+			}else {	
+				//player does not specify direction and all option ar printed
 				print("Where would you like to go? \nOptions: " + CR.options().keySet().toString());
 			}
+			//when entering a room, it adds the room id to checkpoints
 			this.checkpoints.add(CR.getName());
 		}
-		    
+		
+		/**
+		 * adds progress checkpoint to hashset
+		 * @param check		specified checkpoint
+		 */
 		public void addCheckpoint(String check) {
 			checkpoints.add(check);
 		}
@@ -289,6 +308,10 @@ public class Player {
 		    	return "The " + itemName + " was added to your backpack!";
 		    }
 		    
+		    /**
+		     * removes target item from backpack
+		     * @param name	name of target item
+		     */
 		    public void removeItemFromBackapack(String name) {
 		    	backpack.remove(name);
 		    }
