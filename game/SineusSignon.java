@@ -3,6 +3,8 @@
  * 
  * Sineus Signon, the first NPC you have the opportunity to meet.
  * He introduces the forest and his people
+ * 
+ * @author Camden Flannagan
  */
 
 package game;

@@ -1,3 +1,12 @@
+/**
+ * Room
+ * 
+ * Rooms define the structure of the game. The are connected with doors and build the map that
+ * the user goes through
+ * 
+ * @author Lincoln Going, Camden Flannagan, and Sam McIlrath
+ */
+
 package game;
 
 import java.util.ArrayList;

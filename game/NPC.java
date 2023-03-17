@@ -1,5 +1,9 @@
 /**
- * An interface for the NPC's
+ * NPC
+ * 
+ * An abstract class for the NPC's
+ *
+ * @author Camden Flannagan
  */
 
 package game;
@@ -7,9 +11,7 @@ package game;
 public abstract class NPC {
 	
 	/**
-	 * A method for the signfolk to talk based on the current state
-	 * of the game's progression
-	 * @param progression How far the player is into the game
+	 * A method for the signfolk to talk
 	 * @return the string for the signfolk to say
 	 */
 	public abstract String talk();
@@ -34,7 +36,6 @@ public abstract class NPC {
 	 */
 	protected String cycleTalkWithGreeting(int counter, String[] says) {
 		if (counter == 0) {
-			counter++;
 			return says[0];
 		}
 		int temp = counter;
@@ -42,6 +43,10 @@ public abstract class NPC {
 		return says[((temp-1)%(says.length-1))+1]; // cycle through only the elements after the first element
 	}
 	
+	/**
+	 * Gives an npc dialogue to say when attacked
+	 * @return the thing for the npc to say when attacked
+	 */
 	public String attacked() {
 		return "The SignFolk moves out of your reach";
 	}

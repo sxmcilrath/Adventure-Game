@@ -1,3 +1,11 @@
+/**
+ * SilasSignon
+ * 
+ * A signfolk that is probably not mentally healthy. He leads you through the ice path puzzle
+ * 
+ * @author Sam McIlreth and ChatGPT (for the poem)
+ */
+
 package game;
 
 //NPC that gives you clue for icy path puzzle

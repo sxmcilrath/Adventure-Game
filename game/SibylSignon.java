@@ -1,15 +1,31 @@
+/**
+ * SibylSignon
+ * 
+ * Sibyl gaurds the final castle
+ * 
+ * @author Sam McIlreth
+ */
+
 package game;
 
 public class SibylSignon extends NPC{
 	
+	/**
+	 * the player that Sibyl interacts with
+	 */
 	private Player player;
 	
+	/**
+	 * constructor for Sibyl
+	 * @param player The player to interact with
+	 */
 	public SibylSignon(Player player) {
 		this.player = player;
 	}
 	
 	/**
 	 * NPC to initially greet you and then later help you with the lever puzzle
+	 * @return What Sibyl says
 	 */
 	public String talk() {
 		if(player.wasCheckCrossed("red")) {

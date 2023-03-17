@@ -1,3 +1,11 @@
+/**
+ * AddC
+ * 
+ * Command to add things to 
+ * 
+ * @author Lincoln Going
+ */
+
 package game;
 
 import java.util.HashSet;

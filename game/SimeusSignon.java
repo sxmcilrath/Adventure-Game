@@ -2,6 +2,8 @@
  * SimeusSignon
  * 
  * Simeus introduces combat to the game. The more excitable brother of Sineus
+ * 
+ * @author Camden Flannagan
  */
 
 package game;

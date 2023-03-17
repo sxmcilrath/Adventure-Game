@@ -2,7 +2,8 @@
  * SirainSignon
  * 
  * Sirain teaches the player all about free will (within heavy limits, of course)
- * He only has one line
+ * 
+ * @author Camden Flannagan
  */
 
 package game;

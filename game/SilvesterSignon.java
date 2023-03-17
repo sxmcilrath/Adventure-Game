@@ -4,6 +4,8 @@
  * Silvester lives in a cozy cabin not far from the edge of the forest.
  * He leads the player where he believes they should go. His dialogue is more
  * complex than any other character in the game
+ * 
+ * @author Camden Flannagan and Sam McIlreth
  */
 
 package game;

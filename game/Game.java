@@ -12,7 +12,7 @@ import java.util.Map;
  * rooms are organized as a graph, and the Room objects
  * are nodes in the graph.
  *
- * @author Thomas VanDrunen
+ * @author Thomas VanDrunen, Camden Flannagan, Lincoln Going, and Sam McIlrath
  * Wheaton College, CS 245, Spring 2007
  * Lab 5
  * Feb 8, 2007

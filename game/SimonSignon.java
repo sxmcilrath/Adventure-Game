@@ -2,6 +2,8 @@
  * SimonSignon
  * 
  * Simon is the elder of the signfolk. He introduces you to the purpose of your quest
+ * 
+ * @author Camden Flannagan
  */
 
 package game;
