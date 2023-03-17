@@ -10,7 +10,7 @@ import java.util.Set;
 
 
 public class Crafter {
-    private Set<String> Craftable;
+    private Map<String, Item[]> Craftable;
 	private Map<String,Item> AllItems = new HashMap<String,Item>();
 	private HashMap<String,Item> backpack;
 	private HashMap<Set<Item[]>, Item> methods = new HashMap<Set<Item[]>,Item>();
@@ -44,43 +44,46 @@ public class Crafter {
 	
 
 	public Set<String> canCraft() {
-		Craftable = new HashSet<String>();
-		Iterator<Set<Item[]>> iterator = methods.keySet().iterator();
+		Craftable = new HashMap<String, Item[]>();
+		Iterator<Set<Item[]>> iterator = methods.keySet().iterator();  //Iterates each craftable object
 		while(iterator.hasNext()) {
-			Set<Item[]> toAdd = iterator.next();
-			Iterator<Item[]> temp = iterator.next().iterator();
+			Set<Item[]> toAdd = iterator.next(); 
+			Iterator<Item[]> temp = iterator.next().iterator();  //iterates each method for each craftable object
 			while(temp.hasNext()) {
 				Item[] i = temp.next();
-				boolean containsAll = true;
+				int options = 0;
+				boolean containsAll = true; 
 				for(Item j: i) {
 					if (!(backpack.containsKey(j.getName()))){
 						containsAll = false;
 					}
 				}
-				if(containsAll) {
-					if(Craftable.contains(methods.get(toAdd).getName())) {
-						Craftable.add(methods.get(toAdd).getName() + "I");
+				if(containsAll) { //if the backpack has each item of the method
+					
+					if(Craftable.keySet().contains(methods.get(toAdd).getName())) {
+						options++;
+						Craftable.put(methods.get(toAdd).getName() + options, i);
 					} else
-					if(Craftable.add(methods.get(toAdd).getName());
+					Craftable.put(methods.get(toAdd).getName(), i);
 				}
 			}
 		
 			
 		}
-		return Craftable;
+		return Craftable.keySet();
 	}
 	
 
 	public String crafted(String toCraft) {
-		Set<String> Craftable = canCraft();
-		if(Craftable.contains(toCraft)) {
-			Item item = AllItems.get(toCraft);
+		Set<String> cancraft = canCraft();
+		if(cancraft.contains(toCraft)) {
+			
 			//if(item.CraftedBy != null){
-			for(Item[] i : item.CraftedBy) {
+			for(Item i : Craftable.get(toCraft)) {
 				boolean hasAll = true;
 				if( i != null) {
 				for (Item x : i) {
-					if(!(backpack.keySet().contains(x.myName))) {
+					if(!(backpack.keySet().contains(x.getName()))) {
 						hasAll = false;
 					}
 				}
