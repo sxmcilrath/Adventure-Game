@@ -105,14 +105,22 @@ public class SilvesterSignon extends NPC {
 	public String talk() {
 
 		// Pre Final Dialogue
-		if (player.wasCheckCrossed("sandCastle")) {
+		if (player.wasCheckCrossed("sandcastle")) {
 			return cycleTalk(preFinalCounter++, preFinal);
 		}
 		
 		// Pre Sand Dialogue
-		if (player.wasCheckCrossed("iceCastle")) {
+		if (player.wasCheckCrossed("icecastle")) {
 			if (player.wasCheckCrossed("brokenThingPreIce")) {
-				return "Well. Look who's back.";
+				return "Well. Look who's back. Don't think I've forgotten what you've done.\n"
+						+ "Maybe its immature, but I'm just not in a place to forgive you right now.\n"
+						+ "You broke my favorite thing and hurt me very deeply. Just go to the beach.\n"
+						+ "Please leave.";
+			}
+			if (player.wasCheckCrossed("brokenThingPreSand")) {
+				return "Go away. I am very unhappy with you. You've broken my favorite thing.\n"
+						+ "Oh, I don't know if I'll ever recover from this.\n"
+						+ "*continues weeping*";
 			}
 			return cycleTalk(preSandCounter++, preSand);
 		}
@@ -130,15 +138,15 @@ public class SilvesterSignon extends NPC {
 	 * What Silvester says when he is attacked
 	 */
 	public String attacked() {
-		if (attackedCounter >= 3) {
-			return attacked[3];
-		}
 		if (attackedCounter == 3) {
 			if (player.wasCheckCrossed("iceCastle")) {
 				player.addCheckpoint("brokenThingPreSand");
 			} else {
 				player.addCheckpoint("brokenThingPreIce");
 			}
+		}
+		if (attackedCounter >= 3) {
+			return attacked[3];
 		}
 		return attacked[attackedCounter++];
 	}
