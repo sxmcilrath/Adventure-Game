@@ -63,7 +63,7 @@ public class Game {
         		+ " or hurt you. I can't tell.\n"
         		+ "Either way, we shouldn't linger long. Past the sign is a clearing.");
         		swordTutorial.addNPC(new SimeusSignon(this.player));
-        	    swordRoom.addProperty("metalchunk", new MetalChunk());
+        		swordTutorial.addProperty("metalchunk", new MetalChunk());
         
         Room freeWillTutorial = new Room("freewill","You step into the clearing and, oh! another sign.\n"
         		+ "Hopefully this one is a bit less violent than the last one.\nMaybe he knows where you "
