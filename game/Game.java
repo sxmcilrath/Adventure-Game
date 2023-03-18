@@ -86,8 +86,8 @@ public class Game {
         
         //Overworld Rooms
 
-        Room outsideShelter = new Room("outsideshelter","You stand at the edge of the forest, and--Oh a dog! I guess you should pet it. "
-        		+ "Not far ahead is a small, homey cabin... homey...homey. How is homey spelled? "
+        Room outsideShelter = new Room("outsideshelter","You stand at the edge of the forest, and--Oh a dog! I guess you should pet it.\n"
+        		+ "Not far ahead is a small, homey cabin... homey...homey. How is homey spelled?\n"
         		+ "It doesn't matter (well, it might matter), lets go in.");
         outsideShelter.addNPC(new Pet(0));
         Room shelter = new Room("shelter","You open the cabin door and inside you find a signfolk sitting in a rocking chair with the fire going.\n"
