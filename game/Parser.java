@@ -20,7 +20,6 @@ import java.util.Scanner;
 public class Parser {
 	
 	
-	 private Game game;
 	 private Player player;
 	 private String first = null;
      private String second = null;
@@ -47,7 +46,6 @@ public class Parser {
      */
     public Parser(Game game) {
         keyboard = new Scanner(System.in);
-        this.game = game;
         this.player = game.getPlayer();
         
  
@@ -55,7 +53,7 @@ public class Parser {
    	 //Constructs a Hashmap of commands
    	String[] add = {"add", "new"};
    	for(int i = 0; i < add.length; i++) {
-   	 Calls.put(add[i], new AddC(this.Calls, this.player));
+   	 Calls.put(add[i], new AddC(this.Calls));
    	}
    	
 	String[] pull = {"pull", "switch"};
@@ -68,7 +66,7 @@ public class Parser {
    	 Calls.put(drop[i], new DropC());
    	}
    	
-   	String[] craft = {"craft", "smelt", "mold","form"};
+   	String[] craft = {"craft", "smelt", "mold", "form", "make"};
    	for(int i = 0; i < craft.length; i++) {
    	 Calls.put(craft[i], new CraftC());
    	}
@@ -122,11 +120,10 @@ public class Parser {
      * a command, and interpret the command.
      * @param game A reference to the object representing the game.
      */
-    public void executeTurn(Game game) {
+    public void executeTurn() {
     //
 	 first = null;
 	 second = null;
-	 this.game = game;
 	 
      
         System.out.print("Enter command--> ");

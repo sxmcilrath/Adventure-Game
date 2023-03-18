@@ -1,14 +1,9 @@
 package game;
 
-import java.util.HashSet;
-
 public class SecretCode extends Item {
 
-	private static HashSet<String> Craftable = new HashSet<String>();
-	private static HashSet<String[]> CraftedBy = new HashSet<String[]>();
-	
 	public SecretCode() {
-		super(Craftable, CraftedBy, "secretcode");
+		super("secretcode");
 	}
 	
 	/**

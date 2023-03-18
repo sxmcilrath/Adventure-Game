@@ -1,23 +1,14 @@
 package game;
 
-import java.util.HashSet;
-import java.util.Set;
 
 public class Candle extends Item {
 
-	private static HashSet<String> Craftable = new HashSet<String>();
-	private static HashSet<String[]> CraftedBy = new HashSet<String[]>();
-
+	
 	/**
 	 * constructor for Candle
 	 */
 	public Candle() {
-		super(Craftable, CraftedBy, "candle");
-		Craftable.add("sword");
-		Craftable.add("shovel");
-		String[] a = {};
-		CraftedBy.add(a);
-		
+		super("candle");
 	}
 	
 	@Override

@@ -1,9 +1,5 @@
 package game;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * Game.java
@@ -21,9 +17,10 @@ import java.util.Map;
 public class Game {
 	
 	private  Player player;
-	private  Crafter crafter;
+
     /**
-     * The current room the user is in. This serves to
+     * The current room the use
+    private Map<String,Item> allItems = new HashMap<String,Item>();r is in. This serves to
      * purposes-- it is our only permanent connection to
      * the rooms in this game (the other rooms are reachable
      * by traversing this room's "doors"-- and it maintains
@@ -32,12 +29,11 @@ public class Game {
 	
     //specific rooms that need to be accessed by methods
     private Room beach;	
-    private Room sandCastle;
+  
     private Room finalWhite;
     private Room throne;
     
 
-    private Map<String,Item> allItems = new HashMap<String,Item>();
    
     
     
@@ -47,19 +43,9 @@ public class Game {
      */
     public Game() {
     	
-    	allItems.put("bucket", new Bucket());
-		//allItems.put("bucketwithsand", new BucketWithSand());
-		allItems.put("candle", new Candle());
-		allItems.put("metalchunk", new MetalChunk());
-		allItems.put("shovel", new Shovel());
-		allItems.put("steak", new Steak());
-		allItems.put("sword", new Sword());
-		allItems.put("secretcode", new SecretCode());
-		//allItems.put("sandmedallion", new SandMedallion());
-		//allItems.put("icemedallion", new IceMedallion());
     	
     	//initializes the player
-    	this.player = new Player(allItems);
+    	this.player = new Player();
     	//initializes rooms
     	//Ye Olde Tutorial Rooms
     	Room entrance = new Room("entrance",
@@ -82,7 +68,7 @@ public class Game {
         Room freeWillTutorial = new Room("freewill","You step into the clearing and, oh! another sign.\n"
         		+ "Hopefully this one is a bit less violent than the last one.\nMaybe he knows where you "
         		+ "should go next.");
-        		freeWillTutorial.addNPC(new SirainSignon());
+        		freeWillTutorial.addNPC(new SirainSignon(this.player));
         
         Room questMadeClear = new Room("quest","A wise looking sign stands majestically"
         		+ "before you.\nEven in his old age, he has an air of vibrance and royalty."
@@ -210,7 +196,7 @@ public class Game {
         sandCastle.addProperty("sandmedallion", new SandMedallion());
         
         
-        Door temp = new LockedDoor(beach, sandCastle, new BucketWithSand());
+        Door temp = new LockedDoor(beach, sandCastle, new Key("tosandcastle"));
         linkRooms(temp, beach, sandCastle, "back", "sandcastle");
         //Lever puzzle
         Lever lever = new Lever(this);
@@ -312,7 +298,7 @@ public class Game {
                
    	 	//linking final castle 
    	 	//NEED TO SET UP A CHECK TO MAKE SURE YOU HAVE PET THE TWO OTHER DOGS
-   	 	temp = new LockedDoor(shelter, outsideFinalCastle, new Key("castlemedallion"));
+   	 	temp = new LockedDoor(shelter, outsideFinalCastle, new Key("tocastle"));
    	 	linkRooms(temp, shelter, "bridge");
         
    	 	temp = new Door(outsideFinalCastle, outsideFinalPuzzle);
