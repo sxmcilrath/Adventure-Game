@@ -24,7 +24,7 @@ public class SimonSignon extends NPC {
 	public SimonSignon(Player player) {
 		this.player = player;
 		
-		preTree = new String[] {"Hello there young fellow. The name's Simon and I don't really care to ask you yours\n"
+		preTree = new String[] {"Hello there young fellow. The name's Simon.\n"
 				+ "You must be brave to enter the treacherous "
 				+ "'Ye Olde Tutorial' forest, very brave indeed. Before you stands a tall tree.\n"
 				+ "Go up and observe well, when you are done, tell me what you see.",
@@ -32,9 +32,10 @@ public class SimonSignon extends NPC {
 				"I suppose you don't have to go up the tree, but I think it would help you."};
 
 		postTree = new String[] {"What did you see? A dog? Of course! It is all "
-				+ "so clear now. Go find that little pupper and give it a good pet. \n"
+				+ "so clear now. You are destined to pet the four Great Dogs of this land.\n"
+				+ "Go find those little puppers and give them a good pet. \n"
 				+ "You will recieve a Pet Medallion, a glorious object that will allow you to move forward in your journey.\n"
-				+ "You will visit castles to find other dogs, and once you have two of them, you will embark on the final stretch of your adventure.\n"
+				+ "You will visit castles to find other dogs, and once you have three of them, you will embark on the final stretch of your adventure.\n"
 				+ "Go back to where you met Sirain and go east. You should be able to see where to go from there.",
 				"You've met Sirain, right? He is the one who told you to come to me, just south from here."};
 	}
