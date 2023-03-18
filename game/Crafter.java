@@ -9,12 +9,16 @@ import java.util.Set;
 
 
 public class Crafter {
-	//Craftable stores the items craftable by backpack from recipes
+	/**
+	 * Craftable stores the items craftable by backpack from recipes
+	 * 
+	 * accessor String param is to access craftable with a command room the user input
+	 * 
+	 * recipe contains all crafting mechanisms. This includes multiple ways to crat the same item, hence the hashset of item[];
+	 */
     private Map<Item[], Item> Craftable;
-    //String is to access craftable with a command room the user input
 	private Map<String,Item[]> accessor;
 	private HashMap<String,Item> backpack;
-	//recipe contains all crafting mechanisms. This includes multiple ways to crat the same item, hence the hashset of item[];
 	private HashMap<Set<Item[]>, Item> recipes = new HashMap<Set<Item[]>,Item>();
 
 	
@@ -36,7 +40,12 @@ public class Crafter {
 		
 	}
 	
-	//initial helper reduces code lines by adding items to the hashset
+	/**
+	 * initial helper reduces code lines by adding items to the hashset
+	 * 
+	 * @param i
+	 * @return
+	 */
 	public  Set<Item[]> intialHelper( Item[][] i) {
 		HashSet<Item[]> temp = new HashSet<Item[]>();
 		for(Item[] ia : i) {
@@ -45,9 +54,16 @@ public class Crafter {
 		return temp;
 	}
 	
-    //returns all craftable items in a string name;
+    /**
+     * Iterates recipes Hashmap, and consequent hashmaps checking what can be made by the contents of backpack
+     * 
+     * 
+     * returns all craftable items in a string name;
+     * 
+     * @return
+     */
 	public Set<String> canCraft() {
-		//Resets crafter and accessor Maps
+		
 		Craftable = new HashMap<Item[], Item>();
 		accessor = new HashMap<String,Item[]>();		
 		Iterator<Set<Item[]>> iterator = recipes.keySet().iterator();  //Iterates each craftable object
@@ -72,7 +88,12 @@ public class Crafter {
 	}
 	
 	
-//Crafts the items and deletes the consumed items
+/**
+ * Crafts the item and deletes the consumed items
+ * 
+ * @param toCraft
+ * @return
+ */
 	public String crafted(String toCraft) {
 		Set<String> cancraft = canCraft();
 		if(cancraft.contains(toCraft)) {

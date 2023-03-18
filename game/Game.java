@@ -96,6 +96,7 @@ public class Game {
         		+ "It seems to be locked. Looking back to the sign... Oh, it's Silvester! He and I go way back. Sometime I'll have to "
         		+ "tell about the zany adventures we had as children.");
         	shelter.addNPC(new SilvesterSignon(this.player));
+        	shelter.addProperty("candle", new Candle());
         	
         Room icyPath = new Room("icypath","You depart from the shelter and step foot into the icy woods. This is much different from the forest in which you started. \n"
         		+ "Icicles hang from the tree branches and a fog quickly envelops your surroundings.\n"
@@ -125,7 +126,6 @@ public class Game {
         		"Of a castle by the sea, it may seem,\n" + 
         		"Remember these tools, and don't delay,\n" + 
         		"Pick up a shovel and bucket, today!");
-            beach.addProperty("bucket", new Bucket());
             beach.addProperty("bucket", new Bucket());
             beach.addProperty("shovel", new Shovel());
             beach.addProperty("candle", new Candle());
