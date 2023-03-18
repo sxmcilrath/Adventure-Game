@@ -82,7 +82,7 @@ public class Game {
         Room freeWillTutorial = new Room("freewill","You step into the clearing and, oh! another sign.\n"
         		+ "Hopefully this one is a bit less violent than the last one.\nMaybe he knows where you "
         		+ "should go next.");
-        		freeWillTutorial.addNPC(new SirainSignon());
+        		freeWillTutorial.addNPC(new SirainSignon(this.player));
         
         Room questMadeClear = new Room("quest","A wise looking sign stands majestically"
         		+ "before you.\nEven in his old age, he has an air of vibrance and royalty."
