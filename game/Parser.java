@@ -68,7 +68,7 @@ public class Parser {
    	 Calls.put(drop[i], new DropC());
    	}
    	
-   	String[] craft = {"craft", "smelt", "mold","form"};
+   	String[] craft = {"craft", "smelt", "mold","form", "make"};
    	for(int i = 0; i < craft.length; i++) {
    	 Calls.put(craft[i], new CraftC());
    	}

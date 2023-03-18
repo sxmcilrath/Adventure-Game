@@ -64,7 +64,7 @@ public class Crafter {
 				if(containsAll) { //if the backpack has each item of the method
 						Craftable.put(i, methods.get(toAdd));
 						if(accessor.containsKey(methods.get(toAdd).getName()) || backpack.containsKey(methods.get(toAdd).getName())) {	
-							options++;
+							//options++;
 						this.accessor.put(methods.get(toAdd).getName() + options, i);
 					} 
 					this.accessor.put(methods.get(toAdd).getName(), i);
