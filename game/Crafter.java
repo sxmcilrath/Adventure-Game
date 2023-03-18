@@ -10,8 +10,9 @@ import java.util.Set;
 
 
 public class Crafter {
-    private Map<String, Item[]> Craftable;
-	private Map<String,Item> AllItems = new HashMap<String,Item>();
+	
+    private Map<Item[], Item> Craftable;
+	private Map<String,Item[]> accessor;
 	private HashMap<String,Item> backpack;
 	private HashMap<Set<Item[]>, Item> methods = new HashMap<Set<Item[]>,Item>();
 
@@ -44,11 +45,13 @@ public class Crafter {
 	
 
 	public Set<String> canCraft() {
-		Craftable = new HashMap<String, Item[]>();
+		//System.out.println(backpack.keySet().toString());
+		Craftable = new HashMap<Item[], Item>();
+		accessor = new HashMap<String,Item[]>();
 		Iterator<Set<Item[]>> iterator = methods.keySet().iterator();  //Iterates each craftable object
 		while(iterator.hasNext()) {
 			Set<Item[]> toAdd = iterator.next(); 
-			Iterator<Item[]> temp = iterator.next().iterator();  //iterates each method for each craftable object
+			Iterator<Item[]> temp = toAdd.iterator();  //iterates each method for each craftable object
 			while(temp.hasNext()) {
 				Item[] i = temp.next();
 				int options = 0;
@@ -59,53 +62,45 @@ public class Crafter {
 					}
 				}
 				if(containsAll) { //if the backpack has each item of the method
-					
-					if(Craftable.keySet().contains(methods.get(toAdd).getName())) {
-						options++;
-						Craftable.put(methods.get(toAdd).getName() + options, i);
-					} else
-					Craftable.put(methods.get(toAdd).getName(), i);
+						Craftable.put(i, methods.get(toAdd));
+						if(accessor.containsKey(methods.get(toAdd).getName()) || backpack.containsKey(methods.get(toAdd).getName())) {	
+							options++;
+						this.accessor.put(methods.get(toAdd).getName() + options, i);
+					} 
+					this.accessor.put(methods.get(toAdd).getName(), i);
 				}
 			}
-		
-			
 		}
-		return Craftable.keySet();
+		Set<String> toReturn = accessor.keySet();
+		return toReturn;
 	}
 	
 
 	public String crafted(String toCraft) {
 		Set<String> cancraft = canCraft();
 		if(cancraft.contains(toCraft)) {
-			
-			//if(item.CraftedBy != null){
-			for(Item i : Craftable.get(toCraft)) {
-				boolean hasAll = true;
-				if( i != null) {
-				for (Item x : i) {
-					if(!(backpack.keySet().contains(x.getName()))) {
-						hasAll = false;
+			Item toBackpack = Craftable.get(accessor.get(toCraft));
+			backpack.put(toCraft, toBackpack);
+			for(Item i : accessor.get(toCraft)) {
+					if(backpack.keySet().contains(i.getName())) {
+						backpack.remove(i.getName());
 					}
 				}
-				}
-				if(hasAll == true) {
-					remove(toCraft, item, i);
-					return toCraft + " crafted";
-				}
-			}
-		//}
-		 if(AllItems.containsKey(toCraft)) {
+			//Craftable = null;
+			return toCraft + " crafted";
+			} else {
+				//Craftable = null;
 				return "you need more materials";
 			}
 	
 		}
-		//if the user attempts to craft a nonexistent item
+		/*if the user attempts to craft a nonexistent item
 		String[] randomReturn = {"Harry Potter?", "A Simulation?", "The Hunger Games?", "America's Got Talent?", "CSCI245?"
 				, "Bob the Builder?", "A Survival Game?"};
 		
-		return "What do you think this is, " + randomReturn[(int) (Math.random() * 7)];
+		return "What do you think this is, " + randomReturn[(int) (Math.random() * 7)]; 
 		
-	}
+	//}
 
 	private void remove(String toCraft, Item item, Item[] i) {
 		backpack.put(toCraft, item);
@@ -114,6 +109,6 @@ public class Crafter {
 				backpack.remove(remove.getName());
 			}
 		}
-	}
+	} */
 	
 }
