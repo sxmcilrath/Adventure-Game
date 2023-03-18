@@ -123,7 +123,7 @@ public class Game {
         		+ "Before long, you reach the sand , but you don't see anything besides a shovel and a bucket along the shore.\n"
         		+ "Where was the great desert castle that Silvester talked of?\n"
         		+ "As you get closer to the items you see a stone pedestal and realize that there's an engraving on it!\n"
-        		+ "This is what it reads:"
+        		+ "This is what it reads:\n"
         		+ "A tool with a handle and blade,\n" + 
         		"To make a castle, it must be swayed.\n" + 
         		"With it, you can dig deep and low,\n" + 
