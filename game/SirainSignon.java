@@ -27,6 +27,8 @@ public class SirainSignon extends NPC {
 			+ "only real function in the game is to tell you to go north!", "Alright buddy, move along. "
 					+ "This is my last original line of dialogue anyway. \nI'll just repeat things "
 					+ "from now on."};
+	private String postTree = "So you went to the tree did ya? Good for you. Now go east to start your journey.\n"
+			+ "Be sure to pet the dog outside the cabin!";
 	
 	/**
 	 * Method for Sirain to talk to the player

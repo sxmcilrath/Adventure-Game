@@ -82,14 +82,14 @@ public class Crafter {
 			for(Item i : Craftable.get(toCraft)) {
 				boolean hasAll = true;
 				if( i != null) {
-				for (Item x : i) {
-					if(!(backpack.keySet().contains(x.getName()))) {
-						hasAll = false;
-					}
-				}
+				//for (Item x : i) {
+					//if(!(backpack.keySet().contains(x.getName()))) {
+						//hasAll = false;
+				//	}
+				//}
 				}
 				if(hasAll == true) {
-					remove(toCraft, item, i);
+					//remove(toCraft, item, i);
 					return toCraft + " crafted";
 				}
 			}
