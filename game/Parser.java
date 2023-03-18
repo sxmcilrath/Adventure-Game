@@ -28,21 +28,25 @@ public class Parser {
      
      
    
-     //HashmMap Calls holds all callable commands
-     //String[] Commands holds the main game commands
+     /**HashmMap Calls holds all callable commands
+     * String[] Commands holds the main game commands
+      * 
+      */
       
      
     private String[] commands = {"add", "go","take", "use", "talk", "attack", "pet", "list", "look", "craft", "pull", "drop"};
     private HashMap<String, Command> Calls = new HashMap <String, Command>();
     
-    //HasshSet names holds the names of all rooms and items, to make sure the call is valid
     /**
+     * HashSet names holds the names of all rooms and items, to make sure the call is valid
      * For user input from the keyboard.
      */
     private Scanner keyboard;
 
     /**
      * Plain constructor
+     * 
+     * creates a hashMap of commands and their class call
      */
     public Parser(Game game) {
         keyboard = new Scanner(System.in);
@@ -50,7 +54,6 @@ public class Parser {
         
  
 
-   	 //Constructs a Hashmap of commands
    	String[] add = {"add", "new"};
    	for(int i = 0; i < add.length; i++) {
    	 Calls.put(add[i], new AddC(this.Calls));

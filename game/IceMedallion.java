@@ -18,8 +18,7 @@ public class IceMedallion extends Item {
 	
 	@Override
 	protected String ability(Room room, HashMap<String, Item> backpack) {
-		// TODO Auto-generated method stub
-		return null;
+		return "It's cold to the touch";
 	}
 
 }
