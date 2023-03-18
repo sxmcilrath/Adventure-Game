@@ -191,7 +191,7 @@ public class Game {
         sandCastle.addProperty("sandmedallion", new SandMedallion());
         
         
-        Door temp = new LockedDoor(beach, sandCastle, new Key("tosandcastle"));
+        Door temp = new LockedDoor(beach, sandCastle, new Key("sandcastlekey"));
         linkRooms(temp, beach, sandCastle, "back", "sandcastle");
         //Lever puzzle
         Lever lever = new Lever(this);
@@ -293,7 +293,7 @@ public class Game {
                
    	 	//linking final castle 
    	 	//NEED TO SET UP A CHECK TO MAKE SURE YOU HAVE PET THE TWO OTHER DOGS
-   	 	temp = new LockedDoor(shelter, outsideFinalCastle, new Key("tocastle"));
+   	 	temp = new LockedDoor(shelter, outsideFinalCastle, new Key("castlekey"));
    	 	linkRooms(temp, shelter, "bridge");
         
    	 	temp = new Door(outsideFinalCastle, outsideFinalPuzzle);

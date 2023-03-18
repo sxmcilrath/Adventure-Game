@@ -11,7 +11,7 @@ public class BucketWithSand extends Key {
 	
 	@Override
 	public String ability(Room room, HashMap<String, Item> backpack) {
-		backpack.put("sandcastlekey", new Key("tosandcastle"));
+		backpack.put("sandcastlekey", new Key("sandcastlekey"));
 		backpack.remove("bucketwithsand");
 		backpack.put("bucket", new Bucket());
 

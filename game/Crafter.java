@@ -32,7 +32,7 @@ public class Crafter {
 		Item[][] bws = {{new Bucket(), new Shovel()}};
 		recipes.put(intialHelper(bws), new BucketWithSand());
 		Item[][] tocastle = {{new SandMedallion(), new IceMedallion()}};
-		recipes.put(intialHelper(tocastle), new Key("tocastle"));
+		recipes.put(intialHelper(tocastle), new Key("castlekey"));
 		
 	}
 	
