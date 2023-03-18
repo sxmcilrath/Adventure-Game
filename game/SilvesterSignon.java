@@ -67,8 +67,9 @@ public class SilvesterSignon extends NPC {
 		this.player = player;
 
 		preIce = new String[] {"Hello there, its a beautiful door--I mean, day--today. How are you?\n"
-				+ "What's that? A dog? Did Simon put you up to this? Well, nearby is a path "
-				+ "towards the ice place (I can never remember what it's called).\n"
+				+ "What's that? A dog? Did Simon put you up to this? Oh you must be here to pet the \n"
+				+ "Great Four Dogs and I see that you've already met one! Well, nearby is the icy path "
+				+ "which takes you towards the ice place (I can never remember what it's called).\n"
 				+ "Also, how do you spell \"yoozh\", as in, \"I'll have the usual?\"\n"
 				+ "I could never quite figure it out.",
 				"Iceland? Is that what it's called? No, that's a country.\n"
@@ -76,12 +77,13 @@ public class SilvesterSignon extends NPC {
 				"You must be very busy. I really don't want to keep you; you should be on your way."};
 		preIceCounter = 0;
 		
-		preSand = new String[] {"Oh, good! You're back in one piece! I did a bit of research, and I think"
-				+ "it might be spelled \"ushe,\" but I also learned that some people "
-				+ "spell it like \"usge.\" Anyway, I- wait, Narrator, is that you? "
+		preSand = new String[] {"Oh, good! You're back in one piece!\n"
+				+ "I did a bit of research, and I think it might be spelled \"ushe,\" but I also learned that some people\n"
+				+ "spell it like \"usge.\" Anyway, I- wait, Narrator, is that you?\n"
 				+ "It's been far too long my friend! What so you mean you were here earlier?"
-				+ "Surely I would have noticed. Oh yes! The quest! Go to the desert, I believe"
-				+ "it's called Doodle Desert. Silly name, very silly name.",
+				+ "Surely I would have noticed.\n"
+				+ "Oh yes! The quest! Go to the desert, I believe it's called Doodle Desert. Silly name, very silly name.\n"
+				+ "There you will come across the great desert castle. It's massive you can't miss it.\n",
 				"Interestingly, Doodle Desert is not a desert at all. It's a beach!\n"
 				+ "Synucious, the discoverer of the beach, saw it from very far away.\n"
 				+ "He mistook it for a desert, and not liking deserts very much, he never went there!\n"

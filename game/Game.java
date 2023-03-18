@@ -64,11 +64,11 @@ public class Game {
     	//Ye Olde Tutorial Rooms
     	Room entrance = new Room("entrance",
     			"You are standing at the edge of a beautiful forest. \n"
-        		+ " A sign is just in front of you; I wonder what it says...");
+        		+ "A sign is just in front of you; I wonder what it says...");
         		entrance.addNPC(new SineusSignon());
         
         Room swordRoom = new Room("swordroom","You see a rather wimpy-looking sword on the ground.\n"
-        		+ " It doesn't seem very high quality,but you should still take it. \nUnless, of"
+        		+ "It doesn't seem very high quality,but you should still take it. \nUnless, of"
         		+ " course, you feel you can manage without it. Down the hill, is another sign guy.");
         swordRoom.addProperty("sword", new Sword());
         swordRoom.addProperty("metalchunk", new MetalChunk());
@@ -104,7 +104,7 @@ public class Game {
         		+ "Not far ahead is a small, homey cabin... homey...homey. How is homey spelled? "
         		+ "It doesn't matter (well, it might matter), lets go in.");
         outsideShelter.addNPC(new Pet(0));
-        Room shelter = new Room("shelter"," You open the cabin door and inside you find a signfolk sitting in a rocking chair with the fire going.\n"
+        Room shelter = new Room("shelter","You open the cabin door and inside you find a signfolk sitting in a rocking chair with the fire going.\n"
         		+ "The small cabin strangely has three doors, the third differing from the others.\n"
         		+ "It seems to be locked. Looking back to the sign... Oh, it's Silvester! He and I go way back. Sometime I'll have to "
         		+ "tell about the zany adventures we had as children.");
@@ -119,14 +119,25 @@ public class Game {
         		+ "Finally you arive at an intersection, where the paths split off into left, right, and forward.\n"
         		+ "In the middle of the crossroads stands a sign, signing his song without a care in the world.");
         icyPath.addNPC(new SilasSignon());
-        beach = new Room("beach","Look at all this sand. If only a very wise, very pleasant "
-        		+ "person could lead you in the right direction.\nOh wait, I'm right here! There is a "
-        		+ "puzzle just ahead. \nWhat? You think it's unprofessional for me to break the "
-        		+ "fourth wall like this? Well maybe when you become a narrator you can do things "
-        		+ "your way, but as of now, I can do whatever I like. \nIn fact, just to bother you, "
-        		+ "I won't ever change what I say in this room. I'll just repeat the same thing "
-        		+ "over and over again and you'll have to deal with it.\nTry to to figure it out because"
-        		+ "this conversation.");
+        beach = new Room("beach","You head out the second door of the cabin and take off towards the beach.\n"
+        		+ "Before long, you reach the sand , but you don't see anything besides a shovel and a bucket along the shore.\n"
+        		+ "Where was the great desert castle that Silvester talked of?\n"
+        		+ "As you get closer to the items you see a stone pedestal and realize that there's an engraving on it!\n"
+        		+ "This is what it reads:\n"
+        		+ "A tool with a handle and blade,\n" + 
+        		"To make a castle, it must be swayed.\n" + 
+        		"With it, you can dig deep and low,\n" + 
+        		"And scoop up sand, just like so.\n" + 
+        		"\n" + 
+        		"But don't forget the bucket, my friend,\n" + 
+        		"It's important for this task to tend.\n" + 
+        		"For with it, you can carry your haul,\n" + 
+        		"And build a castle, grand and tall.\n" + 
+        		"\n" + 
+        		"So if you seek to make your dream,\n" + 
+        		"Of a castle by the sea, it may seem,\n" + 
+        		"Remember these tools, and don't delay,\n" + 
+        		"Pick up a shovel and bucket, today!");
             beach.addProperty("bucket", new Bucket());
             beach.addProperty("bucket", new Bucket());
             beach.addProperty("shovel", new Shovel());
@@ -174,14 +185,21 @@ public class Game {
         Room iceCastle = new Room("icecastle","At the end of your rope, you decide to go back from where you came.\n"
         		+ "But instead of the sign's song to greet you, a towering castle of ice lays before you. Overjoyed at this new realization, you rush through the gates.\n"
         		+ "Huskies of all shapes and sizes run around your feet, they're leading you somewhere. They soon bring you into the center of the castle.\n"
-        		+ "You walk into a massive room made of ice and in the middle of the room is....");
+        		+ "You walk into a massive room made of ice and in the middle of the room is the largest husky you've seen in your life,\n"
+        		+ "sitting on a throne of ice. He really wants you to pet him. Next to the throne sits the ice medallion. That definitely looks important.\n"
+        		+ "You should probably take it before leaving.");
         iceCastle.addNPC(new Pet(1));
         iceCastle.addProperty("icemedallion", new IceMedallion());
 
 
         
         //Beach puzzle room
-        Room sandCastle = new Room("sandcastle","x");      
+        Room sandCastle = new Room("sandcastle","As you approach the massive sand castle, you're amazed by its size and intricate details. \n"
+        		+ "Inside the grand entrance, you walk into the throne room and see a big golden doodle dog sitting on a throne made entirely of sand.\n"
+        		+ " The walls are adorned with intricate sand carvings, and a shell and coral chandelier hangs above. \n"
+        		+ "The throne itself is a work of art. The friendly dog invites you to pet it.\n"
+        		+ "It seems that it cannot wait. You spot the sand medallion in the room as well.\n"
+        		+ "You make a mental note to grab that before you leave.");      
         sandCastle.addNPC(new Pet(2));
         sandCastle.addProperty("sandmedallion", new SandMedallion());
         
@@ -284,7 +302,7 @@ public class Game {
    	 	linkRooms(temp, correctMiddle, "back");
         
    	 	temp = new Door(iceCastle, shelter);
-   	 	linkRooms(temp, iceCastle, "sleighride");
+   	 	linkRooms(temp, iceCastle, "back");
                
    	 	//linking final castle 
    	 	//NEED TO SET UP A CHECK TO MAKE SURE YOU HAVE PET THE TWO OTHER DOGS
