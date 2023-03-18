@@ -65,13 +65,13 @@ public class SilvesterSignon extends NPC {
 	public SilvesterSignon(Player player) {
 		this.player = player;
 
-		preIce = new String[] {"Hello there, its a beautiful door--I mean, day--today. How are you? "
+		preIce = new String[] {"Hello there, its a beautiful door--I mean, day--today. How are you?\n"
 				+ "What's that? A dog? Did Simon put you up to this? Well, nearby is a path "
-				+ "towards the ice place (I can never remember what it's called). "
-				+ "Also, how do you spell \"yoozh\", as in, \"I'll have the usual?\" I could "
-				+ "never quite figure it out.",
-				"Iceland? Is that what it's called? No, that's a country. Well, I suppose it doesn't "
-				+ "matter, just head towards the huge mass of ice."};
+				+ "towards the ice place (I can never remember what it's called).\n"
+				+ "Also, how do you spell \"yoozh\", as in, \"I'll have the usual?\"\n"
+				+ "I could never quite figure it out.",
+				"Iceland? Is that what it's called? No, that's a country.\n"
+				+ "Well, I suppose it doesn't matter, just head towards the huge mass of ice."};
 		preIceCounter = 0;
 		
 		preSand = new String[] {"Oh, good! You're back in one piece! I did a bit of research, and I think"
@@ -79,7 +79,11 @@ public class SilvesterSignon extends NPC {
 				+ "spell it like \"usge.\" Anyway, I- wait, Narrator, is that you? "
 				+ "It's been far too long my friend! What so you mean you were here earlier?"
 				+ "Surely I would have noticed. Oh yes! The quest! Go to the desert, I believe"
-				+ "it's called Doodle Desert. Silly name, very silly name."};
+				+ "it's called Doodle Desert. Silly name, very silly name.",
+				"Interestingly, Doodle Desert is not a desert at all. It's a beach!\n"
+				+ "Synucious, the discoverer of the beach, saw it from very far away.\n"
+				+ "He mistook it for a desert, and not liking deserts very much, he never went there!\n"
+				+ "For being a famous explorer, Synucious sure did a bad job at exploring."};
 		preSandCounter = 0;
 		
 		preFinal = new String[] {"By Jove you've done it! The medallions! With those, you'll be able "
@@ -100,13 +104,25 @@ public class SilvesterSignon extends NPC {
 	 */
 	public String talk() {
 
+		// Pre Final Dialogue
 		if (player.wasCheckCrossed("sandCastle")) {
 			return cycleTalk(preFinalCounter++, preFinal);
 		}
+		
+		// Pre Sand Dialogue
 		if (player.wasCheckCrossed("iceCastle")) {
+			if (player.wasCheckCrossed("brokenThingPreIce")) {
+				return "Well. Look who's back.";
+			}
 			return cycleTalk(preSandCounter++, preSand);
 		}
 		
+		// Pre Ice Dialogue
+		if (player.wasCheckCrossed("brokenThingPreIce")) {
+			return "Go away. I am very unhappy with you. You've broken my favorite thing.\n"
+					+ "Oh, I don't know if I'll ever recover from this.\n"
+					+ "*continues weeping*";
+		}
 		return cycleTalk(preIceCounter++, preIce);
 	}
 
@@ -118,9 +134,13 @@ public class SilvesterSignon extends NPC {
 			return attacked[3];
 		}
 		if (attackedCounter == 3) {
-			player.addCheckpoint("brokenthing1");
+			if (player.wasCheckCrossed("iceCastle")) {
+				player.addCheckpoint("brokenThingPreSand");
+			} else {
+				player.addCheckpoint("brokenThingPreIce");
+			}
 		}
-		return attacked[attackedCounter];
+		return attacked[attackedCounter++];
 	}
 	
 }
