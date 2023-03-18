@@ -211,32 +211,32 @@ public class Game {
         
         //Linking Ye Olde Tutorial Forest
         String[] Ent = {"entrace", "forest", "tutorial", "back"}; 
-   	 	String[] Sr = {"sr", "swordroom", "hill", "forward"};
+   	 	String[] Sr = {"swordroom", "hill", "forward"};
    	 	temp = new Door(entrance, swordRoom);
    	 	linkRooms(temp, entrance, swordRoom, Ent,Sr);
    	 
-   	 	String[] Sr2 = {"sr", "swordroom", "hill", "back"};
-   	 	String[] St = {"swordtutorialroom", "thefight", "str", "forward", "down"};  
+   	 	String[] Sr2 = {"swordroom", "hill", "back"};
+   	 	String[] St = {"swordtutorialroom","forward", "down"};  
    	 	temp = new Door(swordRoom,swordTutorial);
    	 	linkRooms(temp, swordRoom, swordTutorial, Sr2,St);
    	 
    	 	temp = new Door(swordTutorial, freeWillTutorial);
-   	 	String[] St2 = {"swordtutorialroom", "thefight", "str", "back"};    
-   	 	String[] Fw = {"freewilltutorial", "fwt","clearing", "forward"};      
+   	 	String[] St2 = {"swordtutorialroom", "back"};    
+   	 	String[] Fw = {"freewilltutorial","clearing", "forward"};      
    	 	linkRooms(temp, swordTutorial, freeWillTutorial, St2,Fw);
    	 
    	 	temp = new Door(freeWillTutorial, questMadeClear);
-   	 	String[] Fw2 = {"freewilltutorial", "fwt", "back", "south"};
-   	 	String[] Qmc = {"yourquestmadeclear", "yqmc", "questmadeclear", "qmc", "north", "simon"};      
+   	 	String[] Fw2 = {"freewilltutorial", "back", "south"};
+   	 	String[] Qmc = {"yourquestmadeclear","north", "simon"};      
    	 	linkRooms(temp, freeWillTutorial, questMadeClear, Fw2, Qmc);
    	 
    	 	temp = new Door(freeWillTutorial, nonEucTutorial);
-   	 	String[] Qmc2 = {"yourquestmadeclear", "yqmc", "questmadeclear", "qmc", "down"}; 
-   	 	String[] Net = {"noneuclidiantutorial", "net", "forward"};
+   	 	String[] Qmc2 = {"yourquestmadeclear", "questmadeclear", "down"}; 
+   	 	String[] Net = {"noneuclidiantutorial", "forward"};
    	 	linkRooms(temp, freeWillTutorial, Net);
    	 
    	 	temp = new Door( questMadeClear, viewingTree);
-   	 	String[] Vt = {"viewingtree", "vt", "tree", "t", "forward", "up"};
+   	 	String[] Vt = {"viewingtree", "tree", "forward", "up"};
    	 	linkRooms(temp, questMadeClear, viewingTree , Qmc2, Vt);
    	 
    	 	temp = new Door(nonEucTutorial, entrance);
@@ -244,22 +244,22 @@ public class Game {
    	 	linkRooms(temp, nonEucTutorial, south);
    	 
    	 	temp = new Door(freeWillTutorial, outsideShelter);
-   	 	String[] Os = {"onward", "outsideshelter", "os", "outside", "forward", "east"};
+   	 	String[] Os = {"onward", "outsideshelter", "outside", "forward", "east"};
    	 	linkRooms(temp, freeWillTutorial, outsideShelter, Fw2, Os);
-   	 	String[] Os2 = {"onward", "outsideshelter", "os", "outside", "back"};
+   	 	String[] Os2 = {"onward", "outsideshelter", "outside", "back"};
 
    	 	//Linking Overworld
    	 	temp = new Door(outsideShelter, shelter);
-   	 	String[] Sh = {"shelter","sh", "s", "forward", "cabin"};
-   	 	String[] Sh2 = {"shelter","sh", "s", "back", "cabin"};
+   	 	String[] Sh = {"shelter","forward", "cabin"};
+   	 	String[] Sh2 = {"shelter", "back", "cabin"};
    	 	linkRooms(temp, outsideShelter, shelter,Os2, Sh);
      
    	 	temp = new Door(shelter, icyPath);
-   	 	String[] Ip = {"icypath", "ip", "ice", "path"};
+   	 	String[] Ip = {"icypath", "ice", "path"};
    	 	linkRooms(temp, shelter, icyPath, Sh2, Ip);
      
    	 	temp = new Door(shelter, beach);
-   	 	String[] Be = {"beach", "b", "desert"};
+   	 	String[] Be = {"beach", "desert"};
    	 	linkRooms(temp, shelter, beach, Sh2, Be);
         
    	 	//linking icy path puzzle
