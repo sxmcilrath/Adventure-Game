@@ -173,7 +173,8 @@ public class Game {
         Room iceCastle = new Room("icecastle","At the end of your rope, you decide to go back from where you came.\n"
         		+ "But instead of the sign's song to greet you, a towering castle of ice lays before you. Overjoyed at this new realization, you rush through the gates.\n"
         		+ "Huskies of all shapes and sizes run around your feet, they're leading you somewhere. They soon bring you into the center of the castle.\n"
-        		+ "You walk into a massive room made of ice and in the middle of the room is....");
+        		+ "You walk into a massive room made of ice and in the middle of the room is the largest husky you've seen in your life,\n"
+        		+ "sitting on a throne of ice. He really wants you to pet him.");
         iceCastle.addNPC(new Pet(1));
         iceCastle.addProperty("icemedallion", new IceMedallion());
 
@@ -283,7 +284,7 @@ public class Game {
    	 	linkRooms(temp, correctMiddle, "back");
         
    	 	temp = new Door(iceCastle, shelter);
-   	 	linkRooms(temp, iceCastle, "sleighride");
+   	 	linkRooms(temp, iceCastle, "back");
                
    	 	//linking final castle 
    	 	//NEED TO SET UP A CHECK TO MAKE SURE YOU HAVE PET THE TWO OTHER DOGS
