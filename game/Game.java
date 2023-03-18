@@ -130,6 +130,7 @@ public class Game {
             beach.addProperty("bucket", new Bucket());
             beach.addProperty("bucket", new Bucket());
             beach.addProperty("shovel", new Shovel());
+            beach.addProperty("candle", new Candle());
         //final castle rooms(still need throne room)
         Room outsideFinalCastle = new Room("castle", "You gaze up at the towering castle, in awe of its size.\n"
         		+ "You slowly walk across the drawbridge and after"
