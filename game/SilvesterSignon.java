@@ -3,7 +3,8 @@
  * 
  * Silvester lives in a cozy cabin not far from the edge of the forest.
  * He leads the player where he believes they should go. His dialogue is more
- * complex than any other character in the game
+ * complex than any other character in the game. If you attack him too many times,
+ * you break his favorite thing and he becomes quite unhappy with you.
  * 
  * @author Camden Flannagan and Sam McIlreth
  */
@@ -66,28 +67,35 @@ public class SilvesterSignon extends NPC {
 		this.player = player;
 
 		preIce = new String[] {"Hello there, its a beautiful door--I mean, day--today. How are you?\n"
-				+ "What's that? A dog? Did Simon put you up to this? Well, nearby is a path "
-				+ "towards the ice place (I can never remember what it's called).\n"
+				+ "What's that? A dog? Did Simon put you up to this? Oh you must be here to pet the \n"
+				+ "Great Four Dogs and I see that you've already met one! Well, nearby is the icy path "
+				+ "which takes you towards the ice place (I can never remember what it's called).\n"
 				+ "Also, how do you spell \"yoozh\", as in, \"I'll have the usual?\"\n"
 				+ "I could never quite figure it out.",
 				"Iceland? Is that what it's called? No, that's a country.\n"
-				+ "Well, I suppose it doesn't matter, just head towards the huge mass of ice."};
+				+ "Well, I suppose it doesn't matter, just head towards the huge mass of ice.",
+				"You must be very busy. I really don't want to keep you; you should be on your way."};
 		preIceCounter = 0;
 		
-		preSand = new String[] {"Oh, good! You're back in one piece! I did a bit of research, and I think"
-				+ "it might be spelled \"ushe,\" but I also learned that some people "
-				+ "spell it like \"usge.\" Anyway, I- wait, Narrator, is that you? "
+		preSand = new String[] {"Oh, good! You're back in one piece!\n"
+				+ "I did a bit of research, and I think it might be spelled \"ushe,\" but I also learned that some people\n"
+				+ "spell it like \"usge.\" Anyway, I- wait, Narrator, is that you?\n"
 				+ "It's been far too long my friend! What so you mean you were here earlier?"
-				+ "Surely I would have noticed. Oh yes! The quest! Go to the desert, I believe"
-				+ "it's called Doodle Desert. Silly name, very silly name.",
+				+ "Surely I would have noticed.\n"
+				+ "Oh yes! The quest! Go to the desert, I believe it's called Doodle Desert. Silly name, very silly name.\n"
+				+ "There you will come across the great desert castle. It's massive you can't miss it.\n",
 				"Interestingly, Doodle Desert is not a desert at all. It's a beach!\n"
 				+ "Synucious, the discoverer of the beach, saw it from very far away.\n"
 				+ "He mistook it for a desert, and not liking deserts very much, he never went there!\n"
-				+ "For being a famous explorer, Synucious sure did a bad job at exploring."};
+				+ "For being a famous explorer, Synucious sure did a bad job at exploring.",
+				"Desert or beach, it doesn't really matter. Even if you go towards the desert, you'll find yourself going towards the beach."
+				+ "All that matters is recognizing it's a beach once you get there."};
 		preSandCounter = 0;
 		
 		preFinal = new String[] {"By Jove you've done it! The medallions! With those, you'll be able "
-				+ "to reach the Final Castle! Nobody knows what wonderful things are in that castle."};
+				+ "to reach the Final Castle! Nobody knows what wonderful things are in that castle.",
+				"Even Synucious, the great explorer (I told you about him, right?) was never able to obtain"
+				+ "all three of the medallions! I'm quite impressed.", "Don't linger long! You have a castle to explore!"};
 		preFinalCounter = 0;
 		
 		attacked = new String[] {"Please no! You'll break something! And if you break something, I'll... well, do nothing.\n"
@@ -112,7 +120,7 @@ public class SilvesterSignon extends NPC {
 						+ "You broke my favorite thing and hurt me very deeply. Just go to the Final Castle.\n"
 						+ "You have all of the medallions you need. Please just leave.";
 			}
-			return cycleTalk(preFinalCounter++, preFinal);
+			return cycleTalkWithGreeting(preFinalCounter++, preFinal);
 		}
 		
 		// Pre Sand Dialogue
@@ -128,7 +136,7 @@ public class SilvesterSignon extends NPC {
 						+ "Oh, I don't know if I'll ever recover from this.\n"
 						+ "*continues weeping*";
 			}
-			return cycleTalk(preSandCounter++, preSand);
+			return cycleTalkWithGreeting(preSandCounter++, preSand);
 		}
 		
 		// Pre Ice Dialogue
@@ -137,7 +145,7 @@ public class SilvesterSignon extends NPC {
 					+ "Oh, I don't know if I'll ever recover from this.\n"
 					+ "*continues weeping*";
 		}
-		return cycleTalk(preIceCounter++, preIce);
+		return cycleTalkWithGreeting(preIceCounter++, preIce);
 	}
 
 	/**

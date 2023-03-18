@@ -35,7 +35,8 @@ public class SimonSignon extends NPC {
 				+ "so clear now. You are destined to pet the four Great Dogs of this land.\n"
 				+ "Go find those little puppers and give them a good pet. \n"
 				+ "You will recieve a Pet Medallion, a glorious object that will allow you to move forward in your journey.\n"
-				+ "You will visit castles to find other dogs, and once you have three of them, you will embark on the final stretch of your adventure.\n"
+				+ "You will visit two castles and a cabin to find other dogs, and once you have three of them, you will embark on the final stretch of your adventure.\n"
+				+ "To make it to the final castle you must obtain the sand and ice medallions.\n"
 				+ "Go back to where you met Sirain and go east. You should be able to see where to go from there.",
 				"You've met Sirain, right? He is the one who told you to come to me, just south from here."};
 	}
