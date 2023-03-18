@@ -57,13 +57,13 @@ public class Game {
         		+ "It doesn't seem very high quality,but you should still take it. \nUnless, of"
         		+ " course, you feel you can manage without it. Down the hill, is another sign guy.");
         swordRoom.addProperty("sword", new Sword());
-        swordRoom.addProperty("metalchunk", new MetalChunk());
 
         
         Room swordTutorial = new Room("swordtutorial","There is a sign here. It seems eager to meet you..."
         		+ " or hurt you. I can't tell.\n"
         		+ "Either way, we shouldn't linger long. Past the sign is a clearing.");
         		swordTutorial.addNPC(new SimeusSignon(this.player));
+        	    swordRoom.addProperty("metalchunk", new MetalChunk());
         
         Room freeWillTutorial = new Room("freewill","You step into the clearing and, oh! another sign.\n"
         		+ "Hopefully this one is a bit less violent than the last one.\nMaybe he knows where you "
@@ -90,6 +90,7 @@ public class Game {
         		+ "Not far ahead is a small, homey cabin... homey...homey. How is homey spelled? "
         		+ "It doesn't matter (well, it might matter), lets go in.");
         outsideShelter.addNPC(new Pet(0));
+        outsideShelter.addProperty("steak", new Steak());
         Room shelter = new Room("shelter","You open the cabin door and inside you find a signfolk sitting in a rocking chair with the fire going.\n"
         		+ "The small cabin strangely has three doors, the third differing from the others.\n"
         		+ "It seems to be locked. Looking back to the sign... Oh, it's Silvester! He and I go way back. Sometime I'll have to "

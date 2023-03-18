@@ -1,5 +1,7 @@
 package game;
 
+import java.util.HashMap;
+
 public class Sword extends Item {
 
 	
@@ -11,7 +13,7 @@ public class Sword extends Item {
 		super("sword");
 	}
 	
-	public String ability(Room room) {
+	public String ability(Room room, HashMap<String, Item> backpack) {
 		if (room.getProperties().containsKey("enemy")) {
 			return "You killed the enemy";
 		} else {

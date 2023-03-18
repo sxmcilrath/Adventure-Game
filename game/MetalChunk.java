@@ -1,5 +1,7 @@
 package game;
 
+import java.util.HashMap;
+
 public class MetalChunk extends Item {
 
 	public MetalChunk () {
@@ -7,7 +9,7 @@ public class MetalChunk extends Item {
 	}
 	
 	@Override
-	public String ability(Room room) {
+	public String ability(Room room, HashMap<String, Item> backpack) {
 		
 		return "This looks craftable...";
 	}

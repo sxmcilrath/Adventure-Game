@@ -1,5 +1,6 @@
 package game;
 
+import java.util.HashMap;
 
 public class Bucket extends Item {
 
@@ -10,7 +11,7 @@ public class Bucket extends Item {
 	}
 	
 	
-	public String ability(Room room) {
+	public String ability(Room room, HashMap<String, Item> backpack) {
 		// TODO Auto-generated method stub
 		if(room.getName().equals("beach")) {
 			return "Huh, nothing's inside. Cool bucket though!";

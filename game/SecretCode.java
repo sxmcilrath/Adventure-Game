@@ -1,5 +1,7 @@
 package game;
 
+import java.util.HashMap;
+
 public class SecretCode extends Item {
 
 	public SecretCode() {
@@ -9,7 +11,7 @@ public class SecretCode extends Item {
 	/**
 	 * Reads out the riddle to figure out lever order
 	 */
-	public String ability(Room room) {
+	public String ability(Room room, HashMap<String, Item> backpack) {
 		return "You hold up the piece of paper. On it in an an ancient font it reads:\n"
 				+ "Grass is green\n"
 				+ "The sky is blue\n"

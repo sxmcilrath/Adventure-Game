@@ -112,7 +112,7 @@ public class Player {
     	}
     	//activates ability if viable
     	else if(backpack.containsKey(second)){
-    		print(backpack.get(second).ability(CR));
+    		print(backpack.get(second).ability(CR, backpack));
     	} else {
     		//player does not have item
     		print("You don't have a " + second);
@@ -251,14 +251,11 @@ public class Player {
 	 *checks to see if game has been won based on how many dogs have been pet
 	 */
 	public void wonGame() {
-		this.over = true;
+		
 		print("PetMedals " + PetMedallion.size());
-		for(int i = 1; i < 7; i++) {
-			String pet = "pet" + i;
-			if(!(PetMedallion.contains(pet))){
-				this.over =false;
-			}
-		}	    	
+		if(PetMedallion.size() >= 4){
+			this.over = true;
+		}
 	}
 		    
 		    
@@ -274,7 +271,7 @@ public class Player {
 	 * @return a string containing a description of what happened **/
 	public String useItem(String item, Room room) {
 		if (backpack.containsKey(item)) {
-			return backpack.get(item).ability(room);
+			return backpack.get(item).ability(room, backpack);
 		}
 		return "Huh?";
 	}

@@ -1,5 +1,6 @@
 package game;
 
+import java.util.HashMap;
 
 /**
  * 
@@ -16,7 +17,7 @@ public class IceMedallion extends Item {
 	}
 	
 	@Override
-	protected String ability(Room room) {
+	protected String ability(Room room, HashMap<String, Item> backpack) {
 		// TODO Auto-generated method stub
 		return null;
 	}

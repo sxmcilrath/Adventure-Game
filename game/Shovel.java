@@ -8,6 +8,7 @@
 
 package game;
 
+import java.util.HashMap;
 
 public class Shovel extends Item {
 
@@ -16,7 +17,7 @@ public class Shovel extends Item {
 	}
 
 
-	public String ability(Room room) {
+	public String ability(Room room, HashMap<String, Item> backpack) {
 		//need to first add a check to make sure they are in the beach room
 		if(room.getName().equals("beach")){
 			

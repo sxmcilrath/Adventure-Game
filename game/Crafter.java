@@ -1,7 +1,6 @@
 package game;
 
-import java.util.ArrayList;
-import java.util.Collection;
+
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -10,10 +9,12 @@ import java.util.Set;
 
 
 public class Crafter {
-	
+	//Craftable stores the items craftable by backpack from recipes
     private Map<Item[], Item> Craftable;
+    //String is to access craftable with a command room the user input
 	private Map<String,Item[]> accessor;
 	private HashMap<String,Item> backpack;
+	//recipe contains all crafting mechanisms. This includes multiple ways to crat the same item, hence the hashset of item[];
 	private HashMap<Set<Item[]>, Item> recipes = new HashMap<Set<Item[]>,Item>();
 
 	
@@ -35,6 +36,7 @@ public class Crafter {
 		
 	}
 	
+	//initial helper reduces code lines by adding items to the hashset
 	public  Set<Item[]> intialHelper( Item[][] i) {
 		HashSet<Item[]> temp = new HashSet<Item[]>();
 		for(Item[] ia : i) {
@@ -43,18 +45,17 @@ public class Crafter {
 		return temp;
 	}
 	
-
+    //returns all craftable items in a string name;
 	public Set<String> canCraft() {
-		//System.out.println(backpack.keySet().toString());
+		//Resets crafter and accessor Maps
 		Craftable = new HashMap<Item[], Item>();
-		accessor = new HashMap<String,Item[]>();
+		accessor = new HashMap<String,Item[]>();		
 		Iterator<Set<Item[]>> iterator = recipes.keySet().iterator();  //Iterates each craftable object
 		while(iterator.hasNext()) {
 			Set<Item[]> toAdd = iterator.next(); 
 			Iterator<Item[]> temp = toAdd.iterator();  //iterates each method for each craftable object
 			while(temp.hasNext()) {
 				Item[] i = temp.next();
-				int options = 0;
 				boolean containsAll = true; 
 				for(Item j: i) {
 					if (!(backpack.containsKey(j.getName()))){
@@ -63,19 +64,15 @@ public class Crafter {
 				}
 				if(containsAll) { //if the backpack has each item of the method
 						Craftable.put(i, recipes.get(toAdd));
-						if(accessor.containsKey(recipes.get(toAdd).getName()) || backpack.containsKey(recipes.get(toAdd).getName())) {	
-							//options++;
-						this.accessor.put(recipes.get(toAdd).getName() + options, i);
-					} 
-					this.accessor.put(recipes.get(toAdd).getName(), i);
+					    this.accessor.put(recipes.get(toAdd).getName(), i);
 				}
 			}
 		}
-		Set<String> toReturn = accessor.keySet();
-		return toReturn;
+		return accessor.keySet();
 	}
 	
-
+	
+//Crafts the items and deletes the consumed items
 	public String crafted(String toCraft) {
 		Set<String> cancraft = canCraft();
 		if(cancraft.contains(toCraft)) {
@@ -86,11 +83,9 @@ public class Crafter {
 						backpack.remove(i.getName());
 					}
 				}
-			//Craftable = null;
+			
 			return toCraft + " crafted";
 			} else {
-				//Craftable = null;
-
 				return "you need more materials";
 			}
 	

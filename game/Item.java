@@ -8,9 +8,7 @@
 
 package game;
 
-
-
-
+import java.util.HashMap;
 
 public abstract class Item {
 	
@@ -37,7 +35,7 @@ public abstract class Item {
 	 * @param room The room that the item interacts with
 	 * @return a string that will tell the player what happened
 	 */
-	protected abstract String ability(Room room);
+	protected abstract String ability(Room room, HashMap<String, Item> backpack);
 	
 	/**
 	 * getter method for the name of the item

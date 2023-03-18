@@ -1,6 +1,6 @@
 package game;
 
-
+import java.util.HashMap;
 
 public class Key extends Item{
 
@@ -14,7 +14,8 @@ public class Key extends Item{
 	}
 	
 	
-	public String ability(Room room) {
+	public String ability(Room room, HashMap<String, Item> backpack) {
+		
 		return "It feels rusty, good thing you got your tetnis shot";
 	}
 
