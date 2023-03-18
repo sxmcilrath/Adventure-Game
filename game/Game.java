@@ -1,9 +1,5 @@
 package game;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * Game.java
@@ -21,9 +17,10 @@ import java.util.Map;
 public class Game {
 	
 	private  Player player;
-	private  Crafter crafter;
+
     /**
-     * The current room the user is in. This serves to
+     * The current room the use
+    private Map<String,Item> allItems = new HashMap<String,Item>();r is in. This serves to
      * purposes-- it is our only permanent connection to
      * the rooms in this game (the other rooms are reachable
      * by traversing this room's "doors"-- and it maintains
@@ -32,12 +29,11 @@ public class Game {
 	
     //specific rooms that need to be accessed by methods
     private Room beach;	
-    private Room sandCastle;
+  
     private Room finalWhite;
     private Room throne;
     
 
-    private Map<String,Item> allItems = new HashMap<String,Item>();
    
     
     
@@ -47,19 +43,9 @@ public class Game {
      */
     public Game() {
     	
-    	allItems.put("bucket", new Bucket());
-		//allItems.put("bucketwithsand", new BucketWithSand());
-		allItems.put("candle", new Candle());
-		allItems.put("metalchunk", new MetalChunk());
-		allItems.put("shovel", new Shovel());
-		allItems.put("steak", new Steak());
-		allItems.put("sword", new Sword());
-		allItems.put("secretcode", new SecretCode());
-		//allItems.put("sandmedallion", new SandMedallion());
-		//allItems.put("icemedallion", new IceMedallion());
     	
     	//initializes the player
-    	this.player = new Player(allItems);
+    	this.player = new Player();
     	//initializes rooms
     	//Ye Olde Tutorial Rooms
     	Room entrance = new Room("entrance",

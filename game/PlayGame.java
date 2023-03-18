@@ -21,7 +21,7 @@ public class PlayGame {
         Parser parser = new Parser(game);
 
         while (! game.getPlayer().isOver()) 
-            parser.executeTurn(game);
+            parser.executeTurn();
 
         System.out.println("Game over.");
     }

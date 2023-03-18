@@ -7,12 +7,10 @@ import java.util.Scanner;
 public class AddC implements Command{
 	private Map<String,Command> Calls = new HashMap<String, Command>();
 	 private Scanner keyboard;
-	 private Player player;
 	
-	public AddC(HashMap <String,Command> Calls, Player player) {
+	public AddC(HashMap <String,Command> Calls) {
 		keyboard = new Scanner(System.in);
 		this.Calls = Calls;
-		this.player = player;
 	}
 	public void call(String first, String second, Player player) {
 		if(second != "") {

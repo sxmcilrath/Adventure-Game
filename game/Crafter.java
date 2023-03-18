@@ -14,24 +14,24 @@ public class Crafter {
     private Map<Item[], Item> Craftable;
 	private Map<String,Item[]> accessor;
 	private HashMap<String,Item> backpack;
-	private HashMap<Set<Item[]>, Item> methods = new HashMap<Set<Item[]>,Item>();
+	private HashMap<Set<Item[]>, Item> recipes = new HashMap<Set<Item[]>,Item>();
 
 	
 	public Crafter(HashMap<String,Item> backpack) {
 		this.backpack = backpack;
 		
 		Item[][] bucket = {{new Candle(), new MetalChunk()}};
-		methods.put(intialHelper(bucket), new Bucket());
+		recipes.put(intialHelper(bucket), new Bucket());
 		Item[][] metalchunk = {{new Sword()}, {new Bucket()}, {new Shovel()}};
-		methods.put(intialHelper(metalchunk), new MetalChunk());		
+		recipes.put(intialHelper(metalchunk), new MetalChunk());		
 		Item[][] shovel = {{new MetalChunk(), new Candle()}};
-		methods.put(intialHelper(shovel), new Shovel());
+		recipes.put(intialHelper(shovel), new Shovel());
 		Item[][] sword = {{new MetalChunk(), new Candle()}};
-		methods.put( intialHelper(sword), new Sword());
+		recipes.put( intialHelper(sword), new Sword());
 		Item[][] bws = {{new Bucket(), new Shovel()}};
-		methods.put(intialHelper(bws), new BucketWithSand());
+		recipes.put(intialHelper(bws), new BucketWithSand());
 		Item[][] tocastle = {{new SandMedallion(), new IceMedallion()}};
-		methods.put(intialHelper(tocastle), new Key("tocastle"));
+		recipes.put(intialHelper(tocastle), new Key("tocastle"));
 		
 	}
 	
@@ -48,7 +48,7 @@ public class Crafter {
 		//System.out.println(backpack.keySet().toString());
 		Craftable = new HashMap<Item[], Item>();
 		accessor = new HashMap<String,Item[]>();
-		Iterator<Set<Item[]>> iterator = methods.keySet().iterator();  //Iterates each craftable object
+		Iterator<Set<Item[]>> iterator = recipes.keySet().iterator();  //Iterates each craftable object
 		while(iterator.hasNext()) {
 			Set<Item[]> toAdd = iterator.next(); 
 			Iterator<Item[]> temp = toAdd.iterator();  //iterates each method for each craftable object
@@ -62,12 +62,12 @@ public class Crafter {
 					}
 				}
 				if(containsAll) { //if the backpack has each item of the method
-						Craftable.put(i, methods.get(toAdd));
-						if(accessor.containsKey(methods.get(toAdd).getName()) || backpack.containsKey(methods.get(toAdd).getName())) {	
+						Craftable.put(i, recipes.get(toAdd));
+						if(accessor.containsKey(recipes.get(toAdd).getName()) || backpack.containsKey(recipes.get(toAdd).getName())) {	
 							//options++;
-						this.accessor.put(methods.get(toAdd).getName() + options, i);
+						this.accessor.put(recipes.get(toAdd).getName() + options, i);
 					} 
-					this.accessor.put(methods.get(toAdd).getName(), i);
+					this.accessor.put(recipes.get(toAdd).getName(), i);
 				}
 			}
 		}

@@ -2,8 +2,6 @@ package game;
 
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Map;
 import java.util.Set;
 
 public class Player {
@@ -20,10 +18,9 @@ public class Player {
     private HashMap<String, Item> backpack = new HashMap<String, Item>();
     private HashSet<String> PetMedallion = new HashSet<String>();
     private HashSet<String> checkpoints = new HashSet<String>();
-    private Map<String,Item> allItems = new HashMap<String,Item>();
 	    
-    public Player(Map<String,Item> allItems) {
-    	this.allItems = allItems;
+    public Player() {
+    	
 
 	    	
     	this.crafter = new Crafter(backpack);	

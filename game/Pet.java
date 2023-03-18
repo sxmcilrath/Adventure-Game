@@ -8,10 +8,7 @@ package game;
 
 public class Pet extends NPC{
 	
-	/**
-	 * whether or not the dog has been petted
-	 */
-	private boolean petted;
+
 	
 	/**
 	 * the number assigned to the dog
@@ -23,7 +20,6 @@ public class Pet extends NPC{
 	 * @param number The number assigned to the dog
 	 */
 	public Pet(int number) {
-		this.petted = false;
 		this.number = number;
 	}
 	
@@ -31,7 +27,6 @@ public class Pet extends NPC{
 	 * sets petted to true and informs the player that the dog licks you
 	 */
 	public String talk() {
-		this.petted = true;
 		return "The dog licks you";
 	}
 	
