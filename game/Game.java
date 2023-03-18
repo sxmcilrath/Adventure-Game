@@ -64,11 +64,11 @@ public class Game {
     	//Ye Olde Tutorial Rooms
     	Room entrance = new Room("entrance",
     			"You are standing at the edge of a beautiful forest. \n"
-        		+ " A sign is just in front of you; I wonder what it says...");
+        		+ "A sign is just in front of you; I wonder what it says...");
         		entrance.addNPC(new SineusSignon());
         
         Room swordRoom = new Room("swordroom","You see a rather wimpy-looking sword on the ground.\n"
-        		+ " It doesn't seem very high quality,but you should still take it. \nUnless, of"
+        		+ "It doesn't seem very high quality,but you should still take it. \nUnless, of"
         		+ " course, you feel you can manage without it. Down the hill, is another sign guy.");
         swordRoom.addProperty("sword", new Sword());
         swordRoom.addProperty("metalchunk", new MetalChunk());
@@ -104,7 +104,7 @@ public class Game {
         		+ "Not far ahead is a small, homey cabin... homey...homey. How is homey spelled? "
         		+ "It doesn't matter (well, it might matter), lets go in.");
         outsideShelter.addNPC(new Pet(0));
-        Room shelter = new Room("shelter"," You open the cabin door and inside you find a signfolk sitting in a rocking chair with the fire going.\n"
+        Room shelter = new Room("shelter","You open the cabin door and inside you find a signfolk sitting in a rocking chair with the fire going.\n"
         		+ "The small cabin strangely has three doors, the third differing from the others.\n"
         		+ "It seems to be locked. Looking back to the sign... Oh, it's Silvester! He and I go way back. Sometime I'll have to "
         		+ "tell about the zany adventures we had as children.");
@@ -186,7 +186,8 @@ public class Game {
         		+ "But instead of the sign's song to greet you, a towering castle of ice lays before you. Overjoyed at this new realization, you rush through the gates.\n"
         		+ "Huskies of all shapes and sizes run around your feet, they're leading you somewhere. They soon bring you into the center of the castle.\n"
         		+ "You walk into a massive room made of ice and in the middle of the room is the largest husky you've seen in your life,\n"
-        		+ "sitting on a throne of ice. He really wants you to pet him.");
+        		+ "sitting on a throne of ice. He really wants you to pet him. Next to the throne sits the ice medallion. That definitely looks important.\n"
+        		+ "You should probably take it before leaving.");
         iceCastle.addNPC(new Pet(1));
         iceCastle.addProperty("icemedallion", new IceMedallion());
 

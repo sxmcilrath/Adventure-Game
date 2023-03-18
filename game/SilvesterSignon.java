@@ -76,7 +76,7 @@ public class SilvesterSignon extends NPC {
 		preIceCounter = 0;
 		
 		preSand = new String[] {"Oh, good! You're back in one piece!\n"
-				+ " I did a bit of research, and I think it might be spelled \"ushe,\" but I also learned that some people\n"
+				+ "I did a bit of research, and I think it might be spelled \"ushe,\" but I also learned that some people\n"
 				+ "spell it like \"usge.\" Anyway, I- wait, Narrator, is that you?\n"
 				+ "It's been far too long my friend! What so you mean you were here earlier?"
 				+ "Surely I would have noticed.\n"
