@@ -92,8 +92,9 @@ public class SilvesterSignon extends NPC {
 				+ "All that matters is recognizing it's a beach once you get there."};
 		preSandCounter = 0;
 		
-		preFinal = new String[] {"By Jove you've done it! The medallions! With those, you'll be able "
-				+ "to reach the Final Castle! Nobody knows what wonderful things are in that castle.",
+		preFinal = new String[] {"By Jove you've done it! The medallions! With those, you'll be able to reach the Final Castle!\n"
+				+ "Nobody knows what wonderful things are in that castle.\n"
+				+ "The final door is now unlocked. Go across the bridge to reach your destiny!",
 				"Even Synucious, the great explorer (I told you about him, right?) was never able to obtain"
 				+ "all three of the medallions! I'm quite impressed.", "Don't linger long! You have a castle to explore!"};
 		preFinalCounter = 0;
