@@ -35,6 +35,10 @@ public class SimeusSignon extends NPC {
 	 * @return what Simeus says
 	 */
 	public String talk() {
+		if (player.wasCheckCrossed("brokenThingPreIce")||player.wasCheckCrossed("brokenThingPreSand")) {
+			return "I should have taken care of you when you first came into the forest.\n"
+					+ "Get out of here you jerk.";
+		}
 		if (this.player.hasItem("sword")) {
 			return sword;
 		} else {

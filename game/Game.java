@@ -51,7 +51,7 @@ public class Game {
     	Room entrance = new Room("entrance",
     			"You are standing at the edge of a beautiful forest. \n"
         		+ "A sign is just in front of you; I wonder what it says...");
-        		entrance.addNPC(new SineusSignon());
+        		entrance.addNPC(new SineusSignon(this.player));
         
         Room swordRoom = new Room("swordroom","You see a rather wimpy-looking sword on the ground.\n"
         		+ "It doesn't seem very high quality,but you should still take it. \nUnless, of"
