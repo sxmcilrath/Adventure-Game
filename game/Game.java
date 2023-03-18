@@ -86,8 +86,8 @@ public class Game {
         
         //Overworld Rooms
 
-        Room outsideShelter = new Room("outsideshelter","You stand at the edge of the forest, and--Oh a dog! I guess you should pet it. "
-        		+ "Not far ahead is a small, homey cabin... homey...homey. How is homey spelled? "
+        Room outsideShelter = new Room("outsideshelter","You stand at the edge of the forest, and--Oh a dog! I guess you should pet it.\n"
+        		+ "Not far ahead is a small, homey cabin... homey...homey. How is homey spelled?\n"
         		+ "It doesn't matter (well, it might matter), lets go in.");
         outsideShelter.addNPC(new Pet(0));
         Room shelter = new Room("shelter","You open the cabin door and inside you find a signfolk sitting in a rocking chair with the fire going.\n"
@@ -151,7 +151,13 @@ public class Game {
         		+ "The door behind you has disappeared. Will this nightmare end?");
 
         //need to add a dog here and an actual description
-        throne = new Room("throne", "filler");
+        throne = new Room("throne", "You enter a grand throne room with a high ceiling adorned with gold leaf designs, tapestries, and paintings.\n"
+        		+ "The floor is polished marble, and crystal chandeliers hang from the ceiling.\n"
+        		+ "In the center stands a massive throne made of wood and precious stones.\n"
+        		+ "Upon closer inspection, a tiny brown Chihuahua sits on the throne exuding an air of authority and power.\n"
+        		+ "Despite his small size, he commands respect and reverence as if he is a ruler of great importance.\n"
+        		+ "It looks down at you ready to be pet.\n\n"
+        		+ "You're filled with determination...\n");
 
         throne.addNPC(new Pet(3));
 

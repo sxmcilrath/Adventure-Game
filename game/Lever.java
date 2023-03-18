@@ -49,9 +49,9 @@ public class Lever {
 			
 			if(red && green && blue) {
 				room.addProperty("finalkey", new Key("finalkey"));
-				return "To your amazemement, the room starts to shake.\nThe wall to your left slowly falls away, "
-						+ "revealing a grand entrance to what seems to be the throne room. \nSibyl looks at you in shock,"
-						+ "realizing that her job may now be in jeopardy";
+				return "To your amazemement, a slot in the ceiling opens up and key drops on the ground."
+						+ "\nSibyl looks at you in shock,"
+						+ "realizing that her job may now be in jeopardy.";
 			}
 			reset();
 			return "You pull the lever but nothing happens. You feel embarrassed.";
