@@ -8,7 +8,7 @@ package game;
  * rooms are organized as a graph, and the Room objects
  * are nodes in the graph.
  *
- * @author Thomas VanDrunen, Camden Flannagan, Lincoln Going, and Sam McIlrath
+ * @author Thomas VanDrunen, Camden Flannagan, Lincoln Going, Sam McIlrath, and ChatGPT (for riddles and some descriptions)
  * Wheaton College, CS 245, Spring 2007
  * Lab 5
  * Feb 8, 2007
@@ -379,51 +379,6 @@ public class Game {
     public void linkRooms(Door door, Room r, String direct) {
     	r.addDoor(direct, door);
     }
-
-    /**
-     * mutually add two rooms to be accessed by the other
-     * @param r1	first room
-     * @param r2	second room
-     * @param direct1	direction name to get to r2 from r1
-     * @param direct2	direction name to get to r1 from r2
-     */
-	
-	
-    /**
-	 *links the beach to the sandcastle when the puzzle has been solved 
-	 */
-	/**
-	 * links the puzzle room to the final throne room when solved
-	 */
-
-	
-	/**
-	 * Overloading linkRooms method to make a case where a room leads to 
-	 * another bu)t you can't go back
-	 * @override
-	 * @param r1	current room
-	 * @param r2	destination room
-	 * @param direct	direction name to get from r1 to r2
-	 */
-	
-		
-	
-	
-	/**
-	 * link rooms for rotating door
-	 * @param rooms		rooms that will be rotated through
-	 * @param direct	direction name for the rooms
-	 */
-	/*
-	 * public void linkRooms(ArrayList<Room> rooms, String direct) {
-		Door door = new RotatingDoor(rooms);	//create rotating door
-		
-		//add door for each room in the arraylist
-		for(int i = 0; i < rooms.size(); i++) {
-			rooms.get(i).addDoor(direct, door);
-		}
-		
-	} */
 	
 	/**
 	 * returns the player of the game for the parser
