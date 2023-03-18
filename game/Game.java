@@ -75,21 +75,24 @@ public class Game {
 
         
         Room swordTutorial = new Room("swordtutorial","There is a sign here. It seems eager to meet you..."
-        		+ " or hurt you. I can't tell. /nEither way, we shouldn't linger long. Past the sign is a clearing.");
+        		+ " or hurt you. I can't tell.\n"
+        		+ "Either way, we shouldn't linger long. Past the sign is a clearing.");
         		swordTutorial.addNPC(new SimeusSignon(this.player));
         
-        Room freeWillTutorial = new Room("freewill","You step into the clearing and, oh! another sign.\n "
-        		+ "Hopefully this one is a bit less violent than the last one.\n Maybe he knows where you"
+        Room freeWillTutorial = new Room("freewill","You step into the clearing and, oh! another sign.\n"
+        		+ "Hopefully this one is a bit less violent than the last one.\nMaybe he knows where you "
         		+ "should go next.");
         		freeWillTutorial.addNPC(new SirainSignon());
         
         Room questMadeClear = new Room("quest","A wise looking sign stands majestically"
-        		+ " before you.\n Even in his old age, he has an air of vibrance and royalty."
+        		+ "before you.\nEven in his old age, he has an air of vibrance and royalty."
         		+ " I wonder what he has to say.");
         questMadeClear.addNPC(new SimonSignon(player));
        
 
-        Room viewingTree = new Room("viewingtree","You see a dog resting in the sunlight at the edge of the forest.");
+        Room viewingTree = new Room("viewingtree","In the distance you see where the forest ends and opens up into a sprawling meadow.\n"
+        		+ "You see a dog resting in the sunlight at the edge of the forest. In the middle of the meadow lies a cabin.\n"
+        		+ "You realize you could probably get there from the room Sirain was in.");
      
         
         Room nonEucTutorial = new Room("noneuc","Another sign is here."
@@ -101,7 +104,9 @@ public class Game {
         		+ "Not far ahead is a small, homey cabin... homey...homey. How is homey spelled? "
         		+ "It doesn't matter (well, it might matter), lets go in.");
         outsideShelter.addNPC(new Pet(0));
-        Room shelter = new Room("shelter","Oh, it's Silvester! He and I go way back. Sometime I'll have to "
+        Room shelter = new Room("shelter"," You open the cabin door and inside you find a signfolk sitting in a rocking chair with the fire going.\n"
+        		+ "The small cabin strangely has three doors, the third differing from the others.\n"
+        		+ "It seems to be locked. Looking back to the sign... Oh, it's Silvester! He and I go way back. Sometime I'll have to "
         		+ "tell about the zany adventures we had as children.");
         	shelter.addNPC(new SilvesterSignon(this.player));
         	

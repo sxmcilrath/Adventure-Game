@@ -65,13 +65,13 @@ public class SilvesterSignon extends NPC {
 	public SilvesterSignon(Player player) {
 		this.player = player;
 
-		preIce = new String[] {"Hello there, its a beautiful door--I mean, day--today. How are you? "
+		preIce = new String[] {"Hello there, its a beautiful door--I mean, day--today. How are you?\n"
 				+ "What's that? A dog? Did Simon put you up to this? Well, nearby is a path "
-				+ "towards the ice place (I can never remember what it's called). "
-				+ "Also, how do you spell \"yoozh\", as in, \"I'll have the usual?\" I could "
-				+ "never quite figure it out.",
-				"Iceland? Is that what it's called? No, that's a country. Well, I suppose it doesn't "
-				+ "matter, just head towards the huge mass of ice."};
+				+ "towards the ice place (I can never remember what it's called).\n"
+				+ "Also, how do you spell \"yoozh\", as in, \"I'll have the usual?\"\n"
+				+ "I could never quite figure it out.",
+				"Iceland? Is that what it's called? No, that's a country.\n"
+				+ "Well, I suppose it doesn't matter, just head towards the huge mass of ice."};
 		preIceCounter = 0;
 		
 		preSand = new String[] {"Oh, good! You're back in one piece! I did a bit of research, and I think"
@@ -79,7 +79,11 @@ public class SilvesterSignon extends NPC {
 				+ "spell it like \"usge.\" Anyway, I- wait, Narrator, is that you? "
 				+ "It's been far too long my friend! What so you mean you were here earlier?"
 				+ "Surely I would have noticed. Oh yes! The quest! Go to the desert, I believe"
-				+ "it's called Doodle Desert. Silly name, very silly name."};
+				+ "it's called Doodle Desert. Silly name, very silly name.",
+				"Interestingly, Doodle Desert is not a desert at all. It's a beach!\n"
+				+ "Synucious, the discoverer of the beach, saw it from very far away.\n"
+				+ "He mistook it for a desert, and not liking deserts very much, he never went there!\n"
+				+ "For being a famous explorer, Synucious sure did a bad job at exploring."};
 		preSandCounter = 0;
 		
 		preFinal = new String[] {"By Jove you've done it! The medallions! With those, you'll be able "
@@ -100,13 +104,39 @@ public class SilvesterSignon extends NPC {
 	 */
 	public String talk() {
 
-		if (player.wasCheckCrossed("sandCastle")) {
+		// Pre Final Dialogue
+		if (player.wasCheckCrossed("sandcastle")) {
+			if (player.wasCheckCrossed("brokenThingPreSand")) {
+				return "Well. Look who's back. Don't think I've forgotten what you've done.\n"
+						+ "Maybe its immature, but I'm just not in a place to forgive you right now.\n"
+						+ "You broke my favorite thing and hurt me very deeply. Just go to the Final Castle.\n"
+						+ "You have all of the medallions you need. Please just leave.";
+			}
 			return cycleTalk(preFinalCounter++, preFinal);
 		}
-		if (player.wasCheckCrossed("iceCastle")) {
+		
+		// Pre Sand Dialogue
+		if (player.wasCheckCrossed("icecastle")) {
+			if (player.wasCheckCrossed("brokenThingPreIce")) {
+				return "Well. Look who's back. Don't think I've forgotten what you've done.\n"
+						+ "Maybe its immature, but I'm just not in a place to forgive you right now.\n"
+						+ "You broke my favorite thing and hurt me very deeply. Just go to the beach.\n"
+						+ "Please leave.";
+			}
+			if (player.wasCheckCrossed("brokenThingPreSand")) {
+				return "Go away. I am very unhappy with you. You've broken my favorite thing.\n"
+						+ "Oh, I don't know if I'll ever recover from this.\n"
+						+ "*continues weeping*";
+			}
 			return cycleTalk(preSandCounter++, preSand);
 		}
 		
+		// Pre Ice Dialogue
+		if (player.wasCheckCrossed("brokenThingPreIce")) {
+			return "Go away. I am very unhappy with you. You've broken my favorite thing.\n"
+					+ "Oh, I don't know if I'll ever recover from this.\n"
+					+ "*continues weeping*";
+		}
 		return cycleTalk(preIceCounter++, preIce);
 	}
 
@@ -114,13 +144,17 @@ public class SilvesterSignon extends NPC {
 	 * What Silvester says when he is attacked
 	 */
 	public String attacked() {
+		if (attackedCounter == 3) {
+			if (player.wasCheckCrossed("icecastle")) {
+				player.addCheckpoint("brokenThingPreSand");
+			} else {
+				player.addCheckpoint("brokenThingPreIce");
+			}
+		}
 		if (attackedCounter >= 3) {
 			return attacked[3];
 		}
-		if (attackedCounter == 3) {
-			player.addCheckpoint("brokenthing1");
-		}
-		return attacked[attackedCounter];
+		return attacked[attackedCounter++];
 	}
 	
 }

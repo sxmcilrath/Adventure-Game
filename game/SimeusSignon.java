@@ -20,15 +20,14 @@ public class SimeusSignon extends NPC {
 	public SimeusSignon(Player player) {
 		this.player = player;
 		
-		sword = "Ah, yes! You have a sword! Why don't you give it go?";
-		noSword = "You really think you can take me down without a sword? I mean, you don't "
-				+ "have to fight me to move on, \nbut it seems unwise to go forward if you aren't even "
-				+ "able to stand up to me.";
-		swordAttacked = "Alright, alright, cut it out! You've had enough tutorial with that death "
-				+ "stick. Get a move on.";
-		noSwordAttacked = "Ha. You fool. Have it you way, face my power";
+		sword = "Ah, yes! You have a sword! Why don't you try attacking me?";
+		noSword = "You really think you can take me down without a sword? I mean, you don't have to fight me to move on,\n"
+				+ "but it seems unwise to go forward if you aren't even able to stand up to me.";
+		swordAttacked = "Alright, alright, cut it out! You've had enough tutorial with that death stick.\n"
+				+ "Get a move on.";
+		noSwordAttacked = "Ha. You fool. Have it you way, face my power!\n\n"
+				+ "*Simeus attacks you, but you dodge him easily. He is a sign, after all.*";
 	}
-	
 	
 	/**
 	 * What does Simeus say when talked to?
@@ -36,7 +35,6 @@ public class SimeusSignon extends NPC {
 	 * @return what Simeus says
 	 */
 	public String talk() {
-		
 		if (this.player.hasItem("sword")) {
 			return sword;
 		} else {
