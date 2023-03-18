@@ -165,7 +165,13 @@ public class Game {
         		+ "The door behind you has disappeared. Will this nightmare end?");
 
         //need to add a dog here and an actual description
-        throne = new Room("throne", "filler");
+        throne = new Room("throne", "You enter a grand throne room with a high ceiling adorned with gold leaf designs, tapestries, and paintings.\n"
+        		+ "The floor is polished marble, and crystal chandeliers hang from the ceiling.\n"
+        		+ "In the center stands a massive throne made of wood and precious stones.\n"
+        		+ "Upon closer inspection, a tiny brown Chihuahua sits on the throne exuding an air of authority and power.\n"
+        		+ "Despite his small size, he commands respect and reverence as if he is a ruler of great importance.\n"
+        		+ "It looks down at you ready to be pet.\n\n"
+        		+ "You're filled with determination...\n");
 
         throne.addNPC(new Pet(3));
 
