@@ -193,186 +193,192 @@ public class Game {
         //Creating map of game by linking rooms 
         
         //Linking Ye Olde Tutorial Forest
-   	 String[] Ent = {"entrace", "forest", "tutorial", "back"}; 
-   	 String[] Sr = {"sr", "swordroom", "hill", "forward"};
-   	  temp = new Door(entrance, swordRoom);
-   	 linkRooms(temp, entrance, swordRoom, Ent,Sr);
+        String[] Ent = {"entrace", "forest", "tutorial", "back"}; 
+   	 	String[] Sr = {"sr", "swordroom", "hill", "forward"};
+   	 	temp = new Door(entrance, swordRoom);
+   	 	linkRooms(temp, entrance, swordRoom, Ent,Sr);
    	 
-   	String[] Sr2 = {"sr", "swordroom", "hill", "back"};
-   	 String[] St = {"swordtutorialroom", "thefight", "str", "forward", "down"};  
-   	 temp = new Door(swordRoom,swordTutorial);
-   	 linkRooms(temp, swordRoom, swordTutorial, Sr2,St);
+   	 	String[] Sr2 = {"sr", "swordroom", "hill", "back"};
+   	 	String[] St = {"swordtutorialroom", "thefight", "str", "forward", "down"};  
+   	 	temp = new Door(swordRoom,swordTutorial);
+   	 	linkRooms(temp, swordRoom, swordTutorial, Sr2,St);
    	 
-   	 temp = new Door(swordTutorial, freeWillTutorial);
-	 String[] St2 = {"swordtutorialroom", "thefight", "str", "back"};    
-   	 String[] Fw = {"freewilltutorial", "fwt","clearing", "forward"};      
-   	 linkRooms(temp, swordTutorial, freeWillTutorial, St2,Fw);
+   	 	temp = new Door(swordTutorial, freeWillTutorial);
+   	 	String[] St2 = {"swordtutorialroom", "thefight", "str", "back"};    
+   	 	String[] Fw = {"freewilltutorial", "fwt","clearing", "forward"};      
+   	 	linkRooms(temp, swordTutorial, freeWillTutorial, St2,Fw);
    	 
-   	 temp = new Door(freeWillTutorial, questMadeClear);
-   	 String[] Fw2 = {"freewilltutorial", "fwt", "back", "south"};
-   	 String[] Qmc = {"yourquestmadeclear", "yqmc", "questmadeclear", "qmc", "north"};      
-   	 linkRooms(temp, freeWillTutorial, questMadeClear, Fw2, Qmc);
+   	 	temp = new Door(freeWillTutorial, questMadeClear);
+   	 	String[] Fw2 = {"freewilltutorial", "fwt", "back", "south"};
+   	 	String[] Qmc = {"yourquestmadeclear", "yqmc", "questmadeclear", "qmc", "north", "simon"};      
+   	 	linkRooms(temp, freeWillTutorial, questMadeClear, Fw2, Qmc);
    	 
-   	temp = new Door(freeWillTutorial, nonEucTutorial);
-   	 String[] Qmc2 = {"yourquestmadeclear", "yqmc", "questmadeclear", "qmc", "down"}; 
-   	 String[] Net = {"noneuclidiantutorial", "net", "forward"};
-   	 linkRooms(temp, freeWillTutorial, Net);
+   	 	temp = new Door(freeWillTutorial, nonEucTutorial);
+   	 	String[] Qmc2 = {"yourquestmadeclear", "yqmc", "questmadeclear", "qmc", "down"}; 
+   	 	String[] Net = {"noneuclidiantutorial", "net", "forward"};
+   	 	linkRooms(temp, freeWillTutorial, Net);
    	 
-   	temp = new Door( questMadeClear, viewingTree);
-   	 String[] Net2 = {"noneuclidiantutorial", "net", "back"};
-   	 String[] Vt = {"viewingtree", "vt", "tree", "t", "forward", "up"};
-   	 linkRooms(temp, questMadeClear, viewingTree , Qmc2, Vt);
+   	 	temp = new Door( questMadeClear, viewingTree);
+   	 	String[] Vt = {"viewingtree", "vt", "tree", "t", "forward", "up"};
+   	 	linkRooms(temp, questMadeClear, viewingTree , Qmc2, Vt);
    	 
-   	temp = new Door(nonEucTutorial, entrance);
-     String[] Vt2 = {"viewingtree", "vt", "tree", "t", "back"};
-   	 String[] south = {"south"};
-   	 linkRooms(temp, nonEucTutorial, south);
+   	 	temp = new Door(nonEucTutorial, entrance);
+   	 	String[] south = {"south"};
+   	 	linkRooms(temp, nonEucTutorial, south);
    	 
-   	temp = new Door(freeWillTutorial, outsideShelter);
-   	 String[] Os = {"onward", "outsideshelter", "os", "outside", "forward"};
-   	 linkRooms(temp, freeWillTutorial, outsideShelter, Fw2, Os);
-   	 
-  
-     String[] Os2 = {"onward", "outsideshelter", "os", "outside", "back"};
+   	 	temp = new Door(freeWillTutorial, outsideShelter);
+   	 	String[] Os = {"onward", "outsideshelter", "os", "outside", "forward", "east"};
+   	 	linkRooms(temp, freeWillTutorial, outsideShelter, Fw2, Os);
+   	 	String[] Os2 = {"onward", "outsideshelter", "os", "outside", "back"};
 
-
-     //Linking Overworld
-     temp = new Door(outsideShelter, shelter);
-     String[] Sh = {"shelter","sh", "s", "forward", "cabin"};
-     String[] Sh2 = {"shelter","sh", "s", "back", "cabin"};
-     linkRooms(temp, outsideShelter, shelter,Os2, Sh);
+   	 	//Linking Overworld
+   	 	temp = new Door(outsideShelter, shelter);
+   	 	String[] Sh = {"shelter","sh", "s", "forward", "cabin"};
+   	 	String[] Sh2 = {"shelter","sh", "s", "back", "cabin"};
+   	 	linkRooms(temp, outsideShelter, shelter,Os2, Sh);
      
-     temp = new Door(shelter, icyPath);
-     String[] Ip = {"icypath", "ip", "ice", "path"};
-     linkRooms(temp, shelter, icyPath, Sh2, Ip);
+   	 	temp = new Door(shelter, icyPath);
+   	 	String[] Ip = {"icypath", "ip", "ice", "path"};
+   	 	linkRooms(temp, shelter, icyPath, Sh2, Ip);
      
-     temp = new Door(shelter, beach);
-     String[] Be = {"beach", "b"};
-     linkRooms(temp, shelter, beach, Sh2, Be);
+   	 	temp = new Door(shelter, beach);
+   	 	String[] Be = {"beach", "b", "desert"};
+   	 	linkRooms(temp, shelter, beach, Sh2, Be);
         
-        //linking icy path puzzle
-        temp = new Door(entrance, beach);
-     	linkRooms(temp, entrance, "b");
-     	
-     	temp = new Door(icyPath, correctLeft);
-        linkRooms(temp, icyPath, correctLeft, "back", "left");
+   	 	//linking icy path puzzle
+   	 	temp = new Door(entrance, beach);
+   	 	linkRooms(temp, entrance, "b");
+     
+   	 	temp = new Door(icyPath, correctLeft);
+   	 	linkRooms(temp, icyPath, correctLeft, "back", "left");
+     
+   	 	temp = new Door(icyPath, icyPath);
+   	 	String[] dir = {"middle", "right"};
+   	 	linkRooms(temp, icyPath, dir);
         
-        temp = new Door(icyPath, icyPath);
-        String[] dir = {"middle", "right"};
-        linkRooms(temp, icyPath, dir);
+   	 	String[] dir2 = {"left", "forward"};
+   	 	temp = new Door(correctLeft, icyPath);
+   	 	linkRooms(temp, correctLeft, dir2);
         
-        String[] dir2 = {"left", "middle"};
-        temp = new Door(correctLeft, icyPath);
-        linkRooms(temp, correctLeft, dir2);
-        
-        temp = new Door(correctLeft, correctRight);
-        linkRooms(temp, correctLeft, correctRight, "back", "right");
+   	 	temp = new Door(correctLeft, correctRight);
+   	 	linkRooms(temp, correctLeft, correctRight, "back", "right"); 
 
-
-        temp = new Door(correctRight, icyPath);
-        String[] dir3 = {"left", "right"};
-        linkRooms(temp, correctRight, dir3);
+   	 	temp = new Door(correctRight, icyPath);
+   	 	String[] dir3 = {"left", "right"};
+   	 	linkRooms(temp, correctRight, dir3);
         
-        temp = new Door(correctRight, correctMiddle);
-        linkRooms(temp, correctRight, correctMiddle, "back", "middle");
+   	 	temp = new Door(correctRight, correctMiddle);
+   	 	linkRooms(temp, correctRight, correctMiddle, "back", "forward");
         
-        temp = new Door(correctMiddle, icyPath);
-        String[] dir4 = {"left", "right", "middle"};
-        linkRooms(temp, correctMiddle, dir4);
+   	 	temp = new Door(correctMiddle, icyPath);
+   	 	String[] dir4 = {"left", "right", "forward"};
+   	 	linkRooms(temp, correctMiddle, dir4);
+     
+   	 	temp = new Door(correctMiddle, iceCastle);
+   	 	linkRooms(temp, correctMiddle, "back");
         
-        temp = new Door(correctMiddle, iceCastle);
-        linkRooms(temp, correctMiddle, "back");
+   	 	temp = new Door(iceCastle, shelter);
+   	 	linkRooms(temp, iceCastle, "sleighride");
+               
+   	 	//linking final castle 
+   	 	//NEED TO SET UP A CHECK TO MAKE SURE YOU HAVE PET THE TWO OTHER DOGS
+   	 	temp = new LockedDoor(shelter, outsideFinalCastle, new Key("castlemedallion"));
+   	 	linkRooms(temp, shelter, "bridge");
         
-        temp = new Door(iceCastle, shelter);
-        linkRooms(temp, iceCastle, "sleighride");
+   	 	temp = new Door(outsideFinalCastle, outsideFinalPuzzle);
+   	 	linkRooms(temp, outsideFinalCastle, "forward");
         
+   	 	temp = new Door(outsideFinalPuzzle, finalWhite);
+   	 	linkRooms(temp, outsideFinalPuzzle, "oakdoor");
+              
+   	 	temp = new Door(finalWhite, finalRed);
+   	 	linkRooms(temp, finalWhite, "glowingdoor");
+     
+   	 	temp = new Door(finalRed, finalGreen);
+   	 	linkRooms(temp, finalRed, "glowingdoor");
+     
+   	 	temp = new Door(finalGreen, finalBlue);
+   	 	linkRooms(temp, finalGreen, "glowingdoor");
+     
+   	 	temp = new Door(finalBlue, finalWhite);
+   	 	linkRooms(temp, finalBlue, "glowingdoor");
         
-        //linking final castle 
-        //NEED TO SET UP A CHECK TO MAKE SURE YOU HAVE PET THE TWO OTHER DOGS
-        temp = new LockedDoor(shelter, outsideFinalCastle, new Key("castlemedallion"));
-        linkRooms(temp, shelter, "bridge");
+   	 	Key key = new Key("finalkey");
+   	 	temp = new LockedDoor(finalWhite, throne, key);
+   	 	linkRooms(temp, finalWhite, throne, "white", "throne");
         
-        temp = new Door(outsideFinalCastle, outsideFinalPuzzle);
-        linkRooms(temp, outsideFinalCastle, "forward");
+   	 	//ArrayList<Room> finalPuzz = new ArrayList<>(Arrays.asList(finalWhite, finalRed, finalGreen, finalBlue));
+   	 	//linkRooms(finalPuzz, "glowingdoor");
+     
         
-        temp = new Door(outsideFinalPuzzle, finalWhite);
-        linkRooms(temp, outsideFinalPuzzle, "oakdoor");
+   	 	//need to figure out how to get b public void setCurrentRoom(Room currentRoom) { this.currentRoom = currentRoom; }
         
-        
-        temp = new Door(finalWhite, finalRed);
-        linkRooms(temp, finalWhite, "glowingdoor");
-        
-        temp = new Door(finalRed, finalGreen);
-        linkRooms(temp, finalRed, "glowingdoor");
-        
-        temp = new Door(finalGreen, finalBlue);
-        linkRooms(temp, finalGreen, "glowingdoor");
-        
-        temp = new Door(finalBlue, finalWhite);
-        linkRooms(temp, finalBlue, "glowingdoor");
-        
-        Key key = new Key("finalkey");
-		temp = new LockedDoor(finalWhite, throne, key);
-		linkRooms(temp, finalWhite, throne, "white", "throne");
-        
-        //ArrayList<Room> finalPuzz = new ArrayList<>(Arrays.asList(finalWhite, finalRed, finalGreen, finalBlue));
-        //linkRooms(finalPuzz, "glowingdoor");
-        
-        
-        //need to figure out how to get b public void setCurrentRoom(Room currentRoom) { this.currentRoom = currentRoom; }
-        
-        /**
-         * initialize the player, player's location, and initial game output
-         */
-        
-        player.setCurrentRoom(entrance);
-        player.look();
-       
-        
-        
-
-
+   	 	/**
+   	 	 * initialize the player, player's location, and initial game output
+   	 	 */
+   	 	player.setCurrentRoom(entrance);
+   	 	player.look();
+     
     }
     
     /**
      * recursively calling link room functions
-     * @param r1
-     * @param r2
-     * @param direct1
-     * @param direct2
+     * @param door The door connecting the two rooms
+     * @param r1 The first room to link
+     * @param r2 The second room to link
+     * @param direct1 The directions the user can type to get to r1 from r2
+     * @param direct2 The directions the user can type to get to r2 from r1
      */
     public void linkRooms(Door door, Room r1, Room r2, String[] direct1, String[] direct2) {    	
 		linkRooms(door, r1, direct2);	    	
 		linkRooms(door, r2, direct1);
-
-}
+    }
     
+    /**
+     * link rooms with strings rather than string arrays
+     * @param door The door connecting the two rooms
+     * @param r1 The first room to link
+     * @param r2 The second room to link
+     * @param direct1 The direction the user can type to get to r1 from r2
+     * @param direct2 The direction the user can type to get to r2 from r1
+     */
     public void linkRooms(Door door, Room r1, Room r2, String direct1, String direct2) {    	
 		linkRooms(door, r1, direct2);	    	
 		linkRooms(door, r2, direct1);
-
-}
+    }
     
+    /**
+     * link a room with a door
+     * @param door The door to which the room shall be linked
+     * @param r The room to connect with a door
+     * @param direct The directions the user can type to go through the door
+     */
     public void linkRooms(Door door, Room r, String direct[]) {
 		for(int i = 0; i < direct.length; i++) {
 			linkRooms(door, r, direct[i]);
     	}
     }
-		
-		 public void linkRooms(Door door, Room r, String direct) {
-					r.addDoor(direct, door);
-		    	}
+	
+    /**
+     * link a room with a door using strings rather than arrays of strings
+     * @param door The door to which the room shall be linked
+     * @param r The room to connect with a door
+     * @param direct The directions the user can type to go through the door
+     */
+    public void linkRooms(Door door, Room r, String direct) {
+    	r.addDoor(direct, door);
+    }
 
-/**
- * mutually add two rooms to be accessed by the other
- * @param r1	first room
- * @param r2	second room
- * @param direct1	direction name to get to r2 from r1
- * @param direct2	direction name to get to r1 from r2
- */
+    /**
+     * mutually add two rooms to be accessed by the other
+     * @param r1	first room
+     * @param r2	second room
+     * @param direct1	direction name to get to r2 from r1
+     * @param direct2	direction name to get to r1 from r2
+     */
 	
 	
-	/**
+    /**
 	 *links the beach to the sandcastle when the puzzle has been solved 
 	 */
 	/**

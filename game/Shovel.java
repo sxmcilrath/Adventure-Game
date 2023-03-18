@@ -23,11 +23,11 @@ public class Shovel extends Item {
 	public Shovel() {
 		super(Craftable, CraftedBy, "shovel", Catalyst);
 		Item[] a = {MC, C};
-		CraftedBy.add(a);
+		//CraftedBy.add(a);
 		//Craftable.add("stick");
-		Craftable.add(MC);
-		Craftable.add(BWS);
-		Catalyst.add(BWS);
+		//Craftable.add(MC);
+		//Craftable.add(BWS);
+		//Catalyst.add(BWS);
 	}
 
 	@Override

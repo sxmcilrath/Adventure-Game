@@ -17,8 +17,8 @@ public class Sword extends Item {
 	public Sword() {
 		super(Craftable, CraftedBy, "sword");
 		Item[] a = {MC, C};
-		CraftedBy.add(a);
-		Craftable.add(MC);
+		//CraftedBy.add(a);
+		//Craftable.add(MC);
 	}
 	
 	public String ability(Room room) {
