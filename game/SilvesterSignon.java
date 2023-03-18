@@ -106,6 +106,12 @@ public class SilvesterSignon extends NPC {
 
 		// Pre Final Dialogue
 		if (player.wasCheckCrossed("sandcastle")) {
+			if (player.wasCheckCrossed("brokenThingPreSand")) {
+				return "Well. Look who's back. Don't think I've forgotten what you've done.\n"
+						+ "Maybe its immature, but I'm just not in a place to forgive you right now.\n"
+						+ "You broke my favorite thing and hurt me very deeply. Just go to the Final Castle.\n"
+						+ "You have all of the medallions you need. Please just leave.";
+			}
 			return cycleTalk(preFinalCounter++, preFinal);
 		}
 		
@@ -139,7 +145,7 @@ public class SilvesterSignon extends NPC {
 	 */
 	public String attacked() {
 		if (attackedCounter == 3) {
-			if (player.wasCheckCrossed("iceCastle")) {
+			if (player.wasCheckCrossed("icecastle")) {
 				player.addCheckpoint("brokenThingPreSand");
 			} else {
 				player.addCheckpoint("brokenThingPreIce");
