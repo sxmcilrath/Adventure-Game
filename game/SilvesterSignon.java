@@ -80,7 +80,8 @@ public class SilvesterSignon extends NPC {
 				+ "spell it like \"usge.\" Anyway, I- wait, Narrator, is that you?\n"
 				+ "It's been far too long my friend! What so you mean you were here earlier?"
 				+ "Surely I would have noticed.\n"
-				+ "Oh yes! The quest! Go to the desert, I believe it's called Doodle Desert. Silly name, very silly name.\n",
+				+ "Oh yes! The quest! Go to the desert, I believe it's called Doodle Desert. Silly name, very silly name.\n"
+				+ "There you will come across the great desert castle. It's massive you can't miss it.\n",
 				"Interestingly, Doodle Desert is not a desert at all. It's a beach!\n"
 				+ "Synucious, the discoverer of the beach, saw it from very far away.\n"
 				+ "He mistook it for a desert, and not liking deserts very much, he never went there!\n"

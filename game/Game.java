@@ -119,14 +119,25 @@ public class Game {
         		+ "Finally you arive at an intersection, where the paths split off into left, right, and forward.\n"
         		+ "In the middle of the crossroads stands a sign, signing his song without a care in the world.");
         icyPath.addNPC(new SilasSignon());
-        beach = new Room("beach","Look at all this sand. If only a very wise, very pleasant "
-        		+ "person could lead you in the right direction.\nOh wait, I'm right here! There is a "
-        		+ "puzzle just ahead. \nWhat? You think it's unprofessional for me to break the "
-        		+ "fourth wall like this? Well maybe when you become a narrator you can do things "
-        		+ "your way, but as of now, I can do whatever I like. \nIn fact, just to bother you, "
-        		+ "I won't ever change what I say in this room. I'll just repeat the same thing "
-        		+ "over and over again and you'll have to deal with it.\nTry to to figure it out because"
-        		+ "this conversation.");
+        beach = new Room("beach","You head out the second door of the cabin and take off towards the beach.\n"
+        		+ "Before long, you reach the sand , but you don't see anything besides a shovel and a bucket along the shore.\n"
+        		+ "Where was the great desert castle that Silvester talked of?\n"
+        		+ "As you get closer to the items you see a stone pedestal and realize that there's an engraving on it!\n"
+        		+ "This is what it reads:"
+        		+ "A tool with a handle and blade,\n" + 
+        		"To make a castle, it must be swayed.\n" + 
+        		"With it, you can dig deep and low,\n" + 
+        		"And scoop up sand, just like so.\n" + 
+        		"\n" + 
+        		"But don't forget the bucket, my friend,\n" + 
+        		"It's important for this task to tend.\n" + 
+        		"For with it, you can carry your haul,\n" + 
+        		"And build a castle, grand and tall.\n" + 
+        		"\n" + 
+        		"So if you seek to make your dream,\n" + 
+        		"Of a castle by the sea, it may seem,\n" + 
+        		"Remember these tools, and don't delay,\n" + 
+        		"Pick up a shovel and bucket, today!");
             beach.addProperty("bucket", new Bucket());
             beach.addProperty("bucket", new Bucket());
             beach.addProperty("shovel", new Shovel());
@@ -182,7 +193,12 @@ public class Game {
 
         
         //Beach puzzle room
-        Room sandCastle = new Room("sandcastle","x");      
+        Room sandCastle = new Room("sandcastle","As you approach the massive sand castle, you're amazed by its size and intricate details. \n"
+        		+ "Inside the grand entrance, you walk into the throne room and see a big golden doodle dog sitting on a throne made entirely of sand.\n"
+        		+ " The walls are adorned with intricate sand carvings, and a shell and coral chandelier hangs above. \n"
+        		+ "The throne itself is a work of art. The friendly dog invites you to pet it.\n"
+        		+ "It seems that it cannot wait. You spot the sand medallion in the room as well.\n"
+        		+ "You make a mental note to grab that before you leave.");      
         sandCastle.addNPC(new Pet(2));
         sandCastle.addProperty("sandmedallion", new SandMedallion());
         
