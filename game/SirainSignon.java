@@ -45,7 +45,7 @@ public class SirainSignon extends NPC {
 			+ "He's a strong leader of the Signon family. We all love him.",
 			"Silvester is just east of here. He's not really a black sheep per-say,\n"
 			+ "but he definitely doesn't associate with the rest of the family very much.",
-			"You numTalkedshould go east and talk to Silvester. He gets out more than the rest of us,\n"
+			"You should go east and talk to Silvester. He gets out more than the rest of us,\n"
 			+ "Wait! I have another function in the game! I get to tell you to go east!\n"
 			+ "Oh yeah! That feels good."
 	};
@@ -93,7 +93,7 @@ public class SirainSignon extends NPC {
 			}
 			return cycleTalkWithGreeting(postSilvesterCounter++, postSilvester);
 		}
-		if (player.wasCheckCrossed("freewill")) {
+		if (player.wasCheckCrossed("quest")) {
 			return cycleTalkWithGreeting(postSimonCounter++, postSimon);
 		}
 		return cycleTalk(preSimonCounter++, preSimon);

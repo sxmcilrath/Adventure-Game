@@ -54,7 +54,7 @@ public class Game {
         		entrance.addNPC(new SineusSignon(this.player));
         
         Room swordRoom = new Room("swordroom","You see a rather wimpy-looking sword on the ground.\n"
-        		+ "It doesn't seem very high quality,but you should still take it. \nUnless, of"
+        		+ "It doesn't seem very high quality, but you should still take it. \nUnless, of"
         		+ " course, you feel you can manage without it. Down the hill, is another sign guy.");
         swordRoom.addProperty("sword", new Sword());
 
@@ -86,8 +86,8 @@ public class Game {
         
         //Overworld Rooms
 
-        Room outsideShelter = new Room("outsideshelter","You stand at the edge of the forest, and--Oh a dog! I guess you should pet it. "
-        		+ "Not far ahead is a small, homey cabin... homey...homey. How is homey spelled? "
+        Room outsideShelter = new Room("outsideshelter","You stand at the edge of the forest, and--Oh a dog! I guess you should pet it.\n"
+        		+ "Not far ahead is a small, homey cabin... homey...homey. How is homey spelled?\n"
         		+ "It doesn't matter (well, it might matter), lets go in.");
         outsideShelter.addNPC(new Pet(0));
         outsideShelter.addProperty("steak", new Steak());
@@ -101,7 +101,7 @@ public class Game {
         Room icyPath = new Room("icypath","You depart from the shelter and step foot into the icy woods. This is much different from the forest in which you started. \n"
         		+ "Icicles hang from the tree branches and a fog quickly envelops your surroundings.\n"
         		+ "In the midst of creepiness, you hear a rather silly song being sung:\n"
-        		+ "\"Icy path, oh Icy path, this path is oh so Icy!Pathy Icy saucy sauce, move ahead and don't get lost!\"\n"
+        		+ "\"Icy path, oh Icy path, this path is oh so Icy! Pathy Icy saucy sauce, move ahead and don't get lost!\"\n"
         		+ "It's... REALLY annoying.\n"
         		+ "You continue walking, getting closer and closer to the sound.\n"
         		+ "Finally you arive at an intersection, where the paths split off into left, right, and forward.\n"
